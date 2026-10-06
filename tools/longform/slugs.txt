@@ -1,0 +1,56 @@
+#read-ad-labels-in-europe  (creator) Ad labels in Europe: Werbung, #ad and why it matters
+#read-ad-performance-copilot  (built) Ad Performance Copilot: a weekly paid-media review
+#read-ai-about-me-folder  (project) Build an about-me folder so AI knows you
+#read-ai-headshot-prompts  (prompts) AI headshot prompts that still look like you
+#read-ai-privacy-settings  (guide) Five privacy settings to check in your AI apps
+#read-ai-tool-quick-starts  (guide) AI tool quick starts: your first task in 10 tools
+#read-brand-voice-without-ai-sound  (prompts) Make AI write in your voice, not AI voice
+#read-brief-ai-like-an-agency  (guide) Brief AI the way you'd brief a pro
+#read-build-website-no-code  (project) Build your own website with AI, no code
+#read-campaign-report-autopilot  (built) Campaign Report Autopilot
+#read-chatgpt-from-zero  (guide) ChatGPT from zero: a plain-English starter
+#read-claude-from-zero  (guide) Claude from zero: what it is and how to start
+#read-claude-skill-for-repeat-task  (project) Turn a task you repeat into a Claude Skill
+#read-claude-skills-i-use  (built) The Claude Skills I use every week
+#read-client-health-score  (built) Client Health Score: spot churn before the client says it
+#read-connectors-and-mcp  (workflow) Connectors and MCP, explained simply
+#read-connectors-worth-setting-up  (workflow) 4 connectors worth setting up first
+#read-creator-brief-mcp  (built) Creator Brief MCP: marketing skills for Claude
+#read-creator-campaign-math  (creator) Creator campaign math in plain English
+#read-creator-contract-checker  (built) Creator Contract Checker
+#read-creator-contract-red-flags  (creator) 7 clauses in creator contracts that quietly cost money
+#read-creator-fit-scorer  (built) Creator Fit Scorer
+#read-creator-outreach-that-gets-replies  (creator) Creator outreach that actually gets replies
+#read-creator-scorer-sheet  (project) Build a creator scorer in Google Sheets
+#read-documents-second-opinion  (workflow) 5 documents worth a second opinion from AI
+#read-everyday-life-prompts  (prompts) 15 everyday prompts for normal life
+#read-gemini-inside-google  (guide) Gemini for people who live in Google
+#read-growth-experiment-lab  (built) Growth Experiment Lab: read an A/B test honestly
+#read-hidden-ai-features  (guide) 9 AI features most people never use
+#read-influencer-report-template  (creator) The influencer campaign report clients actually read
+#read-interview-practice-with-ai  (career) Practise a job interview with AI
+#read-job-search-agent  (built) The job-search agent I built for myself
+#read-job-search-assistant  (project) Build a job-search assistant in a Claude Project
+#read-linkedin-carousel-studio  (built) LinkedIn Carousel Studio
+#read-linkedin-carousel-with-ai  (project) Make a LinkedIn carousel with AI in 45 minutes
+#read-marketing-attribution-lab  (built) Marketing Attribution Lab: stop trusting last click
+#read-marketing-prompts-i-use  (prompts) 20 prompts I use every week for marketing
+#read-media-kit-with-ai  (creator) Build your creator media kit with AI
+#read-meeting-notes-to-tasks  (project) Automate meeting notes into tasks with Zapier
+#read-money-leak-audit  (workflow) The 20-minute money-leak audit with AI
+#read-newsletter-signup-free  (project) Collect newsletter emails for free
+#read-no-code-ai-workflows  (workflow) 5 AI workflows you can set up today, no code
+#read-one-line-follow-ups  (prompts) 12 follow-ups that fix weak AI answers
+#read-one-page-creator-brief  (creator) The one-page creator brief (template inside)
+#read-pick-your-ai-by-job  (guide) ChatGPT, Claude or Gemini? Pick by job, not by hype
+#read-pricing-creator-rates  (creator) How to think about creator rates (both sides)
+#read-product-photo-prompts  (prompts) Product photo prompts for small shops
+#read-projects-in-claude-and-chatgpt  (guide) Projects in Claude and ChatGPT, explained
+#read-record-family-stories  (guide) Record your family's stories with AI
+#read-report-that-writes-itself  (workflow) A weekly report that writes itself
+#read-shortlist-creators-with-ai  (creator) Shortlist creators with AI, not follower counts
+#read-side-project-prompt-chain  (workflow) A 4-prompt chain to plan a side project
+#read-style-and-wardrobe-prompts  (prompts) Style prompts: build a wardrobe that works
+#read-tailor-cv-without-ai-sound  (career) Tailor your CV with AI without sounding like AI
+#read-ugc-vs-influencer  (creator) UGC vs influencer marketing: which do you need?
+#read-what-ai-notices-about-you  (prompts) Prompts that help you understand yourself better

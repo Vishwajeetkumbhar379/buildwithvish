@@ -1,0 +1,46 @@
+<p>Hi, it's Vish.</p>
+
+<p>I'm not an engineer, and I don't write code by hand. AI writes it. I bring the words and make the calls. This week: how to get a simple one-page website live that way, with a link you can share, in about an hour.</p>
+<p>The mistake that wastes the most time is asking AI for a design before you know what the site should say. You get a lovely layout full of placeholder text, then spend the evening asking for changes because nothing fits your real words. Do it in the other order.</p>
+
+<h2>1. Words before design</h2>
+<p>Decide the one job of your site first. Get hired, sell a service, collect emails or show your work: pick one. Write it as a single sentence, for example "Help café owners in my area book me for menu photos."</p>
+<p>Then write the content before you think about colours: a headline, a two-line intro, three short sections, some proof (projects, numbers, a quote you have permission to use) and one clear next step such as "Email me". Let AI interview you for it. Ask it to "interview me one question at a time to write the content for a one-page website whose job is [your sentence]". Answering questions is far easier than facing a blank page.</p>
+
+<h2>2. The single-file trick</h2>
+<p>When you ask AI to build the site, ask for <b>one single HTML file</b> with everything inside it. HTML is the language web pages are written in. A single file means the layout, colours and text all travel together: nothing to install and no separate pieces to lose. That one file is a complete website.</p>
+<p>Review it on your phone first, since that's where most visitors will see it. Then ask for changes in rounds: structure first, then words, then small details. One round at a time works far better than ten changes in one message.</p>
+<p>When you're happy, download the file, or copy the code into a new plain-text file. Name it <code>index.html</code>. Web hosts treat a file with that name as your home page. Put it alone in a folder named after your site.</p>
+
+<h2>3. Going live with Netlify Drop</h2>
+<p>Netlify is a hosting service: it puts your files on the internet. Its Drop page lets you do that by dragging a folder into your browser.</p>
+<ol>
+<li>Sign in to Netlify, or create a free account. You can drop without an account, but the site then sits behind a temporary password until you claim it by signing up.</li>
+<li>Open <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">Netlify Drop</a> in an up-to-date Chromium-based browser such as Chrome or Edge. A laptop is easiest.</li>
+<li>Drag your folder onto the drop area. A zip of the folder works too.</li>
+<li>After a few seconds you get a live link ending in <code>netlify.app</code>. Open it on your phone.</li>
+<li>For a nicer link, open your project overview, choose Customize, then "Manage project name and cover image". The project name becomes your address, like yourname.netlify.app.</li>
+</ol>
+<p>To update the site later, ask AI for the change, save the new <code>index.html</code> in the same folder and drag the folder onto the Production deploys area of your project dashboard.</p>
+<p class="note">Checked in October 2026 against Netlify's <a href="https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/" target="_blank" rel="noopener">Drop quickstart</a>. If a button has moved, search Netlify's docs for "Netlify Drop".</p>
+<div class="callout warn"><b>Heads-up</b><p>Everything on your site is public. Leave off your home address, private phone number and ID details. Before you add a contact form or collect emails, read the <a href="#launch">launch checklist</a>.</p></div>
+
+<h2>Prompt of the week</h2>
+<p>Use this once your words are written. It asks for one file, sets the style in a few words and makes the AI check what's missing before it builds.</p>
+<pre class="prompt" data-label="Prompt 1 · Build my one-page site">Build my one-page website as a single HTML file, with all the styling inside the file.
+
+Job of the site: [your one sentence]
+Content: [paste your headline, intro, sections, proof and contact details]
+Style: [3 words, e.g. calm, bold, warm], with [one colour] as the accent.
+
+Must: work well on phones, load fast, have a light and a dark mode, and use only my real text (no placeholder text).
+Avoid: a stock-photo look, lots of animation, everything centred.
+
+Before you build, ask me up to 3 questions if anything important is missing. After you build, tell me the 3 things you'd improve first.</pre>
+
+<h2>Try this today</h2>
+<p>Don't build yet. Spend 20 minutes on step 1 only: write the one-sentence job, then let AI interview you and draft the words. Read them out loud. If you'd be happy for a stranger to read them, you're ready, and the build itself will go much faster when you sit down to do it.</p>
+
+<p>The full project, step by step, with every prompt and fixes for when it gets stuck: <a href="#read-build-website-no-code">Build your own website with AI, no code</a>.</p>
+
+<p>See you next Monday,<br>Vish</p>

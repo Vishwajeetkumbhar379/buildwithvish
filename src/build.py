@@ -3,13 +3,37 @@
                                     src/preview.html (single-file preview: CDN libraries, Google Fonts, photo inlined)
   python3 src/build.py --local   -> src/test/       (same as site/, for local testing; not committed)
 """
-import pathlib, sys, base64, hashlib, shutil
+import pathlib, sys, base64, hashlib, shutil, json, re, math
 d = pathlib.Path(__file__).parent
 LOCAL = "--local" in sys.argv
 css = (d / "style.css").read_text()
 js = "\n".join((d / f).read_text() for f in ["content-guides.js", "content-more.js", "content-extra.js", "content-portfolio.js", "content-launch.js"])
 scene = "\n".join((d / f).read_text() for f in ["scene.js", "portfolio-scene.js", "sound.js"])
 app = (d / "app.js").read_text()
+
+# ---------- long-form content (src/long): full-length guides, projects and issues ----------
+LONG_DIR = d / "long"
+def words(h): return len([w for w in re.sub(r"<[^>]+>", " ", h).split() if re.search(r"[A-Za-z0-9]", w)])
+def load_long():
+    guides, projects, issues = {}, {}, {}
+    for f in sorted((LONG_DIR / "guides").glob("*.html")):
+        meta = json.loads(f.with_suffix(".meta.json").read_text()); body = f.read_text()
+        guides[f.stem] = {"title": meta["title"], "excerpt": meta["excerpt"], "mins": max(3, math.ceil(words(body) / 220)), "body": body}
+    for f in sorted((LONG_DIR / "projects").glob("*.json")):
+        projects[f.stem] = json.loads(f.read_text())
+    for f in sorted((LONG_DIR / "issues").glob("*.html")):
+        meta = json.loads(f.with_suffix(".meta.json").read_text())
+        issues[f.stem] = {"title": meta["title"], "teaser": meta["teaser"], "items": meta["items"], "body": f.read_text()}
+    return guides, projects, issues
+LG, LP, LI = load_long() if LONG_DIR.exists() else ({}, {}, {})
+BV = hashlib.sha256(json.dumps([LG, LP, LI], sort_keys=True).encode()).hexdigest()[:10]
+def long_js(external):
+    data = {}
+    for k, v in LG.items(): data[k] = {**v, "body": None, "ext": True} if external else dict(v)
+    data.update(LP); data.update(LI)
+    j = json.dumps(data, ensure_ascii=False).replace("</", "<\\/").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+    return ("window.BWV_V=" + json.dumps(BV) + ";\nconst LONG = " + j + ";\n"
+            "[GUIDES, PROJECTS, ISSUES].forEach((arr) => arr.forEach((x) => { const L = LONG[x.slug]; if (L) Object.assign(x, L); }));\n")
 PHOTO = d / "vish.jpg"
 TITLE = "Build with Vish"
 DESC = "Free step-by-step guides, prompts, projects and carousels for building things with AI, no code needed. Plus Build Notes, a weekly newsletter by Vish Kumbhar."
@@ -29,7 +53,7 @@ ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 
 
 def scripts(selfhost, photo):
     libs = "\n".join(f'<script src="{("vendor/" + v) if selfhost else c}"></script>' for v, c in zip(VENDOR, CDN))
-    inline = ["window.BWV_SELFHOST=" + ("true" if selfhost else "false") + ";", js, scene, app.replace("__VISH_PHOTO__", photo)]
+    inline = ["window.BWV_SELFHOST=" + ("true" if selfhost else "false") + ";", js + "\n" + long_js(selfhost), scene, app.replace("__VISH_PHOTO__", photo)]
     return libs, inline
 
 
@@ -62,6 +86,10 @@ site = f'''<!doctype html>
 </body></html>
 '''
 (out / "index.html").write_text(site)
+gdir = out / "g"
+if gdir.exists(): shutil.rmtree(gdir)
+gdir.mkdir()
+for k, v in LG.items(): (gdir / (k + ".html")).write_text(v["body"])
 if not LOCAL:
     csp = ("default-src 'self'; script-src 'self' " + hashes + "; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; "
            "connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")

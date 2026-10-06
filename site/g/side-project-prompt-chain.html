@@ -1,0 +1,190 @@
+<p>If you have a few hours a week and a vague feeling you should "do something on the side", this page turns that feeling into a plan. You'll run four prompts in one chat: find an idea that fits your life and a specific person it's for, design a cheap test, plan the smallest version you could deliver, and map out your first week. At the end you'll have one idea, a test you can run in seven days, and a clear rule for whether to continue, change or stop. Running the chain takes about an hour. Running the test takes about 45 minutes a day for a week. There are no income promises here. Nobody honest can tell you what a side project will earn before anyone has paid for it.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Four prompts, in order, in the same chat. Each answer feeds the next.</li>
+<li>Start from what you already have: skills, time, and the things people already ask you for help with.</li>
+<li>Test with real actions (a booked call, a reply with details, a pre-order), not compliments.</li>
+<li>Decide what result means continue, change or stop before you start the test.</li>
+<li>AI can help you plan and write. It can't tell you whether anyone wants your idea. Only the test can.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>The idea and who it's for</b> Five ideas that fit your life, each with a specific buyer. <i>20 min</i></li>
+<li><b>Test it cheaply</b> The sceptic's view, then a 7-day test with a pass mark. <i>20 min</i></li>
+<li><b>Plan the smallest version</b> What you'd deliver to the first few people, and what waits. <i>15 min</i></li>
+<li><b>The first-week plan</b> One 45-minute task a day, ending in a decision. <i>10 min</i></li>
+</ol></div>
+
+<h2>Before you start</h2>
+<p>You need one chat in Claude or ChatGPT. The free plans are fine. If you're new to either, <a href="#read-claude-from-zero">Claude from zero</a> or <a href="#read-chatgpt-from-zero">ChatGPT from zero</a> gets you set up.</p>
+<p>Spend 10 minutes writing honest notes on these before you open the chat. Honest matters more than impressive:</p>
+<ul>
+<li><b>Time:</b> the hours you really have each week, and when. Three real hours beat ten imaginary ones.</li>
+<li><b>Skills:</b> from your job, your studies and your hobbies. Include the boring ones.</li>
+<li><b>What people already ask you for:</b> help with spreadsheets, CVs, cooking, fixing bikes. This list is often where the best idea hides.</li>
+<li><b>Budget:</b> what you're willing to spend on a test. Zero is a fine answer.</li>
+<li><b>Limits:</b> days you're not available, things you won't do, anything your job rules out.</li>
+</ul>
+<div class="callout warn"><b>Heads-up</b><p>If you're employed, check your contract for rules about side work, and never use your employer's clients, tools or confidential information. If you start charging money, look up the rules where you live for registering a side business and paying tax on it. This is general information, not legal or tax advice. Ask a tax adviser or your local business advice service if you're unsure.</p></div>
+
+<h2>Why a chain instead of one big prompt</h2>
+<p>Ask "help me start a side project" in one go and you'll get a long, generic answer: find your passion, build an audience, launch a course. It makes every decision for you, mostly badly, because it doesn't know you.</p>
+<p>A chain splits the job into four decisions, and you make each one. The AI suggests, you choose, and the next prompt builds on your choice. Because it's one chat, everything you said earlier carries forward, so by Prompt 4 the plan is built around your actual hours, skills and idea.</p>
+<p>Two rules make the chain work. First, stay in the same chat. Second, push back between steps. If an answer feels generic, use one of the <a href="#read-one-line-follow-ups">12 follow-ups that fix weak AI answers</a> before moving on.</p>
+
+<h2>Prompt 1: The idea and who it's for</h2>
+<p>This step turns your notes into five ideas, each tied to a specific person with a specific problem. The "who" matters more than the idea. "Small businesses" is not a who. "Treasurers of small sports clubs who track membership fees by hand" is.</p>
+<pre class="prompt" data-label="Prompt 1 · The idea and who it's for">I want to plan a small side project. Here's my situation:
+- Time: [hours] a week, mostly [when]
+- Skills: [what I'm good at, from work and outside it]
+- Things people already ask me for help with: [list]
+- What I enjoy: [interests]
+- Budget I'm willing to spend on testing: [€ amount, can be 0]
+- Limits: [e.g. no weekday evenings, can't work with my employer's clients]
+
+Suggest 5 side projects that use what I already have. Put them in a table with these columns: the idea, who exactly it's for (one specific type of person), the problem it solves for them, where those people already spend time, what they'd pay or give in return, and the biggest risk.
+
+Then tell me which one you'd test first and why. Ask me up to 3 questions first if anything is unclear.</pre>
+<h3>How to pick</h3>
+<p>Look for an idea where you can answer yes to all four of these:</p>
+<ul>
+<li>Can you name a real place where these people are, such as a group, a forum or an association?</li>
+<li>Do they already spend time or money on this problem, even badly?</li>
+<li>Could you deliver a first version yourself, by hand, within your hours?</li>
+<li>Would you still want to do it in three months, when it's routine?</li>
+</ul>
+<div class="compare"><div class="bad"><b>Weak</b><p>A productivity app for busy people.</p></div><div class="good"><b>Better</b><p>A one-hour spreadsheet setup for volunteer treasurers of small clubs who still track fees on paper.</p></div></div>
+<div class="callout vish"><b>My take</b><p>Pick the boring idea with a clear "who" over the exciting idea with a vague one. Boring problems that people already complain about are much easier to test.</p></div>
+<p>Before moving on, send: "Now argue against your top pick." If the objections are fatal, choose another idea from the table.</p>
+
+<h2>Prompt 2: Test it cheaply</h2>
+<p>This is the most important step, and the one people skip. A real test asks strangers, or near-strangers, to do something that costs them a little: their time, their details or a small amount of money. Friends are kind, so their thumbs up tells you very little.</p>
+<pre class="prompt" data-label="Prompt 2 · Test it cheaply">Let's test idea [number]. First, argue against it as a sceptical friend who wants me to succeed: give me the 3 strongest reasons it might not work.
+
+Then design the cheapest test I can run in 7 days, with [hours] hours and [€ budget], to find out if anyone actually wants this. The test must ask people to do something real, like book a call, join a waitlist, reply with details or pre-order. Liking the idea doesn't count.
+
+Give me:
+1. Exactly who to contact and where to find [number, e.g. 20] of them
+2. The offer text I'd post or send: under 120 words, plain words, one clear next step, no promises I can't keep
+3. What counts as a real signal and what's just politeness
+4. Results that would mean continue, change or stop, so I can decide them now, before I start
+
+Ask me up to 3 questions first if you need to.</pre>
+<div class="compare"><div class="bad"><b>Weak test</b><p>Post "Would anyone use this?" in your family WhatsApp group and count the thumbs up.</p></div><div class="good"><b>Better test</b><p>Send a clear offer to 20 people who have the problem but don't know you well, asking them to book a short call this month. Count bookings, not compliments.</p></div></div>
+<p>If your test needs a simple page where people can leave their email, <a href="#read-newsletter-signup-free">Collect newsletter emails for free</a> shows how, and the <a href="#launch">launch checklist</a> covers the privacy basics before you collect anyone's details.</p>
+<div class="callout warn"><b>Heads-up</b><p>Don't take money for something you can't deliver. If you take pre-orders, be ready to deliver on time or refund in full, and say so in the offer.</p></div>
+
+<h2>Prompt 3: Plan the smallest version</h2>
+<p>If the test shows interest, the temptation is to build the full thing: a website, a logo, an app. Don't. The smallest version is the least you could deliver to your first few people so they get real value, mostly done by hand.</p>
+<pre class="prompt" data-label="Prompt 3 · The smallest version">Assume the test showed enough interest to keep going. Plan the smallest version of this I could deliver to my first [3 to 5] people within [number] weeks, inside my [hours] a week.
+
+Cover:
+- The one core thing they get
+- What I can do by hand for now instead of building or automating
+- A "Not now" list of everything I'm leaving out on purpose
+- The tools I need, preferring free ones I already have
+- What "done" looks like for the first person
+- What could go wrong in delivery, and my backup plan
+
+Keep it to one page. Push back if anything is bigger than it needs to be.</pre>
+<p>The "Not now" list is the most useful part. It protects you from spending three weekends on a logo before anyone has used the thing.</p>
+<div class="compare"><div class="bad"><b>Weak</b><p>Build an app with logins, payments and a dashboard.</p></div><div class="good"><b>Better</b><p>A spreadsheet template, a 45-minute call to set it up, and a one-page how-to. Payment by bank transfer.</p></div></div>
+<div class="callout tip"><b>Tip</b><p>If the smallest version needs more time than you have in a week, it isn't small yet. Ask: "What would you cut first?"</p></div>
+
+<h2>Prompt 4: The first-week plan</h2>
+<p>Plans fail when the tasks are vague, like "work on marketing". This prompt makes every day one task with a concrete output, so you know when you're done.</p>
+<pre class="prompt" data-label="Prompt 4 · The first week">Now turn the test into a 7-day plan. I have [minutes, e.g. 45] minutes a day on [days].
+
+For each day give me: one task, the exact output I'll have at the end (for example "a list of 20 names" or "offer sent to 10 people"), and a short prompt I could use to get AI help with that task.
+
+Put the outreach early in the week so there's time for replies. End with a day-7 checkpoint: the questions to answer and what result means continue, change or stop, using the bar we set earlier. Show the plan as a table.</pre>
+<p>Put the seven tasks in your calendar as appointments. If you miss a day, move it. Don't double up the next day.</p>
+
+<h2>A worked example, start to finish</h2>
+<p>This is a made-up example to show the chain in action. The person is invented and the answers are shortened illustrations of the kind of thing you'll get, not real results.</p>
+<h3>The notes</h3>
+<p>Sam works in payroll admin. He has about four free hours a week, on Saturday mornings and one evening. He's good at spreadsheets and patient at explaining. He plays in an amateur football club and once helped the club's volunteer treasurer sort out the membership fee sheet. He's willing to spend €50 on a test. His limit: nothing that touches his employer's clients.</p>
+<h3>Prompt 1: the ideas</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Idea</th><th>Who it's for</th><th>Biggest risk</th></tr></thead>
+<tbody>
+<tr><td>Fee-tracking sheet setup</td><td>Volunteer treasurers of small clubs</td><td>Volunteers may have little budget</td></tr>
+<tr><td>Spreadsheet tutoring</td><td>Job seekers whose target roles ask for spreadsheet skills</td><td>Lots of free tutorials exist</td></tr>
+<tr><td>Household budget sheet setup</td><td>Couples combining finances</td><td>Needs a lot of trust; hard to reach</td></tr>
+<tr><td>Templates sold online</td><td>Small business owners</td><td>Crowded, hard to stand out</td></tr>
+<tr><td>Payroll basics explainer</td><td>New small-business owners</td><td>Too close to his day job</td></tr>
+</tbody></table></div>
+<p>The AI suggests testing the first: Sam knows the problem first-hand and already knows where treasurers are. Sam sends "Now argue against your top pick." The answer: treasurers are volunteers and may not pay; some clubs already use membership software; the pain may only show up when fees are due. Sam keeps the idea but notes the timing risk.</p>
+<h3>Prompt 2: the test</h3>
+<p>Who: treasurers of small local clubs (sports, choirs, allotment associations), found through public club websites, plus two club chat groups Sam is already in. The offer, drafted by the AI and then edited by Sam:</p>
+<p><i>"Are you the treasurer of a small club and still tracking fees by hand? I've built a simple sheet that shows who's paid, who hasn't and what's due next. This month I'm doing a few 45-minute setup calls: we put your member list into the sheet together, and you keep it. €25 per club. Reply here to book a time."</i></p>
+<div class="compare"><div class="bad"><b>Doesn't count</b><p>Likes, "great idea", "maybe next season", forwarding it without comment.</p></div><div class="good"><b>Counts</b><p>A booked call with a date, a question about how it would work for their club, or an introduction to another treasurer.</p></div></div>
+<p>Sam sets his bar before sending anything: if at least 3 of the 20 book a call, continue. If people reply with questions but nobody books, change the offer. If nobody replies beyond politeness, stop and test idea 2. Those numbers are Sam's choice for his situation, not a benchmark. Pick yours based on how many people you can reach.</p>
+<h3>Prompt 3: the smallest version</h3>
+<ul>
+<li><b>Core:</b> one fee-tracking sheet, a 45-minute setup call, and a one-page how-to.</li>
+<li><b>By hand:</b> booking by message, payment by bank transfer, reminders in his own calendar.</li>
+<li><b>Not now:</b> a website, a logo, online payments, versions for other kinds of clubs, a video course.</li>
+<li><b>Tools:</b> Google Sheets, a free video call app and a shared document.</li>
+<li><b>Done:</b> the treasurer can see who has paid and send reminders without asking Sam.</li>
+<li><b>Risk and backup:</b> member lists are personal data, so Sam works inside the club's own account, keeps no copies, and uses made-up names when he demonstrates the sheet.</li>
+</ul>
+<h3>Prompt 4: the week</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Day</th><th>Task (45 min)</th><th>Output</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Find clubs and treasurer contacts on public club websites</td><td>A list of 20 contacts</td></tr>
+<tr><td>2</td><td>Tidy the template, filled with made-up names</td><td>A sheet ready to show</td></tr>
+<tr><td>3</td><td>Post the offer in two groups, send 10 personal messages</td><td>Offer sent to 10 people</td></tr>
+<tr><td>4</td><td>Send the other 10 messages, answer questions</td><td>All 20 contacted</td></tr>
+<tr><td>5</td><td>Run any booked calls, or follow up once with people who replied</td><td>Calls done or follow-ups sent</td></tr>
+<tr><td>6</td><td>Write down what people said, in their words</td><td>A page of objections and questions</td></tr>
+<tr><td>7</td><td>Checkpoint against the bar he set</td><td>A decision: continue, change or stop</td></tr>
+</tbody></table></div>
+<p>What happens next depends on the week, which is the point. If treasurers book, Sam runs the calls and asks each one what they'd want next. If they reply but don't book, he tests a different offer or a better time of year. If nobody replies, he goes back to the table from Prompt 1. Any of those is a good outcome for one week's work, because he learned something real instead of guessing.</p>
+
+<h2>What a test can and can't tell you</h2>
+<ul>
+<li><b>Kind words aren't data.</b> "I'd totally use that" costs nothing to say. Watch what people do, not what they say.</li>
+<li><b>A few yeses prove a little.</b> Three bookings show some people want this, from you, at this price, this month. They don't prove a business.</li>
+<li><b>Silence has many causes.</b> Wrong people, wrong channel, unclear offer or bad timing can all look like "nobody wants it". Change one thing at a time before you give up on the idea.</li>
+<li><b>AI hasn't met your customers.</b> It can design a sensible test and write a clear offer. It can't tell you whether there's demand, and it may sound more confident than it should. Treat its market guesses as guesses.</li>
+<li><b>No earnings forecasts.</b> This chain won't tell you what you'll earn. Expect it to cost you time, and maybe a little money, before it pays anything, if it ever does. If that isn't fine with you, keep it a hobby.</li>
+</ul>
+
+<h2>When it gets stuck</h2>
+<p><b>The ideas are all generic.</b> Online course, newsletter, app. Add more to the "people already ask me for help with" line, then send: "That's too generic. Ask me 3 questions about my situation first, then rewrite it."</p>
+<p><b>You like three ideas equally.</b> Pick the one whose people are easiest to reach this week. Test one idea per week, not three at once.</p>
+<p><b>You're nervous about contacting strangers.</b> Start with people one step away: members of a group you're in, or friends of friends. Ask the AI: "Rewrite my offer so it sounds like a genuine question, not a sales pitch."</p>
+<p><b>Nobody replied.</b> Before dropping the idea, send: "Here's my offer and where I sent it. Give me 3 likely reasons it got no replies and one change to test next week."</p>
+<p><b>The plan keeps growing.</b> Go back to the "Not now" list and ask: "What would you cut first?"</p>
+<p><b>The chat lost track.</b> Long chats can drift. Ask for "a one-paragraph summary of my idea, test and bar", then paste it into a fresh chat.</p>
+
+<h2>Cheat sheet</h2>
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>Step</th><th>Ask the AI for</th><th>You leave with</th></tr></thead>
+<tbody>
+<tr><td>1. Idea</td><td>5 ideas from your skills and time, each with a specific "who" and biggest risk</td><td>One idea and one type of person</td></tr>
+<tr><td>2. Test</td><td>The sceptic's view, then a 7-day test that asks for real actions</td><td>An offer, a contact list plan and a pass mark</td></tr>
+<tr><td>3. Smallest version</td><td>The core, what's by hand, and a "Not now" list</td><td>A one-page delivery plan</td></tr>
+<tr><td>4. First week</td><td>One 45-minute task a day with a clear output</td><td>A calendar week and a day-7 decision</td></tr>
+</tbody></table></div>
+<p>Same chat throughout. Push back between steps. Decide your bar before the test, not after.</p>
+</div>
+
+<h2>Your action plan</h2>
+<ul class="checklist">
+<li>Write your honest notes: time, skills, what people ask you for, budget, limits.</li>
+<li>Run Prompt 1 and pick one idea with a specific "who".</li>
+<li>Run Prompt 2 and write down your continue, change and stop results before you contact anyone.</li>
+<li>Run Prompts 3 and 4, then put the seven tasks in your calendar.</li>
+<li>Do the week. On day 7, decide against the bar you set, not against how you feel.</li>
+<li>Check your employment contract and local rules before you take any money.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+<details class="faq"><summary>Does this only work for money-making projects?</summary><p>No. Swap "what they'd pay" for "what they'd give": time, sign-ups or feedback. The chain works the same for a community group, a newsletter or a free tool.</p></details>
+<details class="faq"><summary>Do I need to be technical?</summary><p>No. The smallest version should mostly be done by hand anyway. If you later want a simple website, <a href="#read-build-website-no-code">Build your own website with AI</a> walks you through it without code.</p></details>
+<details class="faq"><summary>Should I spend money on ads to test?</summary><p>Usually not at first. Direct messages to the right people tell you more for free, and you can ask them questions. If you do try ads, set a small, fixed amount you'd be fine losing.</p></details>
+<details class="faq"><summary>What if someone has already done my idea?</summary><p>That's often a good sign: it means people want it. What matters is whether you can reach a specific group better or serve them more personally. Your test will tell you more than any amount of searching for competitors.</p></details>

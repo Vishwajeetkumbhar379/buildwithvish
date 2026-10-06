@@ -1,0 +1,23 @@
+Hi,
+
+Thanks for confirming. You're on Build Notes now.
+
+Here's the deal: every Monday you get one guide, one prompt and one thing to try. Plain words, no jargon, nothing you need to code.
+
+If you only do one thing this week, do the Start here path. Three steps, in order:
+
+1. Pick one AI and set it up properly: https://buildwithvish.netlify.app/#read-claude-from-zero
+2. Learn the six-box brief, the habit that fixes most bad answers: https://buildwithvish.netlify.app/#read-brief-ai-like-an-agency
+3. Build your first thing: a small website, no code: https://buildwithvish.netlify.app/#read-build-website-no-code
+
+Prefer ChatGPT or Gemini? Those have their own complete guides too, linked from the Start page.
+
+Open the Start here path: https://buildwithvish.netlify.app/#start
+
+One question: what do you want AI to help you with right now? Just hit reply. I read every answer, and the most common ones become the next guides.
+
+Vish
+
+---
+Unsubscribe: {$unsubscribe}
+Build with Vish · Vishwajeet Kumbhar · Germany

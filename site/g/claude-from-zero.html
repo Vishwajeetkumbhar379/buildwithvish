@@ -1,0 +1,490 @@
+<p>Claude is an AI assistant made by Anthropic. You type or talk to it, and it answers questions, writes, reads your files, searches the web and builds small things with you, like a checklist you can tick off or a slide deck. This guide is for complete beginners. By the end you'll have Claude set up the way you like it, you'll know which plan and model you actually need, you'll know where every major feature lives, and you'll have more than forty prompts to try across work, money, learning and home life. Reading it takes about 30 minutes. Setting things up takes about 10. Try a few prompts as you go, because that's how it sticks.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Start on the Free plan. It already includes web search, file uploads, memory, voice, a few Projects and file creation. Upgrade only when you keep hitting limits or need a paid feature.</li>
+<li>Spend 10 minutes on setup: tell Claude about yourself in Settings, check your memory and privacy choices, and switch on file creation.</li>
+<li>Good answers come from good briefs. Say who it's for, what you want, what good looks like, and ask Claude to ask you questions first.</li>
+<li>Use Projects for anything ongoing, artifacts for things you want to keep, and connectors only for apps you trust it with.</li>
+<li>Check anything that matters. Claude can be confidently wrong, especially on numbers, laws and very recent news.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Understand what it is</b> What Claude is good and bad at, and where you can use it. <i>5 min</i></li>
+<li><b>Pick a plan and model</b> Free versus paid, and which model to choose for which job. <i>5 min</i></li>
+<li><b>Set it up</b> About me, memory, privacy and file creation. <i>10 min</i></li>
+<li><b>Learn to brief it</b> One template that improves almost every answer. <i>5 min</i></li>
+<li><b>Tour the features</b> Each one with where to find it and a prompt to try. <i>20 min</i></li>
+<li><b>Try things</b> Pick three prompts from the life areas below and run them today. <i>15 min</i></li>
+</ol></div>
+
+<p class="note">Checked on 6 October 2026 against Anthropic's own pricing, help and privacy pages. AI apps change fast: if a button has moved, search the Claude help centre for the feature name.</p>
+
+<h2>What Claude is, and who makes it</h2>
+
+<p>Claude is made by Anthropic, an AI company. Under the hood it's a large language model: software trained on a huge amount of text so it can read and write like a very well-read assistant. You talk to it in plain language. There's no special syntax to learn.</p>
+
+<p>Here's what it does well, in my experience:</p>
+
+<ul>
+<li><b>Writing and rewriting.</b> Emails, posts, reports, cover letters, difficult messages. It follows a voice well once you show it a sample of yours.</li>
+<li><b>Reading long things.</b> Upload a contract, a 60-page report or a confusing letter and ask questions about it. It finds the clause you need faster than you can scroll.</li>
+<li><b>Thinking out loud.</b> Plans, decisions and "what am I missing?" questions. It's a patient sparring partner at 11pm.</li>
+<li><b>Making things.</b> A web page, a calculator, a chart, a spreadsheet with formulas, a slide deck or a Word document you can download.</li>
+</ul>
+
+<p>And here's what it's bad at. It can state wrong facts with total confidence (people call this "hallucinating"). Its built-in knowledge stops at a cut-off date, so for anything recent you need web search switched on. It can't know your situation unless you tell it. And it's not a doctor, lawyer or tax adviser, even when it sounds like one.</p>
+
+<h3>Where you can use Claude</h3>
+
+<p>You need an account, you must be at least 18, and you need to be in a country where Claude is offered. Then you can use it in a lot of places. Your chats sync between the web, desktop and mobile apps.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Where</th><th>What it's for</th><th>Plan</th></tr></thead>
+<tbody>
+<tr><td>Web (claude.ai)</td><td>The full app in any browser. Start here.</td><td>All</td></tr>
+<tr><td>Desktop app (Mac, Windows; Linux in beta)</td><td>Same as web, plus work with files on your computer</td><td>All</td></tr>
+<tr><td>Mobile app (iPhone, Android)</td><td>Quick questions, photos of documents, voice conversations</td><td>All</td></tr>
+<tr><td>Claude in Chrome</td><td>A browser extension that can read pages, click and fill in forms for you</td><td>Paid</td></tr>
+<tr><td>Claude for Microsoft 365</td><td>Add-ins inside Excel, PowerPoint, Word and Outlook (Outlook in beta)</td><td>Paid</td></tr>
+<tr><td>Claude Code</td><td>Builds and edits software, in a terminal, code editor, the desktop app or the browser</td><td>Paid</td></tr>
+<tr><td>Slack (Claude Tag)</td><td>Tag @Claude in a work Slack channel to hand it a task</td><td>Team, Enterprise</td></tr>
+</tbody></table></div>
+
+<p>Download links for every app are on Anthropic's <a href="https://claude.com/download" target="_blank" rel="noopener">Claude download page</a>. Anthropic also lists a research workbench called Claude Science for paid plans. It's aimed at scientists, so I've left it out of this beginner guide.</p>
+
+<h2>Plans and prices (checked October 2026)</h2>
+
+<p>There are three plans for individuals (Free, Pro, Max) and two for organisations (Team, Enterprise). Every plan has usage limits: a budget of messages that refills over time. Long chats, big files, bigger models and tools like web search use it faster.</p>
+
+<p>On 6 October 2026, Anthropic's <a href="https://claude.com/pricing" target="_blank" rel="noopener">pricing page</a> showed these prices in US dollars, excluding tax. You'll see your local currency at checkout, and the final price can differ by region.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Plan</th><th>Price (Oct 2026)</th><th>What you get</th></tr></thead>
+<tbody>
+<tr><td><b>Free</b></td><td>$0</td><td>Chat on web, desktop and mobile; web search; file uploads; file creation and code running; memory; connectors; artifacts; voice; up to five Projects. Uses the Sonnet and Haiku models.</td></tr>
+<tr><td><b>Pro</b></td><td>$20 a month, or $17 a month billed yearly ($200 up front)</td><td>Everything in Free plus more usage, Opus and other models, Research, chat search, scheduled tasks, Docs, Slides and Design, Claude Code, Claude in Chrome and the Microsoft 365 add-ins.</td></tr>
+<tr><td><b>Max</b></td><td>From $100 a month (5x Pro usage) or $200 (20x)</td><td>Everything in Pro with much more usage, higher output limits, early access to new features and priority at busy times.</td></tr>
+<tr><td><b>Team</b></td><td>Standard seat $25 a month, or $20 billed yearly; premium seat $125, or $100 yearly</td><td>Pro-level features for a company, plus admin controls, single sign-on and shared Projects. Premium seats get 5x more usage.</td></tr>
+<tr><td><b>Enterprise</b></td><td>$20 per seat a month plus usage at API rates, billed yearly (self-serve option)</td><td>Team features plus spend controls, audit logs, data retention controls and more security options.</td></tr>
+</tbody></table></div>
+
+<p>How limits work in practice: on Free, your allowance runs in sessions that reset every five hours. Pro and Max also have a weekly cap. When you hit a limit, Claude tells you when you can carry on. Building your own software on Claude's API (developer access) is billed separately.</p>
+
+<div class="callout vish"><b>My take</b><p>Use Free for two weeks. If you hit the limit more than a couple of times a week, or you want Research, Claude in Chrome, scheduled tasks or the Office add-ins, Pro is the sensible next step. Max only makes sense once Claude is part of your working day and Pro keeps running out.</p></div>
+
+<h2>Models: which one to pick</h2>
+
+<p>A model is the "brain" Claude uses for your chat. Bigger models think harder but use more of your allowance. You choose one from the model picker next to the send button. Click the model name, and "More models" shows the rest.</p>
+
+<p>These are the models Anthropic listed in early October 2026:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Model</th><th>Use it for</th><th>Plans</th></tr></thead>
+<tbody>
+<tr><td><b>Claude Sonnet 5.5</b> (released 28 Sept 2026)</td><td>Everyday work: emails, documents, slides, spreadsheets, research questions. Fast and capable.</td><td>All, including Free</td></tr>
+<tr><td><b>Claude Opus 5.5</b> (released 22 Sept 2026)</td><td>Hard or long tasks: complex analysis, long documents, multi-step projects, coding.</td><td>Paid</td></tr>
+<tr><td><b>Claude Haiku 4.5</b></td><td>Quick, simple jobs where speed matters more than depth.</td><td>All, including Free</td></tr>
+<tr><td><b>Claude Fable 5.1</b> (released 1 Sept 2026)</td><td>The most demanding reasoning. Included on Max; on Pro it draws on extra pay-as-you-go usage.</td><td>Paid</td></tr>
+</tbody></table></div>
+
+<p>Anthropic has said a Haiku 5.5 is coming, but it wasn't out when I checked. There's also a model called Mythos, which is restricted to vetted security and science professionals and isn't something you can pick. The current list is on Anthropic's <a href="https://platform.claude.com/docs/en/models/overview" target="_blank" rel="noopener">models overview</a>.</p>
+
+<p>Next to the model picker you'll also find an effort setting. Lower effort is quicker and stretches your allowance. Higher effort makes Claude spend more time thinking before it answers, which helps with maths, analysis and tricky decisions. On the newest models thinking can't be switched off, so effort is the main dial.</p>
+
+<div class="callout tip"><b>Tip</b><p>Use Sonnet at default effort for most things. Switch to Opus, or raise effort, when an answer feels shallow. Drop to Haiku for quick rewrites so your allowance lasts longer.</p></div>
+
+<h2>Set it up in 10 minutes</h2>
+
+<p>Skipping setup is the main reason answers feel generic. These five steps fix most of that.</p>
+
+<h3>1. Create your account and get the apps (2 minutes)</h3>
+
+<p>Go to claude.ai and create an account. Then install the mobile app so you can use voice and photograph documents, and the desktop app if you work on a laptop.</p>
+
+<h3>2. Tell Claude about you (4 minutes)</h3>
+
+<p>Click your initials in the corner, open <b>Settings</b>, and find <b>Instructions for Claude</b> on the General page. Whatever you write there applies to every chat. Keep it short and practical. Here's a template:</p>
+
+<pre class="prompt" data-label="Prompt 1 · About me and how I like answers">About me: I'm [your job or situation, e.g. a nurse / a student / I run a small online shop]. I live in [country], so use [currency] and local rules unless I say otherwise. I'm currently working on [one or two goals, e.g. finding a new job, getting my paperwork organised].
+
+How I like answers:
+- Lead with the answer, then the explanation. Keep it short unless I ask for detail.
+- Use plain words. Explain any technical term the first time.
+- Use a table when comparing options.
+- If my request is unclear, ask me up to three questions before you start.
+- Say when you're unsure or when something needs checking with a professional. Don't guess.
+- Use British English spelling.</pre>
+
+<p>Leave out anything private, such as ID numbers or health details. After a week, add whatever you keep repeating.</p>
+
+<h3>3. Decide on memory (1 minute)</h3>
+
+<p>Memory lets Claude keep useful facts from your chats, like your job, so you don't repeat yourself. It's on by default for personal accounts. Go to <b>Settings</b>, then <b>Memory</b>, to switch "Generate memory from chats" on or off and edit what's saved. There's a separate opt-in for sensitive topics such as health. I'd leave that one off.</p>
+
+<h3>4. Check your privacy setting (1 minute)</h3>
+
+<p>On Free, Pro and Max, you decide whether your chats can be used to train future models. Go to <b>Settings</b>, then <b>Privacy</b>, and look at the model-improvement toggle. More on what each choice means in the privacy section below.</p>
+
+<h3>5. Switch on file creation (1 minute)</h3>
+
+<p>In <b>Settings</b>, open <b>Capabilities</b> and turn on "Code execution and file creation". This lets Claude make real Word, Excel, PowerPoint and PDF files, read spreadsheets you upload, and use Skills. Several features in this guide need it.</p>
+
+<div class="callout tip"><b>Coming from ChatGPT?</b><p>Claude has an experimental option to import memory from another AI assistant. Search the help centre for "import and export your memory" to see the current steps.</p></div>
+
+<h2>How to ask so you get good answers</h2>
+
+<p>The brief makes the biggest difference. Claude can't see your situation, so it fills gaps with safe, average guesses, and those give you average answers.</p>
+
+<p>A good brief has four parts: the situation, the task, what good looks like, and the format you want. Then you invite questions.</p>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>Write an email to my landlord about the heating.</p></div><div class="good"><b>Better</b><p>My heating has been broken for 6 days. I reported it by phone on Monday and nothing happened. Write a short, firm but polite email to my landlord asking for a repair date this week. Mention the phone call. Keep it under 120 words and give me two subject lines.</p></div></div>
+
+<p>It takes 30 seconds longer and saves several rounds of edits. For bigger jobs, use this template:</p>
+
+<pre class="prompt" data-label="Prompt 2 · The all-purpose brief">I need help with [task].
+
+Context: [who is involved, what has happened so far, any constraints like deadline, budget or tone].
+Who it's for: [the reader or audience, and what they care about].
+What good looks like: [e.g. under 200 words, friendly but firm, ends with a clear next step].
+Format: [e.g. bullet list, table with columns X, Y, Z, email with subject line].
+
+Before you start, ask me any questions you need answered to do this well. Ask them all at once, numbered.</pre>
+
+<p>Then push back. The first answer is a draft. Short follow-ups like "make it warmer", "what did you assume that I didn't tell you?" or "give me two other approaches" get you the rest of the way. There's a full set in <a href="#read-one-line-follow-ups">12 follow-ups that fix weak AI answers</a>, and the thinking behind good briefs is in <a href="#read-brief-ai-like-an-agency">Brief AI the way you'd brief a pro</a>.</p>
+
+<div class="callout tip"><b>Tip</b><p>Start a new chat when you change topic. Long chats about many things get muddled, and they use up your allowance faster because Claude rereads the whole conversation each time.</p></div>
+
+<h2>The features, one by one</h2>
+
+<p>Most features live behind the <b>+</b> button in the message box. Typing <kbd>/</kbd> in the message box shows shortcuts too. The left sidebar holds your chats, Projects, artifacts and a <b>Customize</b> area for connectors and Skills. Here's each feature with where to find it and something to try.</p>
+
+<h3>File uploads</h3>
+
+<p><b>What it does:</b> Claude reads PDFs, Word documents, text files, CSVs, spreadsheets and images, including photos of paper letters. <b>Where:</b> click <b>+</b> and choose "Add files or photos", or drag files into the chat. On mobile you can add photos of paper documents. <b>Plans:</b> all. Spreadsheets need file creation switched on.</p>
+
+<pre class="prompt" data-label="Prompt 3 · Decode a document">I've uploaded a letter I received. Tell me:
+1. Who sent it and what it's about, in one sentence.
+2. What it wants me to do, and by when. Quote the exact deadline.
+3. What happens if I ignore it.
+4. Anything unusual or worth questioning.
+5. A short draft reply if one is needed.
+If anything is unclear in the document, say so rather than guessing.</pre>
+
+<h3>Web search</h3>
+
+<p><b>What it does:</b> lets Claude look things up online and show its sources, so it isn't limited to what it learned in training. <b>Where:</b> click <b>+</b> and select "Web search". A tick shows it's on. <b>Plans:</b> all. Open the linked sources that matter, since they can be outdated or misread.</p>
+
+<pre class="prompt" data-label="Prompt 4 · Compare with sources">Search the web and compare the three best-reviewed [product, e.g. robot vacuums for a small flat] available in [country] right now, under [budget in €]. Make a table with: price, the main strength, the main complaint in reviews, and a link to the source. Then tell me which you'd pick for [my situation] and why. Flag anything you couldn't confirm.</pre>
+
+<h3>Research</h3>
+
+<p><b>What it does:</b> a deeper mode where Claude runs many searches, follows leads and writes a cited report. It takes minutes, not seconds, and uses more of your allowance. <b>Where:</b> click <b>+</b>, then "Research". Web search must be on. <b>Plans:</b> Pro, Max, Team and Enterprise.</p>
+
+<pre class="prompt" data-label="Prompt 5 · A research brief">Research this question: [e.g. what do I need to know before switching my electricity provider in Germany?]
+
+I'm asking because [situation]. Focus on [what matters most, e.g. costs, notice periods, common traps].
+Prefer official and primary sources over blogs. Put the answer first in five bullets, then the detail, then a list of sources. Mark anything where sources disagree.</pre>
+
+<h3>Projects</h3>
+
+<p><b>What it does:</b> a Project is a workspace with its own instructions, uploaded files and memory. Every chat inside it can see those files and follows those instructions. Use one for each ongoing thing: a job search, a renovation, a course, a side business. <b>Where:</b> "Projects" in the sidebar, then "+ New Project". Add files with the <b>+</b> in the knowledge area and click "Set project instructions". <b>Plans:</b> Free accounts can make up to five; paid plans get more. The full walkthrough is in <a href="#read-projects-in-claude-and-chatgpt">Projects in Claude and ChatGPT, explained</a>.</p>
+
+<pre class="prompt" data-label="Prompt 6 · Project instructions starter">This Project is for [goal, e.g. renovating our bathroom by March].
+The files here are [what you uploaded, e.g. the quote from the builder, our floor plan, our budget].
+In every chat:
+- Check the files before answering and say which file you used.
+- Keep a running list of decisions we've made and open questions.
+- Keep costs in € and flag anything that would push us over [budget].
+- When I ask for a plan, give dates and the next action first.</pre>
+
+<h3>Artifacts</h3>
+
+<p><b>What it does:</b> an artifact is a finished thing Claude makes in its own window next to the chat: a web page, an interactive checklist, a chart, a diagram, a small tool. You can keep editing it by chatting. Artifacts are private to you until you share them. <b>Where:</b> just ask for one. All your artifacts are in the "Artifacts" tab in the sidebar. <b>Plans:</b> all, with templates and extras on paid plans. Claude can also draw charts and diagrams right inside the chat.</p>
+
+<pre class="prompt" data-label="Prompt 7 · Build a little tool">Build me an interactive packing checklist for [trip, e.g. a 5-day work trip to Amsterdam in November]. Group items by category, let me tick items off, add my own items, and show how many are left. Make it clean and readable on a phone. Ask me two or three questions first about the trip if it would help.</pre>
+
+<h3>Docs, Slides and Design</h3>
+
+<p><b>What it does:</b> artifacts built for finished work. Docs are editable documents that export to Word, PDF, Markdown or Google Docs. Slides are decks that export to PowerPoint or PDF. Design makes one-pagers, landing pages and clickable prototypes. <b>Where:</b> ask in a chat, choose "Output" in the message box, or start from a template in the Artifacts tab. Design also has its own space at claude.ai/design. <b>Plans:</b> Pro, Max, Team and Enterprise. Docs and Design were labelled beta when I checked.</p>
+
+<pre class="prompt" data-label="Prompt 8 · Notes to deck">Turn these notes into a 6-slide deck for [audience, e.g. my team's Monday meeting]. One idea per slide, a clear title on each, no more than 4 short bullets, and a final slide with decisions needed. Keep the design simple and calm. Here are my notes: [paste notes]</pre>
+
+<h3>Real files: Word, Excel, PowerPoint and PDF</h3>
+
+<p><b>What it does:</b> Claude creates and edits actual files you can download, including spreadsheets with working formulas. <b>Where:</b> it needs "Code execution and file creation" switched on under <b>Settings</b>, then <b>Capabilities</b>. Then just ask. <b>Plans:</b> all.</p>
+
+<pre class="prompt" data-label="Prompt 9 · A spreadsheet that works">Create an Excel file to track my monthly spending in €. Columns: date, description, category, amount, paid by. Add a second sheet that totals each category per month with formulas, and a simple chart. Fill in 5 example rows so I can see how it works, and explain in 3 lines how to add my own.</pre>
+
+<h3>Memory and chat search</h3>
+
+<p><b>What it does:</b> memory keeps short notes about you and your work across chats. Chat search lets Claude look through past conversations when you ask, such as "what did we decide about the venue?" <b>Where:</b> <b>Settings</b>, then <b>Memory</b>. To switch memory off for one chat, click <b>+</b> before your first message and toggle Memory. Each Project keeps its own memory, separate from your other chats. <b>Plans:</b> memory on all plans; chat search on paid plans.</p>
+
+<pre class="prompt" data-label="Prompt 10 · Check what it knows">Tell me what you currently remember about me and my work, as a bulleted list. Mark anything that seems out of date or that you're unsure about. Then ask me whether to correct or remove anything.</pre>
+
+<h3>Incognito chats</h3>
+
+<p><b>What it does:</b> a temporary chat that isn't saved to your history, isn't added to memory and isn't used for model training. <b>Where:</b> start a new chat (outside a Project) and click the ghost icon in the top right corner. A border and the label "Incognito chat" show it's on. <b>Plans:</b> all. Once closed, it's gone for you. Anthropic still keeps it on its systems for 30 days, and in the new experience incognito chats can't create files or run code.</p>
+
+<h3>Connectors</h3>
+
+<p><b>What it does:</b> connectors let Claude read from and act in your other apps, such as Google Drive, Gmail, Google Calendar, Slack, GitHub or Microsoft 365. <b>Where:</b> <b>Customize</b>, then <b>Connectors</b>, then <b>+</b> to browse the directory. In a chat you can also click <b>+</b>, hover "Connectors" and choose "Manage connectors". <b>Plans:</b> directory connectors on all plans; Free accounts can add one custom connector. Claude can only see what your own account can see. Read <a href="#read-connectors-and-mcp">Connectors and MCP, explained simply</a> before you connect your email.</p>
+
+<pre class="prompt" data-label="Prompt 11 · Prepare my week">Look at my calendar for this week. For each meeting, tell me in one line what I should prepare and whether anything clashes or looks too tight. Then suggest two blocks of focus time I could protect. Don't change or send anything; just give me the list.</pre>
+
+<h3>Skills</h3>
+
+<p><b>What it does:</b> a Skill is a saved set of instructions (and sometimes templates or small scripts) that Claude loads when a task calls for it. Anthropic's own Skills already make Claude better at Word, Excel, PowerPoint and PDF files. You can add others, or make your own for a task you repeat, like a weekly report in your company's format. <b>Where:</b> <b>Customize</b>, then <b>Skills</b>, then <b>+</b> and "Browse skills". <b>Plans:</b> all, with file creation switched on. The step-by-step is in <a href="#read-claude-skill-for-repeat-task">Turn a task you repeat into a Claude Skill</a>.</p>
+
+<pre class="prompt" data-label="Prompt 12 · Draft a Skill">I do this task every [week]: [describe it, e.g. turn my sales notes into a client update email]. Interview me, one question at a time, about how I do it: the inputs, the steps, the format, the tone and common mistakes. When you have enough, write it up as a Skill I can save, with a short description of when to use it and clear step-by-step instructions.</pre>
+
+<h3>Voice mode</h3>
+
+<p><b>What it does:</b> a spoken, back-and-forth conversation. Good for thinking out loud on a walk, practising a language or talking through a decision. <b>Where:</b> the sound-wave icon in the message box (on mobile it sits next to the microphone). Dictation, which just types what you say, is a separate feature. Change the voice under <b>Settings</b>, then <b>General</b>. <b>Plans:</b> all. Languages other than English were in beta when I checked.</p>
+
+<pre class="prompt" data-label="Prompt 13 · Talk it through">I want to think out loud about [decision, e.g. whether to take a job that pays more but has a longer commute]. Ask me one question at a time. Keep your replies short, under three sentences. After about ten questions, summarise what I seem to care about most and what I haven't considered.</pre>
+
+<h3>Multi-step tasks</h3>
+
+<p>Longer jobs used to live in a separate mode called Cowork. In September 2026 Anthropic began merging it into normal chat, starting with Pro and Max. You describe the job, and Claude works through the steps: searching, running code, creating files and using connected apps. In the desktop app it can also work with folders on your computer. You choose how independent it is: Manual asks before each action, Auto carries on. Stay on Manual until you trust a task.</p>
+
+<pre class="prompt" data-label="Prompt 14 · A small multi-step job">Find the opening hours, prices and booking rules for three [type of place, e.g. climbing gyms] near [area]. Put them in a one-page document with a comparison table and a short recommendation for a beginner on a budget. Ask before doing anything other than searching and creating the document.</pre>
+
+<h3>Scheduled tasks</h3>
+
+<p><b>What it does:</b> runs a prompt on a timetable, such as every weekday morning or every Monday. Tasks run in the cloud, so your computer can be off. <b>Where:</b> open "Scheduled", click "New task", then choose "Create with Claude" or "Set up manually". You can pick hourly, daily, weekdays, weekly or run on demand. <b>Plans:</b> Pro, Max, Team and Enterprise. It was mainly in the desktop app, with web and mobile in beta, when I checked.</p>
+
+<pre class="prompt" data-label="Prompt 15 · Monday briefing">Every Monday at 8am (this needs my calendar and email connected): look at my calendar for the week and my unread emails from the last 3 days. Give me (1) the three things that most need my attention, (2) any deadline this week, and (3) emails that need a reply, each with a one-line suggested response. Keep it under 250 words. Do not send or change anything.</pre>
+
+<h3>Claude in Chrome</h3>
+
+<p><b>What it does:</b> a Chrome extension that lets Claude read web pages, click, fill in forms and work across tabs for you. It only works in Google Chrome on a computer, not other browsers or phones. <b>Where:</b> install it from the Chrome Web Store and sign in with your Claude account. <b>Plans:</b> paid plans only.</p>
+
+<div class="callout warn"><b>Heads-up</b><p>A web page can contain hidden text written to trick an AI into doing something you didn't ask for. Don't let Claude in Chrome work on banking, payment or health sites. Watch what it does the first few times, and use settings that make it ask before it acts. Anthropic's help page "Use Claude in Chrome safely" is worth five minutes.</p></div>
+
+<pre class="prompt" data-label="Prompt 16 · Compare across tabs">I have three product pages open in different tabs. Read each one and make a table comparing price, delivery time, return policy and warranty. Don't click any buy buttons, don't add anything to a basket, and don't fill in any forms.</pre>
+
+<h3>Claude for Microsoft 365</h3>
+
+<p><b>What it does:</b> add-ins that put Claude inside Excel, PowerPoint, Word and Outlook. It can explain a spreadsheet, fix a formula, build slides from a workbook or tidy a document, and it carries context between the apps. It only works on files you have open. <b>Where:</b> install the add-ins from the Microsoft Marketplace. On Team and Enterprise plans an admin has to switch it on first. <b>Plans:</b> paid plans.</p>
+
+<pre class="prompt" data-label="Prompt 17 · Explain this spreadsheet">Explain what this workbook does as if I'd just inherited it. List each sheet and its purpose, the key formulas and what they calculate, and anything that looks fragile, such as hard-coded numbers or broken references. Don't change anything yet.</pre>
+
+<h3>Claude Code, for building software</h3>
+
+<p>Claude Code is the version of Claude that works directly on software projects. It reads code, edits files and runs commands. It works in a terminal, in code editors, in the "Code" tab of the desktop app and in the browser at claude.ai/code. It needs a paid plan or a developer account. For simple pages and tools, artifacts are enough.</p>
+
+<h2>45 things to try, by life area</h2>
+
+<p>Short prompts to copy and adapt. Replace anything in [brackets], then follow up with what you actually need.</p>
+
+<h3>Work</h3>
+<ol>
+<li><b>Meeting prep.</b> "I'm meeting [who] about [topic] on [day]. Give me the three outcomes I should aim for, two objections they might raise with a reply to each, and a one-line opener."</li>
+<li><b>Long thread, short version.</b> "Summarise this email thread in five lines: what's decided, what's still open, and who owes what by when." Paste the thread.</li>
+<li><b>Say no nicely.</b> "Write a reply declining this request without damaging the relationship. Offer one smaller thing I could do instead. Under 100 words." Paste the request.</li>
+<li><b>Notes to tasks.</b> "Turn these meeting notes into a table with: task, owner, deadline, and anything unclear I should confirm." Paste your notes.</li>
+<li><b>Status update.</b> "Write my weekly update for [manager] from these bullet points. Lead with wins, then risks, then what I need from them. Keep it scannable."</li>
+<li><b>How-to guide.</b> "I'll describe how I do [process] in a messy brain dump. Turn it into numbered steps a new colleague could follow, and list the questions a newcomer would still have."</li>
+<li><b>Hard conversation.</b> "Help me prepare to ask my manager for [e.g. a deadline extension]. Give me an opening line, my two strongest reasons, and how to respond if they say no."</li>
+</ol>
+
+<h3>Writing</h3>
+<ol start="8">
+<li><b>Half as long.</b> "Cut this to half its length without losing any facts. Then list what you removed so I can check." Paste the text.</li>
+<li><b>Sound like me.</b> "Here are three things I've written. Describe my style in five bullet points, then rewrite the draft below in that style."</li>
+<li><b>Tired-reader test.</b> "Read this as a busy reader who skims. Where would you stop reading, what's confusing, and what's the one change that would help most?"</li>
+<li><b>Voice note to email.</b> "This is a transcript of a voice note. Turn it into a clear, friendly email with a subject line. Keep my meaning, drop the rambling."</li>
+<li><b>Plain English.</b> "Rewrite this so a 14-year-old could understand it. Keep every important point, and list any terms you had to simplify."</li>
+<li><b>Proofread.</b> "Check this for spelling, grammar and unclear sentences in British English. Show each change as before and after. Don't change my tone."</li>
+</ol>
+
+<h3>Learning</h3>
+<ol start="14">
+<li><b>Explain it properly.</b> "Explain [topic] to me as a smart beginner. Use one everyday example. Then ask me three questions to check I understood."</li>
+<li><b>Quiz me.</b> "Quiz me on [topic], one question at a time. Wait for my answer, tell me if I'm right and why, and make the questions harder as I improve."</li>
+<li><b>A 30-day plan.</b> "Make a 30-day plan to learn the basics of [skill] in 20 minutes a day. Each day: one small task and how I'll know I've done it."</li>
+<li><b>Read a chart.</b> Upload a screenshot of a chart or table. "What does this show, what's the main takeaway, and what could be misleading about it?"</li>
+<li><b>Argue the other side.</b> "Summarise this article in five bullets, then give the strongest argument against its main point." Paste the article or link it with web search on.</li>
+<li><b>Language partner.</b> "Have a simple conversation with me in [language] about [topic]. After each of my replies, correct my mistakes in English, then continue the conversation."</li>
+<li><b>Flashcards.</b> "Turn these notes into 20 flashcards as a table, question on the left, short answer on the right. Focus on what's most likely to come up in an exam."</li>
+</ol>
+
+<h3>Money and admin</h3>
+<p>General information only, not financial, legal or tax advice. For big decisions or anything with a legal deadline, check with a qualified professional or the official body. Remove account numbers, ID numbers and passwords before you upload anything.</p>
+<ol start="21">
+<li><b>What does this letter want?</b> Upload or photograph it. "What do they want from me, by when, and what happens if I miss it? Draft a short reply if I need one."</li>
+<li><b>Compare two offers.</b> "Compare these two [phone, energy, insurance] offers in a table: monthly cost over 24 months in €, notice period, hidden fees and what I'd lose by switching."</li>
+<li><b>Budget from a bank export.</b> "Here's a CSV of last month's spending with account details removed. Group it into categories, total each in €, and point out three things that look unusual or easy to cut."</li>
+<li><b>Subscription check.</b> "Here's a list of my subscriptions and what I pay. Which overlap, which am I probably not using, and what would I save each year by cancelling them?"</li>
+<li><b>Refund request.</b> "Write a firm, polite request for a refund for [what happened]. Include the order number placeholder, what I want and a reasonable deadline. Under 150 words."</li>
+<li><b>Before you sign.</b> "I'm about to sign this [rental contract]. List the clauses I should understand, anything unusual for a contract like this, and questions to ask before signing."</li>
+<li><b>Paperwork checklist.</b> "Make a checklist of the documents I'll likely need to [do my tax return as an employee in Germany]. Mark which ones I should confirm with the official source."</li>
+</ol>
+
+<h3>Home and life</h3>
+<ol start="28">
+<li><b>Fridge dinners.</b> "Plan three dinners from what I have: [items]. Under 30 minutes each, and list anything I'd need to buy."</li>
+<li><b>Trip plan.</b> "Plan [3 days in city] for two people who like [interests] and hate rushing. One area per day, rough costs in €, and one rainy-day backup."</li>
+<li><b>Fair chores.</b> "Make a fair weekly cleaning rota for [number] flatmates with these jobs: [list]. Rotate weekly and make it a printable table."</li>
+<li><b>Gift ideas.</b> "Suggest 10 gift ideas under €[amount] for [person] who likes [interests] and already has [things]. Mix practical and fun, and say why each fits."</li>
+<li><b>Fix it.</b> Upload a photo. "What is this problem, what are the likely causes, and what can I safely check myself before calling someone?"</li>
+<li><b>Moving checklist.</b> "I'm moving from [place] to [place] on [date]. Give me a week-by-week checklist starting 8 weeks before, including address changes and contracts to cancel."</li>
+<li><b>Party timeline.</b> "Plan a [birthday dinner for 8] at home on [date]. A shopping list, a prep timeline for the day and a simple menu that can mostly be made ahead."</li>
+</ol>
+
+<h3>Creating</h3>
+<ol start="35">
+<li><b>Content calendar.</b> "Make a 4-week content plan for [platform] about [topic]. Two posts a week, each with a hook, the main point and a format idea, as a table."</li>
+<li><b>Carousel outline.</b> "Outline a 7-slide carousel teaching [one useful idea]. Slide 1 is the hook, the last slide is a question to the reader. Max 25 words per slide."</li>
+<li><b>Short video script.</b> "Write a 45-second video script about [topic]. Strong first line, three quick points, natural spoken language, and a closing line that invites comments."</li>
+<li><b>Newsletter draft.</b> "Here are my notes for this month's newsletter. Turn them into a warm, scannable issue with a subject line and three possible preview lines."</li>
+<li><b>Names.</b> "Give me 20 name ideas for [project], grouped by style. Then pick the best five and say how I could check whether they're already taken."</li>
+<li><b>Chart from numbers.</b> "Make an interactive chart from these numbers: [paste]. Pick the best chart type and write a one-sentence takeaway above it."</li>
+</ol>
+
+<h3>Building</h3>
+<ol start="41">
+<li><b>One-page website.</b> "Build a one-page website for [idea or small business]: a headline, three benefits, a short about section and a contact button. Clean and mobile friendly." Then ask for changes. The full version is in <a href="#read-build-website-no-code">Build your own website with AI, no code</a>.</li>
+<li><b>Habit tracker.</b> "Build a habit tracker for [3 habits] with a monthly grid I can tick, a current streak counter and a clean, calm design."</li>
+<li><b>Freelance rate calculator.</b> "Build a calculator where I enter target yearly income in €, holiday weeks, billable hours per week and costs, and it shows the hourly rate I'd need."</li>
+<li><b>Spreadsheet formula.</b> "In Google Sheets, I have [describe columns]. Write a formula that [what you want], explain how it works, and tell me which cell to put it in."</li>
+<li><b>App idea to spec.</b> "I have an idea for an app: [idea]. Ask me questions until you understand it, then write a one-page spec: who it's for, the three core features, what's out of scope and the first version I could build."</li>
+</ol>
+
+<h2>Bigger project prompts</h2>
+
+<p>These are for when you want Claude as a partner over days or weeks. I'd run each one inside its own Project so the files and decisions stay together.</p>
+
+<h3>The job-search kit</h3>
+<pre class="prompt" data-label="Prompt 18 · Job-search kit">I'm looking for a job as [role] in [location or remote]. I've uploaded my CV and two job ads I like.
+1. Read my CV and tell me the three strongest things and the three weakest things from a recruiter's point of view.
+2. Compare my CV with each job ad: what matches, what's missing, and which words from the ad I'm not using.
+3. Suggest edits for my CV for the first ad. Keep every claim true to what's in my CV. Don't invent experience.
+4. Draft a short, human-sounding cover letter for that ad, under 250 words.
+Ask me questions before step 3 if you need more detail about my experience.</pre>
+
+<h3>The life-admin system</h3>
+<pre class="prompt" data-label="Prompt 19 · Life-admin system">Help me organise my household paperwork. I'll upload letters, contracts and bills one by one (with account numbers removed).
+For each document, add a row to a running table: what it is, who it's from, key dates, amounts in €, what action is needed and by when.
+After each upload, show me the updated table and the next three deadlines.
+When I say "monthly review", list everything due in the next 30 days and anything I should cancel or renegotiate.</pre>
+
+<h3>The trip planner</h3>
+<pre class="prompt" data-label="Prompt 20 · Trip planner">Plan a [length] trip to [place] for [who] in [month], with a total budget of €[amount] excluding flights.
+Use web search for current opening times and prices, and link your sources.
+Give me: a day-by-day plan with one main thing and one optional thing each day, a budget table, a packing list, and three things locals would say tourists get wrong.
+Ask me about pace, interests and dietary needs before you start. When we're done, put it into one document I can download.</pre>
+
+<h3>The 30-day learning sprint</h3>
+<pre class="prompt" data-label="Prompt 21 · Learning sprint">I want to get to [specific level, e.g. confident with Excel pivot tables] in 30 days with 30 minutes a day.
+First, ask me five questions to find out what I already know.
+Then make a plan in four weekly stages, each ending with a small project that proves I've learned it.
+Each day I'll come back and say "day X". Give me that day's task, check my work when I share it, and adjust the plan if I'm ahead or behind.</pre>
+
+<h3>The side-project launch plan</h3>
+<pre class="prompt" data-label="Prompt 22 · Side-project plan">I want to start [side project, e.g. selling handmade candles online] with about [hours] a week and €[budget].
+Interview me first: ask up to eight questions, all at once.
+Then give me: who my first customers are likely to be, the simplest version I could launch in 4 weeks, a week-by-week plan, the costs in €, and the three biggest risks with a cheap way to test each.
+Be honest if the idea has a weak spot.</pre>
+
+<h3>The weekly review</h3>
+<pre class="prompt" data-label="Prompt 23 · Weekly review">Every Friday I'll paste a quick brain dump of my week. Turn it into:
+1. Wins, even small ones.
+2. What slipped and the likely reason.
+3. The three priorities for next week, each with a first step under 15 minutes.
+4. One thing to stop doing.
+Keep it short and direct. If you notice the same problem three weeks running, point it out.</pre>
+
+<div class="callout tip"><b>Tip</b><p>Once a prompt like the weekly review works, you can save it as a Skill or, on a paid plan, a scheduled task. That's how a one-off chat becomes a habit.</p></div>
+
+<h2>Privacy and your data</h2>
+
+<p>Here's what Anthropic's privacy and help pages said when I checked, for personal Free, Pro and Max accounts.</p>
+
+<ul>
+<li><b>Model training is your choice.</b> Under <b>Settings</b>, then <b>Privacy</b>, the model-improvement toggle decides whether new chats can be used to train future models. If it's on, de-identified data from new or resumed chats can be kept for up to 5 years for training. If it's off, new chats aren't used for training. Turning it off doesn't undo training that has already happened. See Anthropic's page on <a href="https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings" target="_blank" rel="noopener">changing your model improvement setting</a>.</li>
+<li><b>Deleting chats.</b> Hover over a chat in the sidebar, click the three dots and choose "Delete". To delete many, use "Select" in the same menu, then "Select all". Deleted chats vanish from your history immediately and are removed from Anthropic's back-end systems within 30 days, according to the help page on <a href="https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation" target="_blank" rel="noopener">deleting a conversation</a>.</li>
+<li><b>Incognito.</b> Not saved to history or memory and never used for training, even if training is on. Anthropic still keeps it on its systems for 30 days.</li>
+<li><b>Feedback.</b> If you click thumbs up or down, the conversation linked to that feedback can be kept for 5 years. Worth knowing before you rate a sensitive chat.</li>
+<li><b>Safety checks.</b> Chats flagged by automated safety systems can be kept longer, up to 2 years, whatever your settings.</li>
+<li><b>Work accounts.</b> Team and Enterprise accounts fall under separate business terms, and your company's admin controls many settings. Ask them before you upload company data.</li>
+</ul>
+
+<div class="callout warn"><b>Never paste</b><p>Passwords, PINs, full card or bank account numbers, ID or passport numbers, tax ID numbers or other people's private information without their consent. Black out those details on a document before you upload it. Claude doesn't need them to explain the letter.</p></div>
+
+<p>For a cross-app checklist of these settings, see <a href="#read-ai-privacy-settings">Five privacy settings to check in your AI apps</a>. Retention periods come from Anthropic's page <a href="https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data" target="_blank" rel="noopener">How long do you store my data?</a>.</p>
+
+<h2>Common mistakes</h2>
+
+<ul>
+<li><b>One giant chat for everything.</b> Answers get muddled and your allowance drains. Start a new chat per topic, and use a Project when a topic keeps coming back.</li>
+<li><b>One-line prompts for big jobs.</b> "Write my cover letter" gets a generic letter. Give context, the reader and what good looks like.</li>
+<li><b>Accepting the first draft.</b> The first answer is a starting point. Two or three short follow-ups usually make it twice as good.</li>
+<li><b>Trusting numbers without checking.</b> Claude can add up wrongly, misread a table or quote an old price. Ask it to show its working, then check the figures that matter.</li>
+<li><b>Connecting everything on day one.</b> Each connector is access to your data. Start with one you'd actually use, like your calendar, and add more later. <a href="#read-connectors-worth-setting-up">4 connectors worth setting up first</a> helps you choose.</li>
+</ul>
+
+<h2>What Claude can't do (or shouldn't)</h2>
+
+<p>Claude is strong at language and weaker wherever you need certainty. It can invent a source, a quote or a legal rule that sounds right, and it will usually try to help even when it should push back. So use it to understand, draft, compare and plan, then make the final call yourself. For health symptoms, legal disputes, tax filings and big money decisions, use it to prepare good questions for a professional, not to replace one. If you want to compare it with other assistants for a particular job, see <a href="#read-pick-your-ai-by-job">ChatGPT, Claude or Gemini? Pick by job, not by hype</a>.</p>
+
+<h2>When it gets stuck</h2>
+
+<ul>
+<li><b>"The answer is generic."</b> Add context: who it's for, an example of what you like, and what you don't want. Or ask, "What would you need to know to make this specific to me?"</li>
+<li><b>"It ignored my instruction."</b> Put the most important rule at the end of your message, and keep instructions short. In a long chat, start fresh and restate the rules.</li>
+<li><b>"I hit my usage limit."</b> Wait for the reset (Claude shows when), switch to a lighter model or lower effort, turn off tools you aren't using, and start a new chat instead of extending a long one.</li>
+<li><b>"It can't open my file."</b> Switch on file creation under Capabilities (needed for spreadsheets), export the file as PDF, or paste the text in.</li>
+<li><b>"The facts look wrong."</b> Switch on web search and ask, "Check this against current sources and link them." For anything important, open the source yourself.</li>
+<li><b>"A feature in this guide isn't there."</b> Some features need a paid plan, some roll out gradually, and work accounts can have them switched off by an admin. Search the help centre for the feature's name.</li>
+</ul>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>I want to…</th><th>Use</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td>Set how Claude talks to me</td><td>Instructions for Claude</td><td>Settings, General</td></tr>
+<tr><td>Control what it remembers</td><td>Memory</td><td>Settings, Memory</td></tr>
+<tr><td>Keep a chat off the record</td><td>Incognito</td><td>Ghost icon, new chat</td></tr>
+<tr><td>Ask about a document</td><td>File upload</td><td>+ then Add files or photos</td></tr>
+<tr><td>Get current facts with links</td><td>Web search</td><td>+ then Web search</td></tr>
+<tr><td>Get a deep, cited report</td><td>Research (paid)</td><td>+ then Research</td></tr>
+<tr><td>Work on something for weeks</td><td>Projects</td><td>Sidebar, Projects</td></tr>
+<tr><td>Make a tool, page or chart</td><td>Artifacts</td><td>Just ask; Artifacts tab</td></tr>
+<tr><td>Make a doc, deck or design</td><td>Docs, Slides, Design (paid)</td><td>Output in message box</td></tr>
+<tr><td>Get a real Excel or Word file</td><td>File creation</td><td>Settings, Capabilities</td></tr>
+<tr><td>Let it use my apps</td><td>Connectors</td><td>Customize, Connectors</td></tr>
+<tr><td>Save a repeat task</td><td>Skills</td><td>Customize, Skills</td></tr>
+<tr><td>Run something every week</td><td>Scheduled tasks (paid)</td><td>Scheduled, New task</td></tr>
+<tr><td>Talk instead of type</td><td>Voice mode</td><td>Sound-wave icon</td></tr>
+</tbody></table></div>
+<p><b>The brief:</b> situation, task, what good looks like, format, then "ask me questions first".</p>
+<p><b>The model rule:</b> Sonnet for most things, Opus for hard things, Haiku for quick things.</p>
+<p><b>The safety rule:</b> no passwords, ID or bank numbers, and check anything that matters.</p>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Create your account at claude.ai and install the mobile app.</li>
+<li>Paste Prompt 1 into Settings, Instructions for Claude, and fill in the brackets.</li>
+<li>Check Settings, Memory and Settings, Privacy, and choose what you're comfortable with.</li>
+<li>Switch on "Code execution and file creation" under Settings, Capabilities.</li>
+<li>Upload one real document you've been avoiding and use Prompt 3 on it.</li>
+<li>Try one prompt each from three different life areas above.</li>
+<li>Create one Project for something ongoing in your life and add its files.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Is the free plan good enough?</summary><p>For learning and everyday use, often yes. Free includes web search, file uploads, memory, voice, artifacts, file creation, connectors and up to five Projects, using the Sonnet and Haiku models. You'll notice the limits when you work with long documents or have long sessions. That's the moment to consider Pro.</p></details>
+
+<details class="faq"><summary>Is Claude safe to use for work?</summary><p>For general drafting and thinking, yes, as long as you follow your employer's rules. Don't paste confidential company or customer data into a personal account. If your company has a Team or Enterprise plan, use that, because it comes with business terms and admin controls.</p></details>
+
+<details class="faq"><summary>Does Claude learn from my chats?</summary><p>On personal plans it's up to you. The model-improvement toggle under Settings, Privacy decides whether new chats can be used for training. Separately, memory lets Claude remember facts about you for your own future chats, which you can view, edit or switch off under Settings, Memory. Incognito chats are never used for training.</p></details>
+
+<details class="faq"><summary>Can I use Claude in German or another language?</summary><p>Yes. You can write to it in many languages and it will answer in the same one. Voice mode supports languages beyond English too, though that was still in beta when I checked.</p></details>
+
+<details class="faq"><summary>I already use ChatGPT. Should I switch?</summary><p>You don't have to pick one forever. Many people use both for different jobs. Try Claude for a week on writing, long documents and Projects, and compare. The matching beginner guide for the other side is <a href="#read-chatgpt-from-zero">ChatGPT from zero</a>.</p></details>

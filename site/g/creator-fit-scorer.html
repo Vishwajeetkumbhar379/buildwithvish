@@ -1,0 +1,85 @@
+<p>The shortlist step in a creator campaign eats the most time and is the hardest to defend to a client. Why this creator and not that one? Creator Fit Scorer is a small open-source tool that ranks a list of creators against a brand brief, gives a plain-language reason for every score, and flags risky accounts. It can also ask Claude for a second opinion and a first outreach draft. It's the rubric from <a href="#read-shortlist-creators-with-ai">Shortlist creators with AI, not follower counts</a>, turned into code. You can run the sample in about 10 minutes if you have Python, and this page tells you what the scores mean and what they miss.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Input: a CSV of creators and a short brief file. Output: a ranked report and a CSV, with reasons and risks per creator.</li>
+<li>Five pillars, set by the brief: audience, content, engagement health, cost and brand safety.</li>
+<li>Rules do the scoring. The optional AI layer adds a summary, a content idea and an outreach draft.</li>
+<li>The example creators are fictional. It reads numbers you supply and judges nothing about how anyone looks.</li>
+<li>Version 0.1.0, seven tests. A spreadsheet version for non-coders is linked at the end.</li>
+</ul></div>
+
+<h2>The problem, and who it's for</h2>
+<p>I spent years on the brand side of influencer marketing, on more than 850 creator deals. The shortlist was always the same job: open a spreadsheet of creators, check audience, content, engagement and price, then write down reasons that a client might challenge. It's slow, and two people rarely score the same creator the same way. I wanted it fast, consistent and explainable.</p>
+<p>It's for brand-side marketers, small agencies and anyone who has to justify a creator budget, and who can run a command in a terminal.</p>
+
+<h2>What it does, step by step</h2>
+<ol>
+<li><b>Read your creators.</b> One row each: handle, platform, followers, average reach, engagement rate, top audience country, dominant audience age band, topics, estimated fee and any recent flags. Lists use semicolons.</li>
+<li><b>Read your brief.</b> Brand, product, goal, target countries and ages, topics, priority platforms, budget, a cap on cost per 1,000 people reached, blocked topics and the pillar weights.</li>
+<li><b>Score five pillars from 0 to 100.</b> Details below.</li>
+<li><b>Combine them.</b> The brief's weights give one total. The defaults are audience 30%, content 25%, engagement 25%, cost 10% and brand safety 10%, and they are adjusted to add up to one if you change them.</li>
+<li><b>Give a verdict.</b> Shortlist at 75 or more, maybe from 55 to 74, pass below 55. Any creator covering a blocked topic is rejected, whatever their total.</li>
+<li><b>Explain.</b> Each creator gets "Why" lines and "Watch out" lines, such as "Reach is only 6% of followers; audience may be inactive".</li>
+<li><b>Optionally ask Claude.</b> For the top creators (five by default) among shortlist and maybe, it returns a two-sentence fit summary, a score adjustment of at most 15 points either way, one content idea and a short outreach message.</li>
+</ol>
+<h3>What each pillar checks</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Pillar</th><th>How it's scored</th></tr></thead>
+<tbody>
+<tr><td>Audience fit</td><td>60 points if the top audience country is a target market, 40 if the age band is a target</td></tr>
+<tr><td>Content fit</td><td>Overlap between the creator's topics and the brief's, halved if the platform isn't a priority</td></tr>
+<tr><td>Engagement health</td><td>Engagement compared with a normal band for their follower tier. Too low suggests a passive audience. Very high is flagged as a possible engagement pod. Reach below 8% of followers lowers the score.</td></tr>
+<tr><td>Cost efficiency</td><td>Fee per 1,000 people reached against your cap, plus a warning if one fee takes over 40% of the budget</td></tr>
+<tr><td>Brand safety</td><td>Blocked topics reject outright. Each recent flag costs 35 points.</td></tr>
+</tbody></table></div>
+
+<h2>What's in the repo</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td><code>creator_fit/scoring.py</code></td><td>Pillars, tier bands, weights and verdicts</td></tr>
+<tr><td><code>creator_fit/report.py</code></td><td>The Markdown report and the CSV</td></tr>
+<tr><td><code>creator_fit/llm.py</code></td><td>The optional Claude review</td></tr>
+<tr><td><code>creator_fit/cli.py</code></td><td>The <code>creator-fit</code> command</td></tr>
+<tr><td><code>examples/</code></td><td>Eight fictional creators, a brief and a sample output</td></tr>
+<tr><td><code>tests/</code></td><td>Seven tests, including blocked topics and engagement flags</td></tr>
+</tbody></table></div>
+<p>There are no required dependencies for the rule-based scoring, only Python 3.11 or newer. The Claude layer needs the optional <code>anthropic</code> package and an API key.</p>
+
+<h2>How to run it</h2>
+<p>The repo is <a href="https://github.com/Vishwajeetkumbhar379/creator-fit-scorer" target="_blank" rel="noopener">github.com/Vishwajeetkumbhar379/creator-fit-scorer</a>. From the README:</p>
+<ol>
+<li>Clone it and go into the folder.</li>
+<li>Install it: <code>pip install -e ".[dev]"</code></li>
+<li>Run the sample: <code>creator-fit examples/creators.csv examples/brief.toml</code></li>
+<li>Run the tests: <code>pytest</code></li>
+<li>For the AI layer, run <code>pip install -e ".[ai]"</code>, set <code>ANTHROPIC_API_KEY</code>, and add <code>--ai --top 5</code> to the command.</li>
+</ol>
+<p>It prints the ranking and writes <code>shortlist.md</code> and <code>ranked.csv</code> to a folder called <code>out</code> (change it with <code>--out</code>). In the sample, five creators reach the shortlist, one is a maybe, one is a pass, and one is rejected for covering a blocked topic.</p>
+<div class="callout warn"><b>Privacy and fairness</b><p>Use the audience figures creators share in their own analytics or media kit. Don't guess a creator's background, beliefs or looks. The tool scores numbers and topics only, and "recent flags" are notes that you add after your own checks. Keep them factual and evidenced, and never put private information about individuals into the files.</p></div>
+
+<h2>What it can't do</h2>
+<ul>
+<li><b>It can't verify your numbers.</b> It trusts the CSV. Audience data, reach and fees come from you, and fake followers or inflated screenshots pass straight through.</li>
+<li><b>The engagement bands are rules of thumb.</b> The code notes they are rough, Instagram-style figures for spotting outliers. Tune them for each platform.</li>
+<li><b>It sees one country and one age band.</b> Real audiences are mixed, and a creator with a split audience loses detail here.</li>
+<li><b>It can't judge creative quality.</b> It can't tell whether someone's content is good, whether their audience trusts them or whether they'd suit your product. That's what watching their work is for.</li>
+<li><b>The AI adjustment doesn't change the ranking.</b> The adjustment (up to 15 points) is shown next to the score in the report and in the CSV, but the order and the verdicts come from the rules. Read the AI notes as comments.</li>
+<li><b>It doesn't pull live data.</b> The README's roadmap lists platform data, audience overlap between creators and a simple web interface as ideas, not features.</li>
+<li><b>A score isn't a decision.</b> Contracts, usage rights and fit with the campaign still need a person. See <a href="#read-creator-contract-red-flags">7 clauses in creator contracts that quietly cost money</a>.</li>
+</ul>
+
+<h2>What building it taught me</h2>
+<ul>
+<li><b>Explainability beats cleverness.</b> A client accepts a lower score if the reasons are on the page. A mysterious number gets challenged.</li>
+<li><b>Let the rules own the ranking.</b> AI is good at tone and ideas, and weaker at being consistent. Keeping scoring in code and AI to commentary makes the output repeatable.</li>
+<li><b>Make the brief carry the weights.</b> A beauty launch and a tech launch value audience and price differently. Putting weights in the brief keeps that decision visible.</li>
+<li><b>A flag should be a question.</b> "Engagement is unusually high" means check it. It doesn't mean the creator cheated.</li>
+</ul>
+
+<h2>Build a simple version without code</h2>
+<p>If you'd rather use a spreadsheet, follow <a href="#read-creator-scorer-sheet">Build a creator scorer in Google Sheets</a>. It uses the same logic with formulas. Once you have a shortlist, <a href="#read-creator-outreach-that-gets-replies">Creator outreach that actually gets replies</a> helps with the first message. For a chat-only version, try this:</p>
+<pre class="prompt" data-label="Prompt 1 · Score creators against a brief">Here is my brief: [brand, product, goal, target countries and ages, topics, budget, blocked topics]. Here are my creators with their numbers: [paste handle, platform, followers, average reach, engagement rate, top audience country, age band, topics, fee]. Score each from 0 to 100 on audience fit, content fit, engagement health, cost and brand safety, with one sentence of reasons per score. Use only the data I gave you. Flag anything that looks unusual and say what I should check. Do not judge anyone's appearance, background or beliefs. Ask me if a number is missing.</pre>
+<p>Then add a second look at the top few:</p>
+<pre class="prompt" data-label="Prompt 2 · Second opinion and outreach">Take the top three creators from your ranking. For each, give a two-sentence view on whether they fit my brief, one concrete content idea for [product], and a first message of under 90 words that mentions something specific from their topics. No emojis, no hashtags. Tell me what you assumed.</pre>
+<p>Check any figure the AI repeats against the source. It can mix up numbers across a long list.</p>

@@ -1,0 +1,218 @@
+<p>You've heard connectors let your AI assistant see your real calendar, inbox and files. This page tells you which ones to set up first, in what order, and exactly how. It's for people using Claude or ChatGPT who want the useful connectors without connecting their whole life on day one. By the end you'll have up to five connectors running, a first prompt for each, and a short set of permission habits. Give it about 45 minutes, or do one connector a day for a week.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Start with calendar, then email, then your files. Those three answer most "what do I need to do?" questions.</li>
+<li>Add one notes or task app (Notion or Todoist, for example) so the AI can save what it finds.</li>
+<li>Add Zapier last, as a bridge to apps that have no connector of their own.</li>
+<li>Use each one read-only for a few days before you let it write. Keep approvals on for anything that sends, edits or deletes.</li>
+<li>Remove anything you haven't used in a month.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Calendar</b> The easiest win: your week, prep and free time. <i>5 min</i></li>
+<li><b>Email</b> Find what needs a reply and draft it. <i>5 min</i></li>
+<li><b>Drive or files</b> Find, read and compare your documents. <i>5 min</i></li>
+<li><b>A notes or task app</b> Somewhere for the AI to save actions. <i>5 min</i></li>
+<li><b>Zapier</b> One connector that reaches thousands of apps. <i>10 min</i></li>
+<li><b>Permission hygiene</b> A ten-minute check, then monthly. <i>10 min</i></li>
+</ol></div>
+
+<p class="note">Checked in October 2026. AI apps change fast: if a button has moved, search the app's help pages for the feature name.</p>
+
+<h2>Before you start</h2>
+
+<ul>
+<li><b>An account:</b> Claude's directory connectors work on every plan, Free included. In ChatGPT, which apps you get depends on your plan, region and whether it's a work account.</li>
+<li><b>The right logins:</b> know which Google or Microsoft account holds your real calendar and email. Connecting the wrong one is the most common setup mistake.</li>
+<li><b>Permission at work:</b> if it's a work account, check your company allows it. On Claude Team and Enterprise plans an owner has to enable connectors first.</li>
+</ul>
+
+<p>The general setup is the same for every connector:</p>
+<ul>
+<li><b>Claude:</b> <b>Customize</b> in the sidebar, then <b>Connectors</b>, then <b>+</b>. Pick the connector, click <b>Connect</b>, sign in and approve. In a chat, click <b>+</b>, hover over <b>Connectors</b> and check it's switched on.</li>
+<li><b>ChatGPT:</b> <b>Settings</b>, then <b>Plugins</b> (older apps say <b>Apps</b>). Pick the app, select <b>Connect</b>, sign in and review the permissions. In a chat, type <b>@</b> and the app's name.</li>
+</ul>
+
+<p>If you want the background first (what MCP is, why connectors can be risky), read <a href="#read-connectors-and-mcp">Connectors and MCP, explained simply</a>.</p>
+
+<h2>1. Calendar: start here</h2>
+
+<p>Your calendar is the safest high-value connector. The information is useful, rarely secret, and mistakes are easy to spot. It turns "plan my week" from a generic answer into one built around your real meetings.</p>
+
+<h3>Set it up</h3>
+<ol>
+<li>In Claude: <b>Customize</b>, <b>Connectors</b>, <b>+</b>, then <b>Google Calendar</b>, and <b>Connect</b>. If you use Outlook, look for Microsoft 365 in the directory instead.</li>
+<li>Sign in with the account that holds your real calendar, and approve.</li>
+<li>In ChatGPT: <b>Settings</b>, <b>Plugins</b>, find Google (OpenAI's Google app covers Gmail, Calendar, Drive and Contacts) or your Microsoft app, and <b>Connect</b>.</li>
+</ol>
+
+<p>According to <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Anthropic's Google Workspace page</a>, Claude's calendar connector can view events across calendars shared with you, find times when people are free, and create, update or delete events. That last part is why you start read-only.</p>
+
+<h3>First prompts</h3>
+
+<pre class="prompt" data-label="Prompt 1 · The week ahead">Look at my calendar for [this week / next week]. Give me:
+1. The three days that look heaviest, and why.
+2. Any meeting with no description or agenda.
+3. Any clashes, back-to-back blocks over 3 hours, or meetings outside [working hours].
+4. Two blocks of at least 90 minutes I could protect for focused work.
+Keep it under 200 words. Don't change anything in the calendar.</pre>
+
+<pre class="prompt" data-label="Prompt 2 · Prep for one meeting">I have [meeting name] on [day]. From the calendar entry, tell me who's attending, what it's about and how long it is. Then give me a 5-line prep list: what to bring, what to decide, and one question to ask. If the entry has no details, say so and suggest what to ask the organiser.</pre>
+
+<div class="callout tip"><b>Tip</b><p>When you're ready to let it create events, start with ones only you attend, such as focus blocks. Leave meetings with other people until you trust it.</p></div>
+
+<h2>2. Email: find what needs a reply</h2>
+
+<p>Email is where most people lose time and where a connector saves the most. It's also the most sensitive connector on this list, so it comes second, once you're used to how connectors behave.</p>
+
+<h3>Set it up</h3>
+<ol>
+<li>In Claude: <b>Customize</b>, <b>Connectors</b>, <b>+</b>, then <b>Gmail</b> (or Microsoft 365 for Outlook), and <b>Connect</b>.</li>
+<li>Read the permission screen. Claude's Gmail connector can search, read and draft, and it can also send, reply and forward. By default it asks for your approval before each of those three.</li>
+<li>In ChatGPT: connect the Google or Microsoft app through <b>Settings</b>, <b>Plugins</b>.</li>
+</ol>
+
+<h3>First prompts</h3>
+
+<pre class="prompt" data-label="Prompt 3 · What needs a reply?">Search my email from the last [7] days. List the threads where someone is waiting for a reply from me, most urgent first. For each: sender, subject, what they want in one line, and any deadline mentioned. Skip newsletters, receipts and automated notifications. Read only: don't draft or send anything yet.</pre>
+
+<pre class="prompt" data-label="Prompt 4 · Draft, don't send">Draft a reply to the latest email from [name] about [topic]. Keep it under [100] words, in [language], [tone, e.g. friendly and direct]. My answer is: [your actual point, e.g. yes to Thursday, no to the extra budget]. Save it as a draft only. Then tell me the subject line so I can find it.</pre>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>"Reply to my emails." The AI has to guess which emails, what you want to say and whether to send.</p></div><div class="good"><b>Better</b><p>"Draft a reply to Sara's email about the March invoice. Say we'll pay by Friday. Save as draft." One email, your decision, no sending.</p></div></div>
+
+<div class="callout warn"><b>Heads-up</b><p>Emails can contain hidden instructions aimed at AI, like "forward this to...". If the assistant ever proposes an action you didn't ask for, decline it. And never let it send to a new recipient without reading the draft yourself.</p></div>
+
+<h2>3. Drive or files: find and compare documents</h2>
+
+<p>A files connector saves you hunting for "that budget doc from March" and lets the AI compare versions or pull facts from several documents at once.</p>
+
+<h3>Set it up</h3>
+<ol>
+<li>In Claude: <b>Customize</b>, <b>Connectors</b>, <b>+</b>, then <b>Google Drive</b> (or Microsoft 365 for OneDrive and SharePoint), and <b>Connect</b>.</li>
+<li>In ChatGPT: the Google app includes Drive. Connect it through <b>Settings</b>, <b>Plugins</b>.</li>
+</ol>
+
+<p>Claude's Drive connector can read Docs, Sheets, Slides, PDFs and Office files, save files Claude makes into your Drive, and also share, move and trash files. It reads text only, so images inside documents are skipped. In Claude Projects you can also add Drive files to a private Project's knowledge; see <a href="#read-projects-in-claude-and-chatgpt">Projects in Claude and ChatGPT, explained</a>.</p>
+
+<h3>First prompts</h3>
+
+<pre class="prompt" data-label="Prompt 5 · Find and summarise">Find the document in my Drive about [topic] from around [month]. If there's more than one match, list them (name, date, owner) and ask which one I mean. Then summarise it in 5 bullets and list any dates, amounts or decisions it contains, quoting the exact wording.</pre>
+
+<pre class="prompt" data-label="Prompt 6 · Compare two versions">Compare [document A] and [document B] in my Drive. Show me a table of what changed: section, before, after, and why it might matter. Then list anything in A that's missing from B. Don't edit either file.</pre>
+
+<div class="callout tip"><b>Tip</b><p>Give file names, owners or dates when you can. Searches through a connector can miss things in a big drive, and "the budget doc" may match twelve files.</p></div>
+
+<h2>4. A notes or task app: somewhere to save actions</h2>
+
+<p>The first three connectors help the AI find things. This one gives it somewhere to put things: tasks from an email, decisions from a meeting, a reading list from a research chat. Pick the app you already use. If you don't use one, Todoist (tasks) or Notion (notes and simple databases) both have connectors.</p>
+
+<h3>Set it up</h3>
+<ol>
+<li>In Claude: <b>Customize</b>, <b>Connectors</b>, <b>+</b>, then search for your app and <b>Connect</b>. In ChatGPT, look for it under <b>Settings</b>, <b>Plugins</b>.</li>
+<li>Sign in and approve.</li>
+<li>Create one project, list or page called something like "From AI", so anything it adds lands in one place you can check.</li>
+</ol>
+
+<p>Both are verified connectors in Claude's directory, made by the app companies themselves. The <a href="https://claude.com/marketplace/connectors/todoist" target="_blank" rel="noopener">Todoist connector</a> can search, add, complete and delete tasks and projects. The <a href="https://claude.com/connectors/notion" target="_blank" rel="noopener">Notion connector</a> can search and read pages, and create, update, move and duplicate them.</p>
+
+<h3>First prompts</h3>
+
+<pre class="prompt" data-label="Prompt 7 · Email to tasks">Look at the emails from this week that need action from me. Turn each into a task with a short name, a due date (from the email, or ask me) and the sender in the description. Show me the list first. When I say "yes", add them to [Todoist project or Notion page "From AI"] and confirm what you created.</pre>
+
+<pre class="prompt" data-label="Prompt 8 · Weekly review">Look at my [Todoist or Notion] tasks. Show me: what's overdue, what's due this week, and anything with no due date older than 30 days. Suggest 3 tasks to drop or delegate and say why. Don't change anything until I confirm.</pre>
+
+<p>For a full automatic version from meetings, see <a href="#read-meeting-notes-to-tasks">Automate meeting notes into tasks with Zapier</a>.</p>
+
+<h2>5. Zapier: the bridge to everything else</h2>
+
+<p>Plenty of apps don't have a connector yet. Zapier is an automation service that already links to thousands of them, and its connector lets your AI use those links. <a href="https://docs.zapier.com/mcp/home" target="_blank" rel="noopener">Zapier says</a> its MCP server reaches 9,000+ apps. That makes it the one connector that covers your CRM, your shop, your team chat and anything niche.</p>
+
+<h3>Set it up</h3>
+<ol>
+<li>Make a free Zapier account if you don't have one, and connect the apps you want inside Zapier first.</li>
+<li>In Claude: <b>Customize</b>, <b>Connectors</b>, <b>+</b>, then <b>Zapier</b> and <b>Connect</b>. Sign in to Zapier and approve.</li>
+<li>Per <a href="https://docs.zapier.com/mcp/get-started/quickstart" target="_blank" rel="noopener">Zapier's quickstart</a>, it then sets up your server and switches on actions for apps already connected to your Zapier account. Ask for something and it enables the actions it needs.</li>
+<li>In ChatGPT, follow the ChatGPT setup page in Zapier's documentation, since availability depends on your plan.</li>
+</ol>
+
+<div class="callout warn"><b>Costs</b><p>Each successful action through Zapier's MCP uses two tasks from your Zapier plan (failed ones don't count). In October 2026 Zapier's free plan included 100 tasks a month, which is roughly 50 actions, and paid plans started at about $20 a month. Check <a href="https://zapier.com/pricing" target="_blank" rel="noopener">Zapier's pricing page</a> for current numbers.</p></div>
+
+<h3>First prompts</h3>
+
+<pre class="prompt" data-label="Prompt 9 · What can you reach?">Using Zapier, list the apps and actions you can currently use for me. Group them by app, and mark each action as read (looks something up) or write (changes something). Then suggest 3 useful things I could ask for this week. Don't run any actions.</pre>
+
+<pre class="prompt" data-label="Prompt 10 · One safe action">Using Zapier, [post this summary to the #team channel in Slack / add this contact to my sheet "Leads"]. Before you run it, show me the app, the action and every field you'll fill in, and wait for me to say "yes".</pre>
+
+<div class="callout vish"><b>My take</b><p>I'd add Zapier last. It's powerful precisely because it reaches everything, which is also why it deserves the most care. Switch on only the actions you'll use, and turn the others off in Zapier.</p></div>
+
+<h2>Permission hygiene: the ten-minute check</h2>
+
+<p>Each connector is a key. These habits keep the keys under control.</p>
+
+<ol>
+<li><b>Read-only for the first few days.</b> Use questions and summaries before letting a connector create or send.</li>
+<li><b>Drafts, not sends.</b> For email and messages, ask for drafts and send them yourself.</li>
+<li><b>Approvals stay on.</b> If a connector asks before writing, that's the feature working. Don't look for ways around it.</li>
+<li><b>Narrow where you can.</b> In Zapier, enable only the actions you need. Use a separate "From AI" list or folder for things the AI creates.</li>
+<li><b>Mind other people's data.</b> Don't connect accounts holding client, patient or children's data without permission from whoever's responsible for it.</li>
+<li><b>Review monthly.</b> Disconnect anything unused for a month: <b>Customize</b>, <b>Connectors</b> in Claude, or <b>Settings</b>, <b>Plugins</b> in ChatGPT. Also check the app's own security page (for example your Google account's third-party connections) for old access you've forgotten.</li>
+</ol>
+
+<pre class="prompt" data-label="Prompt 11 · Monthly connector check">List every connector or app you can use in this chat. For each: what you can read, what you can change, and the last task in this chat history (if any) where I used it. Then recommend which ones I could disconnect. Present it as a table. Don't take any actions.</pre>
+
+<h2>What these connectors won't do for you</h2>
+
+<ul>
+<li><b>They won't make answers right.</b> The AI can miss an email, pick the wrong "Sara" or misread a date. Check before you act, especially on anything with money or deadlines.</li>
+<li><b>They won't run by themselves.</b> Connectors work when you ask. For something that runs every Monday, see <a href="#read-report-that-writes-itself">A weekly report that writes itself</a>.</li>
+<li><b>They won't fix messy systems.</b> If your files are called "final_v7", the AI will struggle too. A little tidying helps both of you.</li>
+<li><b>They won't replace your judgement on sensitive replies.</b> Use drafts as a starting point for anything personal, legal or about money.</li>
+</ul>
+
+<h2>When it gets stuck</h2>
+
+<ul>
+<li><b>"I can't access your calendar."</b> The connector is off for this chat. Click <b>+</b>, hover over Connectors and switch it on (or type @ and the app name in ChatGPT).</li>
+<li><b>It shows the wrong calendar or inbox.</b> You connected a different account. Disconnect it and reconnect with the right one.</li>
+<li><b>It can't find a file you know exists.</b> Give the exact name or owner. Check the file is in a drive your account can open.</li>
+<li><b>Zapier says an action isn't available.</b> Connect that app inside Zapier first, then ask again or enable the action in Zapier.</li>
+<li><b>The connector isn't in your list.</b> It may be limited by plan, region or (at work) an admin. Check the app maker's site, or use Zapier.</li>
+</ul>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>Connector</th><th>First prompt</th><th>Keep an eye on</th></tr></thead>
+<tbody>
+<tr><td>Calendar</td><td>"Plan my week; flag meetings with no agenda."</td><td>Edits to meetings with others</td></tr>
+<tr><td>Email</td><td>"Which threads need my reply? Draft the top one."</td><td>Sends, forwards, hidden instructions</td></tr>
+<tr><td>Drive</td><td>"Find the [topic] doc from [month] and summarise it."</td><td>Sharing and deleting files</td></tr>
+<tr><td>Notes or tasks</td><td>"Turn this week's emails into tasks."</td><td>Deleting or completing by mistake</td></tr>
+<tr><td>Zapier</td><td>"List what you can reach."</td><td>Task usage and broad write access</td></tr>
+</tbody></table></div>
+<p><b>Order:</b> calendar, email, files, notes or tasks, Zapier. Read-only first. Drafts, not sends. Review monthly.</p>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Connect your calendar and run Prompt 1.</li>
+<li>Connect email and run Prompt 3, read-only, for a few days.</li>
+<li>Connect your drive and run Prompt 5 on a document you know well, to check its accuracy.</li>
+<li>Connect one notes or task app and create a "From AI" list or page.</li>
+<li>Add Zapier only if you need an app that has no connector.</li>
+<li>Put a monthly reminder in your calendar to run Prompt 11.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Why five and not just one or two?</summary><p>Calendar, email and files cover most daily questions. A task app gives the AI somewhere to save results, and Zapier fills the gaps. If you only want one, pick calendar.</p></details>
+
+<details class="faq"><summary>Do these work on the free plans?</summary><p>Claude's directory connectors work on every plan, including Free. ChatGPT's apps depend on plan and region. Zapier has a free plan with a monthly task limit.</p></details>
+
+<details class="faq"><summary>I use Outlook, not Gmail. What changes?</summary><p>The steps are the same: look for Microsoft 365 or Outlook in the connector list instead of Google. The prompts on this page work with either.</p></details>
+
+<details class="faq"><summary>Can I connect my work and personal accounts at once?</summary><p>Often yes, but it gets confusing. I'd keep personal and work in separate setups where you can, and always say which account you mean in the prompt.</p></details>
+
+<details class="faq"><summary>What if I change my mind?</summary><p>Disconnect the connector in the AI app's settings, then remove its access in the connected service's security settings too. That second step is the one people forget.</p></details>

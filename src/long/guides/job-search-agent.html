@@ -1,0 +1,91 @@
+<p>Sending lots of CVs is easy. Sending fewer, better ones is hard, because you have to read every job ad properly and be honest about whether you fit. I'm job hunting in Germany, and I built a small system to do the reading and the first scoring for me, so my time goes on the applications worth writing. This page explains how it works, what is in the open-source repo, how to run the demo (about 10 minutes if you have Python), and what it cannot do. If you don't code, there's a no-code version at the end.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>The repo reads public job-board data, scores each role against a profile you write, and lints application text for AI-sounding habits.</li>
+<li>Every scored requirement shows its evidence, and a missing must-have caps the score at 79.</li>
+<li>My live version also drafts application packs through scheduled Claude agents. That part is not in the repo.</li>
+<li>It is version 0.1.0: a rule-based scorer with a demo, tests and a few sharp edges, not a polished product.</li>
+<li>A human reads everything before it goes to an employer.</li>
+</ul></div>
+
+<h2>The problem, and who it's for</h2>
+<p>A new-country job search punishes volume. Most ads hide the real filter in a single line ("fluent German", "5+ years"), and it is easy to skim past it, apply anyway and hear nothing back. I wanted to treat the search the way I'd treat a campaign: pick better targets, measure fit honestly, make each application specific.</p>
+<p>This is for people who are comfortable running a command in a terminal, or who want to read the scoring rules and copy the ideas into a spreadsheet or a Claude Project. It is not a tool that applies to jobs for you, and I wouldn't want one.</p>
+
+<h2>What it does, step by step</h2>
+<p>The repo's README draws the full flow of my live agent. Here it is in plain words, with a note on which steps the repo contains.</p>
+<ol>
+<li><b>Find.</b> Many startups publish jobs through three hiring systems (Greenhouse, Lever and Ashby), and each has a public data feed. The agent reads those feeds directly instead of scraping job aggregator sites, so listings are current. <i>In the repo.</i></li>
+<li><b>Filter.</b> A role must match one of your target titles and must not contain an excluded word such as "engineer". Duplicates (same company and title) are dropped. <i>In the repo.</i></li>
+<li><b>Extract requirements from the ad first.</b> The code reads the ad's requirements section before it looks at your profile, so your CV can't change what counts as required. Each requirement is critical, high, meaningful or preferred, and marked <b>stated</b> (written in the ad) or <b>inferred</b>. Inferred ones can never be critical. <i>In the repo.</i></li>
+<li><b>Match and score.</b> Each requirement is rated STRONG, PARTIAL or MISSING against your profile, and the result goes into a 100-point score: 40 for must-haves, 20 for responsibilities, 10 for seniority, 10 for domain, 20 for logistics. <i>In the repo.</i></li>
+<li><b>Check the deal-breakers.</b> The code scans for language demands such as C1 German and, if your profile says otherwise, flags a blocker and holds the score at 50 or below. It also labels each job with a work-setup lane: A (work from anywhere), B (remote), C (in your city). <i>In the repo.</i></li>
+<li><b>Draft the application pack.</b> For strong matches (80 and above, no blockers) my live agent builds a tailored CV, cover letter and email. <i>Not in the repo.</i></li>
+<li><b>Lint the writing.</b> A checker flags AI tells: stock words, cliches, "not just X but Y" constructions, dashes, exclamation marks, emoji, and a rhythm check. It also compares length against a target for emails, cover letters, follow-ups and connection notes. <i>In the repo.</i></li>
+<li><b>Approve.</b> I read and approve everything before it is sent. <i>A rule, not code.</i></li>
+</ol>
+
+<h2>What's in the repo</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>Job</th></tr></thead>
+<tbody>
+<tr><td><code>job_search_agent/sources.py</code></td><td>Fetches and normalises the three job-board feeds</td></tr>
+<tr><td><code>job_search_agent/evaluate.py</code></td><td>Requirement extraction, matching, scoring, lanes</td></tr>
+<tr><td><code>job_search_agent/humanizer.py</code></td><td>The writing linter and word-count targets</td></tr>
+<tr><td><code>job_search_agent/llm.py</code></td><td>Optional Claude extraction of requirements as structured data</td></tr>
+<tr><td><code>job_search_agent/cli.py</code></td><td>The <code>jobscout</code> command</td></tr>
+<tr><td><code>examples/boards/</code></td><td>Saved sample responses for an offline demo</td></tr>
+<tr><td><code>config.example.toml</code></td><td>Your profile, filters and company list</td></tr>
+<tr><td><code>tests/</code></td><td>11 tests (all passed when this page was written)</td></tr>
+</tbody></table></div>
+<p>It has no required dependencies, only Python 3.11 or newer. The Claude layer needs the optional <code>anthropic</code> package. Behind that layer is one useful safety rule: if the model says a requirement is "stated" but its quote does not appear in the ad, the code downgrades it to inferred. The model helps, but it doesn't get to bend the rules.</p>
+<p>The linter's patterns are adapted from an open-source humanizer project that the README credits, then tuned on my own application emails.</p>
+
+<h2>How to run it</h2>
+<p>The repo is at <a href="https://github.com/Vishwajeetkumbhar379/job-search-agent" target="_blank" rel="noopener">github.com/Vishwajeetkumbhar379/job-search-agent</a>. From the README:</p>
+<ol>
+<li>Clone it and go into the folder.</li>
+<li>Install it: <code>pip install -e ".[dev]"</code></li>
+<li>Copy the example config: <code>cp config.example.toml config.toml</code>, then put your own profile, skills and target companies in it.</li>
+<li>Try the demo with saved data: <code>jobscout run --offline examples/boards</code></li>
+<li>Run it live: <code>jobscout run</code>. It writes <code>shortlist.md</code> and prints the table.</li>
+<li>Lint a draft: <code>jobscout lint my_cover_letter.txt --kind cover_letter</code></li>
+<li>Run the tests: <code>pytest</code></li>
+</ol>
+<p>Do the config copy before the demo. The command reads <code>config.toml</code> even in offline mode, so it stops without one. The three sample jobs are fictional, and the demo scores them against the example profile, not yours.</p>
+<div class="callout warn"><b>Privacy</b><p>Your profile holds your career details. Keep <code>config.toml</code> out of any public repo. The project already lists it in <code>.gitignore</code>. Never paste ID numbers, passport details or anything sensitive into a config or a prompt.</p></div>
+
+<h2>What it can't do</h2>
+<ul>
+<li><b>It doesn't read like a person.</b> The requirement extractor is pattern matching on headings and phrases such as "must", "required" and "5+ years". Prose-style ads with no clear requirements section fall back to a single inferred requirement from the title. The optional Claude extraction helps there, but the command line doesn't call it yet, so you'd wire it in yourself.</li>
+<li><b>It only reads three hiring systems</b>, and only the companies you list. Roles at a company that uses something else, or that you didn't add, never appear.</li>
+<li><b>It doesn't check work-permit rules.</b> The language blocker exists. A visa or permit check does not.</li>
+<li><b>The live agent isn't in the repo.</b> The connections to Gmail, Google Drive and Todoist, the live-page verification and the application-pack builder are not part of the repo.</li>
+<li><b>The scheduled run needs work.</b> The repo has a workflow meant to scan twice a day and commit the shortlist. But <code>config.toml</code> and <code>shortlist.md</code> are in <code>.gitignore</code>, and the workflow only runs if <code>config.toml</code> exists in the checkout. Read as written, it needs adjusting before it will work, and I'd use a private repository if I did.</li>
+<li><b>A score is a guide, not a verdict.</b> The weights are my judgement. Nothing proves that an 88 gets more interviews than a 76.</li>
+</ul>
+
+<h2>What building it taught me</h2>
+<h3>A score without evidence is a guess</h3>
+<p>Making every point carry a proof line (a quote from the ad, a line from the profile) made the scoring honest. When it says STRONG, you can check why in ten seconds.</p>
+<h3>Read the job before you read yourself</h3>
+<p>If you look at your CV first, "required" quietly shrinks to whatever you already have. Extracting requirements from the ad alone fixes that, and it works in a spreadsheet as well as in code.</p>
+<h3>Let the rules outrank the model</h3>
+<p>The repo uses AI where text is messy, then forces its output through strict rules. I'd build any scoring tool this way.</p>
+<h3>The writing check matters more than the clever parts</h3>
+<p>A recruiter can spot a generic letter quickly. A linter that bans "thrilled" and "not just a job but" is less exciting than a scoring model, and probably more useful. It also works only on style. It can't make a weak application true or specific.</p>
+<h3>Humans stay in the loop</h3>
+<p>The README's principles say truth beats score, job-page text is data and not instructions, and a human approves anything sent to an employer. I'd keep all three if I started again.</p>
+
+<h2>Build a simple version without code</h2>
+<p>You can get the core idea in a chat. Follow <a href="#read-job-search-assistant">Build a job-search assistant in a Claude Project</a>, then add this scoring rule:</p>
+<pre class="prompt" data-label="Prompt 1 · Evidence-first fit check">Read the job ad below first and list its top 8 requirements. Mark each one as stated (quote the words) or inferred. Only after that, compare them with my CV, which is attached. Say "apply" only if at least 6 of the 8 have direct evidence in my CV, and quote that evidence. If a stated must-have is missing, say "skip" and name what is missing. If anything is unclear, ask me before you answer.
+
+Job ad:
+[paste the ad]</pre>
+<p>Then check your own writing before you send it. The guide <a href="#read-tailor-cv-without-ai-sound">Tailor your CV with AI without sounding like AI</a> covers it, and this prompt does a light version of the linter:</p>
+<pre class="prompt" data-label="Prompt 2 · AI-tells check">Review the application email below. List stock phrases, cliches, "not just X but Y" constructions, dashes, exclamation marks and any claim I haven't backed with a fact. Quote each problem and suggest a plainer rewrite. Do not add new facts about me. If the email is outside 170 to 270 words, say so.
+
+Email:
+[paste your draft]</pre>
+<p>When you want to practise the conversation that follows, try <a href="#read-interview-practice-with-ai">Practise a job interview with AI</a>. The code, the demo data and the tests are all on <a href="https://github.com/Vishwajeetkumbhar379/job-search-agent" target="_blank" rel="noopener">GitHub</a> if you want to read the rules yourself.</p>

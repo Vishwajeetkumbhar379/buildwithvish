@@ -1,0 +1,273 @@
+<p>If every Monday starts with copying numbers out of a spreadsheet and turning them into sentences for someone else, this page is for you. You'll set up a tracker where the spreadsheet does all the maths, a report template, and one prompt that turns the numbers into a short, honest summary. Then you'll pick a no-code way to run it every week: a scheduled task in Claude or ChatGPT, Gemini inside Google Sheets, or Zapier. Setup takes about 90 minutes spread over a week. After that, checking and sending the report takes about 10 minutes.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>The one rule: the spreadsheet calculates, the AI only writes about numbers it's given. It never does the maths.</li>
+<li>Build a summary tab with formulas for this week, last week, change and target, so the AI reads one small table.</li>
+<li>Run the prompt by hand for three weeks before automating it. If it isn't good by hand, automation just makes it wrong faster.</li>
+<li>Automate with a Claude scheduled task (paid plans), Gemini in Sheets, a ChatGPT task or Zapier, and have it produce a draft, never a send.</li>
+<li>Spend two minutes each week checking every number in the draft against the sheet.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Set up the tracker</b> One row per week, one column per number. <i>20 min</i></li>
+<li><b>Add a summary tab</b> Formulas do every calculation. <i>20 min</i></li>
+<li><b>Write the template</b> Decide what the report says and in what order. <i>10 min</i></li>
+<li><b>Write and test the prompt</b> Run it by hand on real data. <i>15 min, then 3 weeks</i></li>
+<li><b>Automate it</b> Pick the route that fits your tools. <i>20 min</i></li>
+<li><b>Check it weekly</b> Numbers, claims and tone. <i>5 to 10 min a week</i></li>
+</ol></div>
+
+<p class="note">Checked in October 2026. AI apps change fast: if a button has moved, search the app's help pages for the feature name.</p>
+
+<h2>Before you start</h2>
+
+<ul>
+<li><b>A spreadsheet</b> in Google Sheets (easiest for automation) or Excel, with numbers you already track or can type in weekly.</li>
+<li><b>An AI app.</b> Free plans work for the manual version. Automation needs one of the options below.</li>
+<li><b>One reader in mind:</b> your manager, a client, your business partner or just you. The report is for them.</li>
+</ul>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Route</th><th>What you need</th><th>Runs on its own?</th></tr></thead>
+<tbody>
+<tr><td>Manual (paste into any chat)</td><td>Any free AI account</td><td>No, about 5 minutes each week</td></tr>
+<tr><td>Gemini in Sheets</td><td>An eligible Google Workspace or Google AI plan</td><td>No, but it works inside the sheet</td></tr>
+<tr><td>Claude scheduled task</td><td>Pro, Max, Team or Enterprise, plus Google Drive and Gmail connectors</td><td>Yes</td></tr>
+<tr><td>ChatGPT scheduled task</td><td>Any plan (Free allows 3 tasks, at most daily)</td><td>Yes, if your data source works in tasks</td></tr>
+<tr><td>Zapier</td><td>A paid Zapier plan for multi-step Zaps and AI steps</td><td>Yes</td></tr>
+</tbody></table></div>
+
+<h2>The one rule: the sheet does the maths</h2>
+
+<p>Language models are good at writing about numbers and unreliable at calculating them. Ask one to work out a percentage change across 40 rows and it may get it right, or may produce something plausible and wrong, with no warning either way. In a weekly report that someone acts on, "plausible and wrong" is the worst outcome.</p>
+
+<p>So split the job. Formulas calculate every number the report mentions: totals, changes, averages, targets. The AI receives a small, finished table and does only what it's good at: noticing what matters, putting it in order and writing clear sentences. The prompt then forbids it from calculating anything new.</p>
+
+<div class="callout vish"><b>My take</b><p>In years of running creator campaigns, the reports that caused trouble were rarely the ones with bad results. They were the ones where a number didn't match the source. This rule exists to stop that.</p></div>
+
+<h2>Step 1: Set up the tracker</h2>
+
+<p>Make a tab called <code>Data</code>. Use one row per week and one column per number, with the week's start date in column A. No merged cells, no blank rows, no totals mixed in. A clean, boring table is what every tool on this page reads best.</p>
+
+<p>Here's the worked example used through this page: a small online shop selling candles. The numbers are invented for illustration.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Week starting</th><th>Orders</th><th>Revenue €</th><th>Ad spend €</th></tr></thead>
+<tbody>
+<tr><td>8 Sept</td><td>121</td><td>3,750</td><td>600</td></tr>
+<tr><td>15 Sept</td><td>130</td><td>3,980</td><td>620</td></tr>
+<tr><td>22 Sept</td><td>118</td><td>3,660</td><td>640</td></tr>
+<tr><td>29 Sept</td><td>142</td><td>4,260</td><td>610</td></tr>
+</tbody></table></div>
+
+<p>The real sheet also has columns E and F for newsletter sign-ups (97, then 85 in the last two weeks) and returns (4, then 9). Pick five to eight numbers at most. A report with twenty metrics gets skimmed.</p>
+
+<div class="callout tip"><b>Tip</b><p>If your numbers come from another tool (a shop, an ad account, a CRM), check whether it can export to Google Sheets or whether Zapier can add a row each week. Typing five numbers on a Friday is also fine. Consistency matters more than automation here.</p></div>
+
+<h2>Step 2: Add a summary tab with formulas</h2>
+
+<p>Make a second tab called <code>Summary</code>. This is the only thing the AI will read. One row per metric, with these columns:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Column</th><th>What it holds</th><th>Formula for Orders (row 2)</th></tr></thead>
+<tbody>
+<tr><td>A: Metric</td><td>The name</td><td>Orders</td></tr>
+<tr><td>B: This week</td><td>Latest row in Data</td><td><code>=INDEX(Data!B:B, COUNTA(Data!A:A))</code></td></tr>
+<tr><td>C: Last week</td><td>The row before</td><td><code>=INDEX(Data!B:B, COUNTA(Data!A:A)-1)</code></td></tr>
+<tr><td>D: Change</td><td>Percentage change</td><td><code>=IF(C2=0, "", (B2-C2)/C2)</code></td></tr>
+<tr><td>E: Target</td><td>Typed in by you</td><td>130</td></tr>
+<tr><td>F: Status</td><td>On or below target</td><td><code>=IF(B2&gt;=E2, "on target", "below target")</code></td></tr>
+</tbody></table></div>
+
+<p>Copy the row down for each metric, changing <code>Data!B:B</code> to the right column (C for revenue, D for ad spend and so on). Format column D as a percentage. The formulas assume a header in row 1 of Data and no blank rows.</p>
+
+<p>Add rows for derived numbers too, calculated in the sheet. For the shop: revenue per € of ad spend (<code>=B3/B4</code> if revenue and ad spend are rows 3 and 4) and average order value (revenue divided by orders). If the AI needs a number, the sheet should already contain it.</p>
+
+<p>The finished summary for the example week looks like this:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Metric</th><th>This week</th><th>Last week</th><th>Change</th></tr></thead>
+<tbody>
+<tr><td>Orders (target 130)</td><td>142</td><td>118</td><td>+20.3%</td></tr>
+<tr><td>Revenue €</td><td>4,260</td><td>3,660</td><td>+16.4%</td></tr>
+<tr><td>Ad spend €</td><td>610</td><td>640</td><td>-4.7%</td></tr>
+<tr><td>Revenue per € ad spend</td><td>6.98</td><td>5.72</td><td>+22.1%</td></tr>
+<tr><td>Newsletter sign-ups</td><td>85</td><td>97</td><td>-12.4%</td></tr>
+<tr><td>Returns</td><td>9</td><td>4</td><td>+125.0%</td></tr>
+</tbody></table></div>
+
+<p>If you'd like help with the formulas for your own columns, ask:</p>
+
+<pre class="prompt" data-label="Prompt 1 · Build my summary formulas">I track these weekly numbers in a Google Sheets tab called "Data", one row per week, week start date in column A, header in row 1: [list columns, e.g. B Orders, C Revenue €, D Ad spend €].
+
+Write the formulas for a "Summary" tab with one row per metric and columns: Metric, This week, Last week, Change %, Target, Status. Also add rows for these derived numbers: [e.g. revenue per € ad spend, average order value].
+
+Give me each formula exactly as I'd paste it, cell by cell, and explain in one line what it does. Ask me if anything about my layout is unclear.</pre>
+
+<h2>Step 3: Write the report template</h2>
+
+<p>Decide the shape before you write the prompt. A fixed shape makes the report quick to read and makes errors obvious, because the reader knows where to look. This template works for most weekly reports:</p>
+
+<ol>
+<li><b>Headline:</b> one sentence on the week.</li>
+<li><b>Numbers:</b> the summary table, unchanged.</li>
+<li><b>Wins:</b> up to three, each tied to a number.</li>
+<li><b>Watch:</b> up to two concerns, each tied to a number.</li>
+<li><b>Next week:</b> one or two actions, each with a reason.</li>
+<li><b>Open questions:</b> anything the data can't explain.</li>
+</ol>
+
+<p>"Open questions" is the section most AI reports miss. It's where the AI says "returns doubled, and the data doesn't say why", instead of inventing a reason.</p>
+
+<h2>Step 4: Write and test the prompt</h2>
+
+<pre class="prompt" data-label="Prompt 2 · The weekly report">You are writing a weekly report for [reader, e.g. my business partner] about [what, e.g. our online candle shop].
+
+Here is this week's summary table. Every number is already calculated:
+[paste the Summary tab, or name the file and tab if you have a connector]
+
+Rules:
+- Use only numbers that appear in the table, exactly as written. Do not calculate, round, estimate or add any new number.
+- If you think a number is wrong or missing, say so under "Open questions" instead of fixing it.
+- Do not guess causes. If the data doesn't explain a change, say that.
+- Plain British English, short sentences, no hype words. Amounts in €.
+
+Format:
+Headline: one sentence.
+Numbers: the table as given.
+Wins: up to 3 bullets, each quoting the number it's based on.
+Watch: up to 2 bullets, each quoting the number.
+Next week: 1 or 2 actions, each with a one-line reason.
+Open questions: anything the data can't answer.
+
+Keep it under [200] words, excluding the table.</pre>
+
+<p>Run it by hand for three weeks: paste the summary into a chat, read the result, and fix the prompt when something's off. A Claude or ChatGPT Project is a good home for this, with the prompt in the instructions and last week's report as a file (see <a href="#read-projects-in-claude-and-chatgpt">Projects in Claude and ChatGPT, explained</a>).</p>
+
+<h3>What good and bad output look like</h3>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>"Fantastic week! Revenue grew by around 25%, driven by the new autumn scent range, and conversion rates improved significantly. Returns rose slightly, which is normal for this time of year."</p></div><div class="good"><b>Better</b><p>"Headline: Orders beat target (142 against 130) while ad spend fell 4.7%. Watch: returns rose from 4 to 9 (+125.0%), and sign-ups fell 12.4% to 85. Open questions: the data doesn't show why returns rose. Worth checking the reasons logged in the shop."</p></div></div>
+
+<p>The weak version invents a figure (revenue rose 16.4%, not "around 25%"), invents a cause (the autumn range isn't in the data), mentions a metric that isn't tracked (conversion rate) and plays down a real problem. Every one of those is a reason to tighten the prompt.</p>
+
+<div class="callout warn"><b>Heads-up</b><p>Don't paste customer names, emails, addresses or payment details into the report data. Aggregate numbers are all the AI needs. If the sheet holds personal data, build the summary tab from it and share only that.</p></div>
+
+<h2>Step 5: Automate it (pick one route)</h2>
+
+<p>Once the prompt has produced a good report three weeks running, move it to a schedule. Every route below ends in a draft for you to check, not a sent message.</p>
+
+<h3>Route A: a Claude scheduled task</h3>
+<p>Scheduled tasks run a prompt on a timetable, in the cloud, even when your computer is off. According to <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Anthropic's scheduled tasks page</a>, they're on paid plans (Pro, Max, Team and Enterprise) and can use your connectors. Web and mobile were still in beta when I checked.</p>
+<ol>
+<li>Connect Google Drive and Gmail (see <a href="#read-connectors-worth-setting-up">the connectors worth setting up first</a>).</li>
+<li>Click <b>Scheduled</b> in the sidebar, then <b>New task</b>, then <b>Set up manually</b> (or <b>Create with Claude</b> to be guided).</li>
+<li>Name it "Weekly report", paste the prompt below, choose <b>weekly</b>, pick Monday at a time before you start work, and save.</li>
+<li>Use the option to run it now, and read the result.</li>
+</ol>
+
+<pre class="prompt" data-label="Prompt 3 · Scheduled task version">Every Monday:
+1. Open the Google Sheet "[sheet name]" in my Drive and read only the "Summary" tab.
+2. Write the weekly report using the rules and format below.
+3. Save it as a Gmail draft to [reader's email] with the subject "Weekly report, week of [date from the Summary tab]". Do not send it.
+4. If the Summary tab looks empty, unchanged from last week or has errors (#REF!, #DIV/0!), don't write the report. Create a draft to me instead, saying what's wrong.
+
+[paste the rules and format section from Prompt 2]</pre>
+
+<h3>Route B: a ChatGPT scheduled task</h3>
+<p>ChatGPT's tasks work on every plan, with limits: Free and Go allow 3 active tasks, at most once a day, and Plus allows 5, per <a href="https://help.openai.com/en/articles/10291617-tasks-in-chatgpt" target="_blank" rel="noopener">OpenAI's tasks page</a>. Open <b>Scheduled</b> and describe the task in plain words. Two cautions from that page: tasks can use supported apps (it names Gmail, Slack and GitHub as examples), so check your data source works in a task before relying on it; and a task created inside a Project can't read that Project's files. If your sheet can't be reached, use the task as a Monday reminder that includes the prompt, then paste the summary yourself.</p>
+
+<h3>Route C: Gemini in Google Sheets</h3>
+<p>If you have an eligible Google Workspace or Google AI plan, click <b>Ask Gemini</b> at the top right of the sheet to open the side panel (<a href="https://support.google.com/docs/answer/14356410?p=gemini-sidepanel-sheets" target="_blank" rel="noopener">Google's help page</a>). It reads the sheet directly, so there's no pasting. It isn't scheduled, and Google notes that side-panel chats aren't saved, so keep the prompt in a cell or a doc. Charts it creates don't update when the data changes.</p>
+
+<pre class="prompt" data-label="Prompt 4 · Gemini in Sheets">Read only the "Summary" tab of this spreadsheet. Don't calculate any new numbers or change any cells. Write a weekly report with: a one-sentence headline, up to 3 wins and 2 concerns (each quoting the number from the tab), 1 or 2 actions for next week, and open questions the data can't answer. Under 200 words, British English, amounts in €.</pre>
+
+<p>Gemini can also run scheduled actions (up to 10 active, with Keep Activity on), and actions that use Google apps need them connected, according to <a href="https://support.google.com/gemini/answer/16316416?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank" rel="noopener">Google's page</a>. Test whether yours can read the sheet before relying on it. More in <a href="#read-gemini-inside-google">Gemini for people who live in Google</a>.</p>
+
+<h3>Route D: Zapier</h3>
+<p>Zapier is the most reliable timetable because it doesn't depend on a chat app. The Zap has four steps:</p>
+<ol>
+<li><b>Trigger: Schedule by Zapier, Every Week.</b> Pick Monday and a time. Schedule triggers don't count towards your task usage (<a href="https://help.zapier.com/hc/en-us/articles/8496288648461-Schedule-Zap-workflows-to-run-at-specific-intervals" target="_blank" rel="noopener">Zapier's page</a>).</li>
+<li><b>Google Sheets:</b> an action that looks up the rows of your Summary tab.</li>
+<li><b>AI by Zapier:</b> paste Prompt 2's rules and format, and map the Sheets fields into the table section.</li>
+<li><b>Gmail (or Outlook):</b> an action that creates a draft, not one that sends.</li>
+</ol>
+<p>Check the costs first. In October 2026 Zapier's free plan allowed only two-step Zaps and 100 tasks a month, and <a href="https://help.zapier.com/hc/en-us/articles/8496342944013-Use-AI-by-Zapier-to-analyze-and-return-data" target="_blank" rel="noopener">AI by Zapier</a> wasn't on the free plan, so this needs a paid plan (from about $20 a month on <a href="https://zapier.com/pricing" target="_blank" rel="noopener">Zapier's pricing page</a>). Make is an alternative: its free plan included 1,000 credits a month and 2 active scenarios, but its built-in AI tools were on paid plans (<a href="https://www.make.com/en/pricing" target="_blank" rel="noopener">Make's pricing</a>). For more no-code automations, see <a href="#read-no-code-ai-workflows">5 AI workflows you can set up today, no code</a>.</p>
+
+<h2>Step 6: Check it every week</h2>
+
+<p>Automation removes the typing, not the responsibility. Before you send, spend five minutes on this checklist:</p>
+<ol>
+<li><b>Every number matches the sheet.</b> Tick them off one by one. This is the check that matters most.</li>
+<li><b>No new numbers.</b> If the draft contains a figure that isn't in the summary tab, it was invented or calculated.</li>
+<li><b>No invented causes.</b> "Because of the new range" needs evidence. If it isn't in the data, cut it or move it to open questions.</li>
+<li><b>The bad news is there.</b> Compare the "Watch" section with the summary tab's "below target" rows.</li>
+<li><b>It's the right week.</b> Check the date. Stale data is the most common silent failure.</li>
+</ol>
+
+<p>You can get a second pass from the AI too, in a fresh chat:</p>
+
+<pre class="prompt" data-label="Prompt 5 · Number check">Here is a summary table and a report written from it.
+Table: [paste]
+Report: [paste]
+
+Check the report against the table. List, as a table: every number in the report, whether it appears in the table exactly (yes or no), and the matching cell. Then list any claim about causes that the table doesn't support. Don't rewrite the report.</pre>
+
+<p>Treat this as an extra check, not a replacement for yours. An AI can miss a mismatch too.</p>
+
+<h2>Where this goes wrong</h2>
+
+<ul>
+<li><b>The AI still does maths.</b> Even with the rule, a model may write "almost double" or round 16.4% to "about 15%". The weekly check catches it.</li>
+<li><b>Broken formulas pass silently.</b> A new column or a blank row can shift every number. Add a "last updated" cell to the summary tab and have the prompt report it.</li>
+<li><b>It sounds confident about nothing.</b> Small numbers swing wildly: 4 returns to 9 is +125%. Tell your reader when a change is based on small counts.</li>
+<li><b>It can't explain why.</b> The sheet holds what happened, not why. Causes come from you, your team or your customers.</li>
+<li><b>Schedules fail quietly.</b> Connectors expire and tasks pause. If no draft arrives on Monday, look before the reader asks.</li>
+</ul>
+
+<h2>When it gets stuck</h2>
+
+<ul>
+<li><b>The report quotes the wrong numbers.</b> It may be reading the Data tab. Name the Summary tab in the prompt and say "read only this tab".</li>
+<li><b>It keeps adding commentary you don't want.</b> Add a rule, such as "No general advice. Only comment on numbers in the table."</li>
+<li><b>The scheduled task can't find the sheet.</b> Check the Drive connector is connected and the file name in the prompt matches exactly, including capitals.</li>
+<li><b>Formulas show #REF! or #DIV/0!.</b> A column moved or last week was zero. Fix the sheet; the prompt in Route A tells the task to stop and warn you.</li>
+<li><b>The report is too long.</b> Lower the word limit and cap the bullets. Readers prefer five lines they read to twenty they skip.</li>
+</ul>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<p><b>The rule:</b> the sheet calculates, the AI writes. No new numbers, no guessed causes.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Piece</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td>Data tab</td><td>One row per week, one column per number, no gaps</td></tr>
+<tr><td>Summary tab</td><td>This week, last week, change, target, status, all formulas</td></tr>
+<tr><td>Template</td><td>Headline, numbers, wins, watch, next week, open questions</td></tr>
+<tr><td>Prompt</td><td>Prompt 2, tested by hand for three weeks</td></tr>
+<tr><td>Schedule</td><td>Claude task, ChatGPT task, Gemini in Sheets or Zapier, ending in a draft</td></tr>
+<tr><td>Check</td><td>Every number against the sheet, five minutes, every week</td></tr>
+</tbody></table></div>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Pick five to eight numbers your reader actually cares about.</li>
+<li>Build the Data tab and fill in the last four weeks.</li>
+<li>Build the Summary tab with Prompt 1's help, and check one row by hand.</li>
+<li>Run Prompt 2 by hand this week and fix what's off.</li>
+<li>Repeat for three weeks, refining the prompt each time.</li>
+<li>Choose a route and set the schedule to produce a draft.</li>
+<li>Put a five-minute "check the report" slot in your calendar every Monday.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Can't I just upload the raw data and ask for a report?</summary><p>You can, and for a one-off it may be fine. For a report someone relies on every week, it's risky: the AI may calculate something wrongly with no warning. Letting formulas do the maths makes errors much rarer and much easier to spot.</p></details>
+
+<details class="faq"><summary>Does this work with Excel?</summary><p>The method does. The formulas on this page work in Excel too. The automated routes are easiest with Google Sheets, because the Drive connectors and Zapier read it directly.</p></details>
+
+<details class="faq"><summary>Which automation route should I pick?</summary><p>If you already pay for Claude and use Google, Route A. If you live in Google Workspace with Gemini, Route C, run by hand each Monday. If the report must arrive whatever happens, Route D. If you're not sure, stay manual for a month; it's only five minutes.</p></details>
+
+<details class="faq"><summary>Can I use this for client reports?</summary><p>Yes, with care. Check your contract and the client's rules on sharing their data with AI tools, send aggregated numbers only, and always review before sending. For influencer campaigns, the structure in <a href="#read-influencer-report-template">The influencer campaign report clients actually read</a> pairs well with this setup.</p></details>

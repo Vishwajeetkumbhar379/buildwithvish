@@ -1,0 +1,542 @@
+<p>Gemini is Google's AI assistant. It has its own app, and it also sits inside the Google apps you open every day: Gmail, Docs, Sheets, Drive, Chrome and Android. That second part is its real strength: Gemini can read the email thread, spreadsheet or PDF where it already is, so you copy and paste far less. This guide is for beginners. By the end you'll know which plan you need, where every major feature lives, how to set it up in 10 minutes, and you'll have more than forty prompts to try. Reading takes about 35 minutes.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Start free at gemini.google.com or in the Gemini phone app. The free plan already includes Deep Research, Canvas, Gemini Live, image making and custom skills, with lower limits.</li>
+<li>Gemini inside Gmail, Docs, Sheets and Drive mostly needs a paid Google AI plan or a work account whose company has switched it on. Check what you have before you pay.</li>
+<li>Spend 10 minutes on setup: instructions, activity setting, and only the connected apps you need.</li>
+<li>Let Gemini draft, summarise and build formulas. You check the facts, the numbers and anything that gets sent.</li>
+<li>Some features (Personal Intelligence, Gemini Spark) weren't available in the EU, UK or Switzerland when I checked.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Understand it</b> What it is and where it shows up. <i>5 min</i></li>
+<li><b>Pick a plan and model</b> Free, Plus, Pro or Ultra. <i>5 min</i></li>
+<li><b>Set it up</b> Instructions, activity setting, connected apps and your phone. <i>10 min</i></li>
+<li><b>Use it inside Google apps</b> Gmail, Docs, Sheets, Drive, Chrome and Android. <i>15 min</i></li>
+<li><b>Tour the app features</b> Skills, Deep Research, Canvas, Live, images, video and notebooks. <i>20 min</i></li>
+<li><b>Try things</b> Run three prompts from the life areas today. <i>15 min</i></li>
+</ol></div>
+
+<p class="note">Checked on 6 October 2026 against Google's own plan pages, Gemini Apps Help, Gmail and Docs Help, and the Gemini release notes. Features roll out country by country. If a button has moved, search Gemini Apps Help for the feature name.</p>
+
+<h2>What Gemini is, and who makes it</h2>
+
+<p>Gemini is made by Google. The name covers both the AI models (the "brains") and the assistant you talk to. It's a large language model: software trained on huge amounts of text, images and audio so it can read, write and reason in plain language. No special commands needed.</p>
+
+<p>Its weak spots: it can state wrong facts with confidence (people call this "hallucinating"). It can misread a table or mix up two similar emails. And it is not a doctor, lawyer or tax adviser, even when it sounds like one.</p>
+
+<h3>Where Gemini shows up</h3>
+
+<p>You need a Google account (work and school accounts need the organisation's permission). Many features need you to be 18 or over, and availability varies by country.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Where</th><th>What it does there</th><th>Who gets it</th></tr></thead>
+<tbody>
+<tr><td>Gemini app on the web (gemini.google.com)</td><td>The full chat app with every feature. Start here.</td><td>Everyone</td></tr>
+<tr><td>Gemini app on Android and iPhone</td><td>Chat, voice, camera, Gemini Live</td><td>Everyone</td></tr>
+<tr><td>Mac and Windows apps</td><td>Desktop versions of the app (Windows arrived in September 2026)</td><td>Everyone, some features paid</td></tr>
+<tr><td>Gmail</td><td>Thread summaries, drafting help, proofreading</td><td>Varies by plan and country (see below)</td></tr>
+<tr><td>Docs, Sheets, Drive</td><td>An "Ask Gemini" side panel that reads the file you're in</td><td>Paid Google AI plan or eligible Workspace plan</td></tr>
+<tr><td>Chrome</td><td>Ask Gemini about the page or tabs you have open</td><td>Rolling out; in Germany for adults when I checked</td></tr>
+<tr><td>Android phones</td><td>Replaces Google Assistant; ask about what's on screen</td><td>Supported phones</td></tr>
+<tr><td>Google Photos</td><td>Ask Photos: search and edit your photos by describing what you want</td><td>Experimental, selected countries</td></tr>
+</tbody></table></div>
+
+<div class="callout vish"><b>My take</b><p>Gemini is the right first pick if your days are spent in Gmail, Docs and Sheets. If you mostly want a writing partner or a coding helper and don't care where your files live, compare it with the others first. I wrote a short guide on <a href="#read-pick-your-ai-by-job">choosing ChatGPT, Claude or Gemini by the job you need done</a>.</p></div>
+
+<h2>Plans and prices (checked October 2026)</h2>
+
+<p>Personal Google accounts get Gemini on a free tier or one of three paid "Google AI" plans. These plans also bundle Google One cloud storage, which you may already pay for. Here's what Google's German plan page showed on 6 October 2026. Prices change and differ by country, so check the <a href="https://gemini.google/subscriptions/" target="_blank" rel="noopener">Gemini plans page</a> for yours.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Plan</th><th>Price in Germany</th><th>What you get</th></tr></thead>
+<tbody>
+<tr><td>Free</td><td>€0</td><td>The everyday Flash model, limited access to the Pro model, Deep Research, Canvas, Gemini Live, image making, skills, 15 GB storage</td></tr>
+<tr><td>Google AI Plus</td><td>€4.99 a month</td><td>About 2x the free limits, video generation, Gemini in Gmail and Docs, 400 GB storage</td></tr>
+<tr><td>Google AI Pro</td><td>€21.99 a month</td><td>About 4x the free limits, much more Pro model use, bigger Gemini Notebook allowances, Gemini in Sheets, 5 TB storage</td></tr>
+<tr><td>Google AI Ultra</td><td>From €99.99 a month (a higher tier was €219.99)</td><td>The highest limits, Deep Think, the newest experiments, 20 TB or more storage</td></tr>
+</tbody></table></div>
+
+<p>Paid plans can be shared with up to five family members, and Google often offers a free trial.</p>
+
+<p>Two more numbers matter more than they look. Google's help page on <a href="https://support.google.com/gemini/answer/16275805?hl=en" target="_blank" rel="noopener">limits and upgrades</a> lists the "context window" for each plan. That's how much text Gemini can hold in its head at once, measured in tokens (a token is roughly three quarters of a word). Free gets 32,000 tokens, Plus 128,000, and Pro and Ultra 1 million. On free, a long contract plus a long chat can be too much. On Pro, you can hand it a whole book.</p>
+
+<h3>Work and school accounts (Google Workspace)</h3>
+
+<p>If you sign in with a company or school account, your organisation's Google Workspace plan decides what you get, not the personal plans above. In October 2026 Google's Workspace pricing page showed Business Starter with limited Gemini access, and Business Standard, Business Plus and Enterprise with Gemini in Gmail, Docs, Sheets, Slides, Drive, Meet and Chat, plus fuller access to the Gemini app and Gemini Notebook. Your admin can also switch Gemini off. Prices are per user per month and depend on your country and contract length; see the <a href="https://workspace.google.com/intl/en_ie/pricing.html" target="_blank" rel="noopener">Workspace pricing page</a>.</p>
+
+<h3>Which plan I'd pick</h3>
+
+<ul>
+<li><b>Stay free</b> for two weeks and see whether you hit limits.</li>
+<li><b>AI Plus</b> if you mainly want Gemini inside Gmail and Docs, plus storage.</li>
+<li><b>AI Pro</b> if you work in Sheets, read long documents, or use Deep Research several times a week.</li>
+<li><b>AI Ultra</b> only if you know exactly which Ultra feature you need. Most people don't.</li>
+</ul>
+
+<div class="callout warn"><b>Heads-up for Europe</b><p>When I checked, Google's help pages said Personal Intelligence (connecting Gemini to your Gmail, Photos and YouTube for personal answers) and Gemini Spark (the agent) were not available in the European Economic Area, Switzerland or the UK. Video uploads for video editing were also excluded there. Read the small print for your country before upgrading.</p></div>
+
+<h2>Models: which one to pick</h2>
+
+<p>A model is the AI engine behind the answers. Choose it with the model selector inside the message box. Names change every few months, so learn the families, not the numbers.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Choice</th><th>Use it for</th><th>Plans</th></tr></thead>
+<tbody>
+<tr><td>Flash (3.6 Flash in October 2026)</td><td>Most everyday tasks: emails, summaries, ideas, quick questions. Fast.</td><td>Everyone</td></tr>
+<tr><td>Pro (3.1 Pro)</td><td>Harder problems: long documents, tricky analysis, maths, code, careful writing</td><td>Limited on free, more on paid</td></tr>
+<tr><td>Thinking level, Deep Think</td><td>Very hard reasoning problems. Can take several minutes.</td><td>AI Ultra only</td></tr>
+</tbody></table></div>
+
+<p>My rule: start on Flash. If the answer is shallow, misses a detail or gets the logic wrong, switch to Pro and ask again. Use Pro from the start for anything long, numerical or high-stakes.</p>
+
+<div class="callout tip"><b>Tip</b><p>To turn on Deep Think (Ultra only), Google's help page says: open the model selector, choose Pro, open the selector again, then pick Thinking level and Deep Think.</p></div>
+
+<h2>Set it up in 10 minutes</h2>
+
+<p>Do these once.</p>
+
+<h3>1. Sign in and get the apps (2 minutes)</h3>
+
+<p>Go to gemini.google.com and sign in with the Google account you use most. Install the Gemini app from the Play Store or App Store if you want voice and camera features.</p>
+
+<h3>2. Tell Gemini about yourself (3 minutes)</h3>
+
+<p>On a personal account, open <b>Settings and help</b>, then <b>Personal Intelligence</b>, then <b>Instructions for Gemini</b>, and click <b>Add</b>. It shapes every chat. If you don't see the option, your account or country may not have it yet; you can paste the same text at the start of important chats instead.</p>
+
+<pre class="prompt" data-label="Prompt 1 · Instructions for Gemini">I'm [name], a [role] based in [country]. I work mostly in Gmail, Google Docs and Google Sheets.
+Write in British English. Use euros for money unless I say otherwise.
+Keep answers short and scannable: lead with the answer, then the detail.
+When a task is unclear, ask me up to three questions before you start.
+When you state a fact I might rely on, say how sure you are and where it comes from.
+Never invent numbers. If you don't know, say so.</pre>
+
+<h3>3. Decide on your activity setting (2 minutes)</h3>
+
+<p>Go to <a href="https://myactivity.google.com/product/gemini" target="_blank" rel="noopener">Gemini Apps Activity</a>. The switch there is called <b>Keep Activity</b>. When it's on, your chats are saved to your account (deleted automatically after 18 months by default) and can be used to improve Google's AI, including review by humans. When it's off, new chats don't appear in your history and aren't used for training, but many features stop working: skills, scheduled actions, most connected apps, Spark and parts of notebooks all require it. For now, pick an auto-delete period (3, 18 or 36 months, or never); the privacy section explains the trade-off.</p>
+
+<h3>4. Connect only the apps you want (2 minutes)</h3>
+
+<p>Open <b>Settings and help</b>, then <b>Connected Apps</b> (on some accounts it sits under Personal Intelligence). Here you decide whether Gemini may read Gmail, Calendar, Drive, Keep, Tasks, Maps, YouTube and others. Turn on what you'll actually use. You can always ask for one by typing <kbd>@</kbd> in the message box and choosing the app.</p>
+
+<h3>5. On Android, make it your assistant (1 minute)</h3>
+
+<p>On many Android phones Gemini already replaced Google Assistant. If not, open your phone's Settings, then <b>Apps</b>, <b>Assistant</b>, <b>Digital assistants from Google</b>, and choose <b>Gemini</b>. After that you can long-press the power button, swipe up from a bottom corner, or say "Hey Google" if you've enabled it.</p>
+
+<h2>How to ask so you get good answers</h2>
+
+<p>Most weak answers come from weak briefs. In years of briefing creators I saw the same thing: a vague brief gets vague work. I've written a full guide on <a href="#read-brief-ai-like-an-agency">briefing AI like you'd brief a professional</a>; here's the short version.</p>
+
+<p>Give it five things: <b>the task</b>, <b>who it's for</b>, <b>the context or source</b> (paste it, attach it or @ the app), <b>what good looks like</b> (length, format, tone) and <b>permission to ask questions</b>.</p>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>"Write an email to my landlord about the heating."</p></div><div class="good"><b>Better</b><p>"Write a short, polite but firm email to my landlord. The heating in my flat has been broken since [date]; I reported it by phone on [date] and nothing has happened. I want a repair date within 7 days. Under 120 words, British English, no legal threats. Give me a subject line too."</p></div></div>
+
+<p>Thirty seconds more typing saves three rounds of edits. A reusable template:</p>
+
+<pre class="prompt" data-label="Prompt 2 · The five-part brief">Task: [what you want made or answered]
+Audience: [who will read or use it]
+Source: [paste text, attach a file, or @Gmail / @Drive to point at it]
+Good looks like: [length, format, tone, anything to avoid]
+Before you start, ask me up to 3 questions if anything important is missing. Then give me a first version and list any assumptions you made.</pre>
+
+<h2>Gemini inside your Google apps</h2>
+
+<p>In Docs, Sheets and Drive, look for the <b>Ask Gemini</b> button at the top right. It opens a side panel that can already see the file you're in. Which of these you have depends on your plan, your country and, on work accounts, your admin.</p>
+
+<h3>Gmail</h3>
+
+<p>Per Google's <a href="https://support.google.com/mail/answer/16831098?hl=en-gb" target="_blank" rel="noopener">Gemini features in Gmail</a> page in October 2026, summaries of long threads were the most widely available. <b>Help me write</b> (draft or rework an email from a prompt) and suggested replies came with a Google AI plan or eligible Workspace plan; for free personal accounts they were US only. Proofread was mostly for paid plans, and AI Inbox was US only.</p>
+
+<p>Without the built-in buttons, use the Gemini app: connect Gmail and type <kbd>@</kbd> Gmail.</p>
+
+<pre class="prompt" data-label="Prompt 3 · Inbox triage from the Gemini app">@Gmail Look at emails I received in the last 3 days. Ignore newsletters and notifications.
+Give me a table with: sender, what they want from me, deadline (if any), and how urgent it looks (high, medium, low).
+Then list the 3 replies I should send first, with a one-line reason each. Don't draft anything yet.</pre>
+
+<div class="callout warn"><b>Heads-up</b><p>Gemini drafts; you send. Check names, dates and commitments in every draft. AI summaries can drop the one sentence that mattered.</p></div>
+
+<h3>Docs</h3>
+
+<p>Click <b>Ask Gemini</b> at the top right of a document. The side panel can rewrite a section, change the tone, summarise the whole doc or a highlighted part, and pull in other files: type <kbd>@</kbd> and pick a Drive file or Gmail. Google's help page warns that the side panel conversation disappears when you refresh, close the doc or go offline, so insert anything you want to keep into the document straight away.</p>
+
+<pre class="prompt" data-label="Prompt 4 · Messy notes to a clean doc">Turn this document into a one-page summary I can share with my team.
+Structure: Decisions (bullets), Actions (table with owner and due date), Open questions (bullets).
+Use only what's in the document. Where an owner or date is missing, write "TBC" instead of guessing.
+Keep the original wording for any numbers.</pre>
+
+<h3>Sheets</h3>
+
+<p>In Sheets, <b>Ask Gemini</b> can create tables, write formulas, build charts and pivot tables, apply conditional formatting and explain what's in the data. It works best on real Google Sheets, so convert Excel files first (File, then Save as Google Sheets).</p>
+
+<p>There's also an <code>AI</code> function you can type into a cell, for example <code>=AI("Classify this feedback as positive, neutral or negative", B2)</code>. Its limits, per Google's help page: it only sees the cells you give it, not the whole sheet; only the first 350 selected cells generate at once; and you can't undo a generation.</p>
+
+<pre class="prompt" data-label="Prompt 5 · Formula, not answer">In this sheet, column B is the client name, column D is the invoice amount in euros and column E says "Paid" or "Open".
+Write one formula that totals column D for rows where column E is "Open".
+Explain in one line how it works, and tell me which cell you'd put it in.
+Don't calculate the total yourself.</pre>
+
+<div class="callout vish"><b>My take</b><p>Let AI write formulas, not answers. A formula you can check beats a number you can't. I use the same rule in <a href="#read-report-that-writes-itself">the weekly report that writes itself</a>: the sheet calculates, the AI writes the words. If you want a full Sheets project, try <a href="#read-creator-scorer-sheet">building a creator scorer in Google Sheets</a>.</p></div>
+
+<h3>Drive</h3>
+
+<p>In Drive on the web, <b>Ask Gemini</b> can summarise files, answer questions across files and help you find things. Look for a <b>Catch me up</b> badge next to Docs or Sheets that changed since you last looked, and summary cards that can appear when you open a PDF.</p>
+
+<pre class="prompt" data-label="Prompt 6 · Find that file">Find the documents in my Drive about [topic, e.g. the 2026 marketing budget] from around [month]. List the 5 most likely matches with file name, last edited date and one line on what each contains. Then tell me which one looks like the final version and why.</pre>
+
+<h3>Calendar, Keep and Tasks</h3>
+
+<p>These work through the Gemini app rather than a side panel. Connect them, then ask in plain language.</p>
+
+<pre class="prompt" data-label="Prompt 7 · Plan my week">@Google Calendar Look at my calendar for next week.
+1. List each day with free blocks longer than 90 minutes.
+2. Suggest where to put these tasks: [task 1, about 2 hours], [task 2, about 1 hour], [task 3, about 30 minutes].
+3. Flag any day that looks overloaded.
+Show me the plan first. Only create events after I say "go".</pre>
+
+<h3>Chrome</h3>
+
+<p>Gemini in Chrome lets you ask about the page you're reading. Click <b>Ask Gemini</b> at the top of the browser. Google's availability page listed Germany among the supported countries for adults when I checked, though it's still rolling out gradually and doesn't work in Incognito mode.</p>
+
+<pre class="prompt" data-label="Prompt 8 · Read this page for me">Summarise this page in 5 bullets for someone deciding whether to [buy this / apply for this / sign up]. Then list anything that sounds like a catch: fees, minimum terms, auto-renewal, data sharing. Quote the exact sentence for each catch so I can find it.</pre>
+
+<h3>Android and Google Photos</h3>
+
+<p>On Android, open Gemini over any app and tap <b>Ask about screen</b> to get help with whatever you're looking at: a confusing settings page or a long article. You may need to allow screen context in Gemini's settings first.</p>
+
+<p>In Google Photos, <b>Ask Photos</b> lets you search your library by describing a memory, and edit a photo by describing the change. Google labels it experimental and it isn't in every country. If you have it, turn it on in Photos settings under the Gemini features section.</p>
+
+<h2>The Gemini app features, one by one</h2>
+
+<p>Most of these live in the Gemini app at gemini.google.com and in the phone app. Tools such as Deep Research and Canvas sit behind the <b>plus (+)</b> button in the message box, the same one you use to add files. Images, videos, notebooks and settings are in the sidebar menu.</p>
+
+<h3>Skills (replacing Gems)</h3>
+
+<p><b>What it is:</b> a saved set of instructions for a task you repeat, such as "turn meeting notes into my standard summary". Build it once, use it in any chat. Gemini can also apply a skill by itself when your request matches. Skills rolled out globally from 30 September 2026.</p>
+
+<p><b>Where to find it:</b> on the web, open <b>Settings</b>, then <b>Skills</b>. Choose <b>Create with Gemini</b> to build one by chatting, <b>Create manually</b> to type the name, description and instructions yourself, or start from a recommended template. To use one, type <kbd>/</kbd> in the message box and pick it. Per Google's <a href="https://support.google.com/gemini/answer/17094296?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank" rel="noopener">skills help page</a>, you need to be 18 or over, use a personal account, and have Keep Activity on.</p>
+
+<p><b>About Gems:</b> Gems were Gemini's older custom assistants. Google says they'll be phased out for personal accounts in November 2026 (March 2027 for Workspace business accounts, June 2027 for education) and converted to skills automatically. I'd build anything new as a skill.</p>
+
+<pre class="prompt" data-label="Prompt 9 · Build a skill with Gemini">Help me create a skill called "weekly-update". When I paste rough notes about my week, it should:
+1. Write a status update for my manager with three sections: Done, Next week, Blockers.
+2. Keep it under 150 words, plain British English, no buzzwords.
+3. End with one question I need my manager to answer, if there is one.
+4. Never invent progress that isn't in my notes.
+Ask me anything you need, then show me the final instructions before saving.</pre>
+
+<h3>Deep Research</h3>
+
+<p><b>What it is:</b> Gemini makes a research plan, reads many web pages (and, if you allow it, your Gmail, Drive files, uploads or notebooks), then writes a long report with sources. It typically takes 5 to 10 minutes. Free has daily limits; paid plans get more.</p>
+
+<p><b>Where to find it:</b> click the <b>+</b> button in the message box and choose <b>Deep Research</b>. After you send your question, you'll see a plan. Click <b>Edit plan</b> to change it, then <b>Start research</b>. When it's done you can export the report to Google Docs, share it, copy the text, or create an audio overview to listen to.</p>
+
+<pre class="prompt" data-label="Prompt 10 · A research brief that gets a useful report">Research: [question, e.g. which electric car charging tariffs make sense for someone in Germany who drives 10,000 km a year and charges mostly at home].
+Who it's for: me, a non-expert making a decision this month.
+Cover: the main options, typical costs in euros, contract terms to watch, and what changed in the last 12 months.
+Prefer official and primary sources. Mark anything you couldn't confirm.
+End with a one-paragraph recommendation and a checklist of what I should verify myself.</pre>
+
+<div class="callout tip"><b>Tip</b><p>Always edit the plan. Deep Research follows it closely. Add the country, the year and the sources you trust. Then spot-check three cited links yourself.</p></div>
+
+<h3>Canvas</h3>
+
+<p><b>What it is:</b> a workspace next to the chat where Gemini builds something you can edit together: a document, a slide deck, a web app, an infographic or a quiz.</p>
+
+<p><b>Where to find it:</b> click <b>+</b> and choose <b>Canvas</b>, then describe what you want. From the canvas you can use <b>Export to Docs</b>, <b>Export to Slides</b>, or <b>Share</b> for a link others can view and copy.</p>
+
+<pre class="prompt" data-label="Prompt 11 · A simple tool in Canvas">In Canvas, build a one-page web app that helps me split shared household costs between [3] flatmates.
+I enter each expense with who paid and the amount in euros. It shows who owes whom, with the fewest possible transfers.
+Keep the design clean and readable on a phone. Add a "clear all" button and short instructions at the top.
+No login and no data sent anywhere.</pre>
+
+<h3>Gemini Live</h3>
+
+<p><b>What it is:</b> a spoken, back-and-forth conversation. You can interrupt, change topic, and share your camera or screen so Gemini can see what you see. When you end the session, you get a transcript.</p>
+
+<p><b>Where to find it:</b> in the Android or iPhone app, tap the <b>Live</b> button at the bottom. Tap the camera icon to show it something, or the screen-share icon to share your screen. Tap <b>End</b> to stop. Live can use connected apps such as Calendar, Keep, Tasks and Maps.</p>
+
+<pre class="prompt" data-label="Prompt 12 · Practise out loud">(Say this in Gemini Live) I have a job interview for a [role] on [day]. Act as a friendly but sharp interviewer. Ask me one question at a time, starting easy and getting harder. After each answer, give me one thing that worked and one thing to tighten, in under 20 seconds. Then ask the next question.</pre>
+
+<h3>Images: make and edit</h3>
+
+<p><b>What it is:</b> describe an image and Gemini makes it, or upload a photo and describe the edit. Google's help page lists three image models: Nano Banana 2 Lite (fastest), Nano Banana 2 (better quality) and Nano Banana Pro (paid plans). Free accounts get 1K resolution and paid plans 2K. Creating images needs you to be 13 or over; editing your own photos needs 18 or over.</p>
+
+<p><b>Where to find it:</b> open the sidebar and choose <b>Images</b>, or just ask for an image in a normal chat.</p>
+
+<pre class="prompt" data-label="Prompt 13 · A product shot from a phone photo">Edit the photo I've uploaded: keep the product exactly as it is (shape, label, colours, text). Replace the background with a plain warm-grey studio backdrop with soft light from the left and a gentle shadow under the product. Square format. Don't add any new text or logos.</pre>
+
+<h3>Video</h3>
+
+<p><b>What it is:</b> short AI videos from a text prompt, from up to five images, or by editing a video. In October 2026 Google said this runs on a model called Gemini Omni, needs a paid Google AI plan (or a qualifying Workspace licence) and is for users 18 and over. Uploading your own video to edit wasn't available in the EEA, Switzerland or the UK.</p>
+
+<p><b>Where to find it:</b> open the menu and choose <b>Videos</b>, pick a template if you like, write your prompt and submit. It takes a few minutes.</p>
+
+<pre class="prompt" data-label="Prompt 14 · A short product clip">Create a short vertical video: a ceramic coffee mug on a wooden kitchen table in morning light. Slow push-in from the side, steam rising, a hand reaches in and lifts the mug at the end. Calm, natural colours, no text on screen, gentle cafe background sound.</pre>
+
+<div class="callout warn"><b>Heads-up</b><p>Don't make images or videos of real people without their consent, and label AI-made content when you post it. If you're publishing ads in Europe, my guide to <a href="#read-ad-labels-in-europe">ad labels in Europe</a> covers the disclosure basics.</p></div>
+
+<h3>Notebooks and Gemini Notebook (formerly NotebookLM)</h3>
+
+<p><b>What it is:</b> a notebook is a project folder for one topic. You add sources (PDFs, Drive files, websites, pasted text, even past chats) and Gemini answers using those sources. In July 2026 Google renamed NotebookLM to <b>Gemini Notebook</b>; it still exists as a standalone tool at <a href="https://notebook.google.com/" target="_blank" rel="noopener">notebook.google.com</a>, where it turns sources into audio overviews, mind maps, flashcards, quizzes and more. Notebooks sync with the Gemini app.</p>
+
+<p><b>Where to find it:</b> in the Gemini app, open the sidebar and, under <b>Notebooks</b>, choose <b>New notebook</b>, name it, then click <b>Add sources</b>. In the EEA, Google says you may need to connect Gemini Notebook manually first.</p>
+
+<pre class="prompt" data-label="Prompt 15 · Ask your sources">Using only the sources in this notebook, answer: [question, e.g. what notice period applies if I want to end the contract early?].
+Quote the exact passage you used and name the source file.
+If the sources don't answer it, say "not in the sources" instead of guessing.
+Then list 3 related questions I should check in the same documents.</pre>
+
+<h3>Connected apps and Personal Intelligence</h3>
+
+<p><b>What it is:</b> connected apps let Gemini read from or act in other services: Google ones like Gmail, Calendar, Drive, Keep, Tasks, Maps and YouTube, and some third-party ones such as Spotify. Type <kbd>@</kbd> and choose the app. <b>Personal Intelligence</b> goes further and lets Gemini draw on your Google apps (and memory of past chats) to answer personal questions without being told where to look. Google's help page says it's for personal accounts, 18 and over, with Keep Activity and related settings on, and was not available in the EEA, Switzerland or the UK.</p>
+
+<pre class="prompt" data-label="Prompt 16 · Pull it together from my apps">@Gmail @Google Calendar I'm travelling to [city] on [date]. Find my booking confirmations (flights, train, hotel) and any calendar events for that trip.
+Make a one-page itinerary: times, addresses, confirmation numbers, and check-in or check-out times.
+Mark anything missing or conflicting. Don't change anything in my calendar.</pre>
+
+<h3>Scheduled actions</h3>
+
+<p><b>What it is:</b> ask Gemini to do something on a schedule, such as a news briefing every weekday morning or a weekly summary of a topic. You can have up to 10 active at once. Results are prepared ahead, so fast-moving data may be stale. It needs Keep Activity on and Google says it's rolling out gradually, so you may not see it yet.</p>
+
+<p><b>Where to find it:</b> write the timing into your prompt. Manage them under <b>Settings and help</b>, then <b>Scheduled actions</b>, where you can pause, edit or delete.</p>
+
+<pre class="prompt" data-label="Prompt 17 · A Monday morning briefing">Every Monday at 7:30, give me a 5-minute briefing:
+1. The 3 most important news stories about [your industry] from the past week, each with one line on why it matters to someone in [your role].
+2. One practical AI tip I could try this week in Google Docs or Sheets.
+3. One question to think about for the week.
+Keep it under 300 words with source links.</pre>
+
+<h3>Gemini Spark (paid, not in Europe)</h3>
+
+<p><b>Gemini Spark</b> is Google's agent: it works through multi-step tasks across Gmail, Calendar, Drive and websites, asking before it sends, buys or submits anything. In October 2026 it needed AI Pro or Ultra and was not offered in the EEA, Switzerland or the UK. Google warns about prompt injection (hidden instructions in a page or email that try to trick the agent), so supervise it.</p>
+
+<h2>44 things to try, by life area</h2>
+
+<p>Replace anything in [brackets]. For @Gmail or @Drive, connect that app first, or paste the text instead.</p>
+
+<h3>Work</h3>
+<ol>
+<li><b>Thread to actions.</b> "Summarise this email thread in five lines: what's decided, what's open, and who owes what by when."</li>
+<li><b>Meeting prep.</b> "@Gmail @Google Calendar I'm meeting [name] on [day]. Summarise our last emails and tell me the three things I should raise."</li>
+<li><b>Say no nicely.</b> "Draft a reply declining this request without damaging the relationship. Offer one smaller thing I could do instead. Under 100 words."</li>
+<li><b>Notes to tasks.</b> "Turn these meeting notes into a table with task, owner, deadline and anything I need to confirm. Write TBC where something is missing."</li>
+<li><b>Status update.</b> "Write my weekly update for [manager] from these bullets. Wins first, then risks, then what I need. Keep it scannable."</li>
+<li><b>Process doc.</b> "I'll describe how I do [process] in a messy brain dump. Turn it into numbered steps a new colleague could follow in Google Docs."</li>
+<li><b>Agenda builder.</b> "Make a 30-minute meeting agenda for [topic] with time per item, the decision we need."</li>
+</ol>
+
+<h3>Email and admin</h3>
+<ol start="8">
+<li><b>Unsubscribe list.</b> "@Gmail List the newsletters I've received in the last month that I never opened, with the sender and how often they arrive."</li>
+<li><b>Follow-up finder.</b> "@Gmail Find emails I sent in the last two weeks that haven't had a reply and look like they needed one. Draft a short, friendly nudge for each."</li>
+<li><b>Tone check.</b> "Read this email before I send it. Could anything sound rude, passive-aggressive or unclear? Suggest a calmer version with the same message."</li>
+<li><b>Receipts round-up.</b> "@Gmail Find order confirmations from [month] and list the shop, date and amount in euros in a table I can paste into Sheets."</li>
+<li><b>Event from an email.</b> "@Gmail @Google Calendar Find the email about [event] and draft a calendar entry with the time, address and what to bring. Show it before creating it."</li>
+</ol>
+
+<h3>Writing</h3>
+<ol start="13">
+<li><b>Half as long.</b> "Cut this to half its length without losing any facts. Then list what you removed so I can check."</li>
+<li><b>Sound like me.</b> "Here are three things I wrote. Describe my style in five bullets, then rewrite the draft below in that style."</li>
+<li><b>Skim test.</b> "Read this as a busy reader who skims. Where would you stop, what's confusing, and what's the one change that would help most?"</li>
+<li><b>Plain English.</b> "Rewrite this so a 14-year-old could follow it. Keep every important point and list the terms you simplified."</li>
+<li><b>Proofread.</b> "Check this for spelling, grammar and unclear sentences in British English. Show each change as before and after. Don't change my tone."</li>
+<li><b>Five headlines.</b> "Give me five headline options for this post: two plain, two curious, one bold. Under 10 words each, no clickbait."</li>
+</ol>
+
+<h3>Learning</h3>
+<ol start="19">
+<li><b>Explain it properly.</b> "Explain [topic] to me as a smart beginner with one everyday example. Then ask me three questions to check I understood."</li>
+<li><b>Quiz me.</b> "Quiz me on [topic] one question at a time. Wait for my answer, tell me if I'm right and why, and get harder as I improve."</li>
+<li><b>Video to notes.</b> "Summarise this YouTube video [link] in 8 bullets with timestamps, then list the 3 ideas I should remember."</li>
+<li><b>Study notebook.</b> In a notebook with your course files: "Make 20 flashcards from these sources, focused on what's most likely to come up in an exam."</li>
+<li><b>Language partner.</b> In Gemini Live: "Have a simple conversation with me in [language] about [topic]. After each reply, correct my mistakes briefly in English, then carry on."</li>
+<li><b>Read a chart.</b> Upload a screenshot. "What does this chart show, what's the main takeaway, and what could be misleading about it?"</li>
+</ol>
+
+<h3>Money and paperwork</h3>
+<p>General information only, not financial, legal or tax advice. For big decisions or anything with a legal deadline, check with a qualified professional or the official body. Remove account numbers, ID numbers and passwords before you upload anything.</p>
+<ol start="25">
+<li><b>What does this letter want?</b> Photograph it in the app. "What do they want from me, by when, and what happens if I miss it? Draft a short reply if I need one."</li>
+<li><b>Spending categories.</b> In Sheets with Ask Gemini: "Add a column that groups each transaction into a category, then build a pivot table of totals per category per month."</li>
+<li><b>Compare two offers.</b> "Compare these two [phone, energy, insurance] offers in a table: total cost over 24 months in euros, notice period, fees and what I'd lose by switching."</li>
+<li><b>Subscription audit.</b> "@Gmail Find recurring payment emails from the last three months. List each subscription, how often it charges and the amount, so I can decide what to cancel."</li>
+<li><b>Before you sign.</b> "I'm about to sign this [rental contract]. List the clauses I should understand, anything unusual, and questions to ask before signing."</li>
+<li><b>Paperwork checklist.</b> "Make a checklist of documents I'll probably need to [file my tax return as an employee in Germany]. Mark which ones I should confirm with the official source."</li>
+</ol>
+
+<h3>Home and life</h3>
+<ol start="31">
+<li><b>Fridge dinners.</b> Take a photo of your fridge. "Plan three dinners from what you can see, under 30 minutes each, and list what I'd need to buy."</li>
+<li><b>Trip plan.</b> "Plan [3 days in city] for two people who like [interests] and hate rushing. One area per day, rough costs in euros, and a rainy-day backup."</li>
+<li><b>Fix it with the camera.</b> In Gemini Live, point the camera at the problem. "What is this, what are the likely causes, and what can I safely check myself before calling someone?"</li>
+<li><b>Chore rota.</b> "Make a fair weekly cleaning rota for [number] flatmates with these jobs: [list]. Rotate weekly and format it as a table I can paste into Sheets."</li>
+<li><b>Gift ideas.</b> "Suggest 10 gifts under €[amount] for [person] who likes [interests] and already has [things]. Say why each fits."</li>
+<li><b>Moving checklist.</b> "I'm moving from [place] to [place] on [date]. Give me a week-by-week checklist from 8 weeks before, including address changes and contracts to cancel."</li>
+<li><b>Find that photo.</b> In Google Photos with Ask Photos: "Show me photos from our trip to [place] where we're at the beach at sunset."</li>
+</ol>
+
+<h3>Creating</h3>
+<ol start="38">
+<li><b>Party invite.</b> "Make an invitation image for [event] on [date] at [place]. Warm colours, playful, with space at the top for the text: [text]."</li>
+<li><b>Content calendar.</b> In Canvas: "Build a 4-week content calendar for [topic] on [platform]: three posts a week, each with a hook, format and call to action. Export-ready for Sheets."</li>
+<li><b>Slide deck.</b> In Canvas: "Turn this document into a 6-slide deck for [audience]. One idea per slide, short headlines, speaker notes underneath." Then use Export to Slides.</li>
+<li><b>Podcast of your notes.</b> In Gemini Notebook, add your sources and generate an audio overview to listen to on a walk.</li>
+</ol>
+
+<h3>Career</h3>
+<ol start="42">
+<li><b>Job match.</b> "Here's a job ad and my CV. Score the match out of 10, list the three strongest overlaps and the two biggest gaps, and suggest how to address each gap honestly."</li>
+<li><b>Company research.</b> Deep Research: "Research [company] for a job interview: what they sell, recent news from the last 12 months, competitors, and three smart questions I could ask."</li>
+<li><b>Tracker in Sheets.</b> In Sheets with Ask Gemini: "Create a job application tracker with columns for company, role, link, date applied, status, next step and follow-up date, with a dropdown for status."</li>
+</ol>
+
+<h2>Bigger project prompts</h2>
+
+<p>These take 30 to 90 minutes and combine several features.</p>
+
+<h3>A weekly inbox-to-plan routine</h3>
+
+<p>Uses connected Gmail and Calendar. Run it every Monday, or turn it into a skill.</p>
+
+<pre class="prompt" data-label="Prompt 18 · Monday reset">@Gmail @Google Calendar Help me plan my week. Work through these steps and stop after each one for my OK:
+1. From my emails in the last 7 days, list everything that needs action from me, grouped by project. Ignore newsletters and automated messages.
+2. Check my calendar for this week and list my free blocks of 60 minutes or more.
+3. Propose a plan that puts the most important actions into those blocks, with a realistic time estimate for each.
+4. Draft short replies for anything that can be answered in under two minutes, and list them for me to review.
+Never send emails or create events yourself. Ask me if you're unsure which project something belongs to.</pre>
+
+<h3>Research to deck in one sitting</h3>
+
+<p>Uses Deep Research, Canvas and Slides. Good for a pitch, a class presentation or a proposal.</p>
+
+<pre class="prompt" data-label="Prompt 19 · From question to presentation">Step 1 (Deep Research): Research [topic, e.g. how small cafes in Germany use loyalty programmes]. Focus on [country], the last 2 years, and practical examples. Mark claims you couldn't confirm.
+Step 2 (after the report): Open the report in Canvas and turn it into an 8-slide deck for [audience, e.g. a cafe owner deciding whether to start one]. Slide 1 is the answer in one sentence. One idea per slide. Put sources in the speaker notes.
+Step 3: Before I export to Slides, list the 5 facts in the deck I should double-check myself, with the source for each.</pre>
+
+<h3>A job-search command centre</h3>
+
+<p>Uses Sheets and Gmail. I built a bigger job-search agent for myself; this is the simple version for an afternoon.</p>
+
+<pre class="prompt" data-label="Prompt 20 · Job tracker that stays current">I'm job hunting for [role] roles in [country or remote]. Help me set up a simple system in Google Sheets and Gmail.
+1. Design a tracker sheet: columns, dropdowns for status, and conditional formatting that turns a row amber when the follow-up date is within 3 days and red when it has passed.
+2. Write the formulas I need for a small summary at the top: applications this month, interviews, and response rate.
+3. @Gmail Search my inbox for replies from companies in the last 30 days and list them so I can add them to the tracker.
+4. Write a short follow-up email template I can reuse, with [brackets] for the parts I change.
+Give me each part separately so I can paste it in.</pre>
+
+<h3>A household paperwork notebook</h3>
+
+<p>Uses a notebook. Add your rental contract, insurance policies, appliance manuals and utility contracts (with account numbers blacked out first).</p>
+
+<pre class="prompt" data-label="Prompt 21 · Home admin binder">Using only the sources in this notebook, build me a household reference sheet:
+1. A table of every contract: provider, what it covers, cost per month in euros, renewal or end date, and notice period. Write "not stated" where a source doesn't say.
+2. A list of deadlines in the next 6 months, in date order.
+3. For each appliance manual, the one maintenance task I'm most likely to forget, and how often to do it.
+Quote the source file name for every row. This is for my own planning, not legal advice, so flag anything I should confirm with the provider.</pre>
+
+<h2>Privacy and your data</h2>
+
+<p>Gemini can read your email and files, which is both the benefit and the risk. Here's what Google's <a href="https://support.google.com/gemini/answer/13594961?hl=en" target="_blank" rel="noopener">Gemini Apps Privacy Hub</a> said in October 2026, for personal accounts.</p>
+
+<h3>Keep Activity</h3>
+
+<ul>
+<li><b>On:</b> chats are saved to your account and deleted automatically after 18 months by default. You can change that to 3 months, 36 months or never. Google may use these chats to improve its AI.</li>
+<li><b>Off:</b> new chats don't appear in your activity and aren't used for training (unless you send feedback), but Google still keeps them for up to 72 hours to run the service and keep it safe. Many features need it on: skills, scheduled actions, most connected apps on web and iPhone, Spark and some notebook features.</li>
+<li><b>Gemini Live audio and video:</b> there's a separate choice in Gemini Apps Activity about whether your Live audio, video and screen shares can be used to improve Google's services.</li>
+</ul>
+
+<h3>Human review</h3>
+
+<p>With Keep Activity on, some chats are read by trained human reviewers who check answer quality. Google says reviewed chats are disconnected from your account and kept for up to three years, even if you delete your activity. Google's own advice is not to enter confidential information you wouldn't want a reviewer to see. Take that literally.</p>
+
+<h3>Temporary chats</h3>
+
+<p>For a one-off sensitive question, use a temporary chat: on the web, click the <b>Temporary chat</b> icon next to <b>New chat</b>. Temporary chats aren't used for training or personalisation and are kept for 72 hours. They can't use skills, connected apps, file uploads or image generation.</p>
+
+<h3>Deleting activity</h3>
+
+<p>Open <a href="https://myactivity.google.com/product/gemini" target="_blank" rel="noopener">Gemini Apps Activity</a> to delete single chats, a time range or everything, and to set auto-delete. Disconnecting an app in Connected Apps stops Gemini reading it from then on.</p>
+
+<h3>Work accounts are different</h3>
+
+<p>On business or school Workspace accounts, Google says chats and files aren't human reviewed or used for training outside your organisation without permission. Your company's rules still apply.</p>
+
+<div class="callout warn"><b>Privacy</b><p>Never paste passwords, ID or passport numbers, full bank or card details, or health records. Don't upload other people's private data (a colleague's performance review, a friend's medical letter) without their consent. Black out account numbers on documents before you photograph them. I've collected the settings worth checking across all the main AI apps in <a href="#read-ai-privacy-settings">five privacy settings to check in your AI apps</a>.</p></div>
+
+<h2>Common mistakes</h2>
+
+<ul>
+<li><b>Paying before checking.</b> Some features are US-only or not available in Europe. Confirm a feature works in your country and language before upgrading for it.</li>
+<li><b>Using the wrong account.</b> Your personal and work accounts have separate chats, settings and rules. Work data belongs in the work account.</li>
+<li><b>Trusting a summary of an important email.</b> Summaries drop details. For contracts, money and deadlines, read the original.</li>
+<li><b>Asking Sheets for answers instead of formulas.</b> A number in a chat can't be audited. A formula in a cell can.</li>
+<li><b>One giant chat.</b> Long chats drift and the model forgets early details, especially on free. Start a new chat for each new task, and use a notebook for ongoing projects.</li>
+<li><b>Skipping the plan in Deep Research.</b> A vague plan gives a vague report. Edit it before you click Start.</li>
+</ul>
+
+<h2>What Gemini can't do (or shouldn't)</h2>
+
+<ul>
+<li><b>Guarantee facts.</b> Even with search, it can cite a page that doesn't say what it claims. Click the sources for anything you'll repeat or rely on.</li>
+<li><b>Replace professional advice.</b> Use it to prepare questions for your doctor, lawyer, tax adviser or bank, not to replace them.</li>
+<li><b>See your whole spreadsheet through the AI function.</b> The <code>AI</code> function only sees the cells you pass it.</li>
+<li><b>Act safely without supervision.</b> Agents like Spark can be fooled by instructions hidden in web pages or emails. Keep a human in the loop for anything that sends, buys or deletes.</li>
+</ul>
+
+<h2>When it gets stuck</h2>
+
+<p><b>"I don't see Ask Gemini in Docs or Gmail."</b> Check which account you're signed into, then your plan. On a personal account you usually need a Google AI plan; on a work account your admin must have it switched on.</p>
+
+<p><b>"Gemini says it can't access my Gmail."</b> Open Settings and help, then Connected Apps, and check Gmail is on. Check Keep Activity is on, since most connected apps need it. Then start a new chat and type <kbd>@</kbd> Gmail.</p>
+
+<p><b>"The answer is generic."</b> Add context: who it's for, an example of what good looks like, and the actual source. Or switch from Flash to Pro and ask again.</p>
+
+<p><b>"It made up a number or a quote."</b> Ask: "Which source says that? Quote the sentence." If it can't, treat the claim as wrong. For Sheets, ask for the formula instead of the result.</p>
+
+<p><b>"My skill isn't being used."</b> Check it's switched on in Settings, then Skills. Call it directly by typing <kbd>/</kbd> and choosing it. If it still ignores parts, shorten the instructions.</p>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>I want to…</th><th>Use</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td>Handle a hard or long task</td><td>Pro model</td><td>Model selector in the message box</td></tr>
+<tr><td>Catch up on a long email thread</td><td>Gmail summary or @Gmail</td><td>Top of the thread, or the Gemini app</td></tr>
+<tr><td>Edit or summarise a Doc</td><td>Ask Gemini side panel</td><td>Top right in Docs</td></tr>
+<tr><td>Build a formula or chart</td><td>Ask Gemini in Sheets</td><td>Top right in Sheets</td></tr>
+<tr><td>Get a researched report</td><td>Deep Research</td><td>+ button, then Deep Research</td></tr>
+<tr><td>Make a doc, deck or mini app</td><td>Canvas</td><td>+ button, then Canvas</td></tr>
+<tr><td>Work from my own sources</td><td>Notebooks</td><td>Sidebar, Notebooks, New notebook</td></tr>
+<tr><td>Reuse instructions</td><td>Skills</td><td>Settings, Skills; type / to use</td></tr>
+<tr><td>Ask something private once</td><td>Temporary chat</td><td>Icon next to New chat</td></tr>
+</tbody></table></div>
+<p><b>The brief:</b> task, audience, source, what good looks like, "ask me up to 3 questions first".</p>
+<p><b>The rule:</b> Gemini drafts, you check and send. Formulas, not answers.</p>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Sign in at gemini.google.com with the account you use most, and install the phone app.</li>
+<li>Add your Instructions for Gemini using Prompt 1.</li>
+<li>Open Gemini Apps Activity, decide on Keep Activity, and set auto-delete to 3 or 18 months.</li>
+<li>Connect Gmail and Calendar only, and run Prompt 3 on your inbox.</li>
+<li>Open one real Doc or Sheet and try Ask Gemini (or note that your plan doesn't include it yet).</li>
+<li>Run one Deep Research report on a decision you're facing, and edit the plan before you start.</li>
+<li>Turn the task you repeat most into a skill with Prompt 9.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Is Gemini free?</summary><p>Yes, the Gemini app has a free tier that includes chat, Deep Research, Canvas, Gemini Live, image making and skills, with lower limits. Gemini inside Gmail, Docs and Sheets, video generation and the higher limits come with paid Google AI plans (from €4.99 a month in Germany in October 2026) or a Workspace business plan.</p></details>
+
+<details class="faq"><summary>Do I need Google AI Pro to use Gemini in Gmail and Docs?</summary><p>Not always. In October 2026 Google AI Plus already listed Gemini in Gmail and Docs, and Pro added Sheets and more. On a work account, your company's Workspace plan decides.</p></details>
+
+<details class="faq"><summary>What happened to Gems?</summary><p>Google is replacing Gems with skills. Skills rolled out from 30 September 2026, and Google says Gems will be phased out for personal accounts in November 2026 and converted to skills automatically.</p></details>
+
+<details class="faq"><summary>Does Google read my Gemini chats?</summary><p>On personal accounts with Keep Activity on, some chats may be reviewed by trained human reviewers to improve quality, and Google keeps those reviewed chats for up to three years. Use temporary chats for anything sensitive. Work accounts are treated differently (see the privacy section).</p></details>
+
+<details class="faq"><summary>Gemini, ChatGPT or Claude?</summary><p>If your life runs on Gmail, Docs, Sheets and Android, Gemini has the home advantage. My comparison is in <a href="#read-pick-your-ai-by-job">pick your AI by job, not by hype</a>, and there are full beginner guides for <a href="#read-claude-from-zero">Claude</a> and <a href="#read-chatgpt-from-zero">ChatGPT</a>.</p></details>

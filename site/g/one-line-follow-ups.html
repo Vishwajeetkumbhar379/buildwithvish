@@ -1,0 +1,175 @@
+<p>Most people read the first AI answer, decide it's a bit flat, and leave. That first answer is a draft. In my experience the good one is usually reply #3, after you've told the AI what's wrong with the first. This page gives you 12 one-line follow-ups, grouped by the problem they fix, with why each one works and a quick before and after. They work in Claude, ChatGPT, Gemini or any other chat app. Reading takes about 12 minutes. Using one takes five seconds.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>The first answer is a draft. Name what's wrong with it, then send the matching follow-up.</li>
+<li>12 follow-ups for 6 problems: too long, too generic, too sure of itself, too agreeable, hard to use, and stiff.</li>
+<li>The one I use most: "That's too generic. Ask me 3 questions about my situation first, then rewrite it."</li>
+<li>Stay in the same chat and send one or two at a time.</li>
+<li>Copy the cheat sheet at the bottom into your notes app.</li>
+</ul></div>
+
+<h2>How to use these follow-ups</h2>
+<ol>
+<li><b>Name the problem first.</b> Before replying, say in one word what's wrong: too long, generic, overconfident, too agreeable, hard to use, stiff. The headings below match those problems.</li>
+<li><b>Send the matching line.</b> Every prompt box starts with the short follow-up. The sentences after it are a stronger version for when the short line isn't enough. Copy just the first sentence or the whole box.</li>
+<li><b>Stay in the same chat.</b> The AI needs to see what it wrote. A follow-up in a new chat has nothing to fix.</li>
+<li><b>One or two at a time.</b> Ask for five changes at once and you'll get a muddle. Fix the biggest problem, read again, then fix the next.</li>
+<li><b>Fill the brackets.</b> Anything in [square brackets] is yours to replace.</li>
+</ol>
+
+<h2>When it's too long</h2>
+
+<h3>1. "Half the words, same meaning."</h3>
+<p><b>Fixes:</b> answers padded with a warm-up, repeated points and a summary of what you just read.</p>
+<p>"Shorter" is vague, so you often get the same answer with a few words trimmed. "Half" is a target the AI can measure, and "same meaning" tells it to keep the content and cut the padding. It's the fastest edit you'll ever make.</p>
+<pre class="prompt" data-label="Prompt 1 · Half the words">Half the words, same meaning. Keep every name, number, date and action step. Cut the warm-up, any point you've already made and the closing summary.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Great question! Starting a balcony garden can be a really rewarding experience. There are several important factors to consider before you begin, including sunlight, the size of your space and the climate where you live...</p></div><div class="good"><b>After</b><p>Check two things first: how many hours of direct sun the balcony gets, and how much weight it can take. Then pick plants that suit both.</p></div></div>
+
+<h3>2. "What would you cut first?"</h3>
+<p><b>Fixes:</b> plans, lists and reports with too many points to act on.</p>
+<p>This makes the AI rank its own points by importance. You see its reasoning, and you stay in charge of what goes. It's especially good for plans, where twelve steps usually means nothing gets done.</p>
+<pre class="prompt" data-label="Prompt 2 · What to cut">What would you cut first? Rank every point from least to most important, cross out the bottom third, and give me one line on why each cut is safe. Then show me the shorter version.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>A 14-point plan to get fitter, from "buy a heart-rate monitor" to "meal prep every Sunday" to "join a running club".</p></div><div class="good"><b>After</b><p>Three points that matter (walk daily, two short strength sessions a week, a fixed bedtime) and a list of what was cut, with why.</p></div></div>
+
+<h2>When it's too generic</h2>
+
+<h3>3. "That's too generic. Ask me 3 questions about my situation first, then rewrite it."</h3>
+<p><b>Fixes:</b> advice that could apply to anyone. Track your spending. Set clear goals. Get enough sleep.</p>
+<p>A generic answer usually means the AI was missing context about you. This line flips the conversation so the AI interviews you. Three questions is enough to get the details that matter and few enough that you'll answer them. It's the follow-up version of the magic line in <a href="#read-brief-ai-like-an-agency">Brief AI the way you'd brief a pro</a>, and if I could keep only one line on this page, it would be this one.</p>
+<pre class="prompt" data-label="Prompt 3 · Too generic">That's too generic. Ask me 3 questions about my situation first, then rewrite it.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>To save money each month, track your spending, make a budget and cut unnecessary expenses.</p></div><div class="good"><b>After</b><p>(After three questions about your bills and habits.) Your easiest win is the two streaming services and the gym you said you haven't used since summer. Cancel those this week, then look at your phone contract, which ends in March.</p></div></div>
+
+<h3>4. "Give me the version an expert would write."</h3>
+<p><b>Fixes:</b> answers that are correct but beginner-level, or read like a school essay.</p>
+<p>This moves the target from the average version of an answer to an expert's version. Naming the kind of expert helps even more, because a senior recruiter writes a CV line differently from a careers blog. Experts also skip the obvious, so the answer usually gets tighter.</p>
+<pre class="prompt" data-label="Prompt 4 · Expert version">Give me the version an expert would write. Pick the kind of expert who knows this best (for example [a senior recruiter / a professional chef / an experienced teacher]), tell me who you picked, then rewrite it the way they would. Skip anything they'd consider obvious.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Your CV should highlight your skills and experience in a clear and professional way.</p></div><div class="good"><b>After</b><p>Open each job with your strongest result, not your duties. Delete every line that starts with "responsible for". Cut anything older than ten years unless it's directly relevant.</p></div></div>
+<div class="callout warn"><b>Heads-up</b><p>"The version an expert would write" is still AI writing. For health, money, tax or legal questions it isn't professional advice. Use it to get a sharper draft, then check with a real professional when it matters.</p></div>
+
+<h3>5. "Explain it with an example from [my life or job]."</h3>
+<p><b>Fixes:</b> explanations that make sense while you read them and vanish when you try to use them.</p>
+<p>A concrete example forces the AI to apply the idea, which exposes gaps in the explanation. And an example from your own world sticks, because you can picture it.</p>
+<pre class="prompt" data-label="Prompt 5 · Your example">Explain it with an example from [my life or job, e.g. running a small bakery / working shifts in a hospital / planning a family holiday]. Walk through it step by step with realistic details, then tell me the one thing I should remember.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Opportunity cost is the value of the next best alternative you give up when making a decision.</p></div><div class="good"><b>After</b><p>If you spend Saturday morning baking for a market stall, the opportunity cost is the café shift you'd otherwise work. The stall has to beat that shift's pay, and your tiredness, to be worth it.</p></div></div>
+
+<h2>When it's too sure of itself</h2>
+
+<h3>6. "What did you assume that I didn't tell you?"</h3>
+<p><b>Fixes:</b> confident answers built on guesses you can't see.</p>
+<p>AI fills gaps quietly. It decides how many people you're cooking for, what your budget is, what country you live in, and it doesn't tell you. This question makes those guesses visible so you can correct the wrong ones. The list is often the most useful part, because it shows you what you forgot to say.</p>
+<pre class="prompt" data-label="Prompt 6 · Hidden assumptions">What did you assume that I didn't tell you? List each assumption, say whether it changed your answer a lot or a little, and what you'd change if it's wrong. Then wait for my corrections.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>A weekly meal plan with salmon twice and a 40-minute dinner every night.</p></div><div class="good"><b>After</b><p>"I assumed you cook for two, eat fish, cook every evening and have about 40 minutes." You reply "One person, no fish, 20 minutes max" and get a plan you'll actually follow.</p></div></div>
+
+<h3>7. "Which part are you least sure about?"</h3>
+<p><b>Fixes:</b> answers full of facts, figures and rules you can't easily check.</p>
+<p>This tells you where to check first. You won't verify every sentence, so it helps to know which ones are shakiest. Rules, prices, dates and anything recent are the usual suspects.</p>
+<pre class="prompt" data-label="Prompt 7 · Least sure">Which part are you least sure about? Mark each claim in your answer as solid, probably right, or a guess. For anything that isn't solid, tell me exactly what to check and which official source to check it with.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>A confident paragraph about tenant rights, with a notice period and a deposit rule stated as fact.</p></div><div class="good"><b>After</b><p>The same answer with the deposit rule marked "probably right, check your local tenancy rules" and the notice period marked "a guess, check your contract".</p></div></div>
+<div class="callout warn"><b>Heads-up</b><p>An AI's sense of its own certainty isn't reliable. It can be confidently wrong about which parts are wrong. Use this question to decide where to look first, never as a replacement for checking.</p></div>
+
+<h2>When it agrees too much or repeats itself</h2>
+
+<h3>8. "Now argue against it."</h3>
+<p><b>Fixes:</b> answers that cheer on whatever you said.</p>
+<p>AI chat tools tend to go along with the way you frame things. Tell it you're excited about a plan and it will usually help with the plan. Asking it to argue the other side gets you the objections a sensible friend would raise, before reality raises them for you.</p>
+<pre class="prompt" data-label="Prompt 8 · Argue against it">Now argue against it. Be the most sensible sceptic you can. Give me the 3 strongest reasons this is a bad idea, what would have to be true for it to fail, and the early warning signs I should watch for.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Turning your candle hobby into a business is a brave move! Here's a launch plan...</p></div><div class="good"><b>After</b><p>Three risks: it's a crowded market where buyers compare on price; you haven't sold to anyone outside friends yet; and your costs per candle aren't known. Test sales at one market before buying stock.</p></div></div>
+
+<h3>9. "Give me 3 options that are actually different."</h3>
+<p><b>Fixes:</b> "three options" that are one idea in three outfits.</p>
+<p>When you ask for options, they tend to cluster around the most likely answer. Saying "actually different", and naming what they should differ on, pushes them apart.</p>
+<pre class="prompt" data-label="Prompt 9 · Real options">Give me 3 options that are actually different. Make them differ on [cost / effort / risk / style]: one safe, one bold, and one I probably haven't thought of. For each, one line on who it suits.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Birthday ideas: dinner at an Italian restaurant, dinner at a Thai restaurant, dinner at a tapas bar.</p></div><div class="good"><b>After</b><p>Cook together at home with three friends; a day trip by train to a lake; or a "yes day" where the birthday person sets every plan.</p></div></div>
+
+<h2>When it's hard to use</h2>
+
+<h3>10. "Show this as a table."</h3>
+<p><b>Fixes:</b> comparisons and options buried in paragraphs.</p>
+<p>A table forces the AI to line up the same facts for every option, so gaps show immediately: an empty cell is a missing fact. It's also easier to scan and to paste into a spreadsheet.</p>
+<pre class="prompt" data-label="Prompt 10 · As a table">Show this as a table. One row per option, with columns for [price, length of commitment, main benefit, the catch]. Keep each cell under 10 words and add a final row with your recommendation.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Four paragraphs comparing three phone contracts, with the prices and terms scattered through the text.</p></div><div class="good"><b>After</b><p>A three-row table: monthly price, contract length, data, the catch. The cheapest one turns out to have a price rise after a year.</p></div></div>
+
+<h3>11. "Turn this into steps I can do in the next hour."</h3>
+<p><b>Fixes:</b> advice that's right but leaves you unsure what to do first.</p>
+<p>A time limit forces the AI to pick the first real actions and make them small. It turns something you read into something you do, today.</p>
+<pre class="prompt" data-label="Prompt 11 · Next hour">Turn this into steps I can do in the next hour. Number them, put a time next to each, make the first one take under 5 minutes, and tell me what "done" looks like at the end of the hour.</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>Decluttering starts with a mindset shift. Think about what you truly value and how your space makes you feel...</p></div><div class="good"><b>After</b><p>1. Get two bags, one for bin and one for donate (2 min). 2. Clear the kitchen counter only (15 min). 3. Empty one drawer onto the table and put back only what you used this month (20 min)...</p></div></div>
+
+<h2>When it sounds like a robot</h2>
+
+<h3>12. "Make it sound like a person talking."</h3>
+<p><b>Fixes:</b> stiff, formal, wordy text you'd never say out loud.</p>
+<p>Spoken language uses short sentences, common words and contractions. Asking for "a person talking" pulls in all of that in one go. Read the result aloud: if you'd stumble over a sentence, ask again. For a voice that sounds like you specifically, see <a href="#read-brand-voice-without-ai-sound">Make AI write in your voice</a>.</p>
+<pre class="prompt" data-label="Prompt 12 · Sound human">Make it sound like a person talking. Short sentences, everyday words, contractions. Remove anything I wouldn't say out loud to a friend, and drop words like "additionally", "furthermore" and "ensure".</pre>
+<div class="compare"><div class="bad"><b>Before</b><p>I am writing to inform you that, due to unforeseen circumstances, I will unfortunately be unable to attend Thursday's meeting.</p></div><div class="good"><b>After</b><p>Sorry, something's come up and I can't make Thursday. Could we move it to next week?</p></div></div>
+
+<h2>Stacking them: why reply #3 is the good one</h2>
+<p>The follow-ups work best in a short sequence. Here's a typical one.</p>
+<p>You ask for a plan to learn some Spanish before a holiday. <b>Reply 1</b> is a tidy eight-week plan that would suit anyone. You send: "That's too generic. Ask me 3 questions about my situation first, then rewrite it." It asks your level, how much time you have each day, and what you'll actually need Spanish for. You answer: total beginner, 15 minutes on the commute, ordering food and asking directions.</p>
+<p><b>Reply 2</b> is a plan built around restaurant and street phrases, sized for the commute. Good, but long. You send: "Turn this into steps I can do in the next hour." <b>Reply 3</b> is today's first session: ten phrases, a way to practise them out loud, and a two-minute self-test. That's the one you use.</p>
+<p>Two or three follow-ups is usually enough. If you're on reply #8 and still unhappy, the problem is the brief, not the follow-ups. Start a new chat with a better one.</p>
+
+<h2>Bonus: more follow-ups worth keeping</h2>
+<p>The title says 12 because those are the ones I'd keep if I could only keep 12. These come close:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Type this</th><th>Use it when</th></tr></thead>
+<tbody>
+<tr><td>"Give me the one-sentence version."</td><td>You need the point, fast</td></tr>
+<tr><td>"What's missing?"</td><td>It looks complete but feels thin</td></tr>
+<tr><td>"Rewrite it for [my boss / a 12-year-old / a customer]."</td><td>Right content, wrong reader</td></tr>
+<tr><td>"Check your answer against my original request. What did you skip?"</td><td>It drifted from what you asked</td></tr>
+<tr><td>"What would a sceptical reader ask?"</td><td>You're about to send or publish it</td></tr>
+<tr><td>"Which one would you pick, and why?"</td><td>It won't commit to anything</td></tr>
+<tr><td>"Give me a version I could say out loud in 30 seconds."</td><td>You need to explain it to someone</td></tr>
+<tr><td>"Start again. Ignore your last answer."</td><td>It keeps circling the same idea</td></tr>
+</tbody></table></div>
+
+<h2>Make them work better</h2>
+<p><b>Fix the brief first.</b> Follow-ups repair a weak answer. A good brief prevents one. Five minutes on <a href="#read-brief-ai-like-an-agency">the six-box brief</a> means fewer follow-ups.</p>
+<p><b>Keep them one tap away.</b> Paste the cheat sheet below into your phone's notes app. Many phone keyboards also let you save text shortcuts, so typing a short code like "tg" expands to the full too-generic line. Look in your keyboard settings.</p>
+<p><b>Make the good habits permanent.</b> Some follow-ups can live in your standing instructions so you need them less. In Claude, open Settings and use "Instructions for Claude" (<a href="https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features" target="_blank" rel="noopener">help page</a>). In ChatGPT on the web, go to Settings, then Personalization, then Custom Instructions (<a href="https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions" target="_blank" rel="noopener">help page</a>). A good line to add: "Keep answers short. When my request is missing details, ask up to 3 questions first. Tell me when you're unsure."</p>
+<p class="note">Checked in October 2026. AI apps change fast: if a button has moved, search the app's help pages for the feature name.</p>
+<p><b>Say what to keep.</b> "Keep the second paragraph, redo the rest" gets a better result than "try again", because the AI knows what worked.</p>
+
+<h2>Where follow-ups don't help</h2>
+<ul>
+<li><b>Wrong facts stay wrong.</b> If the AI doesn't know something, asking again can give you a different wrong answer. Check anything important against an official source.</li>
+<li><b>Pushback isn't proof.</b> AI tends to give way when you disagree, even when its first answer was right. Ask for reasons, not surrender: "Explain why, and tell me if you still think your first answer was correct."</li>
+<li><b>Long chats drift.</b> If you're going in circles, open a new chat, paste the best version so far, and brief it properly.</li>
+<li><b>Not professional advice.</b> For money, health, legal or tax questions, follow-ups sharpen a draft. They don't replace a qualified person when the stakes are real.</li>
+</ul>
+
+<h2>Cheat sheet: the notes-app version</h2>
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>If the answer is…</th><th>Type this</th></tr></thead>
+<tbody>
+<tr><td>Bloated</td><td>"Half the words, same meaning."</td></tr>
+<tr><td>Too long to act on</td><td>"What would you cut first?"</td></tr>
+<tr><td>Generic</td><td>"That's too generic. Ask me 3 questions about my situation first, then rewrite it."</td></tr>
+<tr><td>Beginner-level</td><td>"Give me the version an expert would write."</td></tr>
+<tr><td>Abstract</td><td>"Explain it with an example from [my life or job]."</td></tr>
+<tr><td>Suspiciously confident</td><td>"What did you assume that I didn't tell you?"</td></tr>
+<tr><td>Full of facts you can't check</td><td>"Which part are you least sure about?"</td></tr>
+<tr><td>Too agreeable</td><td>"Now argue against it."</td></tr>
+<tr><td>One idea in three outfits</td><td>"Give me 3 options that are actually different."</td></tr>
+<tr><td>A wall of text</td><td>"Show this as a table."</td></tr>
+<tr><td>Theory, no action</td><td>"Turn this into steps I can do in the next hour."</td></tr>
+<tr><td>Stiff</td><td>"Make it sound like a person talking."</td></tr>
+</tbody></table></div>
+</div>
+
+<h2>Your action plan</h2>
+<ul class="checklist">
+<li>Copy the cheat sheet into your notes app now.</li>
+<li>Next time an answer feels flat, name the problem in one word before you reply.</li>
+<li>Try the too-generic line on something you asked AI recently and compare the two answers.</li>
+<li>Ask "What did you assume that I didn't tell you?" before you act on any AI plan.</li>
+<li>After a week, pick the three you used most and save them as keyboard shortcuts.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+<details class="faq"><summary>Why not just write a better first prompt?</summary><p>You should, and <a href="#read-brief-ai-like-an-agency">the six-box brief</a> shows how. But even a great brief produces a draft, and you often only know what you want once you see what you don't. Follow-ups are how you get from there to done.</p></details>
+<details class="faq"><summary>Do these work in every AI app?</summary><p>Yes. They're plain instructions, so they work in Claude, ChatGPT, Gemini, Copilot and others. Some apps follow length and format instructions more closely than others, so if one line doesn't land, try the longer version in its prompt box.</p></details>
+<details class="faq"><summary>Should I keep going or start a new chat?</summary><p>Keep going while each reply gets better. Start fresh when it's circling the same idea, mixing up details from earlier, or you've changed your mind about what you want. Paste the best version so far into the new chat.</p></details>
+<details class="faq"><summary>Why does the AI change its answer as soon as I push back?</summary><p>Chat tools are built to be helpful, and that can tip into agreeing too easily. When you disagree, ask it to explain its reasoning and say whether it still stands by the first answer. Then judge the reasons, not the tone.</p></details>

@@ -359,12 +359,41 @@
   /* ---------- prose enhancement ---------- */
   function enhance(root) {
     $$("pre.prompt", root).forEach((pre) => {
-      const t = pre.textContent.trim(), q = encodeURIComponent(t), box = document.createElement("div"); box.className = "pbox";
-      box.innerHTML = `<div class="bar"><span>PROMPT</span><div><button class="pbtn" type="button">Copy</button><a class="pbtn" href="https://claude.ai/new?q=${q}" target="_blank" rel="noopener">Claude ${I.out}</a><a class="pbtn" href="https://chatgpt.com/?q=${q}" target="_blank" rel="noopener">ChatGPT ${I.out}</a></div></div>`;
+      const t = pre.textContent.trim(), q = encodeURIComponent(t), box = document.createElement("div"), lab = pre.dataset.label; box.className = "pbox";
+      box.innerHTML = `<div class="bar"><span${lab ? ' class="lab"' : ""}>${lab ? esc(lab) : "PROMPT"}</span><div><button class="pbtn" type="button">Copy</button><a class="pbtn" href="https://claude.ai/new?q=${q}" target="_blank" rel="noopener">Claude ${I.out}</a><a class="pbtn" href="https://chatgpt.com/?q=${q}" target="_blank" rel="noopener">ChatGPT ${I.out}</a></div></div>`;
       pre.replaceWith(box); box.appendChild(pre); $("button", box).addEventListener("click", (e) => { copy(t, e.currentTarget); XP.add("copy-" + t.length + "-" + t.slice(0, 12), 10); });
     });
     const s = $(".calc-slot", root); if (s) calc(s);
+    const page = (location.hash.match(/^#read-([a-z0-9-]+)/) || [])[1] || "page";
+    $$("ul.checklist", root).forEach((ul, k) => {
+      const key = "bwv-cl-" + page + "-" + k, items = $$(":scope > li", ul); let st = [];
+      try { st = JSON.parse(store.get(key) || "[]"); } catch (e) { st = []; }
+      const prog = document.createElement("p"); prog.className = "cl-prog"; prog.setAttribute("aria-live", "polite"); ul.after(prog);
+      const upd = () => { prog.textContent = `${st.length} of ${items.length} done`; };
+      items.forEach((li, i) => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "ck"; b.setAttribute("aria-label", "Mark done: " + li.textContent.trim().slice(0, 80));
+        const set = (on) => { li.dataset.done = on; b.setAttribute("aria-pressed", on); };
+        const tog = () => { const on = !st.includes(i); st = on ? [...st, i] : st.filter((x) => x !== i); set(on); store.set(key, JSON.stringify(st)); upd();
+          if (on) { XP.add("cl-" + page + "-" + k + "-" + i, 2); if (st.length === items.length) { toast("Action plan done"); Sound.chime(); } } };
+        li.prepend(b); set(st.includes(i));
+        b.addEventListener("click", (e) => { e.stopPropagation(); tog(); });
+        li.addEventListener("click", (e) => { if (e.target.closest("a,button")) return; tog(); });
+      });
+      upd();
+    });
   }
+  /* long guides live in their own files on the live site and load on demand */
+  const bodyReq = {};
+  function loadBody(a) {
+    if (!a || !a.ext || a.body) return Promise.resolve();
+    if (!bodyReq[a.slug]) bodyReq[a.slug] = fetch("g/" + a.slug + ".html?v=" + (window.BWV_V || "1"), { credentials: "same-origin", signal: (window.AbortSignal && AbortSignal.timeout) ? AbortSignal.timeout(15000) : undefined })
+      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+      .then((t) => { if (/^\s*<!doctype/i.test(t)) throw new Error("not a guide"); return t; })
+      .then((t) => { a.body = t; })
+      .catch((e) => { delete bodyReq[a.slug]; throw e; });
+    return bodyReq[a.slug];
+  }
+  document.addEventListener("pointerover", (e) => { const l = e.target.closest && e.target.closest('a[href^="#read-"]'); if (l) loadBody(find(l.getAttribute("href").slice(6))).catch(() => {}); }, { passive: true });
 
   /* ================= VIEWS ================= */
   function vHome() {
@@ -458,7 +487,7 @@
     if (a.type === "project") {
       const done = getDone(a.slug);
       return `<div class="wrap pg"><div class="art"><div class="art-main">${head}
-        <div class="youbuild"><b>WHAT YOU'LL BUILD</b><p>${esc(a.youbuild)}</p></div>
+        <div class="youbuild"><b>WHAT YOU'LL BUILD</b><p>${esc(a.youbuild)}</p></div>${a.intro ? `<div class="prose intro-proj">${a.intro}</div>` : ""}
         <div class="pstats"><div><span>TIME</span><b>~${a.mins} min</b></div><div><span>LEVEL</span><b>${a.level}</b></div><div><span>COST</span><b>${esc(a.cost)}</b></div><div><span>STEPS</span><b>${a.steps.length}</b></div></div>
         <div class="need"><h2 style="font-size:1.1rem;font-weight:600">You need</h2><ul>${a.need.map((n) => `<li>${esc(n)}</li>`).join("")}</ul></div>
         <ol class="steps">${a.steps.map((s, i) => `<li class="step ${done.includes(i) ? "done" : ""}" id="step-${i + 1}" data-i="${i}"><div class="step-h"><span class="step-n">${i + 1}</span><h2 style="margin:0;font-size:1.1rem">${esc(s.t)}</h2><button class="check" type="button" aria-pressed="${done.includes(i)}">${done.includes(i) ? "Done" : "Mark done"}</button></div><div class="step-b prose">${s.d}</div></li>`).join("")}</ol>
@@ -859,6 +888,7 @@
     if (raw.startsWith("c-")) { if (curKey !== "carousels") { history.replaceState(null, "", "#carousels"); await render("carousels"); } openDeck(raw.slice(2)); return; }
     if ((raw === "home-play" || raw === "home-quiz" || raw === "home-connect") && curKey === "home") { goTo(document.getElementById(raw)); return; }
     if (/^s-\d+$|^step-\d+$/.test(raw)) return;
+    if (raw.startsWith("read-")) loadBody(find(raw.slice(5))).catch(() => {});
     const doWipe = !firstRoute && !RM;
     if (doWipe) { const w = $("#wipe"); w.style.setProperty("--x", lastPt[0] + "px"); w.style.setProperty("--y", lastPt[1] + "px"); w.classList.remove("go"); void w.offsetWidth; w.classList.add("go"); Sound.whoosh(); setTimeout(() => w.classList.remove("go"), 1150); await new Promise((r) => setTimeout(r, 480)); }
     await render(raw);
@@ -869,7 +899,12 @@
     if (raw === "home" || raw === "home-play" || raw === "home-quiz" || raw === "home-connect") { key = "home"; isHome = true; html = vHome(); if (raw !== "home") scrollTo = raw; }
     else if (raw === "start") html = vStart();
     else if (raw === "guides" || raw.startsWith("guides-")) { key = "guides"; const t = raw.slice(7); html = vGuides(TYPES.some((x) => x.id === t) ? t : null); after = bindGuides; }
-    else if (raw.startsWith("read-") && find(raw.slice(5))) { const a = find(raw.slice(5)); key = a.type === "project" ? "projects" : "guides"; html = vRead(a); after = () => bindRead(a); prog = true; document.title = a.title + " | Build with Vish"; }
+    else if (raw.startsWith("read-") && find(raw.slice(5))) {
+      const a = find(raw.slice(5)); key = a.type === "project" ? "projects" : "guides";
+      let ok = true; try { await loadBody(a); } catch (e) { ok = false; }
+      if (ok) { html = vRead(a); after = () => bindRead(a); prog = true; document.title = a.title + " | Build with Vish"; }
+      else { html = `<div class="wrap pg"><div class="phead"><h1>This guide didn't load.</h1><p class="lead">Probably a connection hiccup. Check you're online, then try again.</p><p style="margin-top:20px"><button class="btn pri" type="button" id="retry">Try again</button> <a class="btn" href="#guides">All guides</a></p></div></div>`; after = () => $("#retry").addEventListener("click", () => render(raw)); }
+    }
     else if (raw.startsWith("issue-") && ISSUES.find((i) => i.slug === raw)) { key = "newsletter"; html = vIssue(ISSUES.find((i) => i.slug === raw)); prog = true; }
     else if (raw === "projects") html = vProjects();
     else if (raw === "carousels") { html = vCarousels(); after = () => $$("[data-open]").forEach((b) => b.addEventListener("click", () => openDeck(b.dataset.open))); }

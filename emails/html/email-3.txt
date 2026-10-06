@@ -1,0 +1,21 @@
+Hi,
+
+Reading about AI only gets you so far. Building one small thing teaches more than ten guides.
+
+This weekend's project: your own website, live on the internet, no code. About an hour, step by step.
+
+Start the website project: https://buildwithvish.netlify.app/#read-build-website-no-code
+
+Before you share it, run the launch checklist: 19 security checks and 17 legal ones in plain words, with a prompt that makes your AI do the checking.
+
+Open the launch checklist: https://buildwithvish.netlify.app/#launch
+
+When it's live, reply with the link. I'd genuinely like to see it.
+
+From next Monday you'll get Build Notes every week. If it ever stops being useful, the unsubscribe link is at the bottom of every email.
+
+Vish
+
+---
+Unsubscribe: {$unsubscribe}
+Build with Vish · Vishwajeet Kumbhar · Germany

@@ -1,0 +1,77 @@
+<p>Most A/B tests get called too early. Someone sees B ahead on day two, the dashboard shows green, and B ships. I built Growth Experiment Lab to put a bit of friction in that habit. It's a single web page with three tools: one reads a finished test, one tells you how long a test needs before it starts, and one ranks your backlog of ideas. This page explains what each tool does, how to run the page on your own computer in about two minutes, where the statistics stop being trustworthy, and how to get the same discipline from a chat with an AI.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>It's plain HTML and JavaScript with no build step, and your numbers stay in your browser.</li>
+<li>Tool 1 reads a test, tool 2 plans one, tool 3 scores ideas with ICE (impact, confidence, ease).</li>
+<li>The maths sits in one small file, checked against textbook values by 5 passing tests.</li>
+<li>It handles yes or no outcomes like "converted or didn't". It does not correct for peeking at a running test.</li>
+<li>Version 0.1.0: a useful calculator, not an experimentation platform.</li>
+</ul></div>
+
+<h2>The problem, and who it's for</h2>
+<p>Many marketing teams run A/B tests, and few read them well. They stop when a tool says "winner", or they dismiss a real result because it looks small. I wanted one place that does the sums properly and explains the answer the way you'd explain it to a client.</p>
+<p>It's for marketers, founders and creators who test headlines, landing pages, emails or ad variants and want a sanity check. You don't need to know statistics, though you'll learn a little by using it.</p>
+
+<h2>What it does, tool by tool</h2>
+<h3>1. Analyse a test</h3>
+<ol>
+<li>Enter visitors and conversions for A (the control) and B (the variant), and pick a confidence level: 90%, 95% or 99%.</li>
+<li>It shows both conversion rates and the relative lift.</li>
+<li>It runs a two-proportion z-test, a standard way to ask whether two rates differ by more than chance, and gives the p-value.</li>
+<li>It gives a confidence interval for the difference, in percentage points.</li>
+<li>It shows the chance that B beats A, a Bayesian view calculated with a normal approximation.</li>
+<li>A chart draws the likely true rate for each version, so you can see how much the two overlap.</li>
+<li>A plain-language verdict says win, lose, leaning or no clear winner, and reminds you not to stop early.</li>
+</ol>
+<p>Here's why it earns its place. The page opens with a sample: 12,400 visitors with 372 conversions for A, 12,350 with 441 for B. That's 3.00% against 3.57%, a lift of about 19%, a p-value near 0.012 and roughly a 99% chance that B is better. Now shrink the same story to 1,000 visitors each, with 30 against 38 conversions. B still looks about 27% better, but the p-value is about 0.32 and the interval runs from negative to positive. Same headline lift, very different confidence. That gap is the whole lesson.</p>
+
+<h3>2. Plan a test</h3>
+<p>Enter your current conversion rate, the smallest relative lift worth detecting, your daily visitors and the number of variants. Confidence is 90, 95 or 99%, and power is 80 or 90%. Power is the chance of spotting a real lift of that size. You get visitors per variant, total visitors, the days needed and a note to run full weeks so weekdays and weekends are both covered. With more than two variants it applies a Bonferroni adjustment (a stricter threshold per comparison). If the test would take more than six weeks, it suggests testing a bolder change, a busier page or an earlier step in the funnel.</p>
+<p>With the page's defaults (3% baseline, a 15% lift, 1,800 visitors a day) you need about 24,000 visitors per variant, which is around 27 days. That's a lot of traffic for a modest lift, and a good reason to test bigger changes.</p>
+
+<h3>3. Prioritise the backlog</h3>
+<p>Each idea gets impact, confidence and ease scores from 1 to 10, and the list re-sorts by the average. That's the ICE method. The page ships with six example ideas, and your edits are saved in your browser's local storage, not on a server.</p>
+
+<h2>What's in the repo</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td><code>index.html</code></td><td>The interface and the chart</td></tr>
+<tr><td><code>stats.js</code></td><td>All the statistics, as plain functions with no dependencies</td></tr>
+<tr><td><code>tests/stats.test.mjs</code></td><td>Five tests against textbook values</td></tr>
+<tr><td><code>.github/workflows/</code></td><td>A test workflow and a GitHub Pages deploy workflow</td></tr>
+</tbody></table></div>
+<p>The tests include 10,000 visitors per arm at 3.0% against 3.6% (z about 2.37, p about 0.018) and the classic 5% baseline with a 20% lift, which needs about 8,158 visitors per variant. I like this part of the build: when a tool tells you what to ship, you should be able to see how it checked its own work.</p>
+
+<h2>How to run it</h2>
+<p>The repo is <a href="https://github.com/Vishwajeetkumbhar379/growth-experiment-lab" target="_blank" rel="noopener">github.com/Vishwajeetkumbhar379/growth-experiment-lab</a>. From the README, there's no build step:</p>
+<ol>
+<li>Clone the repo and go into the folder.</li>
+<li>Either open <code>index.html</code> in a browser, or serve the folder with <code>python3 -m http.server 8000</code> and visit <code>http://localhost:8000</code>.</li>
+<li>To run the tests, use <code>npm test</code> (it needs Node).</li>
+</ol>
+<p>One small note: the page asks Google Fonts for its typefaces, so your browser makes that request. Your test numbers aren't sent anywhere.</p>
+
+<h2>What it can't do</h2>
+<ul>
+<li><b>It can't fix peeking.</b> The p-value assumes you chose the sample size first and read the result once. Check it daily and stop when it dips under 0.05, and you'll see false winners far more often than the 5% the number promises. The verdict text warns you, but the maths does not adjust for it.</li>
+<li><b>Only yes-or-no outcomes.</b> It compares conversion rates. Revenue per visitor, time on page and other measures need different methods.</li>
+<li><b>Two simplifications to know about.</b> The "chance B beats A" uses a normal approximation of a flat-prior Bayesian model, and the planner assumes all your daily visitors enter the test and are split evenly across variants. Both are fine for planning and sense-checking, but I wouldn't use them as a replacement for a statistician on a high-stakes test.</li>
+<li><b>It can't tell you whether the test was set up well.</b> Broken tracking, uneven traffic splits, a sale running in one week: none of that shows up in the numbers.</li>
+<li><b>The verdict is a rule of thumb.</b> "B wins" means p is under your threshold and B is ahead. It doesn't know if the lift is worth shipping for your business.</li>
+</ul>
+
+<h2>What building it taught me</h2>
+<ul>
+<li><b>Decide the sample size before you start.</b> This is the single rule I'd steal. A test with a number to reach is harder to call early.</li>
+<li><b>Show the uncertainty, not just the winner.</b> The overlapping curves explain more to a non-statistician than the p-value does.</li>
+<li><b>Small tools can be honest tools.</b> A plain function, a few textbook checks and clear limits go further than a dashboard that always names a winner.</li>
+<li><b>Small sites often can't test small changes.</b> The planner often says a change will take weeks. That is useful news, and it pushes you toward bolder ideas.</li>
+</ul>
+
+<h2>Build a simple version without code</h2>
+<p>You don't need the page to apply the rule. Ask a chat assistant to do the planning sum, and have it show its working so you can check it. If the statistics feel new, start with <a href="#read-creator-campaign-math">Creator campaign math in plain English</a>, and use <a href="#read-brief-ai-like-an-agency">Brief AI the way you'd brief a pro</a> to give the AI proper context.</p>
+<pre class="prompt" data-label="Prompt 1 · Plan the test first">My page converts at [current rate]. I want to detect a lift to [target rate]. How many visitors per variant do I need at 95% confidence and 80% power? Show the formula, the number, and how many days that takes at [daily visitors] visitors a day. If anything in my numbers looks unrealistic, ask me before you answer.</pre>
+<p>After the test ends, ask for a careful read of the result:</p>
+<pre class="prompt" data-label="Prompt 2 · Read the result honestly">Control: [visitors] visitors, [conversions] conversions. Variant: [visitors] visitors, [conversions] conversions. Tell me the two conversion rates, the relative lift, a p-value from a two-proportion z-test and a 95% confidence interval for the difference. Then say in plain English whether I can call a winner, and list two things that could make this result misleading.</pre>
+<p>Check the sums against the Lab if you can. If the two disagree, ask the AI to show its steps. Never paste customer lists or personal data into a prompt: visitor and conversion counts are all it needs.</p>

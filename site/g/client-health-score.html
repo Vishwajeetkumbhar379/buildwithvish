@@ -1,0 +1,85 @@
+<p>Accounts rarely leave by surprise. Results slip, replies get slower, a new decision-maker appears that nobody has met, invoices arrive later each month. Each signal sits in a different place, so nobody sees them together. Client Health Score is a small open-source tool that puts those signals into one spreadsheet-style file, scores each account from 0 to 100, explains every lost point and suggests what to do this week. This page explains how the score is built, how to run the sample in about 10 minutes, and why you should treat the weights as a starting guess.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>You fill in one CSV row per client: results against target, on-time delivery, a satisfaction score, reply times, meetings, late payments and changes on the client side.</li>
+<li>Five pillars with fixed weights make one score. Every point lost becomes a plain-English reason and a next action.</li>
+<li>It flags expansion and referral candidates, and can draft a quarterly review outline with Claude.</li>
+<li>The sample accounts are fictional. The weights are my judgement, not tested against real churn.</li>
+<li>Version 0.1.0, five tests, no required dependencies.</li>
+</ul></div>
+
+<h2>The problem, and who it's for</h2>
+<p>I worked on the brand side for years, and led teams. The hardest part of managing a portfolio of accounts was never one client. It was seeing all of them clearly enough to decide where to spend Monday morning. The warning signs were usually there weeks before a client said anything, but they lived in different heads and different tools.</p>
+<p>It's for account managers, agency leads and freelancers with a handful to a few dozen retained clients, who can run a command in a terminal. If you can't, the end of this page has a chat version that uses the same rubric.</p>
+
+<h2>What it does, step by step</h2>
+<ol>
+<li><b>Read your accounts.</b> One CSV row per client with: account, industry, monthly retainer in euros, months active, results as a percentage of the agreed target, on-time delivery percentage, a 0 to 10 survey score (the code calls it NPS), your average reply time in hours, meetings in the last 90 days, average days invoices are paid late, extra requests in 90 days and new decision-makers in 90 days.</li>
+<li><b>Score five pillars from 0 to 100.</b> Each has its own simple formula (see the table below).</li>
+<li><b>Weight them into one score.</b> The bands are healthy at 75 or more, watch at 55 to 74, at risk below 55.</li>
+<li><b>Turn lost points into drivers.</b> A driver is a plain statement such as "Invoices paid 32 days late on average", paired with a next action such as raising payment timing with the client's finance contact.</li>
+<li><b>Look for growth.</b> An account at 110% of target or better, asking for two or more extras and scoring 70 or more is flagged for a scope conversation. A client at 110% or better with a satisfaction score of 9 or more is flagged for a case study and referral.</li>
+<li><b>Write the portfolio report.</b> Accounts are sorted worst first, with total monthly retainer, the amount at risk and on watch, and up to three actions per account that needs attention.</li>
+<li><b>Optionally draft a quarterly review.</b> Claude gets one account's score, drivers and actions and returns a 6 to 8 slide outline and an opening talk track.</li>
+</ol>
+<div class="table-wrap"><table>
+<thead><tr><th>Pillar (weight)</th><th>What goes in</th><th>When it raises a driver</th></tr></thead>
+<tbody>
+<tr><td>Results (30%)</td><td>Results against target, so 120% scores 100 and 70% scores 50</td><td>Below 85% of target</td></tr>
+<tr><td>Relationship (25%)</td><td>Satisfaction score, meetings (up to 6 in 90 days) and reply speed</td><td>Score of 6 or lower, under 2 meetings, replies over 24 hours</td></tr>
+<tr><td>Delivery (20%)</td><td>Share of deliverables on time</td><td>Below 85%</td></tr>
+<tr><td>Commercial (15%)</td><td>Days late on invoices</td><td>More than 15 days late</td></tr>
+<tr><td>Stability (10%)</td><td>New decision-makers on the client side</td><td>Any change</td></tr>
+</tbody></table></div>
+<p>The demo shows why one number isn't enough. Pixelpay looks fine on results (83) but scores 74 overall because two new decision-makers joined in 90 days, so its stability pillar is 20. It lands in "watch", and the suggested action is an onboarding session for the new people, before the results review that the account didn't need.</p>
+
+<h2>What's in the repo</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td><code>clienthealth/scoring.py</code></td><td>The pillar formulas, weights, drivers and growth signals</td></tr>
+<tr><td><code>clienthealth/cli.py</code></td><td>The command, the report and the optional review draft</td></tr>
+<tr><td><code>data/accounts.csv</code></td><td>Six fictional accounts</td></tr>
+<tr><td><code>reports/portfolio_health.md</code></td><td>An example report</td></tr>
+<tr><td><code>tests/test_health.py</code></td><td>Five tests, including the sample portfolio and the Claude output shape</td></tr>
+</tbody></table></div>
+<p>All the judgement lives in one short file, which makes it easy to change a weight or a threshold and see the effect.</p>
+
+<h2>How to run it</h2>
+<p>The repo is <a href="https://github.com/Vishwajeetkumbhar379/client-health-score" target="_blank" rel="noopener">github.com/Vishwajeetkumbhar379/client-health-score</a>. From the README:</p>
+<ol>
+<li>Clone it and go into the folder.</li>
+<li>Install it: <code>pip install -e ".[dev]"</code></li>
+<li>Run it: <code>clienthealth data/accounts.csv</code></li>
+<li>Run the tests: <code>pytest</code></li>
+</ol>
+<p>The report is saved to <code>reports/portfolio_health.md</code> unless you pass <code>--out</code>. To use your own clients, copy <code>data/accounts.csv</code> and replace the rows, keeping the column names.</p>
+<h3>The optional review draft</h3>
+<p>Install the extra with <code>pip install -e ".[ai]"</code>, set <code>ANTHROPIC_API_KEY</code>, then run <code>clienthealth data/accounts.csv --qbr "Pixelpay"</code>. Type the account name exactly as it appears in your CSV (capitals don't matter). The prompt tells Claude to lead with results, own the problems, end with next quarter's plan and use only the numbers it was given.</p>
+<div class="callout warn"><b>Privacy</b><p>Client names, satisfaction scores and payment behaviour are confidential business data. The <code>--qbr</code> option sends one account's details to an AI service. Check your client contracts and your own policies first, or use made-up names. Never include personal data about individual people at the client.</p></div>
+
+<h2>What it can't do</h2>
+<ul>
+<li><b>It can't predict churn.</b> The score summarises warning signs I believe in. I haven't tested the weights or bands against real client losses, so please don't read "at risk" as a probability.</li>
+<li><b>You supply every number.</b> Nothing connects to a CRM, an invoicing tool or your inbox. If the inputs are stale or guessed, the score is too.</li>
+<li><b>Relationship is hard to count.</b> Meetings, reply times and a survey score capture the visible part. They won't catch a champion who has gone quiet or a rival pitch.</li>
+<li><b>Some columns do nothing yet.</b> Industry and months active are loaded and passed to the review draft, but they don't change the score.</li>
+<li><b>Results depend on a good target.</b> "Percentage of KPI" is only meaningful if the KPI was realistic and agreed in writing.</li>
+<li><b>It has rough edges.</b> If you ask for a review of an account name that doesn't exist, the command stops with an error. The report is still written first.</li>
+<li><b>It's a prompt for a conversation.</b> A red account needs a call, not an automated email.</li>
+</ul>
+
+<h2>What building it taught me</h2>
+<ul>
+<li><b>Show the reason with the number.</b> A score nobody can explain gets ignored. Pairing each lost point with a driver and a next action makes it usable on Monday morning.</li>
+<li><b>Late payment deserves its own pillar.</b> It's an awkward signal to talk about, which is why it's easy to overlook.</li>
+<li><b>Look at the portfolio, not the account.</b> Putting retainer value next to the band shows how much monthly revenue is in the red, which changes what gets done first.</li>
+<li><b>Structured output beats free text for drafts.</b> Asking Claude for slides and a talk track as structured fields makes the draft easy to check against the real numbers.</li>
+</ul>
+
+<h2>Build a simple version without code</h2>
+<p>You can score accounts in a chat or a spreadsheet using the same five pillars. <a href="#read-meeting-notes-to-tasks">Automate meeting notes into tasks with Zapier</a> helps you capture the signals as they happen, and <a href="#read-report-that-writes-itself">A weekly report that writes itself</a> turns the result into a routine. Use anonymised names for any real client.</p>
+<pre class="prompt" data-label="Prompt 1 · Score my accounts">Here are notes on my client accounts, with names changed: [paste]. Score each from 1 to 10 on results, relationship, delivery, payments and stakeholder stability. For every score, quote the line in my notes that justifies it. If my notes don't cover a pillar, write "no evidence" instead of guessing. Flag the two accounts most at risk and suggest one action for each this week. Ask me for anything you need first.</pre>
+<p>For the review meeting itself:</p>
+<pre class="prompt" data-label="Prompt 2 · Quarterly review outline">Draft a 6 to 8 slide outline for a quarterly review with [client, name changed]. Lead with results, own the problems plainly and end with next quarter's plan. Use only these facts: [paste results, issues and plans]. Add a three-sentence opening for the meeting. Mark anything you had to assume.</pre>
+<p>Then compare the scores to your own gut feeling for each account. Where the two disagree, you've found the account worth a closer look.</p>

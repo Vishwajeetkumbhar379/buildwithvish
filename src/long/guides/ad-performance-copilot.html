@@ -1,0 +1,78 @@
+<p>Every Monday someone opens three ad managers, scrolls through columns and tries to remember which numbers were different last week. Ad Performance Copilot is a small command-line tool that does that first pass. You give it one CSV file with your Meta, Google and LinkedIn results, plus your target cost per acquisition, and it returns a review: totals, platform and campaign tables, a list of problems worth acting on and a suggested budget shift. This page explains what each check does, how to run it on the sample data in about 10 minutes, and where its simple rules will mislead you.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>You export your ad results to one CSV. The tool never connects to an ad account.</li>
+<li>It calculates the same metrics for every platform and applies five fixed rules: creative fatigue, wasted spend, inefficient campaigns, scale candidates and sudden cost spikes.</li>
+<li>It proposes a budget shift that keeps total spend flat. Optionally, Claude writes a short client summary from the report.</li>
+<li>The sample account is fictional. Version 0.1.0, four tests, rules you can read in one file.</li>
+</ul></div>
+
+<h2>The problem, and who it's for</h2>
+<p>Paid media reviews usually go wrong in one of two ways. Either nobody has time to do them, or the review is done by eye, so the same campaign gets a pass one week and a telling-off the next. I wanted the decision rules written down, so the review takes minutes and the reasoning is the same every week.</p>
+<p>It's for in-house marketers and small agencies running paid social and search who can run a command in a terminal. If you can't, the last section gives you a chat version of the same review.</p>
+
+<h2>What it does, step by step</h2>
+<ol>
+<li><b>Load your CSV.</b> One row per day, platform, campaign and creative, with spend, impressions, reach, clicks, conversions and revenue.</li>
+<li><b>Calculate the basics.</b> Click-through rate, cost per click, cost per 1,000 impressions (CPM), conversion rate, cost per acquisition (CPA), return on ad spend (ROAS) and frequency, all worked out the same way for every platform.</li>
+<li><b>Check creative fatigue.</b> For each creative it compares its first week with its last week. If click-through rate fell by more than 25% while frequency rose by more than 30%, it flags fatigue and suggests rotating in new creatives with the same hook.</li>
+<li><b>Check wasted spend.</b> A campaign that spent more than twice your target CPA with zero conversions gets an "Act" flag: pause it, check tracking and the landing page.</li>
+<li><b>Check inefficient campaigns.</b> CPA above 1.5 times your target is flagged too.</li>
+<li><b>Spot scale candidates.</b> CPA under 70% of target and ROAS at or above target gets a "Watch" flag with a gentle suggestion: scale by 15 to 20% and watch for three to four days.</li>
+<li><b>Spot sudden spikes.</b> It compares the last three days with the seven days before, and flags a CPA rise of 40% or more.</li>
+<li><b>Propose a budget shift.</b> Weak campaigns give up to 20% of their spend. That money goes to campaigns with CPA under 80% of target, weighted towards the most efficient. Total spend stays the same.</li>
+<li><b>Write the report.</b> The output is a Markdown file. With <code>--ai</code>, Claude adds a 4 to 5 sentence summary, written from the report's numbers.</li>
+</ol>
+
+<h2>What's in the repo</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td><code>adcopilot/analysis.py</code></td><td>The metrics, the five checks and the budget shift</td></tr>
+<tr><td><code>adcopilot/report.py</code></td><td>The report builder, the command line and the optional Claude summary</td></tr>
+<tr><td><code>adcopilot/sample.py</code></td><td>Generates the fictional sample account</td></tr>
+<tr><td><code>data/ads_export.csv</code></td><td>The sample data (about 200 rows)</td></tr>
+<tr><td><code>reports/weekly_review.md</code></td><td>An example of the output</td></tr>
+<tr><td><code>tests/</code></td><td>Four tests: the maths, the built-in problems, flat total budget, the AI summary</td></tr>
+</tbody></table></div>
+<p>There are no required dependencies, only Python 3.11 or newer. The Claude summary needs the optional <code>anthropic</code> package and an API key.</p>
+
+<h2>How to run it</h2>
+<p>The repo is <a href="https://github.com/Vishwajeetkumbhar379/ad-performance-copilot" target="_blank" rel="noopener">github.com/Vishwajeetkumbhar379/ad-performance-copilot</a>. From the README:</p>
+<ol>
+<li>Clone it and go into the folder.</li>
+<li>Install it: <code>pip install -e ".[dev]"</code></li>
+<li>Run it on the sample: <code>adcopilot data/ads_export.csv --target-cpa 40 --target-roas 1.5</code></li>
+<li>Run the tests: <code>pytest</code></li>
+<li>For the summary, install <code>pip install -e ".[ai]"</code>, set <code>ANTHROPIC_API_KEY</code> and add <code>--ai</code> to the command.</li>
+</ol>
+<p><code>--target-cpa</code> is required, and <code>--target-roas</code> defaults to 2.0. The report is saved to <code>reports/weekly_review.md</code> unless you pass <code>--out</code>, so give your own files a different output name and keep the sample intact.</p>
+<h3>Using your own data</h3>
+<p>Your CSV needs exactly these columns: <code>date, platform, campaign, creative, spend, impressions, reach, clicks, conversions, revenue</code>. Meta, Google and LinkedIn export under different names, so rename the headers once and keep the result as a template. Use dates like 2026-09-01 (year, month, day), because the code sorts them as text. A missing column makes the run fail.</p>
+<div class="callout warn"><b>Privacy</b><p>Ad exports are business data, and some clients treat them as confidential. Check you're allowed to use the figures, and think twice before sending a client's numbers to an AI service with <code>--ai</code>.</p></div>
+
+<h2>What it can't do</h2>
+<ul>
+<li><b>It can't tell you why.</b> It flags a campaign with a high CPA. Whether the cause is the audience, the offer, tracking or a bad week is your call.</li>
+<li><b>The rules are mine, and they're blunt.</b> The thresholds (25%, 1.5 times, 40%) are sensible starting points that I haven't validated against anyone's account. Change them in <code>analysis.py</code> to suit your market.</li>
+<li><b>The budget shift is rough.</b> It picks recipients on CPA alone, without the ROAS check that the scale flag uses, so it can send money to a campaign that is cheap per conversion but earns little revenue. It also ignores platform learning phases, daily caps and how much more an audience can absorb. Treat it as a first draft for a human decision.</li>
+<li><b>Frequency is approximate.</b> The tool adds up the daily reach figures, but reach is not additive across days on real platforms, so the number is only a trend signal.</li>
+<li><b>Currency and attribution are fixed.</b> Reports are labelled in euros, and it takes the conversion and revenue figures you give it, so platform double-counting and attribution disagreements pass straight through.</li>
+<li><b>It doesn't connect to your ad accounts.</b> You export the CSV by hand.</li>
+<li><b>The AI summary can slip.</b> The prompt asks Claude to use only the report's numbers, which is an instruction, not a guarantee. Read the summary against the tables before it goes to a client.</li>
+</ul>
+
+<h2>What building it taught me</h2>
+<ul>
+<li><b>Put the decision rules in writing.</b> When an "Act" flag has a stated threshold, you can argue with the threshold. A feeling is harder to argue with.</li>
+<li><b>Let code do the arithmetic and AI do the wording.</b> Claude only sees the finished report. It never calculates a metric, which keeps the numbers checkable.</li>
+<li><b>Separate "Act" from "Watch".</b> A short list of things to do today, and a second list of things to keep an eye on, makes a review easier to use than a long list of everything.</li>
+<li><b>A fictional account is a good test.</b> The sample data is built with known problems, and a test checks that the tool finds them. It tells you the rules work on a story, not that they work on your account.</li>
+</ul>
+
+<h2>Build a simple version without code</h2>
+<p>For the same thinking without a terminal, paste a week of results into a chat and use this prompt. The guides <a href="#read-report-that-writes-itself">A weekly report that writes itself</a> and <a href="#read-marketing-prompts-i-use">20 prompts I use every week for marketing</a> show how to turn it into a routine, and <a href="#read-campaign-report-autopilot">Campaign Report Autopilot</a> covers the reporting side.</p>
+<pre class="prompt" data-label="Prompt 1 · Weekly ad review">Here is last week's ad data by campaign: [paste spend, results, CPA, frequency]. My target CPA is [number] and my target ROAS is [number]. Flag campaigns with a CPA more than 1.5 times target, frequency above 3, or a CPA rising for three days in a row. Suggest a budget shift that keeps total spend the same, and explain each move in one line. If a campaign has too little data to judge, say so instead of guessing.</pre>
+<p>Then ask for a version your client can read:</p>
+<pre class="prompt" data-label="Prompt 2 · Client summary">Using only the numbers in the review above, write a summary for my client in 4 to 5 sentences: the biggest win, the biggest problem and what changes next week. Do not add any figures I have not given you. Plain language, no jargon, no bullet points.</pre>
+<p>Check the figures yourself before you send anything. AI is good at wording and unreliable at arithmetic across a long table.</p>

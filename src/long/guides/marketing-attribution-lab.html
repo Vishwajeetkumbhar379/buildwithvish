@@ -1,0 +1,84 @@
+<p>Last-click attribution gives all the credit for a sale to the final touch before it. That's why creator campaigns, content and social often look useless in reports, even when they started the customer's journey. Marketing Attribution Lab is a small open-source tool that takes a file of customer journeys and shows how six different credit rules split the same sales. You can run the sample in about 10 minutes if you have Python. This page explains the six models, what is in the repo, how to run it, and how far you should trust the answer (not as far as a chart suggests).</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>You give it journeys: an ordered list of channels, whether the person bought, and revenue.</li>
+<li>It runs five fixed-rule models and one data-driven Markov chain model, then prints them side by side.</li>
+<li>The point is to see where models disagree, not to find "the true number".</li>
+<li>The bundled data is fictional and designed so that creators help sales. The tool shows the method, not a result about your business.</li>
+<li>Version 0.1.0 with ten tests. It counts conversions and does not weight by revenue.</li>
+</ul></div>
+
+<h2>The problem, and who it's for</h2>
+<p>Most teams judge channels on what the ad platform reports, which is usually last-touch numbers. That over-credits channels that close a sale (brand search, email, direct) and under-credits the ones that start it (creators, content, social). Budgets then move the wrong way. After years of working on creator campaigns whose value often didn't show up in last-click reports, I wanted a way to make that argument with numbers.</p>
+<p>It's for marketers who need to defend upper-funnel spend, and for anyone who wants to see how much attribution depends on the rule you pick. You need to be comfortable with a terminal and a CSV file.</p>
+
+<h2>What it does, step by step</h2>
+<ol>
+<li><b>Load journeys.</b> Each row has a user, a path of channels joined by " &gt; " (for example <code>TikTok &gt; Email &gt; Google brand search</code>), a converted flag (1 or 0) and a revenue figure.</li>
+<li><b>Share out each conversion.</b> Every model splits one point of credit per converted journey across its channels, using its own rule.</li>
+<li><b>Compare.</b> It prints one table with a column per model and a row per channel.</li>
+<li><b>Write the outputs.</b> A Markdown report with a short budget note, and an SVG chart comparing last touch, linear and Markov.</li>
+</ol>
+<h3>The six models</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Model</th><th>Credit rule</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><td>Last touch</td><td>All to the final touch</td><td>What platforms report by default</td></tr>
+<tr><td>First touch</td><td>All to the first touch</td><td>Seeing what creates demand</td></tr>
+<tr><td>Linear</td><td>Equal split</td><td>A neutral baseline</td></tr>
+<tr><td>Time decay</td><td>Weight halves every 2 steps back</td><td>Short sales cycles</td></tr>
+<tr><td>Position based</td><td>40% first, 40% last, 20% shared in the middle</td><td>Valuing discovery and closing</td></tr>
+<tr><td>Markov</td><td>By how much conversion drops without the channel</td><td>Letting the data set the credit</td></tr>
+</tbody></table></div>
+<h3>How the Markov model works</h3>
+<p>Every journey becomes a path through states: start, then each channel, then either "converted" or "dropped off". The code learns how often one state follows another, then works out the overall chance of converting. Next it removes each channel in turn, sending that channel's traffic to "dropped off", and recalculates. The bigger the drop, the more that channel matters. Conversions are shared out in proportion to those drops. It's a first-order chain, which means it looks only at the current step, not the whole history.</p>
+<p>On the bundled sample, the pattern is clear. Instagram creators get 43 conversions under last touch and 88 under Markov. Google brand search gets 183 under last touch and 71 under Markov. That fits the story the sample was built to tell.</p>
+
+<h2>What's in the repo</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td><code>attribution/models.py</code></td><td>The six models and the loader</td></tr>
+<tr><td><code>attribution/cli.py</code></td><td>The command, the Markdown report and the SVG chart</td></tr>
+<tr><td><code>attribution/sample.py</code></td><td>Generates the fictional journeys</td></tr>
+<tr><td><code>data/journeys.csv</code></td><td>4,000 sample journeys</td></tr>
+<tr><td><code>reports/</code></td><td>An example report and chart</td></tr>
+<tr><td><code>tests/test_models.py</code></td><td>Ten tests</td></tr>
+</tbody></table></div>
+<p>The tests check things like every model crediting exactly the number of conversions, time decay favouring recent touches, and Markov rewarding channels that assist. There are no required dependencies, only Python 3.11 or newer.</p>
+
+<h2>How to run it</h2>
+<p>The repo is <a href="https://github.com/Vishwajeetkumbhar379/marketing-attribution-lab" target="_blank" rel="noopener">github.com/Vishwajeetkumbhar379/marketing-attribution-lab</a>. From the README:</p>
+<ol>
+<li>Clone it and go into the folder.</li>
+<li>Install it: <code>pip install -e ".[dev]"</code></li>
+<li>Run the sample: <code>attribution data/journeys.csv</code></li>
+<li>Run the tests: <code>pytest</code></li>
+</ol>
+<p>It writes <code>reports/attribution.md</code> and <code>reports/attribution.svg</code> by default, overwriting the examples. Use <code>--out</code> with a different folder for your own data. For your own data, you need the columns <code>user_id, path, converted, revenue</code>, one row per person. Check first whether your analytics tool can export user-level paths, because channel totals alone won't do.</p>
+<div class="callout warn"><b>Privacy</b><p>Journey data is about real people. Use pseudonymous IDs, never names or email addresses, and check what your privacy policy and local rules allow before you export and analyse user-level data. This page is general information, not legal advice.</p></div>
+
+<h2>What it can't do</h2>
+<ul>
+<li><b>It doesn't prove cause.</b> Credit rules describe who was present on the path. They don't show that removing a channel would remove the sale. Only a controlled test, such as holding out a region or audience, can do that.</li>
+<li><b>It only sees what is tracked.</b> Word of mouth, dark social, offline moments and creators whose audiences don't click a tracked link are invisible, and that is exactly where creators tend to hide.</li>
+<li><b>It counts conversions, not money.</b> The revenue column is loaded, but the models credit conversions only. A channel that brings small orders ranks the same as one that brings large orders.</li>
+<li><b>The sample proves less than it looks.</b> I generated the journeys so that creators and retargeting lift conversion and search closes. A test confirms the model finds that. It shows the method works on a story I wrote, not that your creators work.</li>
+<li><b>The budget note is templated.</b> The report's "what it means for budget" lines are written from the gap between Markov and last touch. They're a prompt for a discussion, not advice.</li>
+<li><b>Markov needs enough journeys.</b> With a few hundred paths, the transition probabilities are noisy. It also works best when the data includes people who didn't buy, not just the buyers.</li>
+</ul>
+
+<h2>What building it taught me</h2>
+<ul>
+<li><b>Show the disagreement.</b> The most useful output is the table where models disagree. A single number invites false confidence.</li>
+<li><b>Name the question each model answers.</b> First touch asks who started it, last touch asks who closed it. When people argue about attribution, they are often asking different questions.</li>
+<li><b>Be honest about fictional data.</b> Real data is messy, so I labelled the sample as fictional in the repo and in the report footer.</li>
+<li><b>Treat attribution as an argument, not a verdict.</b> I'd use this to challenge a cut to creator budgets and then test the claim properly.</li>
+</ul>
+
+<h2>Build a simple version without code</h2>
+<p>For about 20 journeys, a chat works well enough to see the idea. For the creator side of the argument, <a href="#read-creator-campaign-math">Creator campaign math in plain English</a> and <a href="#read-influencer-report-template">The influencer campaign report clients actually read</a> show how to present results, and <a href="#read-campaign-report-autopilot">Campaign Report Autopilot</a> covers reporting.</p>
+<pre class="prompt" data-label="Prompt 1 · Compare attribution rules">Here are 20 customer journeys as ordered lists of channels, each marked as bought or not bought: [paste]. Show how much credit each channel gets under last-click, first-click and linear attribution, as a table. Then tell me which channel I would wrongly cut if I only looked at last click, and why. Say clearly where 20 journeys is too few to conclude anything.</pre>
+<p>Follow up with a reality check on your own conclusion:</p>
+<pre class="prompt" data-label="Prompt 2 · Challenge my reading">Based on the table above, I think [channel] deserves more budget. List three reasons this could be wrong, such as untracked touches, a small sample or a channel that only appears because it is cheap to track. Then suggest one simple test, like pausing the channel in one region for four weeks, that would check it.</pre>
+<p>Never paste names, email addresses or other personal data into a prompt. Channel names and yes-or-no outcomes are all it needs.</p>

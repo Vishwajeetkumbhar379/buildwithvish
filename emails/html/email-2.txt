@@ -1,0 +1,19 @@
+Hi,
+
+Most people judge AI by its first answer. The first answer is a draft.
+
+Here's the line I paste most often when an answer is vague:
+
+"That's too generic. Ask me 3 questions about my situation first, then rewrite it."
+
+It works because the AI stops guessing and starts asking. I collected 12 of these, one for each way answers go wrong, with a before and after for every one.
+
+Read the 12 follow-ups: https://buildwithvish.netlify.app/#read-one-line-follow-ups
+
+Try it on something real today: an email you're avoiding, a plan for the week, a post you keep rewriting.
+
+Vish
+
+---
+Unsubscribe: {$unsubscribe}
+Build with Vish · Vishwajeet Kumbhar · Germany

@@ -36,7 +36,7 @@ export default async (req: Request) => {
     body: JSON.stringify(body),
   });
   if (!res.ok) {
-    console.error("MailerLite rejected the sign-up", res.status, (await res.text()).slice(0, 300));
+    console.error("MailerLite rejected the sign-up, status", res.status); // no response body: it can contain the email address
     return new Response("Upstream error", { status: 502 });
   }
   return new Response("OK");
