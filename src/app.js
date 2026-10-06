@@ -159,6 +159,7 @@
   document.addEventListener("submit", async (e) => {
     const f = e.target.closest("form[data-form]"); if (!f) return; e.preventDefault();
     const msg = $(".msg", f), kind = f.dataset.form, data = Object.fromEntries(new FormData(f).entries());
+    if (data.email) data.email = String(data.email).trim().replace(/^mailto:/i, "");
     const err = (t) => { msg.className = "msg err"; msg.textContent = t; };
     if (kind === "newsletter" && !okEmail(data.email)) return err("Enter a full email address, like name@email.com.");
     if (kind === "partner" && (!data.name || !okEmail(data.email) || !data.message)) return err("Add your name, a valid email and a short message.");
