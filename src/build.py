@@ -7,7 +7,7 @@ import pathlib, sys, base64, hashlib, shutil, json, re, math
 d = pathlib.Path(__file__).parent
 LOCAL = "--local" in sys.argv
 css = (d / "style.css").read_text()
-js = "\n".join((d / f).read_text() for f in ["content-guides.js", "content-more.js", "content-extra.js", "content-portfolio.js", "content-launch.js"])
+js = "\n".join((d / f).read_text() for f in ["content-guides.js", "content-more.js", "content-extra.js", "content-posts.js", "content-portfolio.js", "content-launch.js"])
 scene = "\n".join((d / f).read_text() for f in ["scene.js", "portfolio-scene.js", "sound.js"])
 app = (d / "app.js").read_text()
 
