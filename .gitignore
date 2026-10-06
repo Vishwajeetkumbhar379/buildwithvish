@@ -1,0 +1,5 @@
+.netlify/
+node_modules/
+src/test/
+src/preview.html
+.DS_Store

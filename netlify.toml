@@ -1,0 +1,7 @@
+# Build with Vish: the site is pre-built into /site by `python3 src/build.py`.
+[build]
+  publish = "site"
+  command = ""
+
+[functions]
+  directory = "netlify/functions"

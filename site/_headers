@@ -1,0 +1,14 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-uYpBHOQQvZTfRep4E7Ek/FT3k7aKB47WjYV2BDps+34=' 'sha256-ydjOrQ5Y+KOiE+CQKwl3ML/dv1I33Zzyvokg29UhFig=' 'sha256-U/ERPVPB58++TzfcrQpzGks+5hKDsUVehii9YhA87yg=' 'sha256-apA87+AJb3NXkU0NtSDgR13nHNjEtBsZxJnEERn68Y8='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/vish.jpg
+  Cache-Control: public, max-age=604800
