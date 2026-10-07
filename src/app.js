@@ -69,8 +69,8 @@
   }
 
   /* ---------- theme (light pages) ---------- */
-  const savedTheme = store.get("bwv-theme"); if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
-  const effTheme = () => document.documentElement.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", "dark"); // night mode only
+  const effTheme = () => "dark";
 
   /* ---------- sound (engine in sound.js: generative cosmic-ocean score + UI kit) ---------- */
   const Sound = (() => {
@@ -182,14 +182,14 @@
         <div class="readout" aria-hidden="true"><b id="ro-n">01</b><span>/06</span> <span id="ro-name">IDEA</span></div>
         <div class="bar" aria-hidden="true"><i id="ro-bar"></i></div>
         <div class="hint" id="hint" aria-hidden="true">SCROLL TO BUILD · DRAG TO SPIN<i></i></div>
-        <div class="hud-btns"><button class="sound" id="daynight" type="button" aria-label="Switch between night and day"><span id="dn-i"></span><span id="dn-l">Day</span></button><button class="sound" id="sound" type="button" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-l">Sound off</span></button></div>
+        <div class="hud-btns"><button class="sound" id="sound" type="button" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-l">Sound off</span></button></div>
       </div>
       <div class="progress" id="prog" hidden></div>
       <header class="nav" id="nav"><div class="wrap">
         <a class="logo" href="#home" aria-label="Build with Vish, home"><i></i><span>Build with Vish</span></a>
         <ul class="links">${NAV.map(([h, l]) => `<li><a href="#${h}" data-nav="${h}">${l}</a></li>`).join("")}</ul>
         <div class="nav-tools">
-          <button class="ibtn" id="theme" type="button" aria-label="Switch light or dark mode for reading pages"></button>
+          
           <button class="xp-pill" type="button" id="xp" aria-label="Your builder level"><span class="xp-ring"><i id="xp-ring"></i></span><span id="xp-l">Curious</span><b id="xp-n">0</b></button><a class="btn pri sm" href="#newsletter" id="nav-cta">Get Build Notes</a>
           <button class="ibtn menu-btn" id="menu" type="button" aria-label="Open menu" aria-expanded="false">${I.menu}</button>
         </div></div></header>
@@ -206,7 +206,7 @@
       </div></footer>
       <button class="sound snd-float" id="nav-sound" type="button" aria-pressed="false" aria-label="Sound off. Turn sound on"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="snd-l">Sound off</span></button>
       <div class="wipe" id="wipe" aria-hidden="true"><span class="wipe-w">Build with Vish</span></div>`);
-    $("#theme").addEventListener("click", toggleTheme); $("#daynight").addEventListener("click", toggleTheme);
+    
     matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => syncTheme());
     syncTheme();
     $("#menu").addEventListener("click", openMenu);
@@ -222,8 +222,6 @@
   }
   function syncTheme() {
     const day = effTheme() === "light";
-    $("#theme").innerHTML = day ? I.moon : I.sun; $("#theme").setAttribute("aria-label", day ? "Switch to night mode" : "Switch to day mode");
-    $("#dn-i").innerHTML = day ? I.moon : I.sun; $("#dn-l").textContent = day ? "Night" : "Day";
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", day ? "#E6E0E8" : "#030308");
     if (glReady) window.Journey.setMode(day);
     if (window.DealScene && window.DealScene.ok) window.DealScene.setMode(day);
