@@ -47,7 +47,7 @@ CDN = ["https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js", "https:
 FORMS = '''<form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="email"><input name="page"><input name="bot-field"></form>
 <form name="partner" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="name"><input name="email"><input name="company"><input name="topic"><textarea name="message"></textarea><input name="page"><input name="bot-field"></form>
 <noscript><p style="padding:24px;color:#ECEBF5;background:#05050A">Build with Vish needs JavaScript for its guides and 3D scenes. Email: vishwajeetkumbhar379@gmail.com</p></noscript>'''
-RESET = ':root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}'
+RESET = ':root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}'
 ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237F77DD'/%3E%3Crect x='20' y='20' width='24' height='24' rx='4' fill='none' stroke='white' stroke-width='5' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='4' fill='white'/%3E%3C/svg%3E"
 
 
