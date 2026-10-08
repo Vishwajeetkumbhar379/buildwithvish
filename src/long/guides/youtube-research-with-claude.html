@@ -1,0 +1,279 @@
+<p>This page shows you how to research a YouTube niche with Claude: what the top videos do, why they seem to work, and what you could make next. It's for creators and marketers who are tired of watching other people's videos for days with a notepad. By the end you'll have a research brief for your niche, a script outline built on it, and a monthly routine you can repeat. Set aside 2 to 3 hours for the first run. One honest catch: Claude's help pages don't say it can watch a YouTube video for you, so the method below works from text you collect yourself.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Claude's help pages describe reading web pages and files. They don't say it can watch YouTube videos or read transcripts, so test it first.</li>
+<li>In October 2026 I couldn't find an official YouTube connector from Anthropic or Google. Third-party tools exist and deserve the same caution as any outside service.</li>
+<li>The dependable route is text you collect: transcripts from YouTube's own <b>Show transcript</b> panel, titles, comments and an export from your own YouTube Studio, all in one Claude Project.</li>
+<li>Claude finds patterns in what you give it. It can't see views, search volume or why people clicked unless you supply that data.</li>
+<li>Use other people's videos for private research only. Never republish a transcript.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Gather the material</b> Transcripts, titles and your Studio export in one place. <i>40 min</i></li>
+<li><b>Break down the hooks</b> Compare how the top videos open. <i>20 min</i></li>
+<li><b>Find topic gaps</b> See what is covered well, thinly or not at all. <i>20 min</i></li>
+<li><b>Mine the comments</b> Turn comments into questions and objections. <i>20 min</i></li>
+<li><b>Compare titles and thumbnail text</b> Spot patterns in the wording. <i>15 min</i></li>
+<li><b>Write the outline</b> Turn the research into a script plan. <i>20 min</i></li>
+<li><b>Set up the monthly routine</b> A Claude Project you reuse. <i>20 min the first time</i></li>
+</ol></div>
+
+<p class="note">Checked in October 2026. AI apps and YouTube Studio change fast: if a button has moved, search the app's help pages for the feature name.</p>
+
+<h2>Before you start: what Claude can and can't get from YouTube</h2>
+
+<p>You need a Claude account (the free plan works, though long pasted texts use up your allowance faster), a document or spreadsheet for notes, and, if you have a channel, access to its YouTube Studio.</p>
+
+<h3>What I could verify</h3>
+
+<p>Plenty of posts claim Claude "watches" YouTube, so I checked the official pages:</p>
+
+<ul>
+<li><b>Links.</b> With web search switched on, Claude can read the content of a page you point it to, such as an article. The <a href="https://support.claude.com/en/articles/10684626-enable-and-use-web-search" target="_blank" rel="noopener">web search help article</a> warns that some website links may not work and never mentions video or YouTube. The developer docs for <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool" target="_blank" rel="noopener">web fetch</a> say it handles text, HTML and PDF, and does not support pages built with JavaScript. YouTube pages lean on scripts, but neither page names YouTube, so test it.</li>
+<li><b>Files.</b> The <a href="https://support.claude.com/en/articles/8241126-uploading-files-to-claude" target="_blank" rel="noopener">file upload article</a> lists documents (PDF, DOCX, CSV, TXT and others) and images (JPEG, PNG, GIF, WebP), up to 20 files per chat. It lists no video or audio.</li>
+<li><b>Connectors.</b> The <a href="https://claude.com/docs/connectors/directory" target="_blank" rel="noopener">connectors directory</a> (under Customize, then Connectors) catalogues outside services you can link to Claude. In October 2026 I couldn't find a YouTube connector from Anthropic or Google there. The directory is large and changes often, and some analytics companies say they offer YouTube connectors, though I couldn't confirm a specific listing. Search it for "YouTube" yourself.</li>
+</ul>
+
+<p>If you try a connector, read its label. Anthropic's <a href="https://claude.com/docs/connectors/verification" target="_blank" rel="noopener">verification page</a> says Verified isn't a security audit, Community means a third party built it and Anthropic hasn't reviewed it in depth, and Anthropic doesn't control how a third-party connector handles your data. The basics are in <a href="#read-connectors-and-mcp">Connectors and MCP, explained simply</a>.</p>
+
+<h3>The fallback that always works</h3>
+
+<p>YouTube's own tools give you everything as text: the <b>Show transcript</b> panel for the words spoken, titles and public view counts you copy for comparison, comments you select and copy, and an export from YouTube Studio for your own channel. Before you collect anything, find out what your Claude can do. It takes a minute.</p>
+
+<pre class="prompt" data-label="Prompt 1 · Test what Claude can read">Here is a YouTube link: [paste the link].
+
+Tell me exactly what you can read from it. For each item below, answer "can read", "cannot read" or "not sure", and add one line saying how you know:
+1. the video title
+2. the description
+3. the transcript
+4. the comments
+5. the thumbnail
+
+Do not guess or fill gaps from general knowledge. If you cannot read the transcript, say so plainly and tell me what to paste instead.</pre>
+
+<div class="callout tip"><b>Tip</b><p>If Claude says it can read the transcript, ask it to quote the first sentence the speaker says and check it against the video. Claude can write a convincing summary from a title alone.</p></div>
+
+<div class="callout warn"><b>Copyright and the rules</b><p>Transcripts belong to the people who made the videos. Use them for private research: reading, summarising, spotting patterns. Don't republish one or ask Claude to rewrite someone's script. YouTube's <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">Terms of Service</a> also say you may not access the service by automated means such as robots or scrapers without permission, so I'd avoid tools that bulk-download videos or captions. This is general information, not legal advice.</p></div>
+
+<div class="callout warn"><b>Privacy</b><p>Never paste passwords, payment details or anyone's private data. Comments contain usernames, so remove names and handles first. Don't paste an export from a client's channel unless they've agreed.</p></div>
+
+<h2>Step 1: Gather the material</h2>
+
+<p>Claude can only analyse what is in the chat or the project, so a small, chosen set beats a pile of random links.</p>
+
+<h3>Pick one question and 8 to 12 videos</h3>
+
+<p>Start with one question, such as "What do beginner videos about [topic] do in the first 30 seconds?" Then choose 8 to 12 videos that fit it. I'd mix the most-watched videos from two or three channels, a few recent uploads, and two or three from smaller channels that did well for their size. Without those you only learn what giants can get away with.</p>
+
+<p>On each channel's Videos tab, sort by most popular if the option is there. For every video, note the title, channel, publish date, public view count on the day you checked, length and link. A plain spreadsheet works.</p>
+
+<h3>Copy a transcript</h3>
+
+<p>YouTube's <a href="https://support.google.com/youtube/answer/15930243" target="_blank" rel="noopener">help page on transcripts</a> says you can see the full transcript of any video that has captions. On a computer:</p>
+
+<ol>
+<li>Open the video and expand the description under it.</li>
+<li>Click <b>Show transcript</b>. The panel scrolls as the video plays.</li>
+<li>Select the text, copy it, and paste it into a document or plain text file.</li>
+<li>Name the file so you can find it: <code>01-channel-a-short-title.txt</code>.</li>
+</ol>
+
+<p>Leave the timestamps in, so Claude can point to the moment where something happens. Automatic captions can contain mistakes, especially in names and technical terms, so skim the first minute. For hook work you only need the first 60 to 90 seconds, and shorter pastes use less of your allowance.</p>
+
+<h3>Export your own channel's data</h3>
+
+<p>If you have a channel, add your own numbers. YouTube's <a href="https://support.google.com/youtube/answer/9717005" target="_blank" rel="noopener">Advanced mode help page</a> gives these steps:</p>
+
+<ol>
+<li>Sign in to YouTube Studio and select <b>Analytics</b> from the left menu.</li>
+<li>Under the report you want, click <b>ADVANCED MODE</b> or <b>SEE MORE</b>.</li>
+<li>Set the date range and use the breakdown and metrics options to shape the table.</li>
+<li>At the top, select <b>Export current view</b> and choose a file format.</li>
+</ol>
+
+<p>Choose CSV if it's offered, because Claude reads CSV files. Downloaded reports are limited to 500 rows. YouTube has been rolling out an updated Studio since July 2026, so your screen may look different.</p>
+
+<h3>Put it all in one Project</h3>
+
+<p>A Claude Project is a workspace with its own chats and stored files. <a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener">Anthropic's article</a> says Projects are available on all plans, with a limit of five on the free plan. Create one called "YouTube research: [niche]" and add your transcripts, title table and Studio CSV. New to Projects? Read <a href="#read-projects-in-claude-and-chatgpt">Projects in Claude and ChatGPT, explained</a>.</p>
+
+<pre class="prompt" data-label="Prompt 2 · Inventory my research material">I'm researching YouTube videos about [niche or topic] for [my channel / a client]. My question is: [one question, for example: what do beginner videos on this topic do in the first 30 seconds?].
+
+I've added transcripts, a table of titles and a channel export to this project. Make a table of everything you can see: file name, what it is, which video it relates to, and anything that looks missing or cut off. Then ask me up to 5 questions about gaps in the material. Do not analyse anything yet.</pre>
+
+<h2>Step 2: Break down the hooks</h2>
+
+<p>A hook is the first 15 to 30 seconds, where a viewer decides to stay or leave. Ten hooks side by side show which opening moves your niche uses.</p>
+
+<pre class="prompt" data-label="Prompt 3 · Hook breakdown">Use the opening 30 seconds of each transcript in this project. For each video, fill in a table with these columns: video label, the opening move (question, bold claim, story, demo, result first, or other), what the viewer is promised, any proof offered in the first 30 seconds, the open question that makes people keep watching, and roughly how many words are spoken before the topic is named.
+
+Paraphrase everything. Quote no more than five words in a row from any transcript. After the table, list the 3 most common opening moves and which videos use them, and name any video that doesn't fit. Say plainly if the sample is too small to show a pattern.</pre>
+
+<p>Here is a weak answer next to a useful one. The example is invented, to show the shape of the output.</p>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>"Most videos have engaging hooks that grab attention. Video 3 has a particularly strong opening."</p></div><div class="good"><b>Better</b><p>"Video A opens with the finished result, then promises the steps. Video B asks a question and offers no proof for 40 words. Video C starts with a mistake the host made. Result first appears in 4 of 10 videos."</p></div></div>
+
+<div class="callout warn"><b>Heads-up</b><p>View counts depend on channel size, video age and topic, not only the hook. A hook in the most-watched video isn't proof that the hook caused it.</p></div>
+
+<h2>Step 3: Find topic gaps</h2>
+
+<p>A gap is a topic where viewers want something and the existing videos are missing, thin or old. Claude can sort what your sample covers, but it can't tell you how many people search for a topic, so pair it with YouTube's own data.</p>
+
+<h3>Check demand in the Trends tab</h3>
+
+<p>YouTube's <a href="https://support.google.com/youtube/answer/11962757" target="_blank" rel="noopener">help page on trends</a> describes a tab in Studio for this. Select <b>Analytics</b> in the left menu, then click the <b>Trends</b> tab. Type a topic in the search bar and click <b>Save</b> to keep a search term. The cards include top searches over the last 28 days, breakout videos from similar creators, and recent videos. A content gaps card shows searches where viewers may not find enough good results, and the help text describes it for Shorts. You may not see every card, as some insights depend on country, language and device.</p>
+
+<p>Copy the search terms into a note for Claude.</p>
+
+<pre class="prompt" data-label="Prompt 4 · Topic gap finder">Here are the titles and key points of [number] videos on [niche], plus search terms I copied from YouTube's Trends tab: [paste].
+
+Sort the topics into three groups: covered well, covered thinly (old, shallow, or only for experts) and not covered at all. For every claim, name the videos it is based on. Then suggest 8 video ideas for [audience, for example complete beginners]. Mark each idea "evidence in my material" or "my guess".
+
+Do not state search volumes, view counts or trends I have not given you. For each idea, tell me what to check on YouTube before I commit to making it.</pre>
+
+<div class="callout vish"><b>My take</b><p>A gap can mean nobody has made the video yet, or that nobody wants it. Search the topic on YouTube yourself before you commit. In creator work, a brief that names one audience and one promise beats a long one, and a video idea works the same way.</p></div>
+
+<h2>Step 4: Mine the comments</h2>
+
+<p>Comments are where viewers say what they didn't understand, what they doubt and what they wish the video had covered. That's raw material for titles, sections and answers.</p>
+
+<p>For your own videos, open the comments in YouTube Studio or on the video page. For other people's videos, use the public comments on the page. Copy a batch of 50 to 150 comments into a document, from both top and newest comments. Delete usernames, handles, links and anything personal before you paste them anywhere.</p>
+
+<pre class="prompt" data-label="Prompt 5 · Comment mining">Below are [number] public comments from videos about [topic]. I removed names and handles.
+
+Group them into themes. For each theme give: a short label, the type (question, objection, request, confusion or praise), roughly how many comments mention it, and one paraphrased example. Use "about" for counts, and flag any theme with fewer than three comments as weak. Then list the 5 questions I should answer in a video, in order of how often they appear.
+
+Do not guess who the commenters are or anything personal about them. Stay with what the words say.
+
+[paste comments]</pre>
+
+<p>A useful answer looks like this (invented for illustration):</p>
+
+<div class="table-wrap"><table><thead><tr><th>Theme</th><th>Type</th><th>Count</th></tr></thead><tbody>
+<tr><td>Which tool to start with</td><td>Question</td><td>about 18</td></tr>
+<tr><td>"Too fast to follow"</td><td>Confusion</td><td>about 11</td></tr>
+<tr><td>Wants a free version</td><td>Request</td><td>about 6</td></tr>
+<tr><td>Doubts the results are typical</td><td>Objection</td><td>2 (weak)</td></tr>
+</tbody></table></div>
+
+<h2>Step 5: Compare title and thumbnail text patterns</h2>
+
+<p>Claude can describe how titles and thumbnails are written across a set. The word to hold onto is describe: you're looking at wording, structure and what's shown, never at anyone's looks.</p>
+
+<h3>Titles</h3>
+
+<pre class="prompt" data-label="Prompt 6 · Title patterns">Here are the titles of [number] videos on [niche] with their view counts and publish dates: [paste table].
+
+Describe patterns in how the titles are written: length in words, use of numbers, questions, brackets or colons, the type of promise (how-to, result, warning, comparison, story) and any tension words. Group the titles by pattern and list the view counts for each group.
+
+Views also depend on channel size and video age, so say which comparisons are fair and which are not. Finish with 5 title patterns worth testing on my channel, each with a placeholder example.</pre>
+
+<h3>Thumbnail text and layout</h3>
+
+<p>Attach a screenshot of each thumbnail, or type up the words yourself.</p>
+
+<pre class="prompt" data-label="Prompt 7 · Thumbnail text and layout">I've attached screenshots of [number] thumbnails from videos on [niche]. For each one, describe only what is visible: the exact words on it, where the words sit, how many words there are, the main colours, the main object or action shown, and whether a person appears and what they are doing (for example pointing or holding something).
+
+Do not comment on anyone's looks, age, body or background, and do not guess at feelings. Then summarise what the text does across the set: length, wording style, and how it relates to the title. Say where the thumbnail repeats the title and where it adds something.</pre>
+
+<div class="callout warn"><b>Heads-up</b><p>Ten videos give you hints, not rules. You only see videos that got seen, not the ones that failed with the same pattern. Treat each pattern as a test for your next uploads, and compare click-through rate in Studio afterwards.</p></div>
+
+<h2>Step 6: Turn the research into a script outline</h2>
+
+<p>The research tells Claude who the viewer is, what they ask, how the niche opens videos and where the gaps are. The outline stays yours: your experience, your examples, your voice.</p>
+
+<pre class="prompt" data-label="Prompt 8 · Script outline">Using the research in this project (hook breakdown, gaps, comment themes and title patterns), build a script outline for one video: [topic idea] for [audience].
+
+Give me: 3 title options, a hook written as the first 20 seconds of speech, a one-line promise, 4 to 6 sections (each with the point, the proof to show, and what is on screen), the questions from the comments that each section answers, and a closing step for the viewer.
+
+Write everything in your own words and never reuse phrases from the transcripts. Where my own experience belongs, put [YOUR EXAMPLE] instead of inventing one. Ask me questions first if the research doesn't support something.</pre>
+
+<p>Fill every <code>[YOUR EXAMPLE]</code> with something that really happened to you or that you tested. That's what separates your video from the ones you studied.</p>
+
+<h2>Step 7: Set up the monthly routine</h2>
+
+<p>A monthly routine shows movement: which hooks are spreading, which gaps got filled and what your own numbers say. Keep it in the same Project so last month's brief is always there. Paste these standing rules into the Project's instructions and edit the brackets.</p>
+
+<pre class="prompt" data-label="Prompt 9 · Project instructions">You are my YouTube research assistant for [niche]. I make [type of videos] for [audience].
+
+Rules:
+1. Use only the material in this project and what I paste into the chat. If something isn't there, say so.
+2. Never claim you watched a video. Work from the transcripts, titles, comments and exports I supply.
+3. Paraphrase. Quote five words at most from any transcript.
+4. Mark each insight as "evidence" (with the video label) or "guess".
+5. Describe thumbnails and people neutrally. No comments on looks and no guesses about personal traits.
+6. Use British English and short sentences. Ask a question when my request is unclear.</pre>
+
+<h3>The monthly checklist</h3>
+
+<ol>
+<li>Add 3 to 5 new videos in your niche to the list, with their views and dates.</li>
+<li>Copy their transcripts into project knowledge.</li>
+<li>Export fresh data from Studio. Advanced mode lets you save a report, and YouTube's <a href="https://support.google.com/youtube/answer/16766491" target="_blank" rel="noopener">tips page</a> suggests this for a quick monthly check. Saving works in a computer browser only.</li>
+<li>Run the hook, gap and comment prompts again on the new material.</li>
+<li>Run the review prompt below and save the one-page brief it writes into the project.</li>
+<li>Pick the next 2 or 3 video ideas.</li>
+</ol>
+
+<p>Once the files are in place, I'd expect about an hour. That's my estimate, and the first month will run longer.</p>
+
+<pre class="prompt" data-label="Prompt 10 · Monthly review">It's a new month. Last month's brief is in this project. I've added [number] new transcripts, an updated title table and this month's Studio export for my channel.
+
+Compare with last month: which opening moves, topics and title patterns are growing, which have faded, and which new gaps appear. Then look at my export: which of my videos did best, and did any come from last month's ideas? Separate clearly what the data shows from what you suspect. End with a one-page brief and 3 video ideas ranked, each with the evidence behind it.</pre>
+
+<p>The same tips page suggests grouping your own videos by content pillar, style or length and comparing the groups with <b>Add comparison</b>. That gives you real numbers to check Claude's pattern-spotting against. Once the routine settles, you can turn it into a reusable Skill: see <a href="#read-claude-skill-for-repeat-task">Turn a task you repeat into a Claude Skill</a>.</p>
+
+<h2>What Claude can and can't do here</h2>
+
+<p><b>It can</b> read and compare text you give it, sort comments into themes, describe the wording of titles and thumbnails, find what a set of videos has in common, and draft an outline you then rewrite.</p>
+
+<p><b>As far as I could verify, it can't</b> watch video or hear tone, see views or click-through numbers you didn't give it, tell you how often a topic is searched, or check that a video's claims are true.</p>
+
+<p><b>It can be wrong in ways that sound sure.</b> It might invent a quote, call something a trend from three examples, or turn a small sample into a rule. Prompt 9 pushes against this, but read the output with a sceptical eye.</p>
+
+<h2>When it gets stuck</h2>
+
+<ul>
+<li><b>Claude says it can't open the link.</b> That's the expected result. Copy the transcript from the <b>Show transcript</b> panel and paste it in.</li>
+<li><b>The summary sounds confident but vague.</b> It may be working from the title. Ask for the first sentence the speaker says and check it. If it can't give one, paste the transcript.</li>
+<li><b>No Show transcript button.</b> The video may not have captions. Pick another video rather than reaching for a tool that breaks YouTube's terms.</li>
+<li><b>You hit a limit, or the chat gets slow.</b> You pasted too much at once. Split the work by step and let the Project hold the files. Free accounts have usage limits that reset every five hours.</li>
+<li><b>The Studio export screen looks different.</b> Search the YouTube Help Centre for "Advanced mode" or "export" and follow the current steps.</li>
+<li><b>Every answer is generic.</b> Your question is probably too wide. Narrow it to one audience and one format, and ask for evidence beside every claim.</li>
+</ul>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<div class="table-wrap"><table><thead><tr><th>Step</th><th>Give Claude</th><th>You get</th></tr></thead><tbody>
+<tr><td>1. Gather</td><td>Transcripts, title table, Studio CSV</td><td>An organised Project</td></tr>
+<tr><td>2. Hooks</td><td>First 30 seconds of each video</td><td>Opening moves and promises</td></tr>
+<tr><td>3. Gaps</td><td>Titles, key points, Trends searches</td><td>Covered, thin and missing topics</td></tr>
+<tr><td>4. Comments</td><td>50 to 150 comments, names removed</td><td>Themes, objections, questions</td></tr>
+<tr><td>5. Titles</td><td>Titles, views, thumbnail screenshots</td><td>Wording and layout patterns</td></tr>
+<tr><td>6. Outline</td><td>All the research above</td><td>Titles, hook and section plan</td></tr>
+<tr><td>7. Monthly</td><td>New videos and a fresh export</td><td>A one-page brief, ranked ideas</td></tr>
+</tbody></table></div>
+<p>Rules to keep: paraphrase, label evidence versus guesses, describe thumbnails neutrally, never republish a transcript.</p>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Run Prompt 1 with one YouTube link to see what your Claude can and can't read.</li>
+<li>Write down one research question and pick 8 to 12 videos, including some from smaller channels.</li>
+<li>Copy transcripts with <b>Show transcript</b> and export your Studio data with <b>Export current view</b>.</li>
+<li>Create a Claude Project, add the files and paste in Prompt 9 as the instructions.</li>
+<li>Run Prompts 3 to 7, then build one script outline with Prompt 8.</li>
+<li>Put a monthly reminder in your calendar and save each brief in the Project.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Can Claude watch a YouTube video?</summary><p>I couldn't verify that it can. Claude's help pages describe reading web pages and uploaded files, and list no video files. Run Prompt 1 to see what your account does with a link, and use pasted transcripts for anything that matters.</p></details>
+
+<details class="faq"><summary>Is it okay to paste someone else's transcript into Claude?</summary><p>For private research, such as summarising and spotting patterns, it's common, but the transcript is still the creator's work. Don't republish it or turn it into your own script. This is general information, not legal advice, so ask a professional if you're unsure.</p></details>
+
+<details class="faq"><summary>Do I need a paid Claude plan?</summary><p>Projects are available on all plans, with five projects on the free plan. Anthropic says paid plans get automatic retrieval when project knowledge nears the limit, which stretches how much a project can hold. Long transcripts use your allowance faster, so a paid plan helps if you hit limits often.</p></details>
+
+<details class="faq"><summary>Can I do this with a competitor's analytics?</summary><p>No. Studio shows data only for channels you manage. For other channels you have what's public on the page, such as views and publish dates, which is enough for pattern work if you stay honest about its limits.</p></details>

@@ -554,5 +554,15 @@ After 6 questions, give me my 3 biggest fixes.</pre>
 <h2>Prepare stories, not answers</h2>
 <pre class="prompt">From my CV [paste], help me build 5 short stories I can reuse across questions: situation, what I did, result with a number. Under 60 seconds each when spoken.</pre>
 <h2>The question to always prepare</h2>
-<p>"Why this company?" Ask the AI to read the company's site and recent news with you, then answer it yourself. Never let it write this one for you.</p>` }
+<p>"Why this company?" Ask the AI to read the company's site and recent news with you, then answer it yourself. Never let it write this one for you.</p>` },
+
+{ slug: "youtube-research-with-claude", type: "workflow", tools: ["claude"], level: "Intermediate", mins: 15, rank: 41,
+  title: "YouTube research with Claude: what works, why, and what to make next",
+  excerpt: "Find what works in a YouTube niche, why it works and what to make next, using Claude with transcripts, comments and your own Studio data.",
+  body: `<p>Find what works in a YouTube niche, why it works and what to make next, using Claude with transcripts, comments and your own Studio data.</p>` },
+
+{ slug: "creator-campaign-hq-in-claude", type: "creator", tools: ["claude"], level: "Intermediate", mins: 15, rank: 42,
+  title: "Run a whole creator campaign from one Claude Project",
+  excerpt: "Set up a campaign HQ in Claude, then shortlist, vet, brief, review and report on creators with copy-paste prompts.",
+  body: `<p>Set up a campaign HQ in Claude, then shortlist, vet, brief, review and report on creators with copy-paste prompts.</p>` }
 ];

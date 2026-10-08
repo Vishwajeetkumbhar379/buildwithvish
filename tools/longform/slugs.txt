@@ -54,3 +54,6 @@
 #read-tailor-cv-without-ai-sound  (career) Tailor your CV with AI without sounding like AI
 #read-ugc-vs-influencer  (creator) UGC vs influencer marketing: which do you need?
 #read-what-ai-notices-about-you  (prompts) Prompts that help you understand yourself better
+#read-youtube-research-with-claude  (workflow) YouTube research with Claude: what works, why, and what to make next
+#read-creator-campaign-hq-in-claude  (creator) Run a whole creator campaign from one Claude Project
+#read-get-cited-by-ai-answers  (workflow) Get cited by AI answers with Claude and free tools
