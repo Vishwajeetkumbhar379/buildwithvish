@@ -564,5 +564,10 @@ After 6 questions, give me my 3 biggest fixes.</pre>
 { slug: "creator-campaign-hq-in-claude", type: "creator", tools: ["claude"], level: "Intermediate", mins: 15, rank: 42,
   title: "Run a whole creator campaign from one Claude Project",
   excerpt: "Set up a campaign HQ in Claude, then shortlist, vet, brief, review and report on creators with copy-paste prompts.",
-  body: `<p>Set up a campaign HQ in Claude, then shortlist, vet, brief, review and report on creators with copy-paste prompts.</p>` }
+  body: `<p>Set up a campaign HQ in Claude, then shortlist, vet, brief, review and report on creators with copy-paste prompts.</p>` },
+
+{ slug: "get-cited-by-ai-answers", type: "workflow", tools: ["claude", "multi"], level: "Intermediate", mins: 15, rank: 43,
+  title: "Get cited by AI answers with Claude and free tools",
+  excerpt: "Find out whether ChatGPT, Perplexity, Gemini and Google's AI Mode link to you, then fix your pages in seven steps with free tools and Claude.",
+  body: `<p>Find out whether ChatGPT, Perplexity, Gemini and Google's AI Mode link to you, then fix your pages in seven steps with free tools and Claude.</p>` }
 ];
