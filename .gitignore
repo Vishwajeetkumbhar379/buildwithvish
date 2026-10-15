@@ -6,3 +6,4 @@ src/preview.html
 .env
 .env.*
 *.zip
+.wrangler/
