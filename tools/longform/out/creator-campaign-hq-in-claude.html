@@ -1,0 +1,268 @@
+<p>This page is for anyone who runs creator or influencer campaigns, from a first test with five creators to a few dozen: brand-side marketers, junior agency staff, founders doing it themselves. By the end you'll have one Claude Project that holds your brief, brand rules and past results, plus seven repeatable jobs inside it. I spent years on the brand side of influencer marketing, across 850+ creator deals, and in creator campaigns most problems start with a vague brief. So the brief sits at the centre of everything here. Set-up takes about an hour, and each job after that 5 to 20 minutes.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>One Claude Project becomes the campaign HQ. Brief, brand rules, past results and creator list live in it as files, so every chat starts informed.</li>
+<li>Seven jobs run inside it, each with a copy-paste prompt. You check, you decide, you send.</li>
+<li>Claude only knows what is in your files and chat. It can't see live profiles or spot fake followers, so you export numbers and paste public comments.</li>
+<li>Judge content, audience behaviour and fit. Never ask Claude to rate looks or guess sensitive traits.</li>
+<li>Ad-label and contract points are general information, not legal advice.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Set up the HQ</b> One Project, five files, one set of instructions. <i>60 min</i></li>
+<li><b>Shortlist creators</b> Rank your longlist against the brief, with evidence. <i>15 min</i></li>
+<li><b>Vet fit and comments</b> Turn a hunch into questions you can ask. <i>10 min per batch</i></li>
+<li><b>Draft outreach</b> Short, specific messages that you send yourself. <i>15 min</i></li>
+<li><b>Write the one-page brief</b> Built from your master brief. <i>10 min</i></li>
+<li><b>Review drafts and posts</b> Check against the brief and label rules. <i>5 min per draft</i></li>
+<li><b>Run the weekly report</b> From the numbers you exported. <i>15 min a week</i></li>
+</ol></div>
+
+<p class="note">Checked in October 2026. AI apps change fast: if a button has moved, search the app's help pages for the feature name.</p>
+
+<h2>Before you start</h2>
+
+<p>A free Claude account is enough to build and test the HQ: <a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects" target="_blank" rel="noopener">Anthropic's Projects page</a> says free users can have up to five Projects. Have these ready:</p>
+<ul>
+<li><b>A written campaign goal:</b> what you sell, who it's for, budget, dates, platforms, and the numbers that decide whether it worked.</li>
+<li><b>A creator longlist</b> as a spreadsheet: handle, platform, link, followers, average views and comments, any rate you know, and your notes.</li>
+<li><b>Results from a past campaign</b>, even rough.</li>
+<li><b>Your brand rules:</b> what you always say, never say, and which claims need proof.</li>
+</ul>
+
+<div class="callout warn"><b>Privacy</b><p>Don't paste passwords, bank details, ID numbers, signed contracts with personal details or private messages. Keep creator data to what is public or business contact information, and check your company's AI policy first. Review your account's privacy settings, including the option that lets your chats improve models, so you've chosen it on purpose. Anthropic explains it on its <a href="https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings" target="_blank" rel="noopener">model improvement settings page</a>.</p></div>
+
+<h2>Step 1: Set up the HQ</h2>
+
+<p>A Project is a workspace with its own instructions, files and chats. <a href="#read-projects-in-claude-and-chatgpt">Projects in Claude and ChatGPT, explained</a> has the longer walk-through. For a campaign:</p>
+
+<ol>
+<li>Click <b>Projects</b> in the left sidebar (or go to claude.ai/projects), then <b>+ New Project</b> in the upper right.</li>
+<li>Name it after the campaign, for example "Spring launch HQ". Claude can't see the name or description, so put what it needs in the instructions or files.</li>
+<li>Click <b>Set project instructions</b>, paste your instructions, then click <b>Save instructions</b>.</li>
+<li>In the knowledge area on the right, click <b>+</b> to upload your files.</li>
+<li>Start every campaign chat from inside the Project.</li>
+</ol>
+
+<p>I'd use one Project per campaign, so old results don't leak into new decisions. Each Project also has its own memory, separate from your other chats.</p>
+
+<h3>The five files</h3>
+
+<p>Keep each file short and name it clearly. Anthropic suggests <a href="https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects" target="_blank" rel="noopener">descriptive filenames</a> for big Projects, and it helps in small ones: you can say "use file 02".</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>File</th><th>What goes in it</th></tr></thead>
+<tbody>
+<tr><td><code>01-campaign-brief</code></td><td>Goal, audience, budget, dates, platforms, key numbers, must-say and must-not-say lines</td></tr>
+<tr><td><code>02-brand-rules</code></td><td>Tone, claims you can and can't make, competitor rules, approval process</td></tr>
+<tr><td><code>03-past-results</code></td><td>Last campaign by creator: cost, views, clicks, what you'd repeat or change</td></tr>
+<tr><td><code>04-creator-longlist</code></td><td>The exported list (CSV) with your own notes column</td></tr>
+<tr><td><code>05-ad-label-rules</code></td><td>The labels you require per market, from regulator guidance (step 6)</td></tr>
+</tbody></table></div>
+
+<p>Per <a href="https://support.claude.com/en/articles/8241126-uploading-files-to-claude" target="_blank" rel="noopener">Anthropic's file page</a>, Project files can be PDF, DOCX, CSV, TXT and more, up to 30 MB each, and Claude reads them as text. XLSX needs code execution and file creation switched on, so I'd save the longlist as CSV. All files together must fit in what Claude can hold at once, so keep them lean.</p>
+
+<h3>The instructions</h3>
+
+<p>Instructions are the standing rules Claude reads at the start of every chat in the Project. Let Claude interview you first, then use the template.</p>
+
+<pre class="prompt" data-label="Prompt 1 · Interview me for the HQ instructions">I'm setting up a Claude Project as the HQ for one creator campaign. Ask me questions, one at a time, to learn: the brand and product, the campaign goal, the audience, budget and dates, the platforms, what a good result looks like, what the brand never says or does, and how formal the tone should be. Ask 10 questions at most.
+
+Then write project instructions of under 250 words that tell you how to behave in this Project. Put anything that changes often (dates, budget, creator list) in files, not in the instructions.</pre>
+
+<pre class="prompt" data-label="Prompt 2 · Project instructions template">You are the campaign HQ assistant for [brand]'s [campaign name]. Read the Project files before you answer.
+
+Rules:
+1. Use only the Project files and what I paste into the chat. If something is missing, write "not in the files" and ask me for it. Never guess numbers, audience details or facts about a creator.
+2. Never infer sensitive traits about anyone (race, ethnicity, religion, health, sexuality, politics). Never rate how anyone looks. Judge content, audience behaviour and fit with the brief.
+3. Show your evidence: quote the row, line or comment you relied on.
+4. Draft only. Do not send, post or sign anything. I decide and I send.
+5. Write in British English, in plain words and short sentences.
+6. If a task is unclear, ask up to three questions, then carry on.
+7. End each recommendation with one line on what could make it wrong.</pre>
+
+<div class="callout tip"><b>Tip</b><p>Decisions made in one chat don't carry into the next unless they're in the Project files, as Anthropic's Projects page says. When you settle something, such as a changed budget or a dropped creator, ask Claude to write a short note and paste it into the matching file.</p></div>
+
+<h2>Step 2: Shortlist creators from the brief</h2>
+
+<p>The shortlist is where a campaign is won or lost, and where people lean on easy-to-see follower counts. The full method is in <a href="#read-shortlist-creators-with-ai">Shortlist creators with AI, not follower counts</a>, and <a href="#read-creator-scorer-sheet">Build a creator scorer in Google Sheets</a> has a spreadsheet version. Inside the HQ, Claude already has your brief and longlist, so the prompt stays short.</p>
+
+<p>Your longlist needs numbers Claude can quote: from creators' own insights if they share them, a database you already pay for, or a sheet you fill in by hand.</p>
+
+<pre class="prompt" data-label="Prompt 3 · Shortlist from the brief">Using file 01 (brief) and file 04 (creator longlist), shortlist the best [8] creators for this campaign.
+
+Score each from 1 to 5 on: fit with the brief's audience and message, content quality and style, engagement health (comments and saves relative to views, not followers), cost against the budget, and brand safety based only on the public content I've given you.
+
+Give me a table: Creator | Score | Why (quote the row or note you used) | Biggest risk | One question to ask them. Add three reserves below it. If a number is missing, write "not in the files" instead of guessing. Ask me up to three questions first if the brief is unclear.</pre>
+
+<p>A useful row reads like this: "Creator A, 4 of 5. Row 3 shows [average views] against the cost per 1,000 views in the brief. Risk: no data on past sponsored posts." A weak one says "great engaged audience" and stops.</p>
+
+<div class="callout warn"><b>Heads-up</b><p>Claude can slip on arithmetic and misread a column. Check two or three of its figures against your sheet every time. If a score looks odd, ask "which row did you use?"</p></div>
+
+<h2>Step 3: Vet fit and comment quality</h2>
+
+<p>A shortlist says who looks right on paper. Vetting asks whether the evidence holds up, using only what any viewer could see. For each creator, paste into the chat:</p>
+<ul>
+<li>The captions of their last five posts.</li>
+<li>20 to 30 public comments from two recent posts, as plain text.</li>
+<li>The brand names on recent sponsored posts, where they're labelled.</li>
+</ul>
+
+<pre class="prompt" data-label="Prompt 4 · Vet fit and comments">Vet [Creator A] for this campaign using the pasted captions and comments plus files 01 and 02. Do not guess anything not in the text.
+
+Look at: how closely the content matches the brief; whether comments respond to what the post said or are generic (emoji only, repeated phrases, comments that could sit under any post); whether the creator replies to commenters; which brands appear in recent sponsored posts and whether any compete with ours; anything that clashes with our brand rules.
+
+Never infer sensitive traits about the creator or their audience, and never comment on appearance. Answer in three lists: Evidence for the fit, Concerns (each with the quoted text), Questions to ask the creator. Then give a verdict (go, ask first or pass) and say how far the small sample limits your confidence.</pre>
+
+<p>Treat the result as questions, not a ruling. Twenty-odd comments is a small sample, and Claude can't see follower quality. If something looks off, ask the creator for a screenshot of their own audience insights. Never drop a creator on an AI flag alone.</p>
+
+<div class="callout vish"><b>My take</b><p>On the brand side, the signal I trusted most was whether commenters sounded like the customers we wanted: asking questions, tagging a friend. Claude sorts that evidence quickly. It doesn't replace opening the profile yourself.</p></div>
+
+<h2>Step 4: Draft personal outreach</h2>
+
+<p>Most creator outreach fails because it could have been sent to anyone. Claude will write fifty polished versions of the same generic message, so feed it something real: one line of your own about a specific post and why it stuck with you. <a href="#read-creator-outreach-that-gets-replies">Creator outreach that actually gets replies</a> goes deeper on structure.</p>
+
+<pre class="prompt" data-label="Prompt 5 · Outreach drafts">Draft a first message to each creator below, using file 01 and my one-line note for each.
+
+Each message: under 90 words; opens with the specific thing from my note; says plainly that this is a paid collaboration (if the brief says so); makes one clear ask; offers the one-page brief. No flattery I haven't supplied, no product claims that aren't in file 02.
+
+Output a table: Creator | Channel | Subject line (email only) | Message. Where my note is vague, say so instead of inventing a reason.
+
+My notes:
+[Creator A]: [the post you liked and why]
+[Creator B]: [the post you liked and why]</pre>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>"Hi! We love your content and think you'd be a perfect fit for our brand. Let us know if you're interested in a collab!"</p></div><div class="good"><b>Better</b><p>"Hi [Creator A], your video on [topic] explained [idea] in one minute, which is what we're trying to do for [product]. We have a paid collaboration in [month]: one video, [budget or 'budget to discuss']. May I send a one-page brief?"</p></div></div>
+
+<p>Paste the messages into your email or DMs yourself. If you connect Gmail (see the optional section), Claude can save them as drafts, and I'd stop there. Read every message, check the name and the line about the post, and send it from your own account.</p>
+
+<h2>Step 5: Write the one-page creator brief</h2>
+
+<p>Creators skim. A brief that fits on one screen gets read. <a href="#read-one-page-creator-brief">The one-page creator brief</a> has the template and the thinking. In the HQ, Claude builds the page from your master brief, so the two never drift apart.</p>
+
+<pre class="prompt" data-label="Prompt 6 · One-page creator brief">Turn file 01 and file 02 into a one-page brief for creators, under 250 words, in this order: the one thing people should remember; who it's for; must-say lines; must-not-say lines; deliverables and dates; how we'll measure it; the ad label line (from file 05); who approves what and by when; one contact.
+
+Rules: concrete instructions, not mood words. Leave payment, usage rights and exclusivity out, because they belong in the contract. Mark anything you can't fill from the files as [TO CONFIRM] and list those at the end as questions for me.</pre>
+
+<div class="compare"><div class="bad"><b>Weak</b><p>"Keep it fun and authentic. Show how much you love the product."</p></div><div class="good"><b>Better</b><p>"Show your real morning routine with the product in the first five seconds. Say the product name once. Don't name other brands. Post by [date]."</p></div></div>
+
+<div class="callout warn"><b>Heads-up</b><p>Contracts are a separate job. <a href="#read-creator-contract-red-flags">7 clauses in creator contracts that quietly cost money</a> lists what to look at, and Claude can help you spot clauses to ask about. It can't decide what's fair or safe to sign. This is general information, not legal advice: get a lawyer for anything large or unusual.</p></div>
+
+<h2>Step 6: Check drafts and posts against the brief and label rules</h2>
+
+<p>Creators send scripts, captions or rough cuts before posting. Mistakes slip through by eye: a missing must-say line, an unbacked claim, a label tucked away. Claude is a tireless second pair of eyes that quotes what it sees.</p>
+
+<h3>Write the label rules file</h3>
+
+<p>File 05 is a short note of what you require per market, written from the regulators. In the UK, the ASA's <a href="https://www.asa.org.uk/advice-online/influencers-guide.html" target="_blank" rel="noopener">influencers' guide to making clear that ads are ads</a> sets a plain test: people should be able to recognise an ad without clicking or otherwise interacting with it. For the EU, the European Commission runs an <a href="https://commission.europa.eu/live-work-travel-eu/consumer-rights-and-complaints/influencer-legal-hub_en" target="_blank" rel="noopener">Influencer Legal Hub</a> with briefs and videos. Country detail is in <a href="#read-ad-labels-in-europe">Ad labels in Europe: Werbung, #ad and why it matters</a>.</p>
+
+<p>Give each market three lines: the word you require (for example "Ad" or "Werbung"), where it must sit (near the start, visible without tapping "more"), and whether the platform's paid-partnership tool must be on. Link the regulator's page.</p>
+
+<pre class="prompt" data-label="Prompt 7 · Check a draft against brief and label rules">Check the draft below against files 01, 02 and 05. It is for [platform] in [market].
+
+Give me a table: Check | Result (Pass, Fix or Unclear) | Quote from the draft | Suggested fix. Checks: the one thing is clear; every must-say line is present; no must-not-say line appears; every product claim is supported by file 02; the ad label is present, uses the required wording and sits where file 05 says; deliverable length and format; tone; links or codes are correct.
+
+If you can't see something in the pasted text, mark it Unclear, never Pass. Finish with a short, friendly note to the creator asking only for the changes that matter.
+
+Draft:
+[paste caption or script]</pre>
+
+<p>Claude reads text. For a video, paste the script and say what the on-screen label shows. And a draft that passes isn't the end: once the post is live, open it on your phone like a stranger would. Is the label there before anyone taps "more"? Is it on the post you're paying for, not just the story? That live check is yours. Feedback lands best when it's tied to the brief: "the brief says one mention of the name, and the draft has three". This is general information, not legal advice.</p>
+
+<h2>Step 7: Run the weekly campaign report</h2>
+
+<p>The report is easier when the numbers are clean. Each week, copy the figures from creators' insights and your own tracking into one CSV: creator, platform, post date, spend in €, views, likes, comments, saves, shares, link clicks, and conversions if you track them. Attach it to the chat rather than the Project, so old exports don't crowd your files.</p>
+
+<p>The format of a good client report is in <a href="#read-influencer-report-template">The influencer campaign report clients actually read</a>, and the formulas are in <a href="#read-creator-campaign-math">Creator campaign math in plain English</a>. Claude's job is to assemble the first draft and show its working.</p>
+
+<pre class="prompt" data-label="Prompt 8 · Weekly campaign report">Write this week's campaign report from the attached CSV, using file 01 for the goal and file 03 for comparison where useful.
+
+Structure: one headline sentence; a table by creator (spend, views, engagement, clicks, and cost per 1,000 views or per click); what worked; what didn't; next week's action for each creator (keep, adjust or stop) with a reason; open questions and data gaps.
+
+Rules: use only numbers in the CSV. Show the formula for every ratio and add a totals row. If two columns use different definitions (for example reach and views), say so and don't mix them. Mark anything missing as "not in the data". Keep it to one page.</pre>
+
+<p>Spot-check two numbers by hand before anything goes to a client. Then save the finished report back into the Project, because chats don't automatically remember each other's details, and next week's chat needs last week's numbers.</p>
+
+<div class="callout tip"><b>Tip</b><p>Before you send, ask: "What would a sceptical client ask about this report?" It often finds the one number you hadn't explained.</p></div>
+
+<h2>Optional: connect Gmail and Drive, and save a Skill</h2>
+
+<p>You can run the HQ without connectors. Add them when pasting becomes the slow part. <a href="#read-connectors-and-mcp">Connectors and MCP, explained simply</a> covers the idea.</p>
+
+<h3>Drive for living files</h3>
+
+<p>Per <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Anthropic's Google Workspace page</a>, you can add Drive files to a Project through <b>Drive</b> under <b>Files</b>, and Google Docs you add sync from Drive. If your brief lives in a Google Doc, edit it there and the Project follows. This works only in private Projects.</p>
+
+<h3>Gmail for drafts, not sending</h3>
+
+<p>With the Gmail connector, Claude can search and read emails and draft messages. Sending, replying and forwarding need your approval each time by default, and I'd leave it that way. A connector reaches everything your account can, so keep requests narrow: label the campaign's emails and tell Claude to look only there. Anthropic says it does not train its models on connector data, with a caveat for consumers who opted into training. To add a connector, open <b>Customize</b>, then <b>Connectors</b>, per <a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener">Anthropic's connectors page</a>. On Team and Enterprise plans an owner must switch connectors on first.</p>
+
+<h3>A Skill for the check you repeat</h3>
+
+<p>Once you run the step 6 check every week, a Skill saves you pasting the same rules. It's a saved set of instructions Claude loads when your request matches. Per <a href="https://support.claude.com/en/articles/12512198-how-to-create-custom-skills" target="_blank" rel="noopener">Anthropic's skills page</a>, Skills need code execution switched on and live under <b>Customize</b>, then <b>Skills</b>. <a href="#read-claude-skill-for-repeat-task">Turn a task you repeat into a Claude Skill</a> has the full set-up.</p>
+
+<pre class="prompt" data-label="Prompt 9 · Draft a Skill from my review routine">Help me turn my creator draft review into a Claude Skill. Ask what should trigger it and what output I want. Then draft a SKILL.md with a name of up to 64 characters, a description under 200 characters saying when to use it, and step-by-step instructions that include the checks table. Keep it under 300 words and leave out personal data and passwords.</pre>
+
+<h2>What Claude can and can't do here</h2>
+
+<p>Claude is good at sorting, comparing, quoting and drafting. It's weaker in these places:</p>
+<ul>
+<li><b>Live data.</b> It doesn't see dashboards or live posts unless you paste or export them.</li>
+<li><b>Fake engagement.</b> It can point at odd comment patterns, but can't prove an audience is real.</li>
+<li><b>Arithmetic.</b> It can misread a column or slip on a total.</li>
+<li><b>Invented detail.</b> If a fact isn't in your files, it may fill the gap with something plausible. Prompt 2 guards against this.</li>
+<li><b>Legal calls.</b> It can flag clauses and rules to look at. A lawyer decides what's safe.</li>
+<li><b>Relationships.</b> Creators can tell when nobody watched their work.</li>
+</ul>
+
+<p>On fairness: judge the work and the audience's behaviour. Don't ask Claude to guess a creator's background, beliefs or health, or to score how anyone looks. It's unfair to the person, so Prompt 2 blocks it.</p>
+
+<h2>When it gets stuck</h2>
+
+<ul>
+<li><b>It makes up details about a creator.</b> Add the missing facts to file 04 or paste them in, and repeat rule 1 from Prompt 2.</li>
+<li><b>It ignores part of the brief.</b> Your instructions may be too long or contradict the files. Keep rules in the instructions and facts in the files, and start with "First, quote the goal from file 01."</li>
+<li><b>Every outreach message sounds the same.</b> Your notes are too thin. Write a more specific line for each creator, and paste two of your own messages that got replies as a voice example.</li>
+<li><b>Numbers don't add up.</b> Ask for the arithmetic as a table and compare it with your CSV. Often a column mixes reach and views.</li>
+<li><b>Answers get vaguer as the Project grows.</b> Shorten files and cut old material. Paid plans switch to a search mode on big Projects, per Anthropic, but short files still work better.</li>
+<li><b>A Drive file won't attach.</b> Drive files can't be added to shared Projects. Use a private Project or upload a copy.</li>
+</ul>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>Job</th><th>You give it</th><th>You check</th></tr></thead>
+<tbody>
+<tr><td>1. Set up</td><td>Brief, rules, results, list, label rules</td><td>Files are short and named well</td></tr>
+<tr><td>2. Shortlist</td><td>Files 01 and 04</td><td>Two or three figures</td></tr>
+<tr><td>3. Vet</td><td>Captions and public comments</td><td>The profile itself</td></tr>
+<tr><td>4. Outreach</td><td>One real line per creator</td><td>Names, facts, tone</td></tr>
+<tr><td>5. Brief</td><td>Files 01, 02 and 05</td><td>Every [TO CONFIRM]</td></tr>
+<tr><td>6. Review</td><td>The creator's draft</td><td>The live post, on a phone</td></tr>
+<tr><td>7. Report</td><td>This week's CSV</td><td>Two numbers by hand</td></tr>
+</tbody></table></div>
+<p>Standing rules: files only, no sensitive traits, no looks, quote evidence, draft only.</p>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Write the goal, audience, budget, dates and must-say lines in one file.</li>
+<li>Export your longlist as CSV and add a notes column.</li>
+<li>Create the Project, run Prompt 1, then save the instructions.</li>
+<li>Upload the five files and test Prompt 3 on a small list.</li>
+<li>Write file 05 from the ASA and European Commission pages for your markets.</li>
+<li>Run Prompt 7 on your next creator draft, then check the live post on your phone.</li>
+<li>Pick one day a week for Prompt 8, and save each report back into the Project.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Do I need a paid plan?</summary><p>Not to start. A free account can have up to five Projects, enough for a first campaign. Check Anthropic's plans page for current limits.</p></details>
+
+<details class="faq"><summary>Can I share the HQ with my team or client?</summary><p>Sharing a Project is available on Team and Enterprise plans, with "Can view" or "Can edit" permissions, unless an admin has turned it off. Otherwise, share the outputs: the brief, the report.</p></details>
+
+<details class="faq"><summary>Can Claude pull stats straight from Instagram or TikTok?</summary><p>The connectors I checked for this guide cover Gmail and Google Drive. For platform numbers, export or copy them into a CSV.</p></details>
+
+<details class="faq"><summary>Is it fine to put creators' details into Claude?</summary><p>Keep it to public information and business contact details, and follow your company's policy. If you handle personal data of people in the EU or UK, data protection law applies, so ask your data protection contact. This is general information, not legal advice.</p></details>

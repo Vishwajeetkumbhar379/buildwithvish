@@ -1,0 +1,248 @@
+<p>Ask ChatGPT, Perplexity, Gemini or Google's AI Mode for a recommendation in your field. Does your name come up, with a link? This guide is for small business owners, creators and marketers who want to find out, and to know what to change when the answer is no. You'll use free tools (Google Search Console, Bing Webmaster Tools, your site's editor and a spreadsheet) plus Claude to do the slow reading, matching and rewriting. By the end you'll have a tracker of real buyer questions, a short list of pages to fix and a weekly report that Claude drafts for you. Allow about three hours to set up, then 30 minutes a week.</p>
+
+<div class="tldr"><b>In short</b><ul>
+<li>Nobody can promise a citation. Google says AI Overviews and AI Mode have no extra requirements beyond normal Search eligibility. So: let the crawlers in, make pages easy to quote, keep them current.</li>
+<li>Measure with what exists. Search Console reports impressions in AI Overviews and AI Mode. Bing Webmaster Tools reports citations in Copilot and Bing. For ChatGPT, Perplexity and Gemini I found no site-owner report, so you check those by hand.</li>
+<li>Claude does the heavy reading: matching exports, spotting gaps, rewriting pages, drafting the weekly report. It can't see what other assistants answer, so you paste that in.</li>
+<li>Treat every result as a sample. AI answers change between runs, people and days.</li>
+</ul></div>
+
+<div class="glance"><b>The plan</b><ol>
+<li><b>Track</b> Build a list of buyer questions and log who gets cited. <i>60 min</i></li>
+<li><b>Find quiet pages</b> Match pages with clicks against pages that get quoted. <i>30 min</i></li>
+<li><b>Rewrite</b> Make the best pages easy to lift and quote. <i>45 min per page</i></li>
+<li><b>Find gaps</b> List the questions you have no answer for. <i>30 min</i></li>
+<li><b>Check rivals</b> See who is named instead of you and why. <i>30 min</i></li>
+<li><b>Feed Claude data</b> Exports or a connector. <i>20 min</i></li>
+<li><b>Weekly report</b> Claude writes one page for you each Monday. <i>30 min a week</i></li>
+</ol></div>
+
+<p class="note">Checked in October 2026. AI apps and search tools change fast: if a button has moved, search the product's help pages for the feature name.</p>
+
+<h2>Before you start</h2>
+
+<p>You need four things, and none cost money to begin with.</p>
+<ul>
+<li><b>Google Search Console</b> with your site verified. It is Google's free report on how your site appears in Search.</li>
+<li><b>Bing Webmaster Tools</b> with your site verified. It is the only place I found an official report on citations in AI answers.</li>
+<li><b>Edit access to your pages</b> and <b>a spreadsheet</b> for the tracker.</li>
+<li><b>A Claude account.</b> Projects work on the free plan too, with up to five projects, according to <a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener">Anthropic's Projects page</a>. Long files use more of your allowance, so check your limits.</li>
+</ul>
+
+<div class="callout warn"><b>Privacy</b><p>Never upload customer lists, order data, passwords or API keys. The exports here hold page addresses, search phrases and counts, which is fine. Remove names and contact details from any support chats or sales notes first. See <a href="#read-ai-privacy-settings">Five privacy settings to check in your AI apps</a>.</p></div>
+
+<h3>Let the right crawlers in</h3>
+
+<p>A crawler is a program that visits web pages so a search product can read them. If it is blocked, that product can't cite you. Here is what each company says.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Where</th><th>What to allow</th><th>What the company says</th></tr></thead>
+<tbody>
+<tr><td>Google AI Overviews and AI Mode</td><td>Googlebot</td><td>Page must be indexed and eligible to show in Search with a snippet. No additional technical requirements.</td></tr>
+<tr><td>ChatGPT search</td><td>OAI-SearchBot</td><td>Sites opted out of it will not be shown in ChatGPT search answers, though they can appear as navigational links.</td></tr>
+<tr><td>Perplexity</td><td>PerplexityBot</td><td>Used to surface and link sites in Perplexity results. Not used to train AI models.</td></tr>
+<tr><td>Copilot and Bing</td><td>Bingbot</td><td>Bing says it respects robots.txt and other content-owner controls.</td></tr>
+</tbody></table></div>
+
+<p>Two more names you'll see. <code>GPTBot</code> is OpenAI's training crawler, and OpenAI says each setting is independent, so you can allow <code>OAI-SearchBot</code> and still disallow <code>GPTBot</code>. <code>ChatGPT-User</code> and <code>Perplexity-User</code> act when a person asks a question, and both companies say robots.txt rules may not apply to them. Changes can take around 24 hours to be picked up, according to <a href="https://platform.openai.com/docs/bots" target="_blank" rel="noopener">OpenAI</a> and <a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener">Perplexity</a>.</p>
+
+<p>Open <code>yourdomain.com/robots.txt</code> in a browser and copy the text.</p>
+
+<pre class="prompt" data-label="Prompt 1 · Check which crawlers can reach me">I will paste my robots.txt below. For each of these crawlers, tell me whether it is allowed or blocked and quote the line that decides it: Googlebot, Bingbot, OAI-SearchBot, GPTBot, PerplexityBot. Say in one plain sentence what each is for. Do not rewrite the whole file. Then list the exact lines I would change to appear in ChatGPT search and Perplexity, and what else could still block them, such as a firewall or CDN setting. If anything is unclear, say so instead of guessing.
+
+robots.txt:
+[paste here]</pre>
+
+<div class="callout tip"><b>Tip</b><p>A firewall or bot-protection setting at your host can block crawlers that robots.txt allows. Perplexity's page suggests allow rules that match both the user agent and its published IP ranges. Ask whoever set yours up.</p></div>
+
+<h3>Check two Google settings</h3>
+
+<ul>
+<li>Open <b>URL Inspection</b> in Search Console for your most important page and confirm it is indexed. Google lists indexing as a requirement for AI features.</li>
+<li>Go to <b>Settings</b>, then <b>Search generative AI</b>. The default is to include your site. If someone chose "Exclude", you can't appear in AI Overviews or AI Mode at all. <a href="https://support.google.com/webmasters/answer/16908024" target="_blank" rel="noopener">Google's help page</a> explains the control.</li>
+</ul>
+
+<h3>Create a Claude Project</h3>
+
+<p>A Project keeps your files and instructions in one place. <a href="#read-projects-in-claude-and-chatgpt">Projects in Claude and ChatGPT, explained</a> shows the clicks. Create one called "AI visibility" and paste this into its instructions.</p>
+
+<pre class="prompt" data-label="Prompt 2 · Project instructions">You are my AI-visibility analyst for [website and what the business does]. Our market is [country or region] and our customers are [who].
+
+Rules:
+1. Use only the files I upload and the text I paste. Never invent statistics, rankings, quotes or reviews.
+2. For every number, name the file and row. If it is not in the data, write "not in the data".
+3. Keep apart: cited with a link, mentioned without a link, not mentioned.
+4. You cannot see what other assistants tell people. Only analyse answers I have pasted in.
+5. Use British English and plain words. Ask me when something is unclear.</pre>
+
+<h2>Workflow 1: Track where AI answers cite you</h2>
+
+<p>You can't improve what you've never looked at, and no single dashboard covers every assistant. So you build one. The raw material is a list of questions a real buyer would ask. Not keywords. Questions.</p>
+
+<pre class="prompt" data-label="Prompt 3 · Build my buyer-question list">I run [type of business] in [place or market]. My customers are [who]. My main offers are [list]. Ask me up to 5 short questions first about who buys and what they compare me with. Then write 30 questions a real buyer would type into an AI assistant, grouped as: what is it, how do I choose, X versus Y, cost, where to buy or hire, and fixing a problem. Use natural wording, not keywords. Give me a table with columns: ID, Question, Stage (learning, comparing or buying).</pre>
+
+<p>Paste the result into your spreadsheet. Once a week, run each question by hand in the assistants your buyers use, with the same wording each time. ChatGPT shows inline citations and a Sources option, Perplexity numbers its citations, the Gemini app shows a Sources button when it has links, and Google's AI Mode gives an answer with links to supporting websites. For each run, log:</p>
+
+<ul>
+<li>Date, assistant and question ID.</li>
+<li>Cited with a link to my domain: yes or no. Which page.</li>
+<li>Mentioned by name without a link: yes or no.</li>
+<li>Other brands or domains named or cited.</li>
+<li>Notes, such as "answer was about the wrong country".</li>
+</ul>
+
+<div class="callout tip"><b>Tip</b><p>Run 10 questions first, not 30. Across three assistants that's 30 checks, plenty for week one. Answers differ from run to run, so run your five most important questions twice and log both.</p></div>
+
+<p>When you have a week of rows, export the sheet as CSV, upload it to your Project and run this.</p>
+
+<pre class="prompt" data-label="Prompt 4 · Read my citation log">I have uploaded my AI citation log as a CSV. Each row is one question run in one assistant on one date. For each assistant, count the questions that cited my domain with a link, mentioned me without a link, or did not mention me. List the 10 questions where I am absent and another domain is cited, naming the domains. Show the row IDs you used. Draw no conclusions about assistants that are not in the file. End with the 3 questions I should look at first and why.</pre>
+
+<h2>Workflow 2: Find pages that rank but never get quoted</h2>
+
+<p>A page can earn clicks in classic search and never appear as a source in an AI answer. Those are your best first fixes, because the traffic proves people want the topic. You need three exports.</p>
+
+<ol>
+<li><b>Search Console Performance report</b> (the one for Search results): set the last three months, open the Pages tab and use the export button.</li>
+<li><b>Search Console Generative AI performance report (Search)</b>. It sits with the other performance reports and shows impressions in AI Overviews and AI Mode by page, country, device and date. <a href="https://support.google.com/webmasters/answer/16984139" target="_blank" rel="noopener">Google's help page</a> says it has an export button. Google says it reached all websites worldwide on 31 August 2026. If you don't see it, your site may not have enough impressions yet.</li>
+<li><b>Bing Webmaster Tools, AI Performance</b>: Microsoft's report shows total citations, the pages cited and "grounding queries" (the phrases the AI used when it retrieved your content). Look for AI Performance in your site's dashboard and download the data if the report offers it. It was in preview, so the menu may move.</li>
+</ol>
+
+<p>Know what these do not tell you. Google's AI report counts impressions only: no clicks, no search phrases. Search Console counts links to your site, so a mention without a link won't appear, which is why your hand-run log still matters. Bing's report covers Copilot, AI summaries in Bing and select partners, according to <a href="https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview" target="_blank" rel="noopener">Microsoft's announcement</a>. It does not cover ChatGPT, Perplexity or Gemini.</p>
+
+<pre class="prompt" data-label="Prompt 5 · Rank but never quoted">I have uploaded up to three CSV files: (1) Search Console pages with clicks and impressions for the last 3 months, (2) the Search Console generative AI report with impressions by page, (3) Bing AI Performance citations by page. Match pages by URL, ignoring tracking parameters and trailing slashes. List the 15 pages with the most classic clicks that have no or very few AI impressions or Bing citations. Columns: page, classic clicks, AI impressions, Bing citations. Mark any URL that appears in only one file. In two lines, say what each file cannot show. If column names are unclear, ask me first.</pre>
+
+<div class="callout vish"><b>My take</b><p>Low AI numbers don't prove a page is weak: Google says AI Overviews often don't appear. I pick fixes from pages whose topic matches a buyer question in my tracker.</p></div>
+
+<h2>Workflow 3: Rewrite pages so they're quotable</h2>
+
+<p>An AI answer is stitched from short passages lifted from many pages. A passage is easy to lift when it answers a question directly, stands on its own and states facts that can be checked. Microsoft's advice for its report points the same way: clear headings, tables and FAQ sections, claims backed by evidence, and fresh content. Google adds that you don't need special markup or AI text files, and that structured data should match the visible text.</p>
+
+<p>So the job is plain good writing, done on purpose. In creator campaigns, most problems start with a vague brief, and a vague page has the same problem. Start by auditing one page: copy its text and paste it in.</p>
+
+<pre class="prompt" data-label="Prompt 6 · Quotability audit">Here is the text of one page: [paste]. The buyer question I want it cited for is: [question].
+
+Audit it. 1) Do the first 100 words answer the question directly? Quote the sentence, or say none does. 2) List each claim a careful reader would want to check, and whether the page gives a source or date. 3) Which concrete facts (prices, sizes, times, steps, limits, who it suits) are missing? 4) Where would a short table or list be easier to quote? 5) Which headings are not how a person would ask the question? Score each point out of 5 with a one-line reason. Do not rewrite yet.</pre>
+
+<p>Then rewrite one section at a time, and keep the facts yours.</p>
+
+<pre class="prompt" data-label="Prompt 7 · Rewrite to be quotable">Rewrite the section below so one paragraph can be lifted out and still make sense. Rules: open with a direct answer in two sentences; one idea per paragraph; use only facts I have given you, and where a fact is missing write [ADD FACT: what is needed]; keep my tone; British English; phrase headings as the question a person would ask; add a "Last updated: [date]" line. Never invent numbers, quotes, reviews, awards or customer names. Show before and after, then list every [ADD FACT] gap.
+
+Section: [paste]</pre>
+
+<div class="compare"><div class="bad"><b>Before</b><p>"Our award-winning approach delivers outstanding results for clients of every size, with a tailored plan for you."</p></div><div class="good"><b>After</b><p>"A creator media kit should fit on one page: audience, rates, past work, contact. Ours takes a client about [ADD FACT: time] and costs [ADD FACT: price]. Last updated: [date]."</p></div></div>
+
+<div class="callout warn"><b>Heads-up</b><p>Fill each [ADD FACT] with something true and checkable. Never ask Claude to make up a figure, review or quote to fill a gap. It misleads readers and costs you their trust.</p></div>
+
+<p>After publishing, request indexing in URL Inspection. Google says a recrawl can take days to months, so don't judge a change after two days.</p>
+
+<h2>Workflow 4: Find the questions you're invisible for</h2>
+
+<p>Your tracker shows gaps for the questions you thought of. Real data shows the ones you didn't. Look in three places:</p>
+
+<ul>
+<li>Search Console's Queries tab (export it). Look for full-sentence queries.</li>
+<li>Bing's grounding queries, if your site has any. Microsoft says these are a sample of citation activity. In June 2026 Bing added <a href="https://blogs.bing.com/search/2026/6/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare/" target="_blank" rel="noopener">Intents, Topics, Citation Share and Compare</a> in preview: Intents sorts those phrases into types such as research or commercial, and Topics groups them into themes.</li>
+<li>Questions customers ask before buying, from your inbox or chat. Strip names first.</li>
+</ul>
+
+<pre class="prompt" data-label="Prompt 8 · Find the missing answers">I have uploaded: Search Console queries, Bing grounding queries (if I have them), my citation log and a list of my page titles with URLs. 1) Pick the queries written as full questions, comparisons or "best for" phrases. 2) Cluster them into themes. 3) For each theme say whether one of my pages answers it (name it), partly (say what is missing) or not at all. 4) Rank the "not at all" themes by how often they appear. Show the rows you used. Treat anonymised queries as unknown, and say which themes need more data before I write anything.</pre>
+
+<p>Write the top two missing answers as new pages or as new sections on strong existing pages. A short page that answers one question well beats a long page that circles it.</p>
+
+<h2>Workflow 5: Spot who gets named instead of you</h2>
+
+<p>When your tracker shows a rival cited where you're absent, open the cited page and read it as a buyer would. What does it state that yours doesn't? Often it's something dull: a price range, a date, a numbered list, a plain definition.</p>
+
+<p>Bing's Citation Share shows the percentage of citations for a query that go to your site, but Microsoft says it doesn't expose competitor domains. So this part stays manual. You only need the few domains that keep showing up in your log.</p>
+
+<pre class="prompt" data-label="Prompt 9 · Why were they cited, not me?">Question: [question]. An AI assistant cited this page instead of mine. Their page: [paste the text]. My page: [paste the text]. Compare them as a reader would. What does their page say clearly that mine does not (facts, steps, definitions, dates, comparisons)? What is mine better at? Give me 5 specific edits to my page, each as one before and after sentence. Do not copy their wording. If something cannot be told from the text, say so.</pre>
+
+<div class="callout tip"><b>Tip</b><p>Copy only public pages, never anything behind a login, and don't lift a rival's text. You're looking for what's missing on your page, then writing it from your own facts.</p></div>
+
+<h2>Workflow 6: Give Claude live data</h2>
+
+<p>Three ways to get data into Claude. I'd go in this order.</p>
+
+<h3>1. Exports and uploads (start here)</h3>
+
+<p>Download CSV files and add them to your Project. <a href="https://support.claude.com/en/articles/8241126-uploading-files-to-claude" target="_blank" rel="noopener">Anthropic's upload page</a> lists CSV, JSON, PDF, DOCX, TXT and HTML among the supported types, and says XLSX needs code execution and file creation switched on, so CSV is simpler. Project files are capped at 30MB each, and the total has to fit in Claude's context window (the amount of text it can hold in view at once). These exports are small enough.</p>
+
+<h3>2. A connector to your own files</h3>
+
+<p>A connector links Claude to another app. If your tracker lives in Google Sheets, a Drive connector can let Claude read it directly. In Claude it's under <b>Customize</b>, then <b>Connectors</b>. Anthropic's connectors page gives Google Drive as an example and says Claude can only reach what your own account can reach. Set anything that edits or deletes to need approval. <a href="#read-connectors-and-mcp">Connectors and MCP, explained simply</a> walks through it.</p>
+
+<h3>3. A connector to Search Console</h3>
+
+<p>I looked for an official Google Search Console connector in Claude's directory and did not find one. Third-party and community connectors exist. If you try one, check who built it, connect only the property you need, choose read-only access if offered and test with a question you can check against the report. Or skip it: the CSV route gives the same answers.</p>
+
+<pre class="prompt" data-label="Prompt 10 · Test the data connection">Using only the connected source or the uploaded file, show me the 10 pages with the most impressions in the last 28 days, with page, impressions and clicks. Tell me the date range you actually used and where each number came from. Do not change, create or delete anything. If you can't reach the data, say so instead of estimating.</pre>
+
+<div class="callout warn"><b>Heads-up</b><p>Claude's web search is a different product from ChatGPT search or Perplexity. If you ask Claude "do I show up in ChatGPT?", any answer is a guess. Only the answers you ran and pasted tell you what those assistants said.</p></div>
+
+<h2>Workflow 7: A weekly AI-visibility report Claude writes</h2>
+
+<p>This habit makes the rest worth doing. Every Monday: run your questions (20 minutes), export the files (5 minutes), upload them and ask for the report (5 minutes). Keep last week's report in the Project so Claude can compare. <a href="#read-report-that-writes-itself">A weekly report that writes itself</a> shows how to make it a routine.</p>
+
+<pre class="prompt" data-label="Prompt 11 · The weekly report">Write my weekly AI-visibility report using only the files in this Project: the citation log, the Search Console generative AI export, the Bing AI Performance CSVs and last week's report. One page: 1) Three lines on what changed, each with evidence. 2) A table: question, assistant, last week, this week. 3) Pages that gained or lost AI impressions or citations. 4) Three actions for next week, each naming the page to edit. 5) Caveats: sample size, missing days, what the data cannot show. If a number is missing write "no data". Call a change meaningful only if it appears in two sources or repeats across two weeks.</pre>
+
+<p>Once a month, ask Claude to compare the last 30 days with the 30 before. Keep a log of your edits, with dates. Without it, neither you nor Claude can tell which change helped.</p>
+
+<h2>What this can and can't do</h2>
+
+<ul>
+<li><b>It can't guarantee citations.</b> Google says indexing and serving isn't guaranteed even when a page meets every requirement.</li>
+<li><b>It can't show everything.</b> Search Console covers Google's AI features, Bing covers Microsoft's, and the rest you log by hand. Your sample is small, and answers can vary by person, place and day.</li>
+<li><b>Citations aren't sales.</b> A link in an AI answer may send few clicks. Track enquiries too.</li>
+<li><b>Claude can slip on data.</b> It may mismatch URLs or misread a column. That's why the prompts ask for row IDs. Spot-check three numbers each time.</li>
+<li><b>Don't game it.</b> No hidden text, fake reviews or invented statistics. They mislead readers, and Google's page says to follow its Search policies.</li>
+</ul>
+
+<h2>When it gets stuck</h2>
+
+<ul>
+<li><b>Your page is nowhere in Google's AI report.</b> Check it is indexed in URL Inspection, and that Settings, then Search generative AI, is still on "Include". The report may also not show if the site has too few impressions.</li>
+<li><b>ChatGPT or Perplexity never cites you.</b> Re-read your robots.txt with Prompt 1, then check your host or CDN for bot blocking. Wait about a day after changes.</li>
+<li><b>Bing's AI Performance is empty.</b> Confirm the site is verified. Smaller sites may have little data, and the report covers Microsoft products only.</li>
+<li><b>Claude's numbers don't match the file.</b> Ask it to print the rows it used.</li>
+<li><b>Results jump around week to week.</b> Normal for AI answers. Rely on trends over four or more weeks.</li>
+<li><b>Claude keeps adding facts you didn't give.</b> Say: "Remove everything not in my text and mark it [ADD FACT]."</li>
+</ul>
+
+<h2>Cheat sheet</h2>
+
+<div class="cheat">
+<div class="table-wrap"><table>
+<thead><tr><th>Job</th><th>Data</th><th>Prompt</th></tr></thead>
+<tbody>
+<tr><td>1. Track citations</td><td>Hand-run log</td><td>3 and 4</td></tr>
+<tr><td>2. Quiet pages</td><td>Search Console and Bing exports</td><td>5</td></tr>
+<tr><td>3. Quotable rewrites</td><td>Page text</td><td>6 and 7</td></tr>
+<tr><td>4. Missing questions</td><td>Queries and grounding queries</td><td>8</td></tr>
+<tr><td>5. Who's named</td><td>Log and rival pages</td><td>9</td></tr>
+<tr><td>6. Live data</td><td>CSV, Drive, optional connector</td><td>10</td></tr>
+<tr><td>7. Weekly report</td><td>All of the above</td><td>11</td></tr>
+</tbody></table></div>
+<p><b>Standing rule for Claude:</b> "Use only my files. Name the row for every number. If it isn't in the data, say so."</p>
+</div>
+
+<h2>Your action plan</h2>
+
+<ul class="checklist">
+<li>Check robots.txt with Prompt 1, and confirm Search Console's Search generative AI setting is on "Include".</li>
+<li>Verify your site in Bing Webmaster Tools.</li>
+<li>Create the Claude Project and paste Prompt 2.</li>
+<li>Build 10 to 30 buyer questions and log your first week across ChatGPT, Perplexity, Gemini and Google AI Mode.</li>
+<li>Export your Search Console and Bing data, then run Prompt 5 to pick three pages.</li>
+<li>Audit and rewrite one page with Prompts 6 and 7, fill every [ADD FACT] with something true, and note the date.</li>
+<li>Set a Monday slot for Prompt 11 and keep every report in the Project.</li>
+</ul>
+
+<h2>Questions people ask</h2>
+
+<details class="faq"><summary>Do I need special markup or an llms.txt file?</summary><p>Google's AI features page says you don't need new machine-readable files, AI text files or special schema.org markup for AI Overviews or AI Mode. I'd spend the time on clear pages instead.</p></details>
+
+<details class="faq"><summary>Should I block GPTBot?</summary><p>That's your call. OpenAI says GPTBot (training) is separate from OAI-SearchBot (search), so you can allow search and still disallow training use.</p></details>
+
+<details class="faq"><summary>How long until I see a change?</summary><p>Google says a recrawl can take days to months. OpenAI and Perplexity both mention about 24 hours for robots.txt changes. For content edits, judge over several weeks.</p></details>
+
+<details class="faq"><summary>Can Claude check ChatGPT's answers for me?</summary><p>No. Claude can't see what other assistants tell people. You run the question there, paste the answer and sources into your log, and Claude analyses the log.</p></details>
