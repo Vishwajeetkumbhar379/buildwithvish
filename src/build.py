@@ -90,6 +90,7 @@ gdir = out / "g"
 if gdir.exists(): shutil.rmtree(gdir)
 gdir.mkdir()
 for k, v in LG.items(): (gdir / (k + ".html")).write_text(v["body"])
+for f in (d / "legal").glob("*.html"): shutil.copy(f, out / f.name)  # privacy + data deletion (Meta app review)
 if not LOCAL:
     csp = ("default-src 'self'; script-src 'self' " + hashes + "; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; "
            "connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")

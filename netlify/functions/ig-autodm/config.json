@@ -1,0 +1,81 @@
+{
+ "_note": "Comment keyword -> the free guide to DM. url null = no guide yet: the comment is logged and skipped. Keys are matched as whole words, any case. Edit here, push, Netlify redeploys.",
+ "site": "https://buildwithvish.netlify.app",
+ "public_reply": true,
+ "keywords": {
+  "CITED": {
+   "title": "Get cited by AI answers with Claude and free tools",
+   "url": "/#read-get-cited-by-ai-answers"
+  },
+  "CREATOR": {
+   "title": "Run a whole creator campaign from one Claude Project",
+   "url": "/#read-creator-campaign-hq-in-claude"
+  },
+  "YOUTUBE": {
+   "title": "YouTube research with Claude",
+   "url": "/#read-youtube-research-with-claude"
+  },
+  "HUMAN": {
+   "title": "Make AI write in your voice, not AI voice",
+   "url": "/#read-brand-voice-without-ai-sound"
+  },
+  "CHECK": {
+   "title": "Shortlist creators with AI, not follower counts",
+   "url": "/#read-shortlist-creators-with-ai"
+  },
+  "RATE": {
+   "title": "Creator campaign math in plain English",
+   "url": "/#read-creator-campaign-math"
+  },
+  "REPORT": {
+   "title": "A weekly report that writes itself",
+   "url": "/#read-report-that-writes-itself"
+  },
+  "APPS": {
+   "title": "Connectors and MCP, explained simply",
+   "url": "/#read-connectors-and-mcp"
+  },
+  "CONTRACT": {
+   "title": "7 clauses in creator contracts that quietly cost money",
+   "url": "/#read-creator-contract-red-flags"
+  },
+  "EDIT": {
+   "title": "How Claude edits my videos with free tools",
+   "url": null
+  },
+  "LOOP": {
+   "title": "The comment engine: 12 reels taken apart",
+   "url": null
+  },
+  "TRENDS": {
+   "title": "Find what your audience argued about this month",
+   "url": null
+  },
+  "SKILLS": {
+   "title": "11 free LinkedIn skills for Claude, set up",
+   "url": null
+  },
+  "FREE": {
+   "title": "My free editing stack, with links",
+   "url": null
+  },
+  "INSTA": {
+   "title": "Claude + Instagram setup",
+   "url": null
+  }
+ },
+ "dm": [
+  "Hey! Here's the {title} guide: {url}\nIt's free, no sign-up. Tell me how you get on.",
+  "There you go 👇\n{title}: {url}\nShout if any step trips you up.",
+  "Thanks for commenting! Here it is: {url}\n({title}). Hope it saves you a few hours.",
+  "Here's the link I promised: {url}\nStart with step 1, it only takes a few minutes."
+ ],
+ "public": [
+  "Sent! Check your DMs 📩",
+  "Just sent it over 🙌",
+  "In your DMs now",
+  "Sent, enjoy!",
+  "Check your inbox 👀",
+  "Done, it's in your DMs"
+ ]
+}
