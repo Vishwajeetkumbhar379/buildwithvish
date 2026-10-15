@@ -148,7 +148,7 @@
   /* ---------- forms ---------- */
   async function sendForm(name, data) {
     if (isPreview()) return { preview: true };
-    try { const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ "form-name": name, ...data }).toString() }); return { ok: r.ok }; } catch (e) { return { ok: false }; }
+    try { const r = await fetch("/api/" + name, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }); return { ok: r.ok }; } catch (e) { return { ok: false }; }
   }
   const okEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((e || "").trim());
   function signup(id, glow) {
@@ -719,7 +719,7 @@
       <h2>Imprint (Impressum)</h2><p>Responsible for this website under § 5 DDG:<br>Vishwajeet Kumbhar<br>Offenburg, Germany<br>Email: ${EMAIL}</p>
       <h2>Privacy</h2>
       <p><b>What I collect.</b> Only what you send me: your email address when you join Build Notes, and your name, email and message when you use the partner form. Nothing else is collected.</p>
-      <p><b>Where it lives.</b> Form entries are stored by my hosting provider, Netlify, Inc. (hosting and form storage). Newsletter sign-ups are passed to MailerLite (UAB MailerLite, Vilnius, Lithuania, EU), which sends Build Notes. These are the only companies that process your data for this site. I don't sell or share it, and I don't use it to train AI.</p>
+      <p><b>Where it lives.</b> This site is hosted by Cloudflare, Inc., which passes partner messages to my email inbox without storing them. Newsletter sign-ups are passed to MailerLite (UAB MailerLite, Vilnius, Lithuania, EU), which sends Build Notes. These are the only companies that process your data for this site. I don't sell or share it, and I don't use it to train AI.</p>
       <p><b>Emails.</b> After you sign up you get one email asking you to confirm. Nothing else is sent until you click it (double opt-in). Then you get a short welcome series and Build Notes every Monday. Every email has an unsubscribe link that works with one click.</p>
       <p><b>No tracking, no cookies.</b> No analytics, no advertising pixels and no cookies, so there is no cookie banner. A few settings you choose are kept only in your own browser's storage: light or dark mode, your builder level, which project steps and launch checks you ticked, and (for this visit only) that you've seen the welcome screen. You can clear them at any time in your browser settings.</p>
       ${fonts}

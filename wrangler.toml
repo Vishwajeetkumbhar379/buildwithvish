@@ -1,0 +1,11 @@
+# Cloudflare Pages config (Vish moved the site off Netlify on 15 Oct 2026: free plan, no per-deploy credits).
+# The site is pre-built into /site by `python3 src/build.py`; Pages serves it as-is. Functions live in /functions.
+# Secrets (set in the Cloudflare dashboard, never here): MAILERLITE_API_TOKEN, MAILERLITE_GROUP_ID, IG_ACCESS_TOKEN,
+# IG_APP_SECRET, IG_VERIFY_TOKEN, PARTNER_TO. Partner emails also need the [[send_email]] binding below once Email
+# Routing is on for buildwithvvish.com (uncomment it then).
+name = "buildwithvish"
+pages_build_output_dir = "site"
+compatibility_date = "2026-09-01"
+
+# [[send_email]]
+# name = "MAIL"

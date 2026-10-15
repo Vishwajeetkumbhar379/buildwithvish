@@ -1,5 +1,5 @@
 """Build Build with Vish.
-  python3 src/build.py           -> ../site/        (what Netlify publishes: self-hosted, strict security headers, no third-party requests)
+  python3 src/build.py           -> ../site/        (what Cloudflare Pages publishes: self-hosted, strict security headers, no third-party requests)
                                     src/preview.html (single-file preview: CDN libraries, Google Fonts, photo inlined)
   python3 src/build.py --local   -> src/test/       (same as site/, for local testing; not committed)
 """
@@ -106,6 +106,6 @@ if not LOCAL:
         "/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n"
         "/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n"
         "/vish.jpg\n  Cache-Control: public, max-age=604800\n")
-    (out / "_redirects").write_text("/*  /index.html  200\n")
+    (out / "_redirects").unlink(missing_ok=True)  # Cloudflare Pages serves index.html for unknown paths by itself; a /* rule would hide real files
     (out / "robots.txt").write_text("User-agent: *\nAllow: /\n")
 print("ok", len(site))
