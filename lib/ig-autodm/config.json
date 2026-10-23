@@ -1,7 +1,11 @@
 {
- "_note": "Comment keyword -> the free guide to DM. url null = no guide yet: the comment is logged and skipped. Keys are matched as whole words, any case. Edit here, push, Netlify redeploys.",
+ "_note": "Comment keyword -> the free resource. url null = no resource yet: the comment is counted and skipped. Keys are matched as whole words, any case. Edit here and push; Cloudflare redeploys. Placeholders: {title} {url} {name} {handle}.",
  "site": "https://buildwithvvish.com",
+ "handle": "@buildwith.vish",
  "public_reply": true,
+ "follow_check": true,
+ "hourly_cap": 200,
+ "quick_reply_label": "Send me the link",
  "keywords": {
   "CITED": {
    "title": "Get cited by AI answers with Claude and free tools",
@@ -64,6 +68,19 @@
    "url": null
   }
  },
+ "dm_confirm": [
+  "Hey {name}! Your free guide is ready: {title}. Tap the button below and I'll send the link.\nNo button? Just reply LINK.",
+  "Thanks for the comment {name}! Tap \"Send me the link\" below and the guide lands right here.\nNo button? Just reply LINK.",
+  "Hi {name}! One tap on the button below and I'll send you {title}.\nNo button? Just reply LINK."
+ ],
+ "dm_follower": [
+  "Here it is 👇\n{title}: {url}\nThanks for following along, it means a lot. Tell me how you get on.",
+  "Thanks for being here! Your guide: {url}\n({title}) Shout if any step trips you up."
+ ],
+ "dm_nudge": [
+  "Here it is 👇\n{title}: {url}\nIf it helps, follow {handle}. I share a new free guide every week.",
+  "Your guide: {url}\n({title}) I post one of these every week on {handle}, so follow along if you want the next one."
+ ],
  "dm": [
   "Hey! Here's the {title} guide: {url}\nIt's free, no sign-up. Tell me how you get on.",
   "There you go 👇\n{title}: {url}\nShout if any step trips you up.",
