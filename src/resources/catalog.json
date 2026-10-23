@@ -1,0 +1,28 @@
+{
+ "_note": "The resource library (buildwithvvish.com/resources). tier: free | one | bundle. status: live | soon. Paid items stay 'soon' (button off) until Vish approves the product and its Stripe Payment Link exists: then set status live and checkout to the link. key = the Instagram comment keyword (lib/ig-autodm/config.json).",
+ "items": [
+  {"slug": "ai-edit-stack", "key": "EDIT", "tier": "free", "status": "live", "week": 2,
+   "title": "How AI edited my intro reel: the free tool stack",
+   "summary": "The open-source tools and the five prompts behind my Week 1 reel. I filmed it; Claude did every cut and every sound.",
+   "format": "Guide, 10 minutes"},
+  {"slug": "ai-edit-brief", "key": "BRIEF", "tier": "one", "status": "soon", "price": "1", "week": 2,
+   "title": "The AI edit brief",
+   "summary": "The exact brief I paste into Claude Code to edit a talking-head reel: cut rules, storyboard table, sound map, caption and safe-zone rules, export checklist.",
+   "format": "1 file (PDF + Markdown), copy and paste",
+   "inside": ["The full edit brief, ready to paste", "The storyboard table: one row per spoken line", "The sound map: which sound goes on which visual event", "Caption and safe-zone rules (14% top, 35% bottom, 6% sides)", "The 12-point export checklist I run before posting"]},
+  {"slug": "reel-edit-kit", "key": "KIT", "tier": "bundle", "status": "soon", "price": "7", "week": 4,
+   "title": "The Reel edit kit",
+   "summary": "Everything I use to have Claude edit my reels: the brief, the caption and sticker templates, the framed cover template and a walkthrough video.",
+   "format": "Bundle: templates, video walkthrough, PDF guide",
+   "inside": ["The AI edit brief (the €1 file)", "HTML templates: 3D captions with a word box, sticker labels, number counter, next-week card", "The framed-print cover template (Week N of 52 style)", "A list of free CC0 sound packs and how I map them", "A screen-recorded walkthrough from raw clip to posted reel (recorded by Vish)", "The PDF guide with every step"]},
+  {"slug": "cited", "key": "CITED", "tier": "free", "status": "live", "href": "/#read-get-cited-by-ai-answers", "title": "Get cited by AI answers with Claude and free tools", "summary": "Make your pages show up when people ask ChatGPT, Claude or Perplexity.", "format": "Guide"},
+  {"slug": "creator", "key": "CREATOR", "tier": "free", "status": "live", "href": "/#read-creator-campaign-hq-in-claude", "title": "Run a whole creator campaign from one Claude Project", "summary": "Brief, shortlist, outreach and reporting in one place.", "format": "Guide"},
+  {"slug": "check", "key": "CHECK", "tier": "free", "status": "live", "href": "/#read-shortlist-creators-with-ai", "title": "Shortlist creators with AI, not follower counts", "summary": "What brands check before they pay a creator, and how to check it with AI.", "format": "Guide"},
+  {"slug": "contract", "key": "CONTRACT", "tier": "free", "status": "live", "href": "/#read-creator-contract-red-flags", "title": "7 clauses in creator contracts that quietly cost money", "summary": "Read a brand deal like the brand's lawyer does.", "format": "Guide"},
+  {"slug": "rate", "key": "RATE", "tier": "free", "status": "live", "href": "/#read-creator-campaign-math", "title": "Creator campaign math in plain English", "summary": "CPM, CPE and what a fair rate looks like.", "format": "Guide"},
+  {"slug": "human", "key": "HUMAN", "tier": "free", "status": "live", "href": "/#read-brand-voice-without-ai-sound", "title": "Make AI write in your voice, not AI voice", "summary": "A voice file and the rules that keep AI copy sounding like you.", "format": "Guide"},
+  {"slug": "youtube", "key": "YOUTUBE", "tier": "free", "status": "live", "href": "/#read-youtube-research-with-claude", "title": "YouTube research with Claude", "summary": "Find what your audience already watches and why.", "format": "Guide"},
+  {"slug": "report", "key": "REPORT", "tier": "free", "status": "live", "href": "/#read-report-that-writes-itself", "title": "A weekly report that writes itself", "summary": "Numbers in, keep / test / change / stop out.", "format": "Guide"},
+  {"slug": "apps", "key": "APPS", "tier": "free", "status": "live", "href": "/#read-connectors-and-mcp", "title": "Connectors and MCP, explained simply", "summary": "Plug Claude into the tools you already use.", "format": "Guide"}
+ ]
+}

@@ -1,0 +1,71 @@
+<p class="lead">In 10 minutes you'll know the free tools and the five prompts that let Claude edit a talking-head reel for you, from raw phone clips to a finished 9:16 file.</p>
+<p class="meta">Tools: <a href="https://github.com/SYSTRAN/faster-whisper">faster-whisper</a> (MIT) · <a href="https://ffmpeg.org">FFmpeg</a> (LGPL/GPL) · <a href="https://github.com/PeterL1n/RobustVideoMatting">Robust Video Matting</a> (GPL-3.0) · <a href="https://playwright.dev">Playwright</a> (Apache 2.0) · <a href="https://kenney.nl/assets">Kenney sounds</a> (CC0). Checked 23 Oct 2026.<br>@buildwith.vish · October 2026</p>
+
+<h2>1. What you are building</h2>
+<p>I filmed my Week 1 reel on my phone. I didn't open an editing app. Claude Code wrote and ran the edit as code: it read the transcript, cut the clips, built every caption, sticker and title as a small web page, rendered them frame by frame, laid the sounds under each visual and exported the file. My job was the footage and the feedback. The version I posted is the 12th draft, 1 minute 51 seconds long.</p>
+<p>Everything runs on your computer. The only things that leave it are what you send to Claude (the transcript and the frames you ask it to look at) and the text you send to a voice tool, if you use one.</p>
+
+<h2>2. Before you start</h2>
+<table><thead><tr><th>You need</th><th>Why</th><th>Where to get it</th></tr></thead><tbody>
+<tr><td>A paid Claude plan with Claude Code</td><td>Claude writes and runs the edit</td><td><a href="https://claude.com/pricing">claude.com/pricing</a>: Pro is $20 a month, and the free plan doesn't include Claude Code</td></tr>
+<tr><td>FFmpeg</td><td>Cuts, colour, audio and the final file</td><td>ffmpeg.org, or <code>brew install ffmpeg</code> / <code>winget install ffmpeg</code></td></tr>
+<tr><td>Python 3.10+ and faster-whisper</td><td>A transcript with a time for every word</td><td><code>pip install faster-whisper</code></td></tr>
+<tr><td>Playwright</td><td>Renders captions and graphics as images</td><td><code>pip install playwright</code> then <code>playwright install chromium</code></td></tr>
+<tr><td>RVM, the matting model (optional)</td><td>Cuts you out of the frame for the sticker effect</td><td>The ONNX model from its GitHub releases page</td></tr>
+<tr><td>Free sound effects</td><td>A pop, click or whoosh for each visual</td><td>kenney.nl (CC0, no credit needed)</td></tr>
+<tr><td>Your clips</td><td>One folder, phone footage is fine</td><td>Film in good light, phone at eye level</td></tr>
+</tbody></table>
+
+<h2>3. Setup in three steps</h2>
+<p><strong>Step 1. Put the clips in one project folder.</strong> Make a folder per video, with <code>raw/</code> for your clips and <code>broll/</code> for any extra footage. Open Claude Code in that folder.</p>
+<pre><code>mkdir -p my-reel/raw my-reel/broll && cd my-reel && claude</code></pre>
+<p><strong>Step 2. Install the tools.</strong> Ask Claude to check what's missing and install it. It will run the commands from the table above and test each one.</p>
+<pre><code>Check that ffmpeg, faster-whisper and playwright (with chromium) are installed. Install what's missing and show me each version.</code></pre>
+<p><strong>Step 3. Run the five prompts below, in order.</strong> Look at the result after each one, and give feedback in plain words ("the cut at 0:12 is too early", "that sound is too loud"). That loop is the whole job.</p>
+
+<h2>4. Prompt templates</h2>
+<p>Swap the parts in [square brackets].</p>
+<ol class="prompts">
+<li><strong>Transcribe:</strong> <code>Transcribe every clip in raw/ with faster-whisper, model [small], with word timestamps. Transcribe each stretch of speech separately so the word times don't drift over long silences. Save transcript.json.</code></li>
+<li><strong>Cut plan:</strong> <code>Using transcript.json, keep my best take of each line and drop false starts and repeats. Remove silences longer than [0.4] seconds, but never cut mid-sentence. Use one steady speed for the whole video ([1.1x] works for me), never speed ramps. Show me the cut list with the text of each line before you cut.</code></li>
+<li><strong>Storyboard:</strong> <code>For each kept line, propose what appears on screen: a sticker, a number, a title, or B-roll from broll/ that literally matches the words. One idea per line. Captions sit between 58% and 66% of the frame height, inside Instagram's safe zone (14% top, 35% bottom, 6% sides free). Show me the table first.</code></li>
+<li><strong>Build and sound:</strong> <code>Build each graphic as HTML, render it frame by frame with Playwright, and lay it over the cut with FFmpeg. Add one short sound to every visual event (a pop for stickers, a whoosh for transitions), keep my voice on top, and duck the music under speech. Leave true silence on [the line where I pause].</code></li>
+<li><strong>Export:</strong> <code>Render 1080x1920 at 30 fps, H.264, loudness around -14 LUFS. Also give me a small review copy with the time burned into the corner so I can give feedback by timestamp.</code></li>
+</ol>
+
+<h2>5. What it can do</h2>
+<table><thead><tr><th>Input</th><th>What you get back</th><th>Extra tools needed</th></tr></thead><tbody>
+<tr><td>Phone clips of you talking</td><td>Tight cuts, no dead air, best takes only</td><td>None</td></tr>
+<tr><td>The transcript</td><td>Captions word by word, timed to your voice</td><td>None</td></tr>
+<tr><td>A frame of you</td><td>A cut-out "sticker" of you with a white outline and labels</td><td>RVM</td></tr>
+<tr><td>Your own photos and clips</td><td>B-roll that matches the line you're saying</td><td>None</td></tr>
+<tr><td>Numbers you mention</td><td>Counters, cards and simple charts</td><td>None</td></tr>
+<tr><td>A script line</td><td>A narrator voice for a "next week" end card</td><td>A voice tool such as ElevenLabs (paid plans for commercial use)</td></tr>
+</tbody></table>
+
+<h2>6. Troubleshooting</h2>
+<table><thead><tr><th>Problem</th><th>Fix</th></tr></thead><tbody>
+<tr><td>The render crashes ("Target crashed")</td><td>Usually a full disk. Free at least 3 GB, then render again.</td></tr>
+<tr><td>Captions drift away from the words</td><td>Transcribe each stretch of speech on its own (prompt 1 already says this).</td></tr>
+<tr><td>Instagram's buttons cover the captions</td><td>Move them up into 58% to 66% of the height, away from the bottom 35%.</td></tr>
+<tr><td>The music fights your voice</td><td>Ask Claude to duck the music by about 10 dB under speech, and not to pump it.</td></tr>
+<tr><td>The cuts feel jumpy</td><td>Ask for fewer cuts inside a sentence and one steady speed, no ramps. Natural takes beat tight ones.</td></tr>
+<tr><td>B-roll doesn't fit the line</td><td>Give Claude a short note per clip ("me hiking, Black Forest") so it can match words to footage.</td></tr>
+</tbody></table>
+
+<h2>7. Read this twice</h2>
+<ul>
+<li>Claude Code needs a paid Claude plan. All the other tools here are free and open source.</li>
+<li>ElevenLabs' free plan is not licensed for commercial use. Use a paid plan, or your own voice, for anything you monetise.</li>
+<li>Don't bake copyrighted songs into the file. Add music from Instagram's own library when you post, or use tracks you have the rights to.</li>
+<li>Meta asks you to label realistic AI-made audio or video. An AI narrator voice counts, so turn on the AI label when you use one.</li>
+<li>Your clips stay on your machine. Claude sees the transcript and any frames you ask it to look at.</li>
+<li>RVM is GPL-3.0: free to use, but if you share code that includes it, that code must be GPL too.</li>
+</ul>
+
+<h2>8. Next steps</h2>
+<ol>
+<li>Film 60 seconds of you talking to the camera about one thing you're working on.</li>
+<li>Run the five prompts and give Claude three rounds of feedback.</li>
+<li>Follow <a href="https://www.instagram.com/buildwith.vish/">@buildwith.vish</a>: one episode a week, and the tools behind it.</li>
+</ol>

@@ -91,6 +91,63 @@ if gdir.exists(): shutil.rmtree(gdir)
 gdir.mkdir()
 for k, v in LG.items(): (gdir / (k + ".html")).write_text(v["body"])
 for f in (d / "legal").glob("*.html"): shutil.copy(f, out / f.name)  # privacy + data deletion (Meta app review)
+
+# ---------- resource library (src/resources): /resources + one page per guide or product ----------
+# Static pages with no inline script (the CSP only allows the app's hashes): style in r.css, the sign-up form in signup.js.
+# Paid items stay "Coming soon" until catalog.json has status "live" and a "checkout" Payment Link (docs/monetisation.md).
+RD, rout = d / "resources", out / "resources"
+if RD.exists():
+    import html as _h
+    if rout.exists(): shutil.rmtree(rout)
+    rout.mkdir()
+    for f in ("r.css", "signup.js"): shutil.copy(RD / f, rout / f)
+    CAT = json.loads((RD / "catalog.json").read_text())["items"]
+    TIERS = [("free", "Free", "guides and checklists, no sign-up"), ("one", "€1", "one ready-to-use file"), ("bundle", "€5 to €10", "kits: templates, video, PDF")]
+    e = _h.escape
+    def href(it): return it.get("href") or f"/resources/{it['slug']}"
+    def pills(it):
+        p = f'<span class="pill {it["tier"]}">{dict((t, l) for t, l, _ in TIERS)[it["tier"]]}</span>'
+        if it["status"] != "live": p += '<span class="pill soon">Coming soon</span>'
+        return p + (f'<span class="kw">Comment {e(it["key"])}</span>' if it.get("key") and it["status"] == "live" else "")
+    SIGNUP = ('<form class="signup" novalidate><label class="hp">Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>'
+              '<input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required><button class="btn" type="submit">{label}</button>'
+              '<p class="msg" role="status" aria-live="polite"></p></form>')
+    def page(title, desc, body, canon):
+        return (f'<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+                f'<title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="https://buildwithvvish.com{canon}">\n'
+                f'<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="/og.png">\n'
+                f'<link rel="icon" href="{ICON}"><link rel="stylesheet" href="/resources/r.css"></head><body><main class="wrap">\n'
+                '<nav class="top" aria-label="Site"><a href="/resources/">Resources</a><a href="https://www.instagram.com/buildwith.vish/">@buildwith.vish</a></nav>\n'
+                f'{body}\n<footer><a href="/">buildwithvvish.com</a><a href="/links.html">Links</a><a href="/privacy.html">Privacy</a></footer>\n'
+                '</main><script src="/resources/signup.js" defer></script></body></html>\n')
+    cards = ""
+    for t, label, note in TIERS:
+        items = [it for it in CAT if it["tier"] == t]
+        cards += f'<section class="tier"><h2>{label} <small>{note}</small></h2><div class="grid">'
+        cards += "".join(f'<a class="card" href="{href(it)}"><div class="row">{pills(it)}</div><b>{e(it["title"])}</b><span>{e(it["summary"])}</span></a>' for it in items)
+        cards += "</div></section>"
+    idx = ('<p class="pill">Week by week</p><h1>Free guides, €1 files and kits from my weekly build</h1>'
+           '<p class="sub">Everything I use to build a remote income with AI, as I use it. Most of it is free. The paid files are the exact templates, for people who want to skip the setup.</p>'
+           f'{cards}<h2>Get the next one first</h2><p>One email a week with what I tried, what worked and the real numbers. Free.</p>{SIGNUP.format(label="Join Build Notes")}')
+    (rout / "index.html").write_text(page("Resources · Build with Vish", "Free AI and social media guides, €1 templates and kits from Vish's weekly build.", idx, "/resources/"))
+    for it in CAT:
+        if it.get("href"): continue
+        head = f'<div class="row">{pills(it)}</div><h1>{e(it["title"])}</h1><p class="sub">{e(it["summary"])}</p><p class="meta">{e(it["format"])}</p>'
+        if it["tier"] == "free":
+            nxt = next((x for x in CAT if x["tier"] == "one" and x.get("week") == it.get("week")), None)
+            more = (f'<div class="buy"><b>Want the exact brief I use?</b><p class="note">{e(nxt["title"])}: {e(nxt["summary"])}</p>'
+                    f'<a class="btn" href="/resources/{nxt["slug"]}">See what\'s inside · €{e(nxt["price"])}</a></div>') if nxt else ""
+            body = head + (RD / f'{it["slug"]}.html').read_text() + more + f'<h2>Get next week\'s guide first</h2>{SIGNUP.format(label="Join Build Notes")}'
+        else:
+            inside = "".join(f"<li>{e(x)}</li>" for x in it.get("inside", []))
+            live = it["status"] == "live" and it.get("checkout")
+            btn = (f'<a class="btn" href="{e(it["checkout"])}">Buy now, payment required</a><p class="note">Secure checkout by Stripe, the merchant of record: it handles VAT and sends your receipt. Instant download. By buying you agree to immediate delivery and lose the 14-day right of withdrawal once the download starts.</p>'
+                   if live else '<span class="btn" aria-disabled="true">Coming soon</span><p class="note">Not on sale yet. Leave your email below and you\'ll hear when it is.</p>')
+            body = (head + f'<h2>What\'s inside</h2><ul class="inside">{inside}</ul>'
+                    f'<div class="buy"><div class="price">€{e(it["price"])}<small>incl. VAT, one-off</small></div>{btn}</div>'
+                    '<p class="note">No fake discounts and no countdowns: the price is the price.</p>'
+                    f'<h2>Tell me when it\'s out</h2>{SIGNUP.format(label="Notify me")}')
+        (rout / f'{it["slug"]}.html').write_text(page(f'{it["title"]} · Build with Vish', it["summary"], body, f'/resources/{it["slug"]}'))
 if not LOCAL:
     csp = ("default-src 'self'; script-src 'self' " + hashes + "; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; "
            "connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")
