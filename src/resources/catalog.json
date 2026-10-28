@@ -1,6 +1,10 @@
 {
  "_note": "The resource library (buildwithvvish.com/resources). tier: free | one | bundle. status: live | soon. Paid items stay 'soon' (button off) until Vish approves the product and its Stripe Payment Link exists: then set status live and checkout to the link. key = the Instagram comment keyword (lib/ig-autodm/config.json).",
  "items": [
+  {"slug": "voice-clone", "key": "CLONE", "tier": "free", "status": "live", "week": 4,
+   "title": "How I cloned my voice with ElevenLabs (and made it sound like me)",
+   "summary": "The recording setup, the settings and the three Claude prompts that took my clone from flat and echoey to sounding like me, even in French.",
+   "format": "Guide, 10 minutes"},
   {"slug": "ai-edit-stack", "key": "EDIT", "tier": "free", "status": "live", "week": 2,
    "title": "How AI edited my intro reel: the free tool stack",
    "summary": "The open-source tools and the five prompts behind my Week 1 reel. I filmed it; Claude did every cut and every sound.",

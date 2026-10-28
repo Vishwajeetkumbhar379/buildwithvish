@@ -1,0 +1,55 @@
+<p class="lead">In 10 minutes you'll know how I cloned my voice with ElevenLabs, the settings that made it sound like me instead of a robot, and the prompts I give Claude to turn a script into a finished voiceover.</p>
+<p class="meta">Tools: <a href="https://elevenlabs.io">ElevenLabs</a> (paid plan for anything you monetise) · <a href="https://ffmpeg.org">FFmpeg</a> (free) · Claude. Checked 28 Oct 2026.<br>@buildwith.vish · October 2026</p>
+
+<h2>1. Why I did this</h2>
+<p>I was always insecure about my voice. On camera I speak slowly, and I hear every pause. So I cloned it. My first clone sounded flat and far away, like I was reading from across a room. The fixes below are what changed that. The clip in my reel is my clone telling a story, partly in French. I don't speak French.</p>
+
+<h2>2. Record the sample (this decides 80% of the quality)</h2>
+<table><thead><tr><th>Do</th><th>Why</th></tr></thead><tbody>
+<tr><td>1 to 2 minutes of clean speech for an Instant Voice Clone</td><td>ElevenLabs' own advice. More than 3 minutes adds little and can make it worse.</td></tr>
+<tr><td>A quiet, soft room (a wardrobe full of clothes works)</td><td>The clone copies your room. Echo in the sample means echo in every line it ever says. That was my mistake.</td></tr>
+<tr><td>Mic or phone a hand's width from your mouth</td><td>Close sounds warm. Far sounds like a recording of a recording.</td></tr>
+<tr><td>One voice, steady volume, your natural energy</td><td>Speak the way you'd tell a friend a story, not the way you'd read a script.</td></tr>
+<tr><td>No music, no second person, no long silences</td><td>Anything that isn't you gets cloned too.</td></tr>
+</tbody></table>
+<p>Want it even closer? A Professional Voice Clone trains on 30 minutes to 3 hours of audio and takes longer, but it's the most accurate option.</p>
+
+<h2>3. The settings that made it sound like me</h2>
+<ol>
+<li><strong>Use the newest model.</strong> I use Eleven v4. It handles emotion far better than the older models I tried.</li>
+<li><strong>Write for the ear.</strong> Short sentences. Questions. A word in capitals for stress. Dialogue. The model performs the punctuation you give it.</li>
+<li><strong>Add emotion cues in brackets</strong>, like <code>[laughs]</code>, <code>[serious]</code> or <code>[whispering]</code>, before the line. In my tests v4 acts them out and doesn't read them aloud. Use one or two per paragraph, not every line.</li>
+<li><strong>Clean it once.</strong> Run the result through ElevenLabs' Voice Isolator to remove any room left in the voice.</li>
+<li><strong>Speed it up a little.</strong> 1.1x to 1.2x with the pitch kept sounds energetic, not chipmunky.</li>
+<li><strong>Keep the breaths.</strong> Never cut the pauses to zero. A short breath between sentences is what makes it sound human.</li>
+</ol>
+
+<h2>4. The prompts I give Claude</h2>
+<ol class="prompts">
+<li><strong>Script for the ear:</strong> <code>Rewrite this script so it sounds spoken, not written: short sentences, one question, one moment of stress in capitals, and at most two emotion cues in brackets. Keep my words where you can. [PASTE SCRIPT]</code></li>
+<li><strong>Generate:</strong> <code>Generate this with my ElevenLabs voice [VOICE ID] on the newest model, using my API key from the environment. Save voice_raw.mp3.</code></li>
+<li><strong>Polish:</strong> <code>Clean voice_raw.mp3 with the ElevenLabs Voice Isolator, speed it to [1.15]x with ffmpeg atempo so the pitch stays the same, shorten any pause longer than 0.4 s to 0.4 s with soft crossfades, and level it to -16 LUFS. Then transcribe it and show me any word that doesn't match the script.</code></li>
+</ol>
+
+<h2>5. Troubleshooting</h2>
+<table><thead><tr><th>Problem</th><th>Fix</th></tr></thead><tbody>
+<tr><td>It sounds far away or echoey</td><td>Re-record the sample in a softer room, closer to the mic. Isolating the output helps, but the sample is the real fix.</td></tr>
+<tr><td>It sounds flat</td><td>Newest model, shorter sentences, one emotion cue per paragraph.</td></tr>
+<tr><td>It's too slow</td><td>Speed up 1.1x to 1.2x with the pitch kept.</td></tr>
+<tr><td>Sentences end abruptly</td><td>Keep a short breath between sentences and fade each line out, never a hard cut to silence.</td></tr>
+<tr><td>It reads a cue out loud</td><td>Move the cue onto its own line before the sentence, or remove it.</td></tr>
+</tbody></table>
+
+<h2>6. Read this twice</h2>
+<ul>
+<li>Only clone your own voice, or a voice you have written permission to use. ElevenLabs asks you to confirm consent when you save a clone.</li>
+<li>Use a paid ElevenLabs plan for anything you monetise. Check their pricing page for the current plans.</li>
+<li>Instagram asks you to label realistic AI audio. Turn on the AI label when your clone speaks.</li>
+</ul>
+
+<h2>7. Next steps</h2>
+<ol>
+<li>Record your 2-minute sample today, close to the mic, in a soft room.</li>
+<li>Generate one paragraph, polish it, and compare it with your real voice.</li>
+<li>Follow <a href="https://www.instagram.com/buildwith.vish/">@buildwith.vish</a> for the rest of the system.</li>
+</ol>
