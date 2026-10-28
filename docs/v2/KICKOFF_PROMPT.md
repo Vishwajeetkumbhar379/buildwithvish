@@ -13,6 +13,11 @@ Before your first reply:
 2. Read the attached storyboard PDF completely. It's my brief from a long session with ChatGPT. Treat it as the starting point, not a finished spec, and challenge weak ideas.
 3. Look at the real live site (buildwithvvish.com) and the code in `src/`, and at my mascot files.
 
+Use Claude Design for the visuals:
+- Put every page's storyboard and alternatives on a **Design** artifact (canvas with artboards for phone, iPad and desktop) that I can open and comment on from my iPad.
+- Once fonts and colours are locked, record them in a **Design System** artifact for Build with Vish, so the site, LinkedIn and Instagram all use one system.
+- Use working prototypes, as private artifacts, only for things a still frame can't show: mascot gaze, globe entrance, transitions.
+
 Then interview me like a creative director:
 - **Start with a short brief:**
   - what you inspected;
