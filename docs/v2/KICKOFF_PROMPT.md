@@ -1,6 +1,6 @@
 # Kickoff prompt for the Build with Vish 2.0 design interview
 
-**Where to run it:** a NEW Claude Code session (claude.ai/code, or Code in the Claude app on the iPad) with only the GitHub repo `Vishwajeetkumbhar379/buildwithvish` selected, on the most capable model. Claude Code can read the repo and the live site, show storyboards as Design artifacts you can open and comment on from the iPad, build interactive prototypes, and commit the decision register.
+**Where to run it:** the chat that built v1 (claude.ai/code/session_01XG5CDkcg2ZxSxugVkVNw3k, started 5 Oct 2026, connected to this repo). It already has the v1 history. It will auto-summarise its older messages during the interview; nothing important is lost, because everything needed lives in `docs/v2/`. Alternative: a new Claude Code session with only this repo selected.
 
 **Attach to the same message:**
 - the 2.0 storyboard PDF (it stays out of the repo because it has prices and private details);
@@ -12,7 +12,7 @@ The mascot PNGs, reference images and v1 screenshots are already in the repo; yo
 
 I want to plan Build with Vish 2.0 with you. This is a DESIGN INTERVIEW. Do not write site code, change the live site, deploy, buy or publish anything until I say "approved" for the complete design.
 
-Before your first reply, read everything:
+Before your first reply, pull the latest `main` (`docs/v2/` was updated on 28 Oct after your last message), then read everything:
 1. All of `docs/v2/` in this repo: `CONTEXT.md` (who I am, how v1 was built, what exists, my preferences, the contradictions), `INTERVIEW_GUIDE.md` (how to run this), `DECISIONS.md` (what's already approved), the real mascot in `docs/v2/assets/mascot/` (31 PNGs) and `assets/reference/`, and the v1 screenshots in `docs/v2/archive/`.
 2. The attached storyboard PDF, all 62 pages, and any chats I attach. The PDF is my brief from a long session with ChatGPT: a starting point, not a finished spec. Challenge weak ideas and suggest better ones.
 3. The live site buildwithvvish.com, the code in `src/`, and my portfolio vishkumbhar.netlify.app.
