@@ -101,6 +101,7 @@ A private interactive prototype of the whole site, built to the board 8 finish l
 | PR5 | Downloads and kits | Digital products page: free guides live, paid kits visible as "coming soon" with the button off | PROPOSED |
 | PR6 | Sound control | Moved into the dock on desktop and iPad (no floating pill over content); inside the menu on phone | PROPOSED |
 | PR7 | v1 carried over | Learn hub with search, filters and tinted numbered cards; all 90 resources; projects with progress; carousels; Build Notes; AI tool finder; prompt builder, campaign maths and launch checklist entries; XP inside Learn; the generated ambient sound | PROPOSED |
+| PR8 | Intro letter and signature | Home page, right after the three doors: "A note from me", a short letter in Vish's voice (agency years in Mumbai, 850+ creators, 20+ accounts, team of twelve; MBA and thesis in Germany; what each visitor finds on the site; building in public), signed "Vish Kumbhar" in a cursive signature face (Mrs Saint Delafield, OFL) that writes itself on when it scrolls into view. The same signature closes the About bio. The numbers band below no longer repeats the photo | PROPOSED |
 
 ## Needs validation
 
@@ -139,3 +140,4 @@ Nothing for 2.0 yet.
 - 7 Nov 2026: Vish's handoff brief read. D31 (real rigged 3D mascot), D32 (premium bar), D33 (case-study layout) added; SB6 updated; SB8 premium pass and SB9 agency option added.
 - 7 Nov 2026: storyboard SB1 to SB8 approved; D34 (from prices), D35 (mascot route), D36 (finish level) added.
 - 7 Nov 2026: code-built mascot rejected (S06). Clickable prototype of the whole site built with the original mascot renders (PR1 to PR7).
+- 7 Nov 2026: PR8 intro letter and signature added to the prototype.
