@@ -41,6 +41,9 @@ Seeded 28 Oct 2026 from the storyboard PDF (Vish's interview with ChatGPT). "PDF
 | D31 | Mascot quality bar | A real rigged 3D character (skeleton plus face controls for eyes, lids, brows, smile; wave clip; eyes and head follow the cursor). Not 2.5D tricks on flat images. Built from a careful study of the reference reels. Pre-rendered sequence stays as the fallback only | APPROVED · NEEDS PROTOTYPE | Vish, 7 Nov |
 | D32 | Premium bar | Apple-level restraint: one idea per screen, large confident type, real proof as large numbers, real photo lit like a product shot, product-style previews of real tools. Must read as a high-end consultant, stay easy to navigate, and be well organised in both the front end and the back end | APPROVED | Vish, 7 Nov |
 | D33 | Case-study layout | One short "The project" overview, then three numbered responsibility cards chosen per project (replaces Task / Goal / Execution, which read as repetitive), then evidence, honest results, tools, next step | APPROVED (from Vish's handoff brief) | Vish, 7 Nov |
+| D34 | Price display | When bookings open: "From" prices per package plus "Ask about this package". Until then the not-yet-open mode shows "Price on request" | APPROVED | Vish, 7 Nov |
+| D35 | Mascot production route | Quick AI multi-view image-to-3D likeness test first (four turnaround views already uploaded to Higgsfield; needs credits Vish adds himself), then a 3D character artist builds the final model with a real face rig. AI auto-rigs give a body skeleton only: no blinking, no eye movement, no smile | APPROVED · NEEDS PROTOTYPE | Vish, 7 Nov |
+| D36 | Finish level | Board 8 (premium pass) is the finish bar for every page | APPROVED | Vish, 7 Nov |
 
 ## Round 0: audit (7 Nov 2026)
 
@@ -75,14 +78,14 @@ Structure reference for the freelance side: a freelance social-media portfolio V
 
 | ID | Board | Proposal | Status |
 |---|---|---|---|
-| SB1 | Site map | Welcome portal with three doors (brand or agency / hiring / learning) plus My journey, leading to the three sides in D28. Global: header to dock, Talk to Vish (AI), sound, theme, footer, 404 | PROPOSED |
-| SB2 | Visitor journeys | Brand: welcome, services hub, UGC, packages, pre-filled contact. Recruiter: welcome, selected work, case study, About and Journey, CV and LinkedIn. Learner: Instagram keyword or /links, guide, download card, Build Notes, Learn hub | PROPOSED |
-| SB3 | Work with me hub | Ten sections: hero with real photo and proof, who I help, five service cards, how working together goes (4 steps), selected work with honesty labels, packages teaser, skills and tools linked to proof, kind words (hidden until real), FAQ, contact band | PROPOSED |
-| SB4 | UGC page | Reel-first hero, six formats with lengths, deliverables incl. written usage rights, showreel hidden until real samples exist, language angle (English, Hindi, Marathi on camera), five-step process, three packages, FAQ | PROPOSED |
-| SB5 | Packages and pricing | Tabs per service, three packages each (small way in, fuller project, ongoing), "every package includes" and "always quoted separately", estimate builder entry (scope PDF, not a contract), open / not-yet-open switch | PROPOSED |
-| SB6 | Case study template | One honesty label (agency work employed / my tool / client project / practice project), hook, at-a-glance facts, "The project" overview, three responsibility cards, anonymised evidence, honest results, tools, takeaway and next step (D33) | PROPOSED |
-| SB7 | Learn downloads | Instagram keyword to auto-DM to free guide; download card inside the post; PDF first, Build Notes signup after with double opt-in; resource library with paid kits visible but switched off | PROPOSED |
-| SB8 | Premium pass | Work with me shown at final quality, desktop and phone, Midnight Lilac: floating dock, centred headline with one serif accent, proof numbers beside the real photo, services as a bento of five tiles with small previews of real tools (sample data labelled) | PROPOSED |
+| SB1 | Site map | Welcome portal with three doors (brand or agency / hiring / learning) plus My journey, leading to the three sides in D28. Global: header to dock, Talk to Vish (AI), sound, theme, footer, 404 | APPROVED |
+| SB2 | Visitor journeys | Brand: welcome, services hub, UGC, packages, pre-filled contact. Recruiter: welcome, selected work, case study, About and Journey, CV and LinkedIn. Learner: Instagram keyword or /links, guide, download card, Build Notes, Learn hub | APPROVED |
+| SB3 | Work with me hub | Ten sections: hero with real photo and proof, who I help, five service cards, how working together goes (4 steps), selected work with honesty labels, packages teaser, skills and tools linked to proof, kind words (hidden until real), FAQ, contact band | APPROVED |
+| SB4 | UGC page | Reel-first hero, six formats with lengths, deliverables incl. written usage rights, showreel hidden until real samples exist, language angle (English, Hindi, Marathi on camera), five-step process, three packages, FAQ | APPROVED |
+| SB5 | Packages and pricing | Tabs per service, three packages each (small way in, fuller project, ongoing), "every package includes" and "always quoted separately", estimate builder entry (scope PDF, not a contract), open / not-yet-open switch | APPROVED |
+| SB6 | Case study template | One honesty label (agency work employed / my tool / client project / practice project), hook, at-a-glance facts, "The project" overview, three responsibility cards, anonymised evidence, honest results, tools, takeaway and next step (D33) | APPROVED |
+| SB7 | Learn downloads | Instagram keyword to auto-DM to free guide; download card inside the post; PDF first, Build Notes signup after with double opt-in; resource library with paid kits visible but switched off | APPROVED |
+| SB8 | Premium pass | Work with me shown at final quality, desktop and phone, Midnight Lilac: floating dock, centred headline with one serif accent, proof numbers beside the real photo, services as a bento of five tiles with small previews of real tools (sample data labelled) | APPROVED |
 | SB9 | Agency overflow support | Optional white-label page for agencies needing overflow help (from Vish's handoff brief) | OPEN |
 
 ## Needs validation
@@ -119,3 +122,4 @@ Nothing for 2.0 yet.
 - 7 Nov 2026: Vish's answers recorded. Approved: B′ type (D17), Iris (D18), both themes following the device (D19), XP inside Learn (D21), v1 sound engine as the ambient track (D22), portfolio as a linked site inside one organised package (D23), named brands with logos only after permission (D24), public facts (D25), no Berlin for now (D26), mascot priority (D27). D20 decided per the PDF at his request: no blocking gate.
 - 7 Nov 2026: scope widened to a complete freelance + learning + personal site (D28 to D30). Storyboard SB1 to SB7 proposed. Round 3 now splits into 3a services hub, 3b UGC, 3c packages and pricing with the estimate builder, 3d service detail pages.
 - 7 Nov 2026: Vish's handoff brief read. D31 (real rigged 3D mascot), D32 (premium bar), D33 (case-study layout) added; SB6 updated; SB8 premium pass and SB9 agency option added.
+- 7 Nov 2026: storyboard SB1 to SB8 approved; D34 (from prices), D35 (mascot route), D36 (finish level) added.
