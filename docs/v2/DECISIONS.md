@@ -88,6 +88,20 @@ Structure reference for the freelance side: a freelance social-media portfolio V
 | SB8 | Premium pass | Work with me shown at final quality, desktop and phone, Midnight Lilac: floating dock, centred headline with one serif accent, proof numbers beside the real photo, services as a bento of five tiles with small previews of real tools (sample data labelled) | APPROVED |
 | SB9 | Agency overflow support | Optional white-label page for agencies needing overflow help (from Vish's handoff brief) | OPEN |
 
+## Clickable prototype (7 Nov 2026)
+
+A private interactive prototype of the whole site, built to the board 8 finish level so Vish can scroll and tap it on his iPad. Not site code: nothing in `src/` or the live site changed.
+
+| ID | Item | Proposal | Status |
+|---|---|---|---|
+| PR1 | Hero | Build / portal / with Vish (B′ type). Vish's original mascot renders stand in the portal; the six real wave keyframes play once on arrival and on tap; slight breathing and pointer depth on the portal layers. No fake face motion | PROPOSED |
+| PR2 | Navigation | Floating dock: Work with me (menu: Services, UGC, Packages, Selected work), Work, Journey, Learn (menu: Learn hub, Start here, Downloads and kits, Tools and Build Notes), About, sound, theme, Contact. Phone: full-screen grouped menu. Three visitor doors right under the hero | PROPOSED |
+| PR3 | UGC mockups | Real-looking phone frames with reel UI and labelled video slots that take Vish's videos later; laptop mockup for tool and agency case studies | PROPOSED |
+| PR4 | Depth and motion | Cards tilt slightly toward the pointer with a soft sheen (mouse only), counters count up once, journey route animates, layered shadows for clear depth. Off for reduced motion and touch | PROPOSED |
+| PR5 | Downloads and kits | Digital products page: free guides live, paid kits visible as "coming soon" with the button off | PROPOSED |
+| PR6 | Sound control | Moved into the dock on desktop and iPad (no floating pill over content); inside the menu on phone | PROPOSED |
+| PR7 | v1 carried over | Learn hub with search, filters and tinted numbered cards; all 90 resources; projects with progress; carousels; Build Notes; AI tool finder; prompt builder, campaign maths and launch checklist entries; XP inside Learn; the generated ambient sound | PROPOSED |
+
 ## Needs validation
 
 | ID | Item | Current best answer | Status |
@@ -106,6 +120,7 @@ Structure reference for the freelance side: a freelance social-media portfolio V
 | S03 | Hero option B (bright orange energetic CTA) | REJECTED |
 | S04 | 3D-heavy gallery look for Work and Learn | REJECTED |
 | S05 | Hero option A (abstract purple orb instead of the mascot) | REJECTED |
+| S06 | A mascot built from code primitives (Three.js shapes) | REJECTED by Vish on 7 Nov: nowhere near the quality of his renders. The real 3D version comes from a professional 3D artist (D35) |
 
 ## Open: to lock in the interview
 
@@ -123,3 +138,4 @@ Nothing for 2.0 yet.
 - 7 Nov 2026: scope widened to a complete freelance + learning + personal site (D28 to D30). Storyboard SB1 to SB7 proposed. Round 3 now splits into 3a services hub, 3b UGC, 3c packages and pricing with the estimate builder, 3d service detail pages.
 - 7 Nov 2026: Vish's handoff brief read. D31 (real rigged 3D mascot), D32 (premium bar), D33 (case-study layout) added; SB6 updated; SB8 premium pass and SB9 agency option added.
 - 7 Nov 2026: storyboard SB1 to SB8 approved; D34 (from prices), D35 (mascot route), D36 (finish level) added.
+- 7 Nov 2026: code-built mascot rejected (S06). Clickable prototype of the whole site built with the original mascot renders (PR1 to PR7).
