@@ -24,6 +24,17 @@ Seeded 28 Oct 2026 from the storyboard PDF (Vish's interview with ChatGPT). "PDF
 | D14 | Sound | Optional calm ambient track, silent by default, pauses for voice. | APPROVED (audio asset OPEN) | PDF |
 | D15 | Motion budget | About 80% calm editorial, 20% motion and 3D. Only two signature 3D moments: the mascot portal and the Earth-to-Journey entrance. | APPROVED | PDF |
 | D16 | Wordmark | Keep the existing "Build with Vish" name and logo; don't swap in "VISH." from mockups. | APPROVED | PDF |
+| D17 | Type system | B′: Inter for UI, headings and reading (optical sizes for large type), Instrument Serif italic as a rare accent (one word per headline, 32 px and up, never body text), JetBrains Mono for labels, prompts and code. One system for the site, LinkedIn and Instagram. Scale and weights to lock in round 1b | APPROVED | Round 1 |
+| D18 | Violet | Iris family anchored on #7F77DD (values in P02) | APPROVED | Round 1 |
+| D19 | Themes | Editorial Ivory + Midnight Lilac, following the device setting, remembered toggle, no flash. Validates D13. Working values in P03 and P04 | APPROVED | Round 1 |
+| D20 | Entry gate and "Press and hold" | Vish kept both, then asked to follow the PDF. Per the PDF (content first, no waiting screens, silent by default): no full-screen gate. "Enter with sound" lives on as the visible sound control in the hero. "Press and hold" lives on as an optional way to start the long Journey entrance from the portal, next to a normal "My journey" button, so holding is never the only way in | APPROVED (delegated, per PDF) · NEEDS PROTOTYPE | Round 1 |
+| D21 | XP "Curious" pill | Kept, inside Learn only; removed from the global header | APPROVED | Round 1 |
+| D22 | Ambient sound | v1's generated sound engine (original, no licence needed) becomes the optional ambient track. Silent by default, ducks for voice chat. Retune in round 9 | APPROVED | Round 1 |
+| D23 | Portfolio site | buildwithvvish.com is the complete, organised package (Work, Journey, About, CV, Contact). vishkumbhar.netlify.app stays live as its own site, reached by one small "Portfolio" button | APPROVED | Round 1 |
+| D24 | Brand names and logos | Brands named with employer context (agency accounts, not Build with Vish clients). Logos wanted, but shown only after written permission from the brand or agency; text until then. Tracked in the asset register | APPROVED (logos gated on permission) | Round 1 |
+| D25 | Public facts | 5+ years, 850+ creators, 20+ brand accounts, led a 12-person team; Instagram @buildwith.vish | APPROVED | Round 1 |
+| D26 | Berlin move | Not mentioned on 2.0 for now (the public CV and portfolio still mention it) | APPROVED | Round 1 |
+| D27 | Mascot priority | Reaffirmed: the 3D mascot says hi with one wave, moves and follows the cursor (D02). Top priority of the hero | APPROVED | Round 1 |
 
 ## Round 0: audit (7 Nov 2026)
 
@@ -42,10 +53,10 @@ What was actually checked, so later rounds don't re-derive it.
 
 | ID | Area | Proposal | Status |
 |---|---|---|---|
-| P01 | Type system | Three directions on identical real content: A Clarity (Geist + Geist Mono, v1), B Editorial (Manrope + Instrument Serif + JetBrains Mono, PDF candidate), C Signal (Space Grotesk + Inter + IBM Plex Mono, LinkedIn preference). Recommendation: B′ = B's structure on Inter (true italics, already in the carousel renderer) + Instrument Serif as a rare accent (one word per headline, 32 px and up) + JetBrains Mono for labels and prompts | PROPOSED |
-| P02 | Violet family | Iris, anchored on brand #7F77DD: light-theme accent #5B52CF (5.5:1 on ivory, white text on it 5.9:1), dark-theme accent #A99CFF (8.0:1 on midnight), soft #ECEAFB / #262245. Alternative: the PDF's Lilac (#6C4FA3 / #BFA7FF). #7F77DD itself is never used for text on light (3.5:1) | PROPOSED |
-| P03 | Theme tokens | Editorial Ivory: canvas #F8F7F4, card #FFFFFF, sunken #F1EFEA, line #E4E1DA, ink #24212C, body #625B68, muted #716A78. Midnight Lilac: canvas #111018, card #1D1A27, sunken #17151F, line #2C2838, ink #F3F0F6, body #B8AFCA, muted #9A93A6. All text pairs pass AA | PROPOSED |
-| P04 | Category tints | Only colours besides violet, shared with carousels: guides #F5F4FF / #3E39A8, projects #F0FBF6 / #0A5E55, prompts #FEF6F3 / #8A3A1A; dark #1B1830 / #C9C1FF, #0F2420 / #86E6D8, #2A1B17 / #F5B49C | PROPOSED |
+| P01 | Type system | Three directions on identical real content: A Clarity (Geist + Geist Mono, v1), B Editorial (Manrope + Instrument Serif + JetBrains Mono, PDF candidate), C Signal (Space Grotesk + Inter + IBM Plex Mono, LinkedIn preference). Recommendation: B′ = B's structure on Inter (true italics, already in the carousel renderer) + Instrument Serif as a rare accent (one word per headline, 32 px and up) + JetBrains Mono for labels and prompts | APPROVED → D17 |
+| P02 | Violet family | Iris, anchored on brand #7F77DD: light-theme accent #5B52CF (5.5:1 on ivory, white text on it 5.9:1), dark-theme accent #A99CFF (8.0:1 on midnight), soft #ECEAFB / #262245. Alternative: the PDF's Lilac (#6C4FA3 / #BFA7FF). #7F77DD itself is never used for text on light (3.5:1) | APPROVED → D18 |
+| P03 | Theme tokens | Editorial Ivory: canvas #F8F7F4, card #FFFFFF, sunken #F1EFEA, line #E4E1DA, ink #24212C, body #625B68, muted #716A78. Midnight Lilac: canvas #111018, card #1D1A27, sunken #17151F, line #2C2838, ink #F3F0F6, body #B8AFCA, muted #9A93A6. All text pairs pass AA | APPROVED → D19 |
+| P04 | Category tints | Only colours besides violet, shared with carousels: guides #F5F4FF / #3E39A8, projects #F0FBF6 / #0A5E55, prompts #FEF6F3 / #8A3A1A; dark #1B1830 / #C9C1FF, #0F2420 / #86E6D8, #2A1B17 / #F5B49C | APPROVED → D19 |
 | P05 | Logo | Mark unchanged; wordmark typeface follows the chosen system; tile always #7F77DD; favicon drops the dot and thickens the stroke at 16 px; clear space = tile corner radius; mascot never inside the tile | PROPOSED |
 | P06 | Assistant launcher | Mascot face + "Talk to Vish" + a visible "AI" tag; Vish's real photo is reserved for About, Contact and bylines so the bot is never mistaken for him | PROPOSED |
 | P07 | Hero routing | Hero offers the three visitor routes (brand or agency / hiring / learning AI) plus a "My journey" shortcut | PROPOSED (detail in round 2) |
@@ -56,10 +67,10 @@ What was actually checked, so later rounds don't re-derive it.
 
 | ID | Item | Current best answer | Status |
 |---|---|---|---|
-| V01 | Instagram link | instagram.com/buildwith.vish (already on /links) | NEEDS VALIDATION |
-| V02 | Experience figures | 5+ years, 850+ creators, 20+ brand accounts, 12-person team (public CV) | NEEDS VALIDATION |
-| V03 | Naming brands and employers on 2.0 | Already named on CV and portfolio | NEEDS VALIDATION |
-| V04 | Light theme | Editorial Ivory shown next to Midnight Lilac on real hero and guide content (round 1 canvas) | NEEDS VALIDATION |
+| V01 | Instagram link | instagram.com/buildwith.vish (already on /links) | APPROVED → D25 |
+| V02 | Experience figures | 5+ years, 850+ creators, 20+ brand accounts, 12-person team (public CV) | APPROVED → D25 |
+| V03 | Naming brands and employers on 2.0 | Already named on CV and portfolio | APPROVED → D24 |
+| V04 | Light theme | Editorial Ivory shown next to Midnight Lilac on real hero and guide content (round 1 canvas) | APPROVED → D19 |
 
 ## Rejected or superseded
 
@@ -73,7 +84,7 @@ What was actually checked, so later rounds don't re-derive it.
 
 ## Open: to lock in the interview
 
-Typography · colour tokens · logo lockup · motion tokens · per-page layouts and copy · icon set · EN/DE · v1 entry gate, "Press and hold" and XP system · fate of vishkumbhar.netlify.app · licensed or original ambient track · mascot production route (rigged 3D vs 2.5D vs pre-rendered).
+Type scale, spacing, radii, buttons, focus ring and motion tokens (round 1b) · per-page layouts and copy · icon set · EN/DE (not answered yet) · whether vishkumbhar.netlify.app gets restyled to the 2.0 system · logo permissions (who to ask) · mascot production route (rigged 3D vs image-to-3D vs 2.5D vs pre-rendered).
 
 ## Built
 
@@ -83,3 +94,4 @@ Nothing for 2.0 yet.
 
 - 28 Oct 2026: register seeded from the storyboard PDF.
 - 7 Nov 2026: round 0 audit recorded (content counts, CV role split, font licences, access gaps). Round 1 brand-foundation proposals P01 to P09 added; V04 (light theme) added.
+- 7 Nov 2026: Vish's answers recorded. Approved: B′ type (D17), Iris (D18), both themes following the device (D19), XP inside Learn (D21), v1 sound engine as the ambient track (D22), portfolio as a linked site inside one organised package (D23), named brands with logos only after permission (D24), public facts (D25), no Berlin for now (D26), mascot priority (D27). D20 decided per the PDF at his request: no blocking gate.
