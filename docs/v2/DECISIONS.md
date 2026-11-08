@@ -222,6 +222,18 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | PR32 | Home additions | An AI builds block (code rain behind three of the tools) and the tools home screen; both follow the path choice. Fixed in the prototype: a click anywhere on the home page used to re-run the path choice and scroll the page | IN PROTOTYPE | v9 |
 | PR33 | Touch | On iPad and phones, cards lean toward the finger and press in; starting a scroll cancels it | IN PROTOTYPE | v9 |
 
+## Prototype v10 (8 Nov 2026, Vish's corrections to v9)
+
+| ID | Item | Decision | Status |
+|---|---|---|---|
+| D57 | Opening, in order | The real logo comes first: it zooms in and turns once, then breaks into dust exactly where it stands. The dust forms the avatar; scrolling glides it beside "Build with Vish" and bursts it; the particles then gather at one spot and the full-body Vish pops out there and waves. Refines D51 | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D58 | The jumping mascot is the full-body Vish | His original full-body renders with hand movement and expressions: a wave when he arrives, a twirl (the turnaround frames) when he hops, a gesture when he lands (pointing at the card, thumbs up, explaining) and an occasional idle pose. He stands on the top edge of cards and sections. Replaces the small chest-up version of D53 | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D59 | "Talk to me" on the right | A button on the right with the small live mascot (it breathes and changes expression) and the words "Talk to me". Opening the chat sends the jumping mascot into the button, so only one Vish is on screen; closing it lets him back out. Tapping the jumping mascot also opens the chat | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D60 | Proof without the dots | The 850-dot cloud is removed: it covered the numbers and the caption and added no meaning. The proof band is six readable numbers: 5+ years, 850+ creators, 20+ brand clients, a 12-person team, 11 open-source AI tools, 9,000+ LinkedIn followers | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D61 | Brands as big type | The tile wall felt weak. Now a list of the nine brands in large type, calm grey until each one passes the middle of the screen, when it turns to full colour with a brand-colour dot and its sector. Tap a brand to open its story (what, sector, and a slot for Vish's own words; nothing invented). Real logos slot in once official files and permission are in place | IN PROTOTYPE · TO REVIEW | v10 |
+| D62 | Tools on a real iPhone | The home screen now sits in a realistic iPhone: titanium frame and side buttons, Dynamic Island, status bar, wallpaper in the site palette, a 4 by 4 grid, page dots, a glass dock with the AI tools and the home bar. Tapping an app opens it full screen like iOS (what Vish uses it for), and it closes back into its icon. The phone leans toward the pointer or finger | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D63 | Journey without stray lines | The home Journey card drew coastlines as thin lines that looked like a hair on the screen. It is now a boarding pass (From Mumbai, To Offenburg, via Remote 2022 to 2025, 10 stops, a small plane flying the dotted arc, "Tap to board"). On the Journey map the road ahead is shown as clear dots instead of faint lines, and the swipe hint uses arrows instead of a moving line | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+
 ## Needs validation
 
 | ID | Item | Current best answer | Status |
@@ -246,6 +258,8 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | S07 | A full-body narrator figure in the corner of the home page | REJECTED by Vish on 8 Nov (v5). The mascot now appears chest-up in the hero and looks toward the pointer (PR19) |
 | S09 | Vish's face as a dot portrait on the first screen (SB10) | SUPERSEDED by the logo-to-mascot opening (D51) |
 | S10 | Violet plus an amber spark (D47) and the night-flight first screen (D46) | SUPERSEDED by D50 and D51 |
+| S11 | The small chest-up jumping mascot (D53) and the logo tile wall (PR28) | SUPERSEDED by D58 and D61 |
+| S12 | The 850-dot cloud in the proof band (PR21) | REMOVED (D60) |
 | S06 | A mascot built from code primitives (Three.js shapes) | REJECTED by Vish on 7 Nov: nowhere near the quality of his renders. The real 3D version comes from a professional 3D artist (D35) |
 
 ## Open: to lock in the interview
@@ -275,3 +289,4 @@ Nothing for 2.0 yet.
 - 8 Nov 2026: v7 rated 4/10 by Vish. D46 to D49 added. Prototype v8: night flight on a real Earth, a concrete note in Vish's voice (from his CV and email skills), amber spark, new sound engine, headline motion, a Remote marker and take-off on the Journey map.
 - 8 Nov 2026: storyboard round SB10 to SB19 agreed with Vish before building v9.
 - 8 Nov 2026: prototype v9 built from the storyboard round: D50 to D56, PR27 to PR33. S09 and S10 superseded.
+- 8 Nov 2026: v10 from Vish's corrections: D57 to D63. S11 superseded, S12 removed.
