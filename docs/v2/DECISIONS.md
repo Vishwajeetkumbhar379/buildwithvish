@@ -44,7 +44,7 @@ Seeded 28 Oct 2026 from the storyboard PDF (Vish's interview with ChatGPT). "PDF
 | D34 | Price display | When bookings open: "From" prices per package plus "Ask about this package". Until then the not-yet-open mode shows "Price on request" | APPROVED | Vish, 7 Nov |
 | D35 | Mascot production route | Quick AI multi-view image-to-3D likeness test first (four turnaround views already uploaded to Higgsfield; needs credits Vish adds himself), then a 3D character artist builds the final model with a real face rig. AI auto-rigs give a body skeleton only: no blinking, no eye movement, no smile | APPROVED · NEEDS PROTOTYPE | Vish, 7 Nov |
 | D36 | Finish level | Board 8 (premium pass) is the finish bar for every page | APPROVED | Vish, 7 Nov |
-| D37 | v1 interactions return | Vish wants all four back: scroll-driven 3D chapters with a chapter rail, the page wipe from the tap point with a soft whoosh, drag-to-spin plus cursor ripple, and sound on interactions (only after Sound on). This reopens D15 (two 3D moments only) at his request; reading pages stay calm. All four are now in the prototype (v5, see PR11 to PR14) | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D37 | v1 interactions return | Vish wants all four back: scroll-driven 3D chapters with a chapter rail, the page wipe from the tap point with a soft whoosh, drag-to-spin plus cursor ripple, and sound on interactions (only after Sound on). This reopens D15 (two 3D moments only) at his request; reading pages stay calm. On v5 Vish kept the page wipe, sounds and 3D chapters (asking for more 3D), and swapped drag-to-spin and the cursor ripple for a half-body mascot that looks toward the pointer (PR19) | APPROVED · REVISED IN v6 | Vish, 8 Nov |
 | D38 | Job titles | Use the new CV titles: Senior Marketing Manager, Influencer Marketing and Client Servicing (Illuminati Media); Marketing Manager, Influencer Marketing and Client Servicing (Pollen); Marketing Analytics and Content Manager, Working Student (Black Forest Business School) | APPROVED | Vish, 8 Nov |
 
 ## Round 0: audit (7 Nov 2026)
@@ -131,14 +131,30 @@ UGC portfolio findings (creator guides and hiring checklists): brands look for a
 
 | ID | Item | Proposal | Status |
 |---|---|---|---|
-| PR11 | Scroll chapters | Home is nine chapters (Hello, A note, Proof, Services, UGC, Work, Journey, Learn, Say hello). Services, UGC and Work are full-width colour blocks (deep Iris, lilac, midnight) that tilt up into place in 3D as you scroll. A chapter rail of dots on the right (iPad landscape and desktop) flashes the chapter name as you arrive; a thin progress line runs along the dock. The intro letter lights up word by word as you read. Services stack as numbered cards. Reading pages stay calm | PROPOSED |
-| PR12 | Narrator | Vish's own gesture renders guide the home chapters from the bottom-left corner: a new pose per chapter with a short line in a speech bubble, which steps aside after a few seconds. Can be hidden, and stays hidden | PROPOSED |
-| PR13 | Drag to spin | The hero mascot turns through his eight original turnaround views when dragged sideways (finger or mouse, with inertia), turns back to face you, and still waves on tap. Arrow keys turn him too. With a mouse he looks toward the pointer. Drawing a circle round him makes him wave. A "Psst. You can spin me." bubble shows once | PROPOSED |
-| PR14 | Cursor, ripple, sound | Dot and ring cursor with a mouse; a ripple on every tap or click; soft tick, pop and whoosh sounds only after Sound on | PROPOSED |
+| PR11 | Scroll chapters (Vish: more 3D) | Home is nine chapters (Hello, A note, Proof, Services, UGC, Work, Journey, Learn, Say hello). Services, UGC and Work are full-width colour blocks (deep Iris, lilac, midnight) that tilt up into place in 3D as you scroll. A chapter rail of dots on the right (iPad landscape and desktop) flashes the chapter name as you arrive; a thin progress line runs along the dock. The intro letter lights up word by word as you read. Services stack as numbered cards. Reading pages stay calm | PROPOSED |
+| PR12 | Narrator (rejected) | Vish's own gesture renders guide the home chapters from the bottom-left corner: a new pose per chapter with a short line in a speech bubble, which steps aside after a few seconds. Can be hidden, and stays hidden | REJECTED by Vish on 8 Nov: the small full-body figure in the corner looked wrong. Removed in v6 (S07) |
+| PR13 | Drag to spin | The hero mascot turns through his eight original turnaround views when dragged sideways (finger or mouse, with inertia), turns back to face you, and still waves on tap. Arrow keys turn him too. With a mouse he looks toward the pointer. Drawing a circle round him makes him wave. A "Psst. You can spin me." bubble shows once | NOT KEPT: Vish kept only "looks at the pointer". Spin and circle removed in v6 |
+| PR14 | Cursor, ripple, sound | Dot and ring cursor with a mouse; a ripple on every tap or click; soft tick, pop and whoosh sounds only after Sound on | CURSOR AND RIPPLE NOT KEPT (removed in v6); sounds stay |
 | PR15 | Work showcase | The agency case study is shown in a browser frame with a phone in front and a speech bubble, then three tool cards labelled with sample data | PROPOSED |
 | PR16 | Finish details | Hard-shadow pill buttons, outlined mono buttons, grid lines in the hero and blocks, mono kicker with LinkedIn, highlighted phrases in the hero line, fanned cards on About | PROPOSED |
 | PR17 | Learn path picker | "Tell me where you're headed. I want to use AI at work / run better creator campaigns / build my own tools / land a marketing job", each choice builds a four-step path from the real Learn library | PROPOSED |
-| PR18 | UGC page | Hero with showreel slot; a sample library of twelve format slots (product demo, unboxing, problem to fix, review to camera, voiceover, before and after, comparison, app walkthrough, day in the life, no-face B-roll, ASMR, hook test pack), filterable by format and niche, each with a planned hook, "best for" line, length and platforms, opening a script outline; a hook lab with three openings; a raw versus edited slider; what every video includes; usage rights explained (organic, paid ads, whitelisting); six steps; three UGC packages with add-ons; questions. Every slot is labelled "to film" until a real video replaces it | PROPOSED |
+| PR18 | UGC page | Hero with showreel slot; a sample library of twelve format slots (product demo, unboxing, problem to fix, review to camera, voiceover, before and after, comparison, app walkthrough, day in the life, no-face B-roll, ASMR, hook test pack), filterable by format and niche, each with a planned hook, "best for" line, length and platforms, opening a script outline; a hook lab with three openings; a raw versus edited slider; what every video includes; usage rights explained (organic, paid ads, whitelisting); six steps; three UGC packages with add-ons; questions. Every slot is labelled "to film" until a real video replaces it | APPROVED (keep all 12 slots) |
+
+## Prototype v6 (8 Nov 2026)
+
+| ID | Item | Proposal | Status |
+|---|---|---|---|
+| PR19 | Half-body mascot that looks at you | The hero arch now shows Vish's original chest-up render. It turns toward the pointer, or toward a tap on iPad, using a depth map made from the render itself, and the eyes follow. After a pause it looks around slowly. A tap shows a quick laugh, wink or surprise from his expression renders. This prototype uses his pixels as they are. A smooth head turn like simondai.com's (about 120 frames from a short AI video of the same render) needs an image-to-video step that uses credits, so it waits for Vish's go-ahead | PROPOSED · NEEDS VALIDATION |
+| PR20 | Liquid glass | Speech bubbles and small panels use an iOS-style glass: blurred and brightened background, a bright rim, a highlight that follows the pointer and a slow sheen. The dotted bubble shadow is gone | PROPOSED |
+| PR21 | More 3D | One real 3D piece per chapter (Three.js, as in v1): 850 dots that gather into groups in Proof, one per creator (the groups are illustrative); six service cards that fan out in Services; a dotted globe that turns from India to Europe while the Mumbai to Offenburg route draws itself in Journey. The Work devices swing into place in 3D, and the colour blocks tilt in further. Each piece reacts to the pointer and pauses when off screen | PROPOSED |
+
+## Talk to Vish in Vish's voice (8 Nov 2026)
+
+Vish wants the site assistant to answer in his own voice without spending voice credits for every visitor.
+
+| ID | Item | Proposal | Status |
+|---|---|---|---|
+| D39 | Assistant voice | ElevenLabs voices cannot be downloaded as a model, so every live answer would use credits. Recommended: (1) pre-voice the assistant's answers once (about 30 to 40 answers to the questions visitors ask most), store them as audio files with the site, and play one only when a visitor taps "Hear Vish say it". Visitors then cost nothing, and audio is redone only when an answer changes. (2) Later, if free-form spoken answers matter: train an open-source voice model on Vish's own recordings (not on ElevenLabs output) and run it in the visitor's browser, with a licence that allows commercial use. Lower quality than ElevenLabs, a larger download, and it needs about an hour of clean recordings. Text answers themselves still need a small AI budget or a free tier. Voice never plays without a tap | PROPOSED · NEEDS DECISION |
 
 ## Needs validation
 
@@ -158,6 +174,7 @@ UGC portfolio findings (creator guides and hiring checklists): brands look for a
 | S03 | Hero option B (bright orange energetic CTA) | REJECTED |
 | S04 | 3D-heavy gallery look for Work and Learn | REJECTED |
 | S05 | Hero option A (abstract purple orb instead of the mascot) | REJECTED |
+| S07 | A full-body narrator figure in the corner of the home page | REJECTED by Vish on 8 Nov (v5). The mascot now appears chest-up in the hero and looks toward the pointer (PR19) |
 | S06 | A mascot built from code primitives (Three.js shapes) | REJECTED by Vish on 7 Nov: nowhere near the quality of his renders. The real 3D version comes from a professional 3D artist (D35) |
 
 ## Open: to lock in the interview
@@ -181,3 +198,4 @@ Nothing for 2.0 yet.
 - 8 Nov 2026: PR9 (six services, flip cards, signed closing) and PR10 (CV additions) added to the prototype.
 - 8 Nov 2026: D37 (v1 interactions return, reopens D15 at Vish's request) and D38 (job titles) added; PR10 approved. Page wipe and interaction sounds added to the prototype.
 - 8 Nov 2026: reference study (sebg, simondai and the earlier list, niche and UGC portfolio research) and prototype v5 (PR11 to PR18). D37 now in the prototype.
+- 8 Nov 2026: Vish's answers on v5 (narrator out, only look-at-pointer kept, more 3D, keep 12 UGC slots, glass bubbles). Prototype v6 (PR19 to PR21). D39 voice proposal added.
