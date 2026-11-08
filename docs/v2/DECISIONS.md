@@ -44,7 +44,7 @@ Seeded 28 Oct 2026 from the storyboard PDF (Vish's interview with ChatGPT). "PDF
 | D34 | Price display | When bookings open: "From" prices per package plus "Ask about this package". Until then the not-yet-open mode shows "Price on request" | APPROVED | Vish, 7 Nov |
 | D35 | Mascot production route | Quick AI multi-view image-to-3D likeness test first (four turnaround views already uploaded to Higgsfield; needs credits Vish adds himself), then a 3D character artist builds the final model with a real face rig. AI auto-rigs give a body skeleton only: no blinking, no eye movement, no smile | APPROVED · NEEDS PROTOTYPE | Vish, 7 Nov |
 | D36 | Finish level | Board 8 (premium pass) is the finish bar for every page | APPROVED | Vish, 7 Nov |
-| D37 | v1 interactions return | Vish wants all four back: scroll-driven 3D chapters with a chapter rail, the page wipe from the tap point with a soft whoosh, drag-to-spin plus cursor ripple, and sound on interactions (only after Sound on). This reopens D15 (two 3D moments only) at his request; reading pages stay calm. Page wipe and interaction sounds are in the prototype; the 3D chapters and drag-to-spin wait for his new references | APPROVED · NEEDS PROTOTYPE | Vish, 8 Nov |
+| D37 | v1 interactions return | Vish wants all four back: scroll-driven 3D chapters with a chapter rail, the page wipe from the tap point with a soft whoosh, drag-to-spin plus cursor ripple, and sound on interactions (only after Sound on). This reopens D15 (two 3D moments only) at his request; reading pages stay calm. All four are now in the prototype (v5, see PR11 to PR14) | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
 | D38 | Job titles | Use the new CV titles: Senior Marketing Manager, Influencer Marketing and Client Servicing (Illuminati Media); Marketing Manager, Influencer Marketing and Client Servicing (Pollen); Marketing Analytics and Content Manager, Working Student (Black Forest Business School) | APPROVED | Vish, 8 Nov |
 
 ## Round 0: audit (7 Nov 2026)
@@ -107,6 +107,39 @@ A private interactive prototype of the whole site, built to the board 8 finish l
 | PR9 | Services, repackaged | Six neat numbered cards in the style of the reference portfolio, built from Vish's CV: Influencer campaigns, Talent management, Account management and client servicing, Content and UGC, Team and operations, AI workflows. Each card flips in 3D on tap to show what you get, a from-price placeholder and a link to its packages tab. Packages page re-cut to the same six. Work with me ends with a centred, signed closing. Supersedes the four-category list in D07 for the prototype (to confirm) | PROPOSED |
 | PR10 | CV additions | Raymond named as the largest agency client, Universal Pictures India added, campaign scale and budget outcomes on the agency case study, the trekking start-up as a Journey chapter, MICA x upGrad and Rotaract on About. Budget figures and job-title wording to confirm before publishing | APPROVED (new CV job titles; budget figures may be shown) |
 
+## Reference study (8 Nov 2026)
+
+Vish asked for elements from sebg.ch and simondai.com, plus his earlier references, a look at portfolios in his niche, and real UGC portfolios that show more than three videos. Each reference was opened in a browser at iPad width and checked for layout, type, motion and libraries. activetheory.net, unseen.co, edolus.com and lusion.co did not render in the test browser (WebGL or timeouts), so they were judged from earlier notes only.
+
+| Ref | What it does well | Taken into 2.0 |
+|---|---|---|
+| sebg.ch | A drawn character who guides you through the page with speech bubbles; full-width colour blocks per project; browser and phone mockups side by side; words that light up as you read; buttons with a hard offset shadow; sound toggle | Narrator (PR12), colour-block chapters (PR11), work showcase (PR15), reading reveal (PR11), hard-shadow buttons (PR16) |
+| simondai.com | Mono kicker, a big plain headline, outlined mono buttons with arrows, grid lines, and a portrait that turns toward your cursor ("move me with your cursor") | Mascot follows the pointer with his own front-left, front and front-right renders (PR13); mono kicker and grid lines in the hero (PR16) |
+| v.ish.al | A 3D character that moves as you scroll | The narrator changes pose per chapter as you scroll (PR12) |
+| avivashishta.com | "Tell me where you're headed": a sentence with choices that builds a path; floating phones for reels | Learn path picker on home (PR17); 3D phone ring for UGC (PR14) |
+| cuberto.com | Numbered service cards that stack as you scroll | Services stack on home (PR11) |
+| toyfight.co | Highlighted words inside the headline | Two highlighted phrases in the hero line (PR16) |
+| gahanrao.com | Fanned photo cards and soft text reveals on About | About uses three fanned cards: two mascot expressions around a real photo (PR16) |
+| why.zero.university | "Draw a zero": a gesture you make with the pointer | Draw a circle round the mascot and he waves (mouse only, PR13) |
+| digitalpanda.com, triptych.co, butter.video, peec.ai, minhpham.design, shubhamgl.com, gabrielvaldivia.com, behfar.dev | Strong single ideas (3D office scene, arched image windows, inline icons in headlines, logo walls, start gates, game-style character sheets, calm case-study grids, particle hero) | Not taken, to keep the site calm and fast: no start gate (D20 stands), no logo wall until permissions are in (D24), no particle hero |
+
+Niche portfolio findings (influencer marketing, talent and account managers): the strongest sites lead with two or three deep case studies (challenge, approach, outcome), name the scale they worked at, list services plainly, and keep employer work clearly separate from freelance clients. 2.0 already does this (Lena-style case study, honest labels).
+
+UGC portfolio findings (creator guides and hiring checklists): brands look for a hook that lands in the first three seconds, range across formats and niches, raw footage on request, hook variations for testing, usage rights stated up front, a short showreel, and a clear way to brief. Samples are grouped by format and niche, and each one says what it is best for. This shaped the new UGC page (PR18).
+
+## Prototype v5 (8 Nov 2026)
+
+| ID | Item | Proposal | Status |
+|---|---|---|---|
+| PR11 | Scroll chapters | Home is nine chapters (Hello, A note, Proof, Services, UGC, Work, Journey, Learn, Say hello). Services, UGC and Work are full-width colour blocks (deep Iris, lilac, midnight) that tilt up into place in 3D as you scroll. A chapter rail of dots on the right (iPad landscape and desktop) flashes the chapter name as you arrive; a thin progress line runs along the dock. The intro letter lights up word by word as you read. Services stack as numbered cards. Reading pages stay calm | PROPOSED |
+| PR12 | Narrator | Vish's own gesture renders guide the home chapters from the bottom-left corner: a new pose per chapter with a short line in a speech bubble, which steps aside after a few seconds. Can be hidden, and stays hidden | PROPOSED |
+| PR13 | Drag to spin | The hero mascot turns through his eight original turnaround views when dragged sideways (finger or mouse, with inertia), turns back to face you, and still waves on tap. Arrow keys turn him too. With a mouse he looks toward the pointer. Drawing a circle round him makes him wave. A "Psst. You can spin me." bubble shows once | PROPOSED |
+| PR14 | Cursor, ripple, sound | Dot and ring cursor with a mouse; a ripple on every tap or click; soft tick, pop and whoosh sounds only after Sound on | PROPOSED |
+| PR15 | Work showcase | The agency case study is shown in a browser frame with a phone in front and a speech bubble, then three tool cards labelled with sample data | PROPOSED |
+| PR16 | Finish details | Hard-shadow pill buttons, outlined mono buttons, grid lines in the hero and blocks, mono kicker with LinkedIn, highlighted phrases in the hero line, fanned cards on About | PROPOSED |
+| PR17 | Learn path picker | "Tell me where you're headed. I want to use AI at work / run better creator campaigns / build my own tools / land a marketing job", each choice builds a four-step path from the real Learn library | PROPOSED |
+| PR18 | UGC page | Hero with showreel slot; a sample library of twelve format slots (product demo, unboxing, problem to fix, review to camera, voiceover, before and after, comparison, app walkthrough, day in the life, no-face B-roll, ASMR, hook test pack), filterable by format and niche, each with a planned hook, "best for" line, length and platforms, opening a script outline; a hook lab with three openings; a raw versus edited slider; what every video includes; usage rights explained (organic, paid ads, whitelisting); six steps; three UGC packages with add-ons; questions. Every slot is labelled "to film" until a real video replaces it | PROPOSED |
+
 ## Needs validation
 
 | ID | Item | Current best answer | Status |
@@ -147,3 +180,4 @@ Nothing for 2.0 yet.
 - 7 Nov 2026: PR8 intro letter and signature added to the prototype.
 - 8 Nov 2026: PR9 (six services, flip cards, signed closing) and PR10 (CV additions) added to the prototype.
 - 8 Nov 2026: D37 (v1 interactions return, reopens D15 at Vish's request) and D38 (job titles) added; PR10 approved. Page wipe and interaction sounds added to the prototype.
+- 8 Nov 2026: reference study (sebg, simondai and the earlier list, niche and UGC portfolio research) and prototype v5 (PR11 to PR18). D37 now in the prototype.
