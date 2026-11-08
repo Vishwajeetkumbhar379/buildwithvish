@@ -168,6 +168,23 @@ UGC portfolio findings (creator guides and hiring checklists): brands look for a
 | PR25 | Brands and tools | A moving row of agency brands (names only until permission for logos) and a row of tools; tools also as an app grid on Services and About. Tools listed: Meta Business Suite, Meta Ads Manager, Google Ads, LinkedIn Ads, Google Analytics, HubSpot, Zoho, Google Sheets, Canva, Figma, WordPress, Microsoft Office, Excel, PowerPoint, Slack, Google Workspace, Claude, Claude Code, ChatGPT, Codex | PROPOSED · LIST TO CONFIRM |
 | PR26 | Intro letter details | A marker on "850 creators" and "building small AI tools", a wavy underline on "vague brief" and "I answer every message myself", and a sticky note: "Five years on agency floors. Now building in public." | PROPOSED |
 
+## Storyboard round (8 Nov 2026, after Vish's v8 feedback)
+
+Vish asked to storyboard section by section with options before any more building. His picks:
+
+| ID | Item | Decision | Status |
+|---|---|---|---|
+| SB10 | First screen | Light and Hinge-clean at the start, cinematic and dark as it goes to space. Split screen: big calm type on the left; on the right Vish's real face drawn in code from thousands of dots made from his photo (no cartoon). Touch or drag scatters the dots, which spring back. Scrolling bursts the dots into a 3D Earth that turns to Mumbai, then "What brings you here?" | APPROVED (Vish's mix of light and dark) |
+| SB11 | Second screen and paths | "What brings you here?": I'm a brand, I'm hiring, I want to learn. The choice reorders the home page below (the rest folds under "Show everything") and is remembered. The note from me, the proof wall and a showreel slot are all part of it | APPROVED |
+| SB12 | Interactions | 3D tilt that follows the finger on iPad as well as the mouse, Apple-style sticky scenes, drag to explore, sound on every interaction (after Sound on) | APPROVED |
+| SB13 | Motion | Apple fades and scale, kinetic type, 3D that reacts to scroll, line illustrations that draw themselves | APPROVED |
+| SB14 | Services | Clean cards and the path, a 3D swipe stack of the six services, and an Apple-style compare table of packages | APPROVED |
+| SB15 | Pricing | "From" prices per package, prototype only and in demo mode; the figures live in the private prototype, never in this repo | APPROVED (figures private) |
+| SB16 | What I've built with AI | Opens with Matrix-style green code rain that resolves into the title; the 11 tools as clean 3D cards you can rotate, a GitHub-style grid, and one tool to try live with sample data | APPROVED |
+| SB17 | Brand logos | A calm logo wall in one grey tone that turns to colour on touch; tap a logo to flip it and read what Vish did for that brand (agency work). Real logo files in the private prototype; official files and permission before the public launch | APPROVED |
+| SB18 | Tools | An iPhone-style glass app dock with real app icons, grouped by use, that lifts on touch with a soft tap sound | APPROVED |
+| SB19 | Journey | Starts on the street map in Mumbai; scrolling zooms out to the real 3D Earth; the plane takes off above the globe and lands in Germany; then the Offenburg map. Plus photo slots per stop, a year counter, sound for each moment, and later one spoken line per stop in Vish's voice | APPROVED |
+
 ## Talk to Vish in Vish's voice (8 Nov 2026)
 
 Vish wants the site assistant to answer in his own voice without spending voice credits for every visitor.
@@ -233,3 +250,4 @@ Nothing for 2.0 yet.
 - 8 Nov 2026: v6 hero mascot rejected (S08); D40 to D44 added; second reference study (jameschugh.com, jishnumondal, abiemaxey.com, JNO); prototype v7 (PR22 to PR26). Next: a UGC shoot plan for Vish.
 - 8 Nov 2026: D45 (Pollen and Illuminati Media were remote) applied to the map, timeline and intro letter.
 - 8 Nov 2026: v7 rated 4/10 by Vish. D46 to D49 added. Prototype v8: night flight on a real Earth, a concrete note in Vish's voice (from his CV and email skills), amber spark, new sound engine, headline motion, a Remote marker and take-off on the Journey map.
+- 8 Nov 2026: storyboard round SB10 to SB19 agreed with Vish before building v9.
