@@ -203,6 +203,25 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | D49 | Proof and brands | Brands shown as international names: Philips, L’Oréal, Universal Pictures, Bumble, Vans, Unilever (HUL), Lakmé, Tata, Raymond (agency work, names only until logo permission). 9,000+ LinkedIn followers and 11 open-source AI tools may be shown | APPROVED | Vish, 8 Nov |
 | D39 | Assistant voice | ElevenLabs voices cannot be downloaded as a model, so every live answer would use credits. Recommended: (1) pre-voice the assistant's answers once (about 30 to 40 answers to the questions visitors ask most), store them as audio files with the site, and play one only when a visitor taps "Hear Vish say it". Visitors then cost nothing, and audio is redone only when an answer changes. (2) Later, if free-form spoken answers matter: train an open-source voice model on Vish's own recordings (not on ElevenLabs output) and run it in the visitor's browser, with a licence that allows commercial use. Lower quality than ElevenLabs, a larger download, and it needs about an hour of clean recordings. Text answers themselves still need a small AI budget or a free tier. Voice never plays without a tap | PROPOSED · NEEDS DECISION |
 
+## Prototype v9 (8 Nov 2026, built from the storyboard round)
+
+| ID | Item | Decision | Status |
+|---|---|---|---|
+| D50 | Colour | A calmer, more premium palette from colour psychology: Bone (#F3EFE7) and Midnight (#0B0E13) as the neutrals, Champagne (#C9A86A, with a soft metal gradient on the main buttons) as the one warm accent, deep Plum (#3A2A5E) for identity, Forest (#1F3A2E) for positive signals. Midnight reads as trust and depth, Champagne as quality and warmth, Bone is easier on the eye than pure white. Replaces violet plus amber (D47) | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D51 | Opening | The Build with Vish logo appears large and turns once, dissolves into dust, and the dust gathers into Vish's full mascot (his original render, uncut). Scrolling glides the mascot to the right of "Build with Vish"; further scrolling bursts it into particles that drift out into the site, and the tiny mascot takes over. Touching the mascot scatters the dust, which settles back. Replaces the dot portrait (SB10) and the night-flight first screen (D46) | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D52 | Copy: where Mumbai appears | "Mumbai" appears only on the Journey map. Elsewhere the copy says "creator agencies" or "influencer agencies", never "Mumbai agencies" | APPROVED | Vish, 8 Nov |
+| D53 | Tiny mascot | A small chest-up Vish (his original expression renders) sits on the edge of a card or section and hops to the next as you scroll, with a soft hop and landing sound. Tapping him opens Talk to Vish | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D54 | Talk to Vish | Livelier: the avatar breathes, glances and changes expression; typing dots, then the answer types out with a link to the right page; suggestions change with the chosen path; free text input. Labelled "Answers from this site · an AI helper, not live". In the prototype the answers are matched from site content, not a live model | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D55 | Vish's voice | Used only where it means something: the greeting in Talk to Vish and one short line per Journey stop. Generated once in Vish's own cloned voice (about 1,000 characters in total) and stored as audio files, so visitors cost nothing. Plays only on a tap (the greeting also plays when a visitor has already turned sound on). Implements option 1 of D39 for these lines | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| D56 | Sound, calmer | The bed is now softer and slower: four sine voices that breathe at their own rates, a chord change every 20 seconds with a long glide, a lower filter, very quiet room air, and an occasional soft electric-piano note from the current chord instead of random bells. A quiet click on every control that has no sound of its own; moments on the Journey have their own sounds (a swell as the map zooms out, the plane, a landing note, a chime over Offenburg). Updates D48 | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
+| PR27 | Journey v9 | Starts on the street map in Mumbai. The take-off has a long scroll of its own: the map zooms out into the real Earth, a small plane lifts off over India and flies the great circle to Germany with a "km to Offenburg" counter, the camera dives back down and the Offenburg map takes over. Swipe left or right for the next or previous stop (or Next stop, the dots and the arrow keys); a year counter rolls between stops; each card has "Hear it from Vish" (tap to play). Earth imagery credited to NASA on screen | IN PROTOTYPE | v9 |
+| PR28 | Logo wall | Nine brand tiles in one grey tone that turn to the brand colour on touch; tap to flip. The back says "Creator campaigns I worked on at an agency, as an employee" and leaves a slot for Vish's own story; no details are invented. Wordmarks set in the site's type for now (Unilever and Tata use their marks); official files and permission before the public launch (D24) | IN PROTOTYPE | v9 |
+| PR29 | Tools as a home screen | An iPhone-style panel with real app icons (icon files from SVG Logos and Simple Icons, both CC0; the trademarks belong to their owners). Tap an app to see what Vish uses it for; the AI tools sit in a glass dock that magnifies under a mouse. The same icons replace the letter tiles on Services and About | IN PROTOTYPE | v9 |
+| PR30 | Services | A 3D swipe stack of the six services (drag the top card or use the arrows) and a compare table where each column can show any package: three columns on iPad, two on phones. Prices stay placeholders (SB15) | IN PROTOTYPE | v9 |
+| PR31 | Built with AI page | Opens with green code rain and a typed headline, then the 11 tools as a 3D ring you can spin, a GitHub-style grid of the repositories, and the Creator Fit Scorer to try in the browser with six made-up creators (nothing leaves the page). The 11: Creator Fit Scorer, Campaign Report Autopilot, Creator Contract Checker, Client Health Score, Ad Performance Copilot, Marketing Attribution Lab, Growth Experiment Lab, Creator Brief MCP, LinkedIn Carousel Studio, Job Search Agent, and the Claude Skills Vish uses | IN PROTOTYPE | v9 |
+| PR32 | Home additions | An AI builds block (code rain behind three of the tools) and the tools home screen; both follow the path choice. Fixed in the prototype: a click anywhere on the home page used to re-run the path choice and scroll the page | IN PROTOTYPE | v9 |
+| PR33 | Touch | On iPad and phones, cards lean toward the finger and press in; starting a scroll cancels it | IN PROTOTYPE | v9 |
+
 ## Needs validation
 
 | ID | Item | Current best answer | Status |
@@ -211,6 +230,8 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | V02 | Experience figures | 5+ years, 850+ creators, 20+ brand accounts, 12-person team (public CV) | APPROVED → D25 |
 | V03 | Naming brands and employers on 2.0 | Already named on CV and portfolio | APPROVED → D24 |
 | V04 | Light theme | Editorial Ivory shown next to Midnight Lilac on real hero and guide content (round 1 canvas) | APPROVED → D19 |
+
+- v9: repository links for five of the 11 tools (Campaign Report Autopilot, Creator Contract Checker, Creator Brief MCP, LinkedIn Carousel Studio, Claude Skills) are not confirmed, so those cards open Vish's GitHub profile. What Vish uses each tool for on the home screen is a first draft. Brand colours on the logo wall are approximate until official files arrive.
 
 ## Rejected or superseded
 
@@ -223,6 +244,8 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | S05 | Hero option A (abstract purple orb instead of the mascot) | REJECTED |
 | S08 | The chest-up mascot turned with a depth map (v6) | REJECTED by Vish on 8 Nov: looked cheap (D40) |
 | S07 | A full-body narrator figure in the corner of the home page | REJECTED by Vish on 8 Nov (v5). The mascot now appears chest-up in the hero and looks toward the pointer (PR19) |
+| S09 | Vish's face as a dot portrait on the first screen (SB10) | SUPERSEDED by the logo-to-mascot opening (D51) |
+| S10 | Violet plus an amber spark (D47) and the night-flight first screen (D46) | SUPERSEDED by D50 and D51 |
 | S06 | A mascot built from code primitives (Three.js shapes) | REJECTED by Vish on 7 Nov: nowhere near the quality of his renders. The real 3D version comes from a professional 3D artist (D35) |
 
 ## Open: to lock in the interview
@@ -251,3 +274,4 @@ Nothing for 2.0 yet.
 - 8 Nov 2026: D45 (Pollen and Illuminati Media were remote) applied to the map, timeline and intro letter.
 - 8 Nov 2026: v7 rated 4/10 by Vish. D46 to D49 added. Prototype v8: night flight on a real Earth, a concrete note in Vish's voice (from his CV and email skills), amber spark, new sound engine, headline motion, a Remote marker and take-off on the Journey map.
 - 8 Nov 2026: storyboard round SB10 to SB19 agreed with Vish before building v9.
+- 8 Nov 2026: prototype v9 built from the storyboard round: D50 to D56, PR27 to PR33. S09 and S10 superseded.
