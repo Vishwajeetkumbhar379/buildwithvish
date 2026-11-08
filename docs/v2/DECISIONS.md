@@ -44,6 +44,8 @@ Seeded 28 Oct 2026 from the storyboard PDF (Vish's interview with ChatGPT). "PDF
 | D34 | Price display | When bookings open: "From" prices per package plus "Ask about this package". Until then the not-yet-open mode shows "Price on request" | APPROVED | Vish, 7 Nov |
 | D35 | Mascot production route | Quick AI multi-view image-to-3D likeness test first (four turnaround views already uploaded to Higgsfield; needs credits Vish adds himself), then a 3D character artist builds the final model with a real face rig. AI auto-rigs give a body skeleton only: no blinking, no eye movement, no smile | APPROVED · NEEDS PROTOTYPE | Vish, 7 Nov |
 | D36 | Finish level | Board 8 (premium pass) is the finish bar for every page | APPROVED | Vish, 7 Nov |
+| D37 | v1 interactions return | Vish wants all four back: scroll-driven 3D chapters with a chapter rail, the page wipe from the tap point with a soft whoosh, drag-to-spin plus cursor ripple, and sound on interactions (only after Sound on). This reopens D15 (two 3D moments only) at his request; reading pages stay calm. Page wipe and interaction sounds are in the prototype; the 3D chapters and drag-to-spin wait for his new references | APPROVED · NEEDS PROTOTYPE | Vish, 8 Nov |
+| D38 | Job titles | Use the new CV titles: Senior Marketing Manager, Influencer Marketing and Client Servicing (Illuminati Media); Marketing Manager, Influencer Marketing and Client Servicing (Pollen); Marketing Analytics and Content Manager, Working Student (Black Forest Business School) | APPROVED | Vish, 8 Nov |
 
 ## Round 0: audit (7 Nov 2026)
 
@@ -103,7 +105,7 @@ A private interactive prototype of the whole site, built to the board 8 finish l
 | PR7 | v1 carried over | Learn hub with search, filters and tinted numbered cards; all 90 resources; projects with progress; carousels; Build Notes; AI tool finder; prompt builder, campaign maths and launch checklist entries; XP inside Learn; the generated ambient sound | PROPOSED |
 | PR8 | Intro letter and signature | Home page, right after the three doors: "A note from me", a short letter in Vish's voice (agency years in Mumbai, 850+ creators, 20+ accounts, team of twelve; MBA and thesis in Germany; what each visitor finds on the site; building in public), signed "Vish Kumbhar" in a cursive signature face (Mrs Saint Delafield, OFL) that writes itself on when it scrolls into view. The same signature closes the About bio. The numbers band below no longer repeats the photo | PROPOSED |
 | PR9 | Services, repackaged | Six neat numbered cards in the style of the reference portfolio, built from Vish's CV: Influencer campaigns, Talent management, Account management and client servicing, Content and UGC, Team and operations, AI workflows. Each card flips in 3D on tap to show what you get, a from-price placeholder and a link to its packages tab. Packages page re-cut to the same six. Work with me ends with a centred, signed closing. Supersedes the four-category list in D07 for the prototype (to confirm) | PROPOSED |
-| PR10 | CV additions | Raymond named as the largest agency client, Universal Pictures India added, campaign scale and budget outcomes on the agency case study, the trekking start-up as a Journey chapter, MICA x upGrad and Rotaract on About. Budget figures and job-title wording to confirm before publishing | NEEDS VALIDATION |
+| PR10 | CV additions | Raymond named as the largest agency client, Universal Pictures India added, campaign scale and budget outcomes on the agency case study, the trekking start-up as a Journey chapter, MICA x upGrad and Rotaract on About. Budget figures and job-title wording to confirm before publishing | APPROVED (new CV job titles; budget figures may be shown) |
 
 ## Needs validation
 
@@ -144,3 +146,4 @@ Nothing for 2.0 yet.
 - 7 Nov 2026: code-built mascot rejected (S06). Clickable prototype of the whole site built with the original mascot renders (PR1 to PR7).
 - 7 Nov 2026: PR8 intro letter and signature added to the prototype.
 - 8 Nov 2026: PR9 (six services, flip cards, signed closing) and PR10 (CV additions) added to the prototype.
+- 8 Nov 2026: D37 (v1 interactions return, reopens D15 at Vish's request) and D38 (job titles) added; PR10 approved. Page wipe and interaction sounds added to the prototype.
