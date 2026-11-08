@@ -144,9 +144,29 @@ UGC portfolio findings (creator guides and hiring checklists): brands look for a
 
 | ID | Item | Proposal | Status |
 |---|---|---|---|
-| PR19 | Half-body mascot that looks at you | The hero arch now shows Vish's original chest-up render. It turns toward the pointer, or toward a tap on iPad, using a depth map made from the render itself, and the eyes follow. After a pause it looks around slowly. A tap shows a quick laugh, wink or surprise from his expression renders. This prototype uses his pixels as they are. A smooth head turn like simondai.com's (about 120 frames from a short AI video of the same render) needs an image-to-video step that uses credits, so it waits for Vish's go-ahead | PROPOSED · NEEDS VALIDATION |
+| PR19 | Half-body mascot that looks at you | The hero arch now shows Vish's original chest-up render. It turns toward the pointer, or toward a tap on iPad, using a depth map made from the render itself, and the eyes follow. After a pause it looks around slowly. A tap shows a quick laugh, wink or surprise from his expression renders. This prototype uses his pixels as they are. A smooth head turn like simondai.com's (about 120 frames from a short AI video of the same render) needs an image-to-video step that uses credits, so it waits for Vish's go-ahead | REJECTED by Vish on 8 Nov: looked cheap. Removed in v7 (S08, D40) |
 | PR20 | Liquid glass | Speech bubbles and small panels use an iOS-style glass: blurred and brightened background, a bright rim, a highlight that follows the pointer and a slow sheen. The dotted bubble shadow is gone | PROPOSED |
 | PR21 | More 3D | One real 3D piece per chapter (Three.js, as in v1): 850 dots that gather into groups in Proof, one per creator (the groups are illustrative); six service cards that fan out in Services; a dotted globe that turns from India to Europe while the Mumbai to Offenburg route draws itself in Journey. The Work devices swing into place in 3D, and the colour blocks tilt in further. Each piece reacts to the pointer and pauses when off screen | PROPOSED |
+
+## Reference study 2 (8 Nov 2026)
+
+| Ref | What it does well | Taken into 2.0 |
+|---|---|---|
+| jameschugh.com (Vish: the best reference) | An illustrated map hero with career stops; a Journey that works like a maps app (light street map, blue route, a moving location arrow, a place card that opens after the map moves, numbered stops, a timeline); a bottom dock with Resume; scroll-revealed story text with marker highlights and a sticky note; big quick links | Map hero (D41), maps-style Journey (PR22), bottom dock (D44), marker and wavy highlights plus a sticky note on the intro letter (PR26), quick links (D44). The bright illustrated scene is not copied |
+| jishnumondal.vercel.app | Cinematic dark motion, a framed box that expands as you scroll, project cards in browser frames | Motion polish for the final build; no new element in v7 |
+| abiemaxey.com | Clean services in three cards, each with a short line and a "from" price; a path from free to paid ("Start free, go as deep as you want"); stats; an About block | Services page rebuilt in this style (PR23) |
+| abiemaxey.com, the cursor-tracking hero article | Numbered contents next to numbered steps, prompt boxes, terminal blocks, before and after grids, a closing checklist, time per step | Guide layout (PR24). The article's technique is a short AI video cut into frames, which Vish chose not to use for now (D40) |
+| JNO UGC template | A big phone with the showreel and a row of clients | UGC page keeps the phone hero and adds a brands row (agency work, names only). Vish finds the template busy; the rest stays as designed |
+
+## Prototype v7 (8 Nov 2026)
+
+| ID | Item | Proposal | Status |
+|---|---|---|---|
+| PR22 | Journey as a maps interface | Ten stops from Pillai College to the Black Forest Business School on a stylised map ("places are approximate"): Mumbai, then a dotted world map with the flight, then Offenburg. Scrolling moves a blue route and an arrow from stop to stop; the map pans, then a place card opens with role, a short story, photo slots, chips and next and back buttons. Zoom and reset controls, timeline dots, and a plain list of the stops for screen readers. A remote role has no pin. No home or residence is shown | PROPOSED |
+| PR23 | Services, cleaner | Six service cards (one dark, the rest light or tinted), each with a one-line promise and a "from" price; a five-step path from the free Learn hub to monthly work; the six-card 3D deck above; tools as an app grid | PROPOSED |
+| PR24 | Guides, step by step | Header with time and date, three before and after previews, a numbered contents list that follows your reading, numbered steps with time per step, copyable prompt boxes, illustrated screens marked as illustrations, and a checklist at the end | PROPOSED |
+| PR25 | Brands and tools | A moving row of agency brands (names only until permission for logos) and a row of tools; tools also as an app grid on Services and About. Tools listed: Meta Business Suite, Meta Ads Manager, Google Ads, LinkedIn Ads, Google Analytics, HubSpot, Zoho, Google Sheets, Canva, Figma, WordPress, Microsoft Office, Excel, PowerPoint, Slack, Google Workspace, Claude, Claude Code, ChatGPT, Codex | PROPOSED · LIST TO CONFIRM |
+| PR26 | Intro letter details | A marker on "850 creators" and "building small AI tools", a wavy underline on "vague brief" and "I answer every message myself", and a sticky note: "Five years on agency floors. Now building in public." | PROPOSED |
 
 ## Talk to Vish in Vish's voice (8 Nov 2026)
 
@@ -154,6 +174,11 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 
 | ID | Item | Proposal | Status |
 |---|---|---|---|
+| D40 | No moving figure in the hero | Vish chose no head-turn figure for now, rather than a free AI clip or filming himself. The technique stays on file (an 8-second head-turn clip cut into frames that follow the cursor) if he wants it later | APPROVED | Vish, 8 Nov |
+| D41 | Home hero is a map of the career | A calm, maps-style view of Mumbai with the career stops as pins (after jameschugh.com, without the bright illustrated scene). Tapping a pin moves the map and opens a place card; "Take the journey" opens the full Journey | APPROVED · IN PROTOTYPE (v7) | Vish, 8 Nov |
+| D42 | Where the mascot appears | Only on the "Talk to Vish" assistant button and chat window. Removed from the hero, the narrator and the About cards | APPROVED | Vish, 8 Nov |
+| D43 | New type | Vish asked for fonts that don't look like every AI-made site, with a Hinge feel. Hinge is reported to use Tiempos Headline and Modern Era (paid). Free stand-ins on Google Fonts: Newsreader for headlines, Wix Madefor Display and Text for interface and body, Martian Mono for labels; the signature face stays. Replaces B′ (Inter, Instrument Serif, JetBrains Mono) in the prototype | PROPOSED · NEEDS VALIDATION | v7 |
+| D44 | Navigation at the bottom | Main dock moves to the bottom of the screen with a Resume button (after jameschugh.com); logo, sound and theme stay at the top. On phones the dock becomes a tab bar: Home, Services, Journey, Learn, More. Every page ends with big quick links: Resume, Services, About me, Journey, Contact | PROPOSED | v7 |
 | D39 | Assistant voice | ElevenLabs voices cannot be downloaded as a model, so every live answer would use credits. Recommended: (1) pre-voice the assistant's answers once (about 30 to 40 answers to the questions visitors ask most), store them as audio files with the site, and play one only when a visitor taps "Hear Vish say it". Visitors then cost nothing, and audio is redone only when an answer changes. (2) Later, if free-form spoken answers matter: train an open-source voice model on Vish's own recordings (not on ElevenLabs output) and run it in the visitor's browser, with a licence that allows commercial use. Lower quality than ElevenLabs, a larger download, and it needs about an hour of clean recordings. Text answers themselves still need a small AI budget or a free tier. Voice never plays without a tap | PROPOSED · NEEDS DECISION |
 
 ## Needs validation
@@ -174,6 +199,7 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | S03 | Hero option B (bright orange energetic CTA) | REJECTED |
 | S04 | 3D-heavy gallery look for Work and Learn | REJECTED |
 | S05 | Hero option A (abstract purple orb instead of the mascot) | REJECTED |
+| S08 | The chest-up mascot turned with a depth map (v6) | REJECTED by Vish on 8 Nov: looked cheap (D40) |
 | S07 | A full-body narrator figure in the corner of the home page | REJECTED by Vish on 8 Nov (v5). The mascot now appears chest-up in the hero and looks toward the pointer (PR19) |
 | S06 | A mascot built from code primitives (Three.js shapes) | REJECTED by Vish on 7 Nov: nowhere near the quality of his renders. The real 3D version comes from a professional 3D artist (D35) |
 
@@ -199,3 +225,4 @@ Nothing for 2.0 yet.
 - 8 Nov 2026: D37 (v1 interactions return, reopens D15 at Vish's request) and D38 (job titles) added; PR10 approved. Page wipe and interaction sounds added to the prototype.
 - 8 Nov 2026: reference study (sebg, simondai and the earlier list, niche and UGC portfolio research) and prototype v5 (PR11 to PR18). D37 now in the prototype.
 - 8 Nov 2026: Vish's answers on v5 (narrator out, only look-at-pointer kept, more 3D, keep 12 UGC slots, glass bubbles). Prototype v6 (PR19 to PR21). D39 voice proposal added.
+- 8 Nov 2026: v6 hero mascot rejected (S08); D40 to D44 added; second reference study (jameschugh.com, jishnumondal, abiemaxey.com, JNO); prototype v7 (PR22 to PR26). Next: a UGC shoot plan for Vish.
