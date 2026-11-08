@@ -102,6 +102,8 @@ A private interactive prototype of the whole site, built to the board 8 finish l
 | PR6 | Sound control | Moved into the dock on desktop and iPad (no floating pill over content); inside the menu on phone | PROPOSED |
 | PR7 | v1 carried over | Learn hub with search, filters and tinted numbered cards; all 90 resources; projects with progress; carousels; Build Notes; AI tool finder; prompt builder, campaign maths and launch checklist entries; XP inside Learn; the generated ambient sound | PROPOSED |
 | PR8 | Intro letter and signature | Home page, right after the three doors: "A note from me", a short letter in Vish's voice (agency years in Mumbai, 850+ creators, 20+ accounts, team of twelve; MBA and thesis in Germany; what each visitor finds on the site; building in public), signed "Vish Kumbhar" in a cursive signature face (Mrs Saint Delafield, OFL) that writes itself on when it scrolls into view. The same signature closes the About bio. The numbers band below no longer repeats the photo | PROPOSED |
+| PR9 | Services, repackaged | Six neat numbered cards in the style of the reference portfolio, built from Vish's CV: Influencer campaigns, Talent management, Account management and client servicing, Content and UGC, Team and operations, AI workflows. Each card flips in 3D on tap to show what you get, a from-price placeholder and a link to its packages tab. Packages page re-cut to the same six. Work with me ends with a centred, signed closing. Supersedes the four-category list in D07 for the prototype (to confirm) | PROPOSED |
+| PR10 | CV additions | Raymond named as the largest agency client, Universal Pictures India added, campaign scale and budget outcomes on the agency case study, the trekking start-up as a Journey chapter, MICA x upGrad and Rotaract on About. Budget figures and job-title wording to confirm before publishing | NEEDS VALIDATION |
 
 ## Needs validation
 
@@ -141,3 +143,4 @@ Nothing for 2.0 yet.
 - 7 Nov 2026: storyboard SB1 to SB8 approved; D34 (from prices), D35 (mascot route), D36 (finish level) added.
 - 7 Nov 2026: code-built mascot rejected (S06). Clickable prototype of the whole site built with the original mascot renders (PR1 to PR7).
 - 7 Nov 2026: PR8 intro letter and signature added to the prototype.
+- 8 Nov 2026: PR9 (six services, flip cards, signed closing) and PR10 (CV additions) added to the prototype.
