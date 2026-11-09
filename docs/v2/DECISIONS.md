@@ -248,6 +248,7 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | L08 | Calmer sound (v2.1) | Vish found the tick on every tap irritating and asked for a much calmer, subtler bed at about half the volume, like a reel he shared (an original-audio reel; nothing copied). Now: a low steady drone, an open chord that swells and fades at about six breaths a minute, soft wave-like noise on a longer cycle and a rare felt-piano note, all generated in the browser at half the old level. Taps, ticks, hops and the Journey's stop changes are silent; only meaningful moments make a sound (opening the chat or an app, the plane, landing, finishing a checklist) | LIVE | Vish, 9 Nov |
 | L09 | Tap response (v2.1) | Every tap gets a visible response instead of a sound: the control presses in and a soft champagne ring opens where you touched | LIVE | Vish, 9 Nov |
 | L10 | Note and small print (v2.1) | The note no longer shows the "Right now" card (studies, open to work) and no longer leads with being a student; it now lists the six services concretely. The small lines about agencies, employment and logo permission under the brands are gone. The fanned service cards show only their numbers (the labels were clipped) | LIVE | Vish, 9 Nov |
+| L11 | Studies on the Journey | The MBA and the working-student job stay on the Journey map: they are part of the career story. The home page and the note don't lead with them | APPROVED | Vish, 9 Nov |
 
 ## Needs validation
 
