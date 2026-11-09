@@ -1,14 +1,20 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-uYpBHOQQvZTfRep4E7Ek/FT3k7aKB47WjYV2BDps+34=' 'sha256-vNDX4zCOcxV5gBh+e5a+Kzqk7KWEgRqiMtlk1XkQsYQ=' 'sha256-U/ERPVPB58++TzfcrQpzGks+5hKDsUVehii9YhA87yg=' 'sha256-pXR/boLxSjjfRceHWqXMj7Ij/mQXIH3Yfu9OiRnq3pw='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), interest-cohort=(), browsing-topics=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin
 /vendor/*
   Cache-Control: public, max-age=31536000, immutable
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
-/vish.jpg
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/img/*
   Cache-Control: public, max-age=604800
+/audio/*
+  Cache-Control: public, max-age=604800
+/g/*
+  Cache-Control: public, max-age=3600

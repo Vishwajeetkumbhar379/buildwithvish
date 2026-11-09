@@ -234,6 +234,18 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | D62 | Tools on a real iPhone | The home screen now sits in a realistic iPhone: titanium frame and side buttons, Dynamic Island, status bar, wallpaper in the site palette, a 4 by 4 grid, page dots, a glass dock with the AI tools and the home bar. Tapping an app opens it full screen like iOS (what Vish uses it for), and it closes back into its icon. The phone leans toward the pointer or finger | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
 | D63 | Journey without stray lines | The home Journey card drew coastlines as thin lines that looked like a hair on the screen. It is now a boarding pass (From Mumbai, To Offenburg, via Remote 2022 to 2025, 10 stops, a small plane flying the dotted arc, "Tap to board"). On the Journey map the road ahead is shown as clear dots instead of faint lines, and the swipe hint uses arrows instead of a moving line | APPROVED · IN PROTOTYPE | Vish, 8 Nov |
 
+## Launch (9 Nov 2026)
+
+| ID | Item | Decision | Status |
+|---|---|---|---|
+| L01 | 2.0 goes live | Vish asked to replace v1 on buildwithvvish.com with 2.0. UGC videos follow when he sends them; the UGC page already says the samples are being filmed | LIVE | Vish, 9 Nov |
+| L02 | Every article works | All 90 guides, projects, prompt packs, tool pages and news posts from v1 open in the 2.0 reader at #read-<slug>, plus the launch checklist as its own article. Numbered sections with a contents rail, time per section, prompts you can copy or open in Claude or ChatGPT, tick-off checklists, project steps with progress, the campaign calculator, and three more to read. Old v1 addresses (#guides, #partner, #portfolio, #launch and others) redirect | LIVE | v2.0 |
+| L03 | Content is his own | Audit of every article: no third-party images, embeds or scripts, no long quotes; news posts summarise public announcements in his words and link the sources; product names only to explain use. Credits and licences on the Imprint and privacy page (fonts OFL, Three.js MIT, GSAP standard licence, NASA imagery, CC0 icon files whose marks belong to their owners) | LIVE | v2.0 |
+| L04 | Prices | Starting prices from the storyboard PDF on Services, Packages, UGC and the compare table; packages without a PDF figure say "Price on request". Booking for paid projects is not open yet: no checkout, a calm note on Packages, and enquiries go to the contact form | LIVE · DEMO MODE FOR BOOKING | Vish, 9 Nov |
+| L05 | Security | Everything self-hosted (fonts, libraries, images, audio); Content-Security-Policy allows scripts only from the site itself and no inline scripts; no third-party requests; HSTS, no framing, nosniff, strict referrer policy, locked-down browser features; every new-tab link uses noopener; no keys in the repo | LIVE | v2.0 |
+| L06 | Forms | Contact and both newsletter forms post to the Worker and fall back to Netlify Forms; if both fail, the contact form offers a ready-filled email | LIVE | v2.0 |
+| L07 | Links | Every outside link checked: 133 answer directly; the rest are sites that block automated checks (OpenAI help, Canva help, Make, Gamma, eMarketer, LinkedIn) and load for visitors; all 13 public GitHub repositories exist and each tool links to its own | LIVE | v2.0 |
+
 ## Needs validation
 
 | ID | Item | Current best answer | Status |
@@ -268,7 +280,7 @@ Type scale, spacing, radii, buttons, focus ring and motion tokens (round 1b) · 
 
 ## Built
 
-Nothing for 2.0 yet.
+2.0 live on 9 Nov 2026 (L01 to L07).
 
 ## Changelog
 
@@ -290,3 +302,4 @@ Nothing for 2.0 yet.
 - 8 Nov 2026: storyboard round SB10 to SB19 agreed with Vish before building v9.
 - 8 Nov 2026: prototype v9 built from the storyboard round: D50 to D56, PR27 to PR33. S09 and S10 superseded.
 - 8 Nov 2026: v10 from Vish's corrections: D57 to D63. S11 superseded, S12 removed.
+- 9 Nov 2026: 2.0 replaced v1 on the live site at Vish's request (L01 to L07).
