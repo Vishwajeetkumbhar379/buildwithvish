@@ -371,7 +371,7 @@
   const markWords = (p, words, cls) => { const ws = p._w; for (let i = 0; i <= ws.length - words.length; i++) { if (words.every((w, k) => ws[i + k].textContent.replace(/[,.]/g, '') === w)) { for (let k = 0; k < words.length; k++) ws[i + k].classList.add(cls); return; } } };
   if (rvs[0]) { markWords(rvs[0], ['850', 'creators'], 'mk'); markWords(rvs[0], ['work', 'actually', 'runs'], 'wv'); }
   if (rvs[1]) { markWords(rvs[1], ['vague', 'brief'], 'wv'); markWords(rvs[1], ['team', 'of', 'twelve'], 'mk'); }
-  if (rvs[2]) markWords(rvs[2], ['11', 'small', 'AI', 'tools'], 'mk');
+  if (rvs[2]) markWords(rvs[2], ['shortlists', 'contracts', 'and', 'reports'], 'mk');
   if (rvs[3]) markWords(rvs[3], ['I', 'read', 'every', 'message', 'myself'], 'wv');
   let ticking = false;
   function frame() {
@@ -485,34 +485,43 @@
 
   /* sound: a calm generative bed (warm pad, room air, rare soft chimes) and soft UI sounds. Nothing plays until a tap. */
   let ac = null, on = false, master = null, verb = null, chimeT = 0;
-  function impulse(sec) { const n = Math.floor(ac.sampleRate * sec), b = ac.createBuffer(2, n, ac.sampleRate); for (let c = 0; c < 2; c++) { const d = b.getChannelData(c); for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2.6); } return b; }
+  function impulse(sec) { const n = Math.floor(ac.sampleRate * sec), b = ac.createBuffer(2, n, ac.sampleRate); for (let c = 0; c < 2; c++) { const d = b.getChannelData(c); for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 3); } return b; }
+  /* The calm bed, generated here (no recordings, nothing borrowed): a low drone that never moves, an open chord that
+     swells and fades at about six breaths a minute (0.1 Hz, the pace of slow, relaxed breathing), soft wave-like noise
+     on a longer cycle, and now and then one felt-piano note. Warm and low; nothing sharp. */
   let curCh = 0;
-  const CH = [[146.83, 220, 277.18, 329.63], [123.47, 185, 220, 293.66], [98, 146.83, 246.94, 369.99], [110, 164.81, 277.18, 329.63]];
+  const CH = [[146.83, 220, 277.18, 329.63], [123.47, 185, 220, 293.66], [98, 146.83, 246.94, 293.66], [110, 164.81, 220, 277.18]];
+  const NOTES = [[587.33, 739.99, 880], [493.88, 587.33, 739.99], [392, 493.88, 587.33], [440, 554.37, 659.25]];
   function buildAudio() {
     const C = window.AudioContext || window.webkitAudioContext; if (!C) return false;
     ac = new C(); master = ac.createGain(); master.gain.value = 0;
-    const comp = ac.createDynamicsCompressor(); master.connect(comp); comp.connect(ac.destination);
-    verb = ac.createConvolver(); verb.buffer = impulse(4.2); const wet = ac.createGain(); wet.gain.value = .6; verb.connect(wet); wet.connect(master);
-    const bed = ac.createGain(); bed.gain.value = .5; bed.connect(master); bed.connect(verb);
-    const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 520; lp.Q.value = .3; lp.connect(bed);
-    const lfo = ac.createOscillator(), lfoG = ac.createGain(); lfo.frequency.value = .018; lfoG.gain.value = 180; lfo.connect(lfoG); lfoG.connect(lp.frequency); lfo.start();
-    // four sine voices, each breathing at its own slow rate
-    const voices = CH[0].map((f, i) => { const o = ac.createOscillator(); o.type = 'sine'; o.frequency.value = f; o.detune.value = (i - 1.5) * 4; const g = ac.createGain(); g.gain.value = .03; const br = ac.createOscillator(), brG = ac.createGain(); br.frequency.value = .04 + i * .017; brG.gain.value = .012; br.connect(brG); brG.connect(g.gain); br.start(); o.connect(g); g.connect(lp); o.start(); return o; });
-    setInterval(() => { if (!on) return; curCh = (curCh + 1) % CH.length; voices.forEach((o, i) => o.frequency.setTargetAtTime(CH[curCh][i], ac.currentTime + i * .4, 4.5)); }, 20000);
-    // room air, very quiet
-    const nb = ac.createBuffer(1, ac.sampleRate * 4, ac.sampleRate), nd = nb.getChannelData(0); let last = 0; for (let i = 0; i < nd.length; i++) { last = (last + .02 * (Math.random() * 2 - 1)) / 1.02; nd[i] = last * 3.5; }
-    const ns = ac.createBufferSource(); ns.buffer = nb; ns.loop = true; const nf = ac.createBiquadFilter(); nf.type = 'bandpass'; nf.frequency.value = 650; nf.Q.value = .6; const ng = ac.createGain(); ng.gain.value = .022; ns.connect(nf); nf.connect(ng); ng.connect(bed); ns.start();
+    const comp = ac.createDynamicsCompressor(); comp.threshold.value = -30; comp.ratio.value = 3; master.connect(comp); comp.connect(ac.destination);
+    verb = ac.createConvolver(); verb.buffer = impulse(6); const wet = ac.createGain(); wet.gain.value = .7; verb.connect(wet); wet.connect(master);
+    const bed = ac.createGain(); bed.gain.value = .55; bed.connect(master); bed.connect(verb);
+    const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 430; lp.Q.value = .2; lp.connect(bed);
+    const lfo = ac.createOscillator(), lfoG = ac.createGain(); lfo.frequency.value = .011; lfoG.gain.value = 110; lfo.connect(lfoG); lfoG.connect(lp.frequency); lfo.start();
+    // the breath: the chord swells for five seconds and fades for five
+    const breathe = ac.createGain(); breathe.gain.value = .62; breathe.connect(lp);
+    const br = ac.createOscillator(), brG = ac.createGain(); br.frequency.value = .1; brG.gain.value = .36; br.connect(brG); brG.connect(breathe.gain); br.start();
+    const voices = CH[0].map((f, i) => { const o = ac.createOscillator(); o.type = 'sine'; o.frequency.value = f; o.detune.value = (i - 1.5) * 3; const g = ac.createGain(); g.gain.value = .024; o.connect(g); g.connect(breathe); o.start(); return o; });
+    setInterval(() => { if (!on) return; curCh = (curCh + 1) % CH.length; voices.forEach((o, i) => o.frequency.setTargetAtTime(CH[curCh][i], ac.currentTime + i * .6, 7)); }, 28000);
+    // the drone: D and A, low and steady, for a sense of ground
+    [[73.42, .03], [110, .014]].forEach(([f, v]) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = f; g.gain.value = v; o.connect(g); g.connect(lp); o.start(); });
+    // soft waves: brown noise, low-passed, rising and falling over about fourteen seconds
+    const nb = ac.createBuffer(1, ac.sampleRate * 8, ac.sampleRate), nd = nb.getChannelData(0); let last = 0; for (let i = 0; i < nd.length; i++) { last = (last + .02 * (Math.random() * 2 - 1)) / 1.02; nd[i] = last * 3.5; }
+    const ns = ac.createBufferSource(); ns.buffer = nb; ns.loop = true; const nf = ac.createBiquadFilter(); nf.type = 'lowpass'; nf.frequency.value = 360; nf.Q.value = .3;
+    const wave = ac.createGain(); wave.gain.value = .022; const wl = ac.createOscillator(), wlG = ac.createGain(); wl.frequency.value = .07; wlG.gain.value = .018; wl.connect(wlG); wlG.connect(wave.gain); wl.start();
+    ns.connect(nf); nf.connect(wave); wave.connect(bed); ns.start();
     return true;
   }
-  // a soft electric-piano note: a sine with two quiet partials that fade faster
-  function keys(f, vol, when = 0) { const t = ac.currentTime + when; [[1, 1], [2, .18], [3, .05]].forEach(([m, a]) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = f * m; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol * a, t + .02); g.gain.exponentialRampToValueAtTime(.0001, t + 2.8 / m); o.connect(g); g.connect(master); g.connect(verb); o.start(t); o.stop(t + 3); }); }
-  const PENTA = [587.33, 659.25, 739.99, 880, 987.77, 1174.66, 1318.51];
-  function bell(f, vol = .05, when = 0) { const t = ac.currentTime + when; [1, 2.76, 5.4].forEach((m, k) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = f * m; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol / (k * 2 + 1), t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + 2.8 / (k + 1)); o.connect(g); g.connect(verb); g.connect(master); o.start(t); o.stop(t + 3); }); }
-  function chimes() { clearTimeout(chimeT); if (!on) return; const ch = CH[curCh], pick = () => ch[1 + Math.floor(Math.random() * 3)] * 2; keys(pick(), .018); if (Math.random() < .4) keys(pick(), .011, .38); chimeT = setTimeout(chimes, 7000 + Math.random() * 8000); }
+  // a felt-piano note: soft attack, long fade, mostly reverb
+  function keys(f, vol, when = 0) { const t = ac.currentTime + when; [[1, 1], [2, .12]].forEach(([m, a]) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = f * m; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol * a, t + .045); g.gain.exponentialRampToValueAtTime(.0001, t + 4.5 / m); o.connect(g); g.connect(verb); const d = ac.createGain(); d.gain.value = .45; g.connect(d); d.connect(master); o.start(t); o.stop(t + 4.8); }); }
+  function bell(f, vol = .05, when = 0) { const t = ac.currentTime + when; [1, 2.76].forEach((m, k) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = f * m; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol / (k * 3 + 1), t + .03); g.gain.exponentialRampToValueAtTime(.0001, t + 3 / (k + 1)); o.connect(g); g.connect(verb); g.connect(master); o.start(t); o.stop(t + 3.2); }); }
+  function chimes() { clearTimeout(chimeT); if (!on) return; const n = NOTES[curCh]; keys(n[Math.floor(Math.random() * n.length)], .012); if (Math.random() < .3) keys(n[Math.floor(Math.random() * n.length)], .008, .9); chimeT = setTimeout(chimes, 11000 + Math.random() * 9000); }
   function sound() {
     if (!ac && !buildAudio()) return;
-    on = !on; ac.resume(); master.gain.cancelScheduledValues(ac.currentTime); master.gain.setTargetAtTime(on ? .42 : 0, ac.currentTime, on ? 1.6 : .35);
-    if (on) { chimeT = setTimeout(chimes, 3000); bell(880, .035); } else clearTimeout(chimeT);
+    on = !on; ac.resume(); master.gain.cancelScheduledValues(ac.currentTime); master.gain.setTargetAtTime(on ? .21 : 0, ac.currentTime, on ? 2.4 : .35);
+    if (on) { chimeT = setTimeout(chimes, 5000); keys(587.33, .012, .3); } else clearTimeout(chimeT);
     $$('[data-sound]').forEach((b) => {
       b.setAttribute('aria-pressed', String(on));
       if (b.classList.contains('iconbtn')) { b.setAttribute('aria-label', on ? 'Sound on. Turn sound off' : 'Sound off. Turn sound on'); const w = b.querySelector('.w'); if (w) w.setAttribute('d', on ? 'M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13' : 'M22 9l-6 6M16 9l6 6'); }
@@ -521,28 +530,32 @@
     });
   }
   $$('[data-sound]').forEach((b) => b.addEventListener('click', sound));
+  // only meaningful moments make a sound; taps, ticks and hops stay silent
+  const QUIET = { tick: 1, click: 1, hop: 1, sand: 1 };
   function sfx(kind) {
-    if (!ac || !on) return;
+    if (!ac || !on || QUIET[kind]) return;
     const t = ac.currentTime;
     if (kind === 'whoosh' || kind === 'plane') {
-      const len = kind === 'plane' ? 2.2 : .6, n = ac.createBufferSource(), buf = ac.createBuffer(1, Math.floor(ac.sampleRate * len), ac.sampleRate), d = buf.getChannelData(0);
+      const len = kind === 'plane' ? 2.6 : .9, n = ac.createBufferSource(), buf = ac.createBuffer(1, Math.floor(ac.sampleRate * len), ac.sampleRate), d = buf.getChannelData(0);
       for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.sin(Math.PI * i / d.length);
-      n.buffer = buf; const f = ac.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = .9; f.frequency.setValueAtTime(kind === 'plane' ? 180 : 400, t); f.frequency.exponentialRampToValueAtTime(kind === 'plane' ? 1400 : 2200, t + len * .8);
-      const g = ac.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(kind === 'plane' ? .14 : .08, t + len * .35); g.gain.exponentialRampToValueAtTime(.001, t + len);
+      n.buffer = buf; const f = ac.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = .5; f.frequency.setValueAtTime(kind === 'plane' ? 220 : 300, t); f.frequency.exponentialRampToValueAtTime(kind === 'plane' ? 900 : 1100, t + len * .6);
+      const g = ac.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(kind === 'plane' ? .07 : .03, t + len * .4); g.gain.exponentialRampToValueAtTime(.001, t + len);
       n.connect(f); f.connect(g); g.connect(master); g.connect(verb); n.start(t); n.stop(t + len);
     } else if (kind === 'swell') {
-      [293.66, 440, 554.37].forEach((fq, i) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = fq; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.022, t + .9); g.gain.exponentialRampToValueAtTime(.0001, t + 2.6); o.connect(g); g.connect(verb); o.start(t + i * .06); o.stop(t + 2.8); });
-    } else if (kind === 'chime') { bell(1174.66, .045); bell(1479.98, .03, .2); }
-    else if (kind === 'pop') bell(987.77, .025);
-    else if (kind === 'hop') { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.setValueAtTime(420, t); o.frequency.exponentialRampToValueAtTime(980, t + .12); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.03, t + .02); g.gain.exponentialRampToValueAtTime(.0001, t + .16); o.connect(g); g.connect(master); o.start(t); o.stop(t + .18); }
-    else if (kind === 'land') { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.setValueAtTime(190, t); o.frequency.exponentialRampToValueAtTime(95, t + .1); g.gain.setValueAtTime(.05, t); g.gain.exponentialRampToValueAtTime(.0001, t + .14); o.connect(g); g.connect(master); o.start(t); o.stop(t + .16); bell(1318.51, .012, .05); }
-    else if (kind === 'sand') { const n = ac.createBufferSource(), buf = ac.createBuffer(1, Math.floor(ac.sampleRate * .18), ac.sampleRate), d = buf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 2); n.buffer = buf; const f = ac.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 2600; const g = ac.createGain(); g.gain.value = .035; n.connect(f); f.connect(g); g.connect(master); n.start(t); }
-    else if (kind === 'tick') { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'triangle'; o.frequency.setValueAtTime(2100, t); g.gain.setValueAtTime(.018, t); g.gain.exponentialRampToValueAtTime(.001, t + .03); o.connect(g); g.connect(master); o.start(t); o.stop(t + .04); }
-    else { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.setValueAtTime(1250, t); o.frequency.exponentialRampToValueAtTime(680, t + .05); g.gain.setValueAtTime(.05, t); g.gain.exponentialRampToValueAtTime(.001, t + .08); o.connect(g); g.connect(master); o.start(t); o.stop(t + .09); }
+      [293.66, 440, 554.37].forEach((fq, i) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = fq; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.012, t + 1.4); g.gain.exponentialRampToValueAtTime(.0001, t + 3.6); o.connect(g); g.connect(verb); o.start(t + i * .12); o.stop(t + 3.8); });
+    } else if (kind === 'chime') { keys(880, .016); keys(1174.66, .01, .35); }
+    else if (kind === 'pop') keys(739.99, .012);
+    else if (kind === 'land') keys(440, .012);
   }
-  // a quiet click for every control, except the pieces that make their own sound
-  const OWN_SFX = '[data-sound],#iosHome,#brandList,#passHome,#fitLive,#svcStack,#cmp,.buddy,#chat,[data-jstep],[data-jvoice],[data-lane],.jm-dots,.jm-pin,#ring3d';
-  document.addEventListener('click', (e) => { if (e.target.closest('button,.chip,[data-turn],[data-goto],a[target="_blank"],summary') && !e.target.closest(OWN_SFX)) sfx('click'); });
+  /* a visible response to every tap: the control presses in, and a soft ring opens where you touched */
+  const TAPSEL = 'a,button,select,summary,label,.chip,.lc,.card,.pcard,.svc-c,.gh-c,.bl-r,.iph-app-i,.r3-c,.sw-c,[role="button"]';
+  document.addEventListener('pointerdown', (e) => {
+    if (RM || e.button > 0) return;
+    const t = e.target.closest(TAPSEL); if (!t || t.closest('.buddy,.dt-sticky,.ring3d,.swst-cards')) return;
+    const big = t.offsetWidth > 260 || t.offsetHeight > 160, c = big ? 'tapl' : 'taps';
+    t.classList.remove('taps', 'tapl'); void t.offsetWidth; t.classList.add(c); setTimeout(() => t.classList.remove(c), 460);
+    const r = document.createElement('i'); r.className = 'tap-ring' + (big ? ' big' : ''); r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px'; r.setAttribute('aria-hidden', 'true'); document.body.appendChild(r); setTimeout(() => r.remove(), 700);
+  }, { passive: true });
   document.addEventListener('visibilitychange', () => { if (ac && on) document.hidden ? ac.suspend() : ac.resume(); });
 
   route();

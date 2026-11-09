@@ -154,7 +154,7 @@
   /* deck: six service cards that fan out as you arrive */
   function deck(scene, cam) {
     cam.position.set(0, .2, 9.6);
-    const NAMES = [['Influencer', 'campaigns'], ['Talent', 'management'], ['Account', 'management'], ['Content', 'and UGC'], ['Team and', 'operations'], ['AI', 'workflows']];
+    const NAMES = [['Campaigns'], ['Talent'], ['Accounts'], ['Content', '& UGC'], ['Teams'], ['AI', 'tools']];
     const TINT = ['#F6F1E8', '#F0FBF6', '#FEF6F3', '#F6F1E8', '#F0FBF6', '#FEF6F3'];
     const INK = ['#3A2A5E', '#0A5E55', '#8A3A1A', '#3A2A5E', '#0A5E55', '#8A3A1A'];
     const grp = new THREE.Group(); scene.add(grp);
@@ -163,9 +163,9 @@
     const geo = new THREE.ExtrudeGeometry(shape, { depth: .05, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 3, curveSegments: 10 }); geo.translate(0, 0, -.025);
     const label = (i) => {
       const cv = document.createElement('canvas'); cv.width = 340; cv.height = 450; const x = cv.getContext('2d');
-      x.globalAlpha = .16; x.fillStyle = INK[i]; x.font = '800 170px Inter, system-ui, sans-serif'; x.fillText(String(i + 1).padStart(2, '0'), 118, 250); x.globalAlpha = 1;
-      x.font = '500 30px "JetBrains Mono", monospace'; x.fillText(String(i + 1).padStart(2, '0') + ' / 06', 30, 58);
-      x.font = '700 48px Inter, system-ui, sans-serif'; NAMES[i].forEach((l, k) => x.fillText(l, 30, 352 + k * 54));
+      // a big number on the part of the card that stays visible in the fan; the services themselves are spelled out below
+      x.fillStyle = INK[i]; x.globalAlpha = .9; x.font = '500 26px "Martian Mono", monospace'; x.fillText(String(i + 1).padStart(2, '0') + ' / 06', 26, 54);
+      x.globalAlpha = .82; x.font = '800 190px "Wix Madefor Display", system-ui, sans-serif'; x.fillText(String(i + 1).padStart(2, '0'), 18, 400); x.globalAlpha = 1;
       const tex = new THREE.CanvasTexture(cv); tex.encoding = THREE.sRGBEncoding; tex.anisotropy = 4; return tex;
     };
     const cards = NAMES.map((n, i) => {

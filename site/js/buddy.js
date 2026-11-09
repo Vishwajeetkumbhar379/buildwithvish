@@ -63,7 +63,7 @@
     const d = Math.hypot(to.x - pos.x, to.y - pos.y);
     if (RM || d < 20) { pos = { ...to }; scl = opts.s == null ? 1 : opts.s; if (opts.done) opts.done(); return; }
     hop = { t0: performance.now(), from: { ...pos }, to, h: opts.h || 60 + Math.min(150, d * .2), D: opts.D || 720, dir: to.x < pos.x ? -1 : 1, s0: scl, s1: opts.s == null ? 1 : opts.s, done: opts.done, twirl: opts.twirl !== false };
-    b.classList.add('air'); sfx('hop');
+    b.classList.add('air');
   }
   function tick(t) {
     requestAnimationFrame(tick);
@@ -101,7 +101,7 @@
     b.classList.toggle('lt', pos.x < innerWidth / 2);
   }
   function land(el, k) {
-    b.classList.remove('land'); void b.offsetWidth; b.classList.add('land'); setTimeout(() => b.classList.remove('land'), 420); sfx('land');
+    b.classList.remove('land'); void b.offsetWidth; b.classList.add('land'); setTimeout(() => b.classList.remove('land'), 420);
     if (!el) return;
     const r = Math.random();
     gesture(r < .45 ? (k % 2 ? 'g-point-screen-right' : 'g-point-screen-left') : r < .7 ? 'g-thumbs-up' : 'g-explaining', 1400);
@@ -127,7 +127,7 @@
     [/ugc|video|reel|content/i, 'Vish scripts, films and edits vertical videos, with three hooks each and usage rights in writing.', ['See UGC', '#ugc']],
     [/learn|guide|start|beginner|claude|chatgpt|prompt/i, 'Start with the complete Claude guide for beginners. Everything in the Learn hub is free.', ['Open the guide', '#guide']],
     [/built|tool|github|code|ai tool|project/i, 'He has built 11 open-source AI tools, from a creator fit scorer to a weekly report autopilot. You can try one live.', ['See the AI tools', '#ai']],
-    [/journey|story|background|experience|where/i, 'Five years at creator agencies, 850+ creators, 20+ brands and a team of twelve, then an MBA in Germany.', ['Take the journey', '#journey']],
+    [/journey|story|background|experience|where/i, 'Five years at creator agencies, 850+ creators, 20+ brands and a team of twelve. Now based in Germany, building AI tools for marketing teams.', ['Take the journey', '#journey']],
     [/service|brand|agency|campaign|influencer|talent|help/i, 'Influencer campaigns, talent management, client servicing, content and UGC, team operations and AI workflows.', ['See services', '#services']],
     [/contact|email|call|talk|reach/i, 'Send a short note on the Contact page. Vish reads every message himself.', ['Contact', '#contact']]
   ];

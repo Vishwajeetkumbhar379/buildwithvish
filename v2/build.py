@@ -100,7 +100,7 @@ FONTS = [("Newsreader", "newsreader-latin-standard-normal.woff2", "normal", "300
          ("Mrs Saint Delafield", "mrs-saint-delafield-latin-400-normal.woff2", "normal", "400", "")]
 ff = "".join("@font-face{font-family:'%s';src:url(/fonts/%s) format('woff2');font-style:%s;font-weight:%s;%sfont-display:swap}" % f for f in FONTS)
 TITLE = "Build with Vish"
-DESC = "Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now an MBA in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."
+DESC = "Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now based in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."
 ICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Crect width='30' height='30' rx='9' fill='%234A3A73'/%3E"
         "%3Crect x='7' y='7' width='16' height='16' rx='3' fill='none' stroke='%23F3EEE4' stroke-width='2.2' transform='rotate(45 15 15)'/%3E%3Ccircle cx='15' cy='15' r='2.6' fill='%23E2C58E'/%3E%3C/svg%3E")
 head = ('<!doctype html>\n<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'

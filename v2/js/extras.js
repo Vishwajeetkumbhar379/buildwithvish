@@ -59,7 +59,7 @@
   ];
   const bl = $('#brandList');
   if (bl) {
-    bl.innerHTML = WALL.map(([n, cat, col], k) => `<button type="button" class="bl-r" style="--bc:${col}" aria-expanded="false"><span class="bl-h"><span class="bl-i">${String(k + 1).padStart(2, '0')}</span><span class="bl-n">${esc(n)}<i class="bl-dot" aria-hidden="true"></i></span><span class="bl-c">${esc(cat)}</span><span class="bl-p" aria-hidden="true">+</span></span><span class="bl-x"><span><span class="bl-s"><span><b>What</b>Creator campaigns I worked on at an agency, as an employee.</span><span><b>Sector</b>${esc(cat)}</span></span></span></span></button>`).join('');
+    bl.innerHTML = WALL.map(([n, cat, col], k) => `<button type="button" class="bl-r" style="--bc:${col}" aria-expanded="false"><span class="bl-h"><span class="bl-i">${String(k + 1).padStart(2, '0')}</span><span class="bl-n">${esc(n)}<i class="bl-dot" aria-hidden="true"></i></span><span class="bl-c">${esc(cat)}</span><span class="bl-p" aria-hidden="true">+</span></span><span class="bl-x"><span><span class="bl-s"><span><b>What</b>Creator campaigns I ran at a creator agency.</span><span><b>Sector</b>${esc(cat)}</span></span></span></span></button>`).join('');
     const rows = $$('.bl-r', bl);
     bl.addEventListener('click', (e) => { const r = e.target.closest('.bl-r'); if (!r) return; const on = r.getAttribute('aria-expanded') !== 'true'; rows.forEach((x) => x.setAttribute('aria-expanded', String(x === r && on))); sfx(on ? 'pop' : 'click'); });
     let lit = null, raf = 0;

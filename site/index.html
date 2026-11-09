@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Build with Vish</title><meta name="description" content="Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now an MBA in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."><meta name="author" content="Vishwajeet Kumbhar">
+<title>Build with Vish</title><meta name="description" content="Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now based in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."><meta name="author" content="Vishwajeet Kumbhar">
 <link rel="canonical" href="https://buildwithvvish.com/"><base href="/">
-<meta property="og:title" content="Build with Vish"><meta property="og:description" content="Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now an MBA in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."><meta property="og:type" content="website"><meta property="og:url" content="https://buildwithvvish.com/"><meta property="og:image" content="https://buildwithvvish.com/og.png">
+<meta property="og:title" content="Build with Vish"><meta property="og:description" content="Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now based in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."><meta property="og:type" content="website"><meta property="og:url" content="https://buildwithvvish.com/"><meta property="og:image" content="https://buildwithvvish.com/og.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0B0E13"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Crect width='30' height='30' rx='9' fill='%234A3A73'/%3E%3Crect x='7' y='7' width='16' height='16' rx='3' fill='none' stroke='%23F3EEE4' stroke-width='2.2' transform='rotate(45 15 15)'/%3E%3Ccircle cx='15' cy='15' r='2.6' fill='%23E2C58E'/%3E%3C/svg%3E">
 <link rel="preload" href="/fonts/wix-madefor-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/wix-madefor-text-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -1459,6 +1459,25 @@ ul.checklist .why,ul.checklist .how{display:block;font-size:14.5px;color:var(--b
 .flegal{display:flex;gap:16px;flex-wrap:wrap}
 .flegal a{color:inherit}
 
+/* v2.1: tap response */
+.taps{animation:taps .46s cubic-bezier(.3,1.5,.5,1)}
+.tapl{animation:tapl .46s cubic-bezier(.3,1.5,.5,1)}
+@keyframes taps{0%{scale:1}28%{scale:.94}100%{scale:1}}
+@keyframes tapl{0%{scale:1}28%{scale:.985}100%{scale:1}}
+.tap-ring{position:fixed;z-index:300;left:0;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;pointer-events:none;border:1.5px solid rgba(212,182,124,.75);background:radial-gradient(circle,rgba(212,182,124,.22),transparent 70%);animation:tapRing .6s cubic-bezier(.2,.7,.3,1) forwards}
+.tap-ring.big{width:90px;height:90px;margin:-45px 0 0 -45px}
+@keyframes tapRing{0%{transform:scale(.25);opacity:.95}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.tap-ring{display:none}}
+/* v2.1: the six services in the note */
+.helps{margin-top:6px;padding:22px 24px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--sh1)}
+.helps ol{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;counter-reset:h}
+.helps li{counter-increment:h;display:grid;grid-template-columns:28px 1fr;gap:2px 8px}
+.helps li::before{content:counter(h,decimal-leading-zero);grid-row:span 2;font:500 11px/1.9 var(--f-mono);color:var(--acc)}
+.helps b{font:600 15.5px/1.3 var(--f-disp);color:var(--ink)}
+.helps span{font-size:14.5px;line-height:1.5;color:var(--body)}
+.helps .link{display:inline-block;margin-top:16px}
+@media(max-width:700px){.helps ol{grid-template-columns:1fr}}
+
 .page[data-page="home"]{overflow-x:clip}
 .ond .card{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
@@ -1533,7 +1552,7 @@ ul.checklist .why,ul.checklist .how{display:block;font-size:14.5px;color:var(--b
         <div class="dt-beat">
           <p class="dt-k">Vish Kumbhar · creator partnerships, content and practical AI</p>
           <h1 class="dt-h">Build <span class="serif">with</span><br>Vish.</h1>
-          <p class="dt-p">Creator campaigns, run properly. Five years at creator agencies: 850+ creators, 20+ brands, a team of twelve. Now an MBA in Germany, and AI tools I build myself.</p>
+          <p class="dt-p">Creator campaigns, run properly. Five years at creator agencies: 850+ creators, 20+ brands, a team of twelve. Now based in Germany, building AI tools for marketing teams.</p>
           <div class="dt-cta"><a class="btn btn-hard acc" href="#home" data-goto-paths>Start here</a><button type="button" class="fl-sound" data-sound aria-pressed="false"><i aria-hidden="true"><b></b><b></b><b></b></i><span>Play with sound</span></button></div>
         </div>
       </div>
@@ -1564,10 +1583,17 @@ ul.checklist .why,ul.checklist .how{display:block;font-size:14.5px;color:var(--b
         <h2 class="h2">Hi, I'm Vish. <span class="serif" style="color:var(--acc)">Welcome in.</span></h2>
         <p class="first rv">I help brands work with creators, and I make sure the work actually runs. For five years I did this at influencer agencies: finding the right creators, writing the briefs, agreeing fees and usage, keeping approvals on time and reporting what happened. Along the way I worked with more than 850 creators for 20+ brands, from Philips and L’Oréal to Universal Pictures and Bumble.</p>
         <p class="rv">I came to it through media school and a small trekking company I ran on the side. By 2024 I was leading client servicing for brand accounts and a team of twelve, fully remote. The job taught me that most campaign problems start early, with a vague brief or the wrong creator, so that is where I put the most care.</p>
-        <p class="rv">In 2025 I moved to Germany for an MBA in International Business Consulting. My thesis looks at how AI tools change the daily work of marketers, and I test it on myself: I have built 11 small AI tools, all open source, without being an engineer. More than 9,000 people follow what I share about it on LinkedIn.</p>
-        <p class="rv">I like plain words and work that ships. If you're a brand or an agency, this site shows what I do and how. If you're hiring, it shows real work, honestly labelled. If you want to learn, every guide is free. I read every message myself.</p>
+        <p class="rv">Today I'm based in Germany, and I build AI tools for the parts of the job that eat the most time: shortlists, contracts and reports. I've built 11 of them, all open source, without being an engineer, and more than 9,000 people follow what I share about it on LinkedIn.</p>
+        <div class="helps" data-perch><p class="kick">Six things I help with</p><ol>
+          <li><b>Influencer campaigns</b><span>The right creators, clear briefs, fair fees, approvals on time and an honest report.</span></li>
+          <li><b>Talent management</b><span>Pitching creators to brands, then handling fees, usage and deliverables.</span></li>
+          <li><b>Account management</b><span>One senior point of contact for your brand clients, so nothing slips.</span></li>
+          <li><b>Content and UGC</b><span>Short videos scripted, filmed and edited, with captions in your voice.</span></li>
+          <li><b>Team and operations</b><span>Hiring, training and one shared system for tasks, files and deadlines.</span></li>
+          <li><b>AI workflows</b><span>Human-checked tools for scoring creators, checking contracts and reporting.</span></li>
+        </ol><a class="link" href="#services">See how each one works ›</a></div>
+        <p class="rv">I like plain words and work that ships. I read every message myself.</p>
         <div class="signoff"><span class="k2">Talk soon,</span><span class="sig" aria-label="Signed, Vish Kumbhar">Vish Kumbhar</span><span class="who">Creator partnerships, content and AI · Offenburg, Germany</span></div>
-        <div class="now-card"><p class="kick" style="color:var(--muted)">Right now</p><ul><li>MBA, International Business Consulting, Hochschule Offenburg</li><li>Working student in marketing analytics and content, Black Forest Business School</li><li>Open to full-time roles from January 2027, remote-first</li></ul></div>
       </div>
     </div>
   </div>
@@ -1582,15 +1608,12 @@ ul.checklist .why,ul.checklist .how{display:block;font-size:14.5px;color:var(--b
         <div class="stat"><b data-count="11">11</b><span>open-source AI tools built</span></div>
         <div class="stat"><b data-count="9000" data-suffix="+">9,000+</b><span>LinkedIn followers</span></div>
       </div>
-      <p class="note">Agency clients included Philips, L'Oréal, Universal Pictures, Bumble, Vans, Unilever (HUL), Lakmé, Tata and Raymond.</p>
     </div>
   </div>
 
   <div class="wrap sec tight" style="padding-top:8px" data-sec="logos" data-chap="Brands">
-    <p class="kick" style="text-align:center;color:var(--muted)">At agencies, I ran creator campaigns for brands including</p>
     <h2 class="h2 lw-h">Brands I've run <span class="serif">creator campaigns for.</span></h2>
     <div class="bl" id="brandList"></div>
-    <p class="mono lw-cap">Agency work as an employee · tap a brand for the story · real logos once permission is in</p>
   </div>
 
   <div class="wrap sec" data-sec="tools" data-chap="Tools">
@@ -1687,8 +1710,8 @@ ul.checklist .why,ul.checklist .how{display:block;font-size:14.5px;color:var(--b
       </a>
       <div style="display:flex;flex-direction:column;gap:18px">
         <p class="kick">Journey</p>
-        <h2 class="h2">Creator agencies to an MBA in <span class="serif">Germany.</span></h2>
-        <p class="lead">Five years of creator campaigns, then a move to Germany to study how AI changes marketing work. The whole route, chapter by chapter.</p>
+        <h2 class="h2">From creator agencies <span class="serif">to Germany.</span></h2>
+        <p class="lead">Five years of creator campaigns, then a move to Germany, where I build AI tools for marketing teams. The whole route, chapter by chapter.</p>
         <p class="mono" style="font-size:12px;color:var(--muted)">MUMBAI TO OFFENBURG · ABOUT 6,600 KM</p>
         <div class="btns"><a class="btn btn-hard" href="#journey">Take the journey</a></div>
       </div>
@@ -2166,16 +2189,16 @@ ul.checklist .why,ul.checklist .how{display:block;font-size:14.5px;color:var(--b
 
 <script src="vendor/three-r128.min.js" defer></script>
 <script src="js/data.js?v=7afa8fa438"></script>
-<script src="js/main.js?v=f60afd48c7"></script>
-<script src="js/stage3d.js?v=0eae3177eb" defer></script>
+<script src="js/main.js?v=1a5b039096"></script>
+<script src="js/stage3d.js?v=7b8b73317c" defer></script>
 <script src="js/journey-earth.js?v=108eb510b7" defer></script>
-<script src="js/journey-map.js?v=c058583b59" defer></script>
+<script src="js/journey-map.js?v=81cca6e6ee" defer></script>
 <script src="js/icons.js?v=4e15dcde31" defer></script>
-<script src="js/extras.js?v=d4c38f2279" defer></script>
+<script src="js/extras.js?v=cb1c572768" defer></script>
 <script src="js/content.js?v=b3e97ab548" defer></script>
 <script src="js/read.js?v=ac98744e17" defer></script>
 <script src="js/hero-mascot.js?v=e4050cfbac" defer></script>
-<script src="js/buddy.js?v=86bb61bf44" defer></script>
+<script src="js/buddy.js?v=3c88629361" defer></script>
 <script src="vendor/gsap-3.13.0.min.js" defer></script>
 <script src="vendor/SplitText-3.13.0.min.js" defer></script>
 <script src="js/motion.js?v=d82f059cf3" defer></script>

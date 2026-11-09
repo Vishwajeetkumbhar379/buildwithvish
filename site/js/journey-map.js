@@ -183,7 +183,7 @@
     if (whenEl) whenEl.textContent = `${S[i].when} · ${S[i].where}`;
     yearTo(yearOf(S[i]));
     moveTo(i, () => { fill(i); card.classList.remove('shut'); void card.offsetWidth; card.classList.add('open'); });
-    cur = i; if (prev >= 0 && S[i].kind !== 'fly') sfx('whoosh');
+    cur = i;
     if (i > 0 && hint) hint.classList.add('gone');
   }
   if (dots) { dots.innerHTML = S.map((s, i) => `<button type="button" aria-label="Stop ${i + 1}: ${esc(s.t)}"></button>`).join(''); dots.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) jump([...dots.children].indexOf(b)); }); }

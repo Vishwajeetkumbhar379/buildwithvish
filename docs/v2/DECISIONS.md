@@ -245,6 +245,9 @@ Vish wants the site assistant to answer in his own voice without spending voice 
 | L05 | Security | Everything self-hosted (fonts, libraries, images, audio); Content-Security-Policy allows scripts only from the site itself and no inline scripts; no third-party requests; HSTS, no framing, nosniff, strict referrer policy, locked-down browser features; every new-tab link uses noopener; no keys in the repo | LIVE | v2.0 |
 | L06 | Forms | Contact and both newsletter forms post to the Worker and fall back to Netlify Forms; if both fail, the contact form offers a ready-filled email | LIVE | v2.0 |
 | L07 | Links | Every outside link checked: 133 answer directly; the rest are sites that block automated checks (OpenAI help, Canva help, Make, Gamma, eMarketer, LinkedIn) and load for visitors; all 13 public GitHub repositories exist and each tool links to its own | LIVE | v2.0 |
+| L08 | Calmer sound (v2.1) | Vish found the tick on every tap irritating and asked for a much calmer, subtler bed at about half the volume, like a reel he shared (an original-audio reel; nothing copied). Now: a low steady drone, an open chord that swells and fades at about six breaths a minute, soft wave-like noise on a longer cycle and a rare felt-piano note, all generated in the browser at half the old level. Taps, ticks, hops and the Journey's stop changes are silent; only meaningful moments make a sound (opening the chat or an app, the plane, landing, finishing a checklist) | LIVE | Vish, 9 Nov |
+| L09 | Tap response (v2.1) | Every tap gets a visible response instead of a sound: the control presses in and a soft champagne ring opens where you touched | LIVE | Vish, 9 Nov |
+| L10 | Note and small print (v2.1) | The note no longer shows the "Right now" card (studies, open to work) and no longer leads with being a student; it now lists the six services concretely. The small lines about agencies, employment and logo permission under the brands are gone. The fanned service cards show only their numbers (the labels were clipped) | LIVE | Vish, 9 Nov |
 
 ## Needs validation
 
@@ -303,3 +306,4 @@ Type scale, spacing, radii, buttons, focus ring and motion tokens (round 1b) · 
 - 8 Nov 2026: prototype v9 built from the storyboard round: D50 to D56, PR27 to PR33. S09 and S10 superseded.
 - 8 Nov 2026: v10 from Vish's corrections: D57 to D63. S11 superseded, S12 removed.
 - 9 Nov 2026: 2.0 replaced v1 on the live site at Vish's request (L01 to L07).
+- 9 Nov 2026: v2.1 from Vish's first look at the live site (L08 to L10).
