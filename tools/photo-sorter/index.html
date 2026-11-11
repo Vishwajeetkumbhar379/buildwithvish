@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Photo Sorter by Vish</title>
+<meta name="description" content="Sort a messy camera roll in minutes. Keep, Maybe or Delete with one tap. Finds blurry shots and near copies. Runs in your browser, nothing is uploaded.">
+<meta name="theme-color" content="#0B0E13">
+<link rel="stylesheet" href="sorter.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="https://buildwithvvish.com/">Photo Sorter <span>by Vish</span></a>
+  <p class="private">Runs in your browser. Your photos are never uploaded.</p>
+</header>
+
+<main>
+  <section id="start" class="start">
+    <h1>Sort a messy camera roll in minutes</h1>
+    <p class="lead">One photo at a time. Keep, Maybe or Delete. It points out the blurry ones and the near copies, so the easy calls are made for you.</p>
+    <div id="drop" class="drop">
+      <p>Drop photos here</p>
+      <button id="btnPick" class="btn primary" type="button">Choose photos</button>
+      <input id="pick" type="file" accept="image/*" multiple hidden>
+    </div>
+    <ol class="how">
+      <li><b>Add photos.</b> A trip, a shoot, or the whole roll.</li>
+      <li><b>Tap through them.</b> Arrow keys on a computer, swipes on a phone.</li>
+      <li><b>Download the keepers.</b> One zip file, originals untouched.</li>
+    </ol>
+  </section>
+
+  <section id="work" hidden>
+    <div class="bar"><div id="barFill"></div></div>
+    <p class="status"><span id="pos"></span><span id="scan"></span></p>
+    <div class="stage">
+      <figure id="card" class="card">
+        <img id="photo" alt="">
+        <div id="noprev" class="noprev" hidden>No preview for this file type</div>
+        <div id="badges" class="badges"></div>
+        <figcaption id="name"></figcaption>
+      </figure>
+    </div>
+    <div class="actions">
+      <button id="bDelete" class="btn act del" type="button">Delete <kbd>←</kbd></button>
+      <button id="bMaybe" class="btn act may" type="button">Maybe <kbd>↑</kbd></button>
+      <button id="bKeep" class="btn act keep" type="button">Keep <kbd>→</kbd></button>
+    </div>
+    <div class="tools">
+      <button id="bUndo" class="btn" type="button">Undo <kbd>Z</kbd></button>
+      <button id="bAuto" class="btn" type="button" hidden></button>
+      <button id="bReview" class="btn" type="button">Review and download</button>
+    </div>
+  </section>
+
+  <section id="review" hidden>
+    <h2>Your three piles</h2>
+    <p class="lead small">Tap any photo to move it to the next pile.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab" data-pile="keep" type="button" role="tab"></button>
+      <button class="tab" data-pile="maybe" type="button" role="tab"></button>
+      <button class="tab" data-pile="delete" type="button" role="tab"></button>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div class="tools">
+      <button id="bBack" class="btn" type="button">Back to sorting</button>
+      <button id="bZip" class="btn primary" type="button">Download keepers (.zip)</button>
+      <button id="bList" class="btn" type="button">Copy the delete list</button>
+      <button id="bMore" class="btn" type="button">Add more photos</button>
+    </div>
+    <a id="dl" hidden></a>
+  </section>
+</main>
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="sorter.js"></script>
+</body>
+</html>
