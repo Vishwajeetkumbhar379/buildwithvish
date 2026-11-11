@@ -1,0 +1,489 @@
+<title>The Vish Line</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Martian+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Wix+Madefor+Text:wght@400;500;600&display=swap">
+<style>
+/* layout: one transit network. A rail on the left carries a train down seven stops; three lines (brands, hiring, learning) decide which stops open.
+   One world on purpose: deep forest green, ivory and amber gold. */
+:root{--bg:#0A1A13;--panel:#11281E;--panel2:#153226;--rule:#27493C;--fg:#F3EEE4;--mute:#A3B5AA;--gold:#E3B556;--gold2:#F3D58C;--gold3:#B07E26;--jade:#6FD3A3;--ivory:#F3EEE4;--ink:#0B1711;--board:#06100B;
+--l1:var(--gold);--l2:var(--ivory);--l3:var(--jade);--line:var(--gold);--gg:linear-gradient(135deg,var(--gold2),var(--gold) 55%,var(--gold3));
+--d:'Archivo',system-ui,sans-serif;--t:'Wix Madefor Text',system-ui,-apple-system,sans-serif;--m:'Martian Mono',ui-monospace,monospace;--s:'Newsreader',Georgia,serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--t);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(1100px 760px at 88% -8%,#1E5440 0,transparent 62%),radial-gradient(900px 900px at -14% 40%,#143C2C 0,transparent 60%),radial-gradient(1000px 700px at 72% 104%,#133726 0,transparent 60%),var(--bg)}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.app{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 28px;max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.main{min-width:0}
+.mono{font:400 11px/1.4 var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+em.de{font:italic 400 1.05em var(--s);color:var(--gold2);letter-spacing:0;text-transform:none}
+.lb{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font:800 13px/1 var(--d);color:var(--ink);background:var(--c,var(--gold));flex:none}
+.b1{--c:var(--l1)}.b2{--c:var(--l2)}.b3{--c:var(--l3)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:14px 22px;background:var(--gg);color:var(--ink);font:700 15px/1 var(--d);font-stretch:92%;text-decoration:none;transition:transform .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:none;border:1px solid var(--rule);color:var(--fg)}.btn.ghost:hover{border-color:var(--gold)}
+
+/* rail */
+.rail{position:relative}
+.rail-in{position:sticky;top:0;height:100vh;height:100dvh;padding:104px 0 96px}
+.rail-stops{position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.rail-track,.rail-fill{position:absolute;left:6px;width:4px;border-radius:2px}
+.rail-track{background:var(--rule)}.rail-fill{background:var(--line);transition:background .4s}
+.train{position:absolute;left:0;top:0;width:16px;height:30px;margin-top:-15px;border-radius:8px;background:var(--gg);box-shadow:0 0 0 4px rgba(227,181,86,.16),0 6px 18px rgba(0,0,0,.4);z-index:2}
+.rs{position:relative;display:flex;align-items:center;gap:14px;background:none;border:0;padding:4px 0;text-align:left;font:400 11px/1.2 var(--m);letter-spacing:.07em;text-transform:uppercase;color:var(--mute);transition:color .3s,opacity .3s}
+.rs i{width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--rule);flex:none;transition:border-color .3s,transform .3s;position:relative;z-index:1}
+.rs.on{color:var(--fg)}.rs.on i,.rs.done i{border-color:var(--line)}.rs.skip{opacity:.38}.rs:hover{color:var(--gold2)}
+
+/* top bar and hero */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 17px/1 var(--d);font-stretch:86%;letter-spacing:.01em}
+.brand svg{width:38px;height:38px;flex:none}
+.brand small{display:block;margin-top:5px;font:400 10px/1 var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.quick{display:flex;align-items:center;gap:8px}
+.quick button{border:0;background:none;padding:2px;border-radius:50%;opacity:.55;transition:opacity .2s,transform .2s}
+.quick button:hover,.quick button[aria-pressed="true"]{opacity:1;transform:scale(1.12)}
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:24px 32px;align-items:center;padding:clamp(18px,4vw,56px) 0 0}
+h1{margin:14px 0 20px;font:800 clamp(42px,6.7vw,94px)/.94 var(--d);font-stretch:76%;letter-spacing:-.022em;text-wrap:balance}
+h1 em{display:block;font:italic 400 .86em/1.02 var(--s);letter-spacing:-.01em;background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.sub{max-width:54ch;margin:0;color:var(--mute);font-size:clamp(16px,1.5vw,19px)}
+.window{position:relative;width:min(100%,360px);aspect-ratio:1;margin-left:auto;border-radius:50%;padding:10px;background:conic-gradient(from 210deg,var(--gold) 0 34%,var(--ivory) 34% 66%,var(--jade) 66%);cursor:pointer;border:0;display:block}
+.window .glass{display:block;position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 5px var(--bg)}
+.window img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;opacity:0;transition:opacity .28s linear;will-change:opacity}
+.window img.m-c{opacity:1}
+.says{margin:14px 0 0 auto;width:min(100%,360px);text-align:center;min-height:2.6em;font:italic 400 18px/1.3 var(--s);color:var(--gold2)}
+.where{grid-column:1/-1;margin-top:clamp(20px,4vw,48px)}
+.where h2{margin:0 0 16px;font:700 clamp(20px,2.2vw,26px)/1.1 var(--d);font-stretch:88%;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pick{position:relative;text-align:left;background:var(--panel);border:1px solid var(--rule);border-radius:18px;padding:20px 20px 18px;transition:transform .25s,border-color .25s,background .25s;min-width:0}
+.pick:hover{transform:translateY(-3px);border-color:var(--c)}
+.pick[aria-pressed="true"]{border-color:var(--c);background:color-mix(in srgb,var(--c) 13%,var(--panel))}
+.pick b{display:flex;align-items:center;gap:10px;font:700 clamp(19px,2vw,24px)/1.1 var(--d);font-stretch:86%}
+.pick p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.mini{position:relative;display:flex;justify-content:space-between;gap:8px;margin-top:22px;padding-top:15px;font:400 10px/1.3 var(--m);letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.mini::before{content:"";position:absolute;left:4px;right:4px;top:3px;height:2px;background:var(--c)}
+.mini span{position:relative}.mini span::before{content:"";position:absolute;top:-16px;left:0;width:8px;height:8px;border-radius:50%;background:var(--panel);border:2px solid var(--c)}
+.mini span:nth-child(2){text-align:center}.mini span:nth-child(2)::before{left:50%;margin-left:-4px}
+.mini span:last-child{text-align:right}.mini span:last-child::before{left:auto;right:0}
+.all{margin-top:14px;background:none;border:0;padding:6px 0;color:var(--mute);font:400 11px var(--m);letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+.all:hover{color:var(--gold2)}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:clamp(28px,5vw,60px) 0 0;border-top:2px solid var(--gold)}
+.fact{position:relative;padding:20px 12px 0 0}
+.fact::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--gold)}
+.fact b{display:block;font:800 clamp(30px,4.2vw,56px)/1 var(--d);font-stretch:78%;font-variant-numeric:tabular-nums}
+.fact span{display:block;margin-top:6px}
+
+/* stations */
+.st{padding:clamp(54px,8vw,112px) 0 0;transition:opacity .4s}
+.sign{border-top:1px solid var(--rule);padding-top:18px}
+.sign-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0}
+.sign-top .idx{margin-left:auto}
+.sign h2{margin:14px 0 0;font:800 clamp(36px,6vw,84px)/.95 var(--d);font-stretch:76%;letter-spacing:-.02em;transition:font-size .4s}
+.open{display:none;border:1px solid var(--rule);background:none;border-radius:999px;padding:7px 14px;font:400 11px var(--m);letter-spacing:.06em;text-transform:uppercase}
+.st-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1)}
+.st-in{overflow:hidden;min-height:0}
+.st.off{opacity:.5}.st.off .st-body{grid-template-rows:0fr}.st.off .sign h2{font-size:clamp(26px,3.4vw,40px)}.st.off .open{display:inline-block}.st.off:hover{opacity:.85}
+.lede{max-width:60ch;margin:18px 0 28px;color:var(--mute)}
+
+/* departures board */
+.board{background:var(--board);border:1px solid #1B3328;border-radius:20px;padding:6px 18px 10px;font-family:var(--m);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.board-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #1B3328;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.board-h time{color:var(--fg);font-variant-numeric:tabular-nums}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr) 70px 104px;gap:14px;align-items:center;padding:13px 0;border-bottom:1px dashed #1B3328;text-decoration:none;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .3s,background .2s}
+.row:last-child{border-bottom:0}.row:hover .dest{color:var(--gold2)}
+.row .ty{color:var(--mute)}.row .dest{color:var(--fg);overflow-wrap:anywhere}.row .ls{display:flex;gap:4px}.row .ls .lb{width:20px;height:20px;font-size:10px}
+.row .stt{color:var(--gold);text-align:right}
+.row.dim{opacity:.3}
+
+/* services line */
+.scroll-x{overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.sline{position:relative;display:grid;grid-template-columns:repeat(6,minmax(112px,1fr));min-width:690px;padding-top:4px}
+.sline::before{content:"";position:absolute;left:8%;right:8%;top:17px;height:6px;border-radius:3px;background:var(--gg)}
+.stop{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;background:none;border:0;padding:0 4px 8px;font:600 15px/1.2 var(--d);font-stretch:86%;color:var(--mute);text-align:center;transition:color .25s}
+.stop i{width:32px;height:32px;border-radius:50%;background:var(--bg);border:6px solid var(--gold);transition:transform .3s cubic-bezier(.2,1.4,.4,1),background .3s}
+.stop:hover{color:var(--fg)}.stop[aria-selected="true"]{color:var(--gold2)}.stop[aria-selected="true"] i{background:var(--ivory);transform:scale(1.22)}
+.spanel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;margin-top:26px;align-items:stretch}
+.spanel h3{margin:0 0 10px;font:700 clamp(26px,3.2vw,40px)/1.05 var(--d);font-stretch:84%}
+.spanel p{margin:0;color:var(--mute);max-width:46ch}
+.pack{background:var(--panel);border:1px solid var(--rule);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.pack strong{font:700 20px/1.2 var(--d);font-stretch:90%}
+.pack .price{font:800 clamp(28px,3.4vw,40px)/1 var(--d);font-stretch:80%;background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0 10px}
+.note{margin:18px 0 0;font-size:14px;color:var(--mute)}
+
+/* platform screens */
+.screens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.screen{margin:0;background:#040A07;border:1px solid #1B3328;border-radius:24px;padding:8px 8px 12px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+.screen video{display:block;width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:17px;background:#0c1712}
+.screen figcaption{display:flex;justify-content:space-between;gap:8px;padding:10px 6px 0}
+
+/* guides */
+.glist{border-bottom:1px solid var(--rule)}
+.glist a{display:grid;grid-template-columns:46px minmax(0,1fr) 28px;gap:14px;align-items:baseline;padding:20px 0;border-top:1px solid var(--rule);text-decoration:none;font:600 clamp(20px,2.5vw,30px)/1.16 var(--d);font-stretch:88%;transition:color .2s,padding-left .3s}
+.glist a:hover{color:var(--gold2);padding-left:10px}
+.glist .no{font:400 12px var(--m);color:var(--jade)}
+.glist .ar{transition:transform .3s;color:var(--gold)}.glist a:hover .ar{transform:translateX(6px)}
+.more{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+
+/* tools and repos */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:linear-gradient(120deg,#16392B,#0F271D);border:1px solid var(--gold3);border-radius:22px;padding:clamp(20px,3vw,32px);margin-bottom:22px}
+.feature h3{margin:6px 0 8px;font:800 clamp(28px,3.6vw,46px)/1 var(--d);font-stretch:80%}
+.feature p{margin:0;color:var(--mute);max-width:52ch}
+.repos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.repo{display:flex;flex-direction:column;gap:10px;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:18px;padding:10px 10px 16px;transition:transform .25s,border-color .25s;min-width:0}
+.repo:hover{transform:translateY(-4px);border-color:var(--gold)}
+.repo img{display:block;width:100%;aspect-ratio:880/546;object-fit:cover;object-position:top left;border-radius:10px;background:#fff}
+.repo b{padding:0 6px;font:500 12px var(--m);letter-spacing:.03em;color:var(--gold2);overflow-wrap:anywhere}
+.repo span{padding:0 6px;font-size:14.5px;line-height:1.45;color:var(--mute)}
+
+/* experience timetable */
+.tt{position:relative;margin:0;padding:0 0 0 30px;list-style:none}
+.tt::before{content:"";position:absolute;left:6px;top:14px;bottom:14px;width:4px;border-radius:2px;background:var(--ivory)}
+.tt li{position:relative;display:grid;grid-template-columns:178px minmax(0,1fr);gap:6px 20px;padding:15px 0;border-bottom:1px solid var(--rule)}
+.tt li::before{content:"";position:absolute;left:-31px;top:21px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--ivory)}
+.tt li:first-child::before{background:var(--gold);border-color:var(--gold)}
+.tt b{display:block;font:700 clamp(19px,2.1vw,25px)/1.15 var(--d);font-stretch:88%}
+.tt span{color:var(--mute);font-size:15.5px}
+
+/* ticket */
+.tk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+.f{display:flex;flex-direction:column;gap:18px}
+.f label{display:flex;flex-direction:column;gap:6px}
+.f input,.f select,.f textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--rule);border-radius:0;padding:8px 0 10px;color:var(--fg);font:500 18px/1.4 var(--t);transition:border-color .2s}
+.f select option{background:var(--panel);color:var(--fg)}
+.f textarea{resize:vertical;min-height:84px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-bottom-color:var(--gold)}
+.mail{font-size:14px;color:var(--mute);margin:0}.mail b{color:var(--fg);font-weight:500;user-select:all}
+.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 74px;background:var(--ivory);color:var(--ink);border-radius:18px;box-shadow:0 34px 60px -28px rgba(0,0,0,.65);transition:transform .6s cubic-bezier(.2,.9,.2,1);-webkit-mask:radial-gradient(circle 9px at calc(100% - 74px) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 9px at calc(100% - 74px) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 9px at calc(100% - 74px) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 9px at calc(100% - 74px) 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
+.t-main{padding:20px 20px 18px;min-width:0}
+.t-top{display:flex;justify-content:space-between;gap:10px;align-items:center;font:500 10px var(--m);letter-spacing:.1em;text-transform:uppercase;color:#4d5a52}
+.t-top svg{width:26px;height:26px}
+.t-route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:end;margin:18px 0 16px}
+.t-route small,.t-meta small{display:block;font:500 9.5px var(--m);letter-spacing:.1em;text-transform:uppercase;color:#6a766e;margin-bottom:4px}
+.t-route b{display:block;font:800 clamp(22px,2.6vw,32px)/1 var(--d);font-stretch:76%;overflow-wrap:anywhere}
+.t-route i{font:400 22px var(--d);font-style:normal;color:var(--gold3);padding-bottom:2px}
+.t-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;border-top:1px dashed #b9b4a3;padding-top:12px}
+.t-meta b{font:500 12.5px var(--m);overflow-wrap:anywhere}
+.t-stub{border-left:2px dashed #b9b4a3;display:flex;align-items:stretch;justify-content:center;gap:2px;padding:16px 12px}
+.t-stub i{display:block;background:var(--ink);border-radius:1px}
+.stamp{position:absolute;right:86px;bottom:42px;padding:6px 12px;border:3px solid #1E7A56;color:#1E7A56;border-radius:8px;font:800 15px var(--d);font-stretch:80%;letter-spacing:.08em;text-transform:uppercase;transform:rotate(-9deg) scale(1.6);opacity:0;transition:transform .35s cubic-bezier(.2,1.5,.4,1),opacity .2s}
+.ticket.issued{transform:translateY(8px) rotate(-1.2deg)}.ticket.issued .stamp{opacity:.9;transform:rotate(-9deg) scale(1)}
+.sent{margin:14px 0 0;font-size:14.5px;color:var(--gold2);min-height:1.5em}
+
+/* next stop pill and footer */
+.next{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 32px);background:rgba(6,16,11,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--rule);border-radius:999px;padding:8px 16px 8px 9px;font:400 11px/1 var(--m);letter-spacing:.07em;text-transform:uppercase;color:var(--fg);white-space:nowrap;box-shadow:0 14px 30px -12px rgba(0,0,0,.7)}
+.next b{font-weight:500;overflow:hidden;text-overflow:ellipsis}.next .lb{width:22px;height:22px;font-size:11px}
+.next:hover{border-color:var(--gold)}
+footer{margin-top:clamp(64px,9vw,120px);border-top:2px solid var(--gold);padding:26px 0 110px;display:flex;justify-content:space-between;gap:18px 28px;flex-wrap:wrap}
+footer p{margin:0;max-width:44ch}footer .links{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}
+footer a{text-underline-offset:4px}footer a:hover{color:var(--gold2)}
+
+@media (max-width:900px){
+  .app{grid-template-columns:18px minmax(0,1fr);gap:0 14px}
+  .rs span{display:none}.rail-in{padding:90px 0 120px}.train{width:14px;height:24px;margin-top:-12px;left:1px}.rs i{width:14px;height:14px;margin-left:1px}.rail-track,.rail-fill{left:6px}
+  .hero{grid-template-columns:minmax(0,1fr)}.window{width:min(64vw,260px);margin:0}.says{margin:10px 0 0;width:auto;text-align:left;min-height:1.4em}
+  .picks{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:8px}.fact:first-child{grid-column:1/-1}
+  .spanel,.tk{grid-template-columns:minmax(0,1fr)}.repos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .feature{grid-template-columns:minmax(0,1fr)}
+  .screens{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}.screen{flex:0 0 62%;scroll-snap-align:start}
+  .tt li{grid-template-columns:minmax(0,1fr)}
+  .row{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}.row .dest{grid-column:1/-1;order:3;font-size:13px}.row .ls{display:none}
+}
+@media (max-width:520px){.repos{grid-template-columns:minmax(0,1fr)}.quick{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="app" data-line="0">
+  <aside class="rail" aria-label="Stops on this page"><div class="rail-in"><div class="rail-track"></div><div class="rail-fill"></div><div class="train"></div><nav class="rail-stops"></nav></div></aside>
+
+  <div class="main">
+    <header class="bar">
+      <a class="brand" href="#start">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3D58C"/><stop offset=".55" stop-color="#E3B556"/><stop offset="1" stop-color="#B07E26"/></linearGradient><linearGradient id="lgB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22604A"/><stop offset="1" stop-color="#0D2A1F"/></linearGradient></defs><rect width="48" height="48" rx="13" fill="url(#lgB)"/><path d="M12.5 13.5 24 34 35.5 13.5" fill="none" stroke="url(#lgG)" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="34" r="4.6" fill="#F3EEE4" stroke="#0D2A1F" stroke-width="1.8"/></svg>
+        <span>Build with Vish<small>The Vish Line</small></span>
+      </a>
+      <div class="quick" aria-label="Choose a line">
+        <span class="mono">Line</span>
+        <button type="button" data-pick="1" aria-pressed="false" aria-label="Line 1, brands"><span class="lb b1">1</span></button>
+        <button type="button" data-pick="2" aria-pressed="false" aria-label="Line 2, hiring"><span class="lb b2">2</span></button>
+        <button type="button" data-pick="3" aria-pressed="false" aria-label="Line 3, learning"><span class="lb b3">3</span></button>
+      </div>
+    </header>
+
+    <section class="st hero" id="start" data-name="Start" data-lines="1 2 3" style="padding-top:0">
+      <div>
+        <p class="mono">Vish Kumbhar · Offenburg, Germany</p>
+        <h1>I connect brands with creators, <em>and people with AI.</em></h1>
+        <p class="sub">Five years of creator campaigns with 850+ creators and 20+ brands. Now in Germany, building open-source AI tools and writing free guides.</p>
+      </div>
+      <div>
+        <button class="window" type="button" id="mascot" aria-label="Vish's mascot. Tap to change his expression.">
+          <span class="glass">
+            <img class="m-c" src="img/m/c.webp" alt=""><img class="m-l" src="img/m/l.webp" alt=""><img class="m-r" src="img/m/r.webp" alt=""><img class="m-u" src="img/m/u.webp" alt=""><img class="m-d" src="img/m/d.webp" alt=""><img class="m-x" src="img/m/smile.webp" alt="">
+          </span>
+        </button>
+        <p class="says" id="says" aria-live="polite">He follows you. Tap him.</p>
+      </div>
+      <div class="where">
+        <h2>Where are you headed? <em class="de">Wohin?</em></h2>
+        <div class="picks">
+          <button class="pick b1" type="button" data-pick="1" aria-pressed="false"><b><span class="lb b1">1</span>I have a brand</b><p>Campaigns, UGC and prices.</p><span class="mini"><span>Services</span><span>Ads I make</span><span>Contact</span></span></button>
+          <button class="pick b2" type="button" data-pick="2" aria-pressed="false"><b><span class="lb b2">2</span>I am hiring</b><p>Experience, working tools and the CV.</p><span class="mini"><span>Tools</span><span>Experience</span><span>Contact</span></span></button>
+          <button class="pick b3" type="button" data-pick="3" aria-pressed="false"><b><span class="lb b3">3</span>I want to learn AI</b><p>Free guides, tools and open code.</p><span class="mini"><span>Departures</span><span>Guides</span><span>Tools</span></span></button>
+        </div>
+        <button class="all" type="button" data-pick="0">Show every stop</button>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>5 years</b><span class="mono">of creator campaigns</span></div>
+        <div class="fact"><b>850+</b><span class="mono">creators</span></div>
+        <div class="fact"><b>20+</b><span class="mono">brands</span></div>
+        <div class="fact"><b>11</b><span class="mono">open-source tools</span></div>
+        <div class="fact"><b>90</b><span class="mono">free guides and posts</span></div>
+      </div>
+    </section>
+
+    <section class="st" id="departures" data-name="Departures" data-lines="1 2 3">
+      <header class="sign"><p class="sign-top"><span class="lb b1">1</span><span class="lb b2">2</span><span class="lb b3">3</span><em class="de">Abfahrt</em><span class="mono idx">Stop 01 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Departures</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">What left the workshop most recently. Every row is real and opens.</p>
+        <div class="board"><div class="board-h"><span>Departures · now boarding</span><time id="clock">00:00:00</time></div><div id="rows"></div></div>
+      </div></div>
+    </section>
+
+    <section class="st" id="services" data-name="Services" data-lines="1">
+      <header class="sign"><p class="sign-top"><span class="lb b1">1</span><em class="de">Nächster Halt</em><span class="mono idx">Stop 02 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Services</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">Six things I help with. Pick a stop to see where most people start.</p>
+        <div class="scroll-x"><div class="sline" id="sline" role="tablist" aria-label="Services"></div></div>
+        <div class="spanel" id="spanel" role="tabpanel"></div>
+        <p class="note">Booking for paid projects opens soon. Questions are welcome now.</p>
+      </div></div>
+    </section>
+
+    <section class="st" id="ads" data-name="Ads I make" data-lines="1">
+      <header class="sign"><p class="sign-top"><span class="lb b1">1</span><em class="de">Gleis 1 bis 3</em><span class="mono idx">Stop 03 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Ads I make</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">Vertical video, scripted, filmed and edited by me. These three loops are raw footage from my own camera roll. Six spec ads for skincare, food, apps, fitness, gear and home are being filmed and will play on these screens.</p>
+        <div class="screens">
+          <figure class="screen"><video src="video/window.mp4" poster="video/window.jpg" muted loop playsinline preload="none"></video><figcaption><span class="mono">Platform 1</span><span class="mono">Above the clouds</span></figcaption></figure>
+          <figure class="screen"><video src="video/coffee.mp4" poster="video/coffee.jpg" muted loop playsinline preload="none"></video><figcaption><span class="mono">Platform 2</span><span class="mono">Sea from a café window</span></figcaption></figure>
+          <figure class="screen"><video src="video/sunrise.mp4" poster="video/sunrise.jpg" muted loop playsinline preload="none"></video><figcaption><span class="mono">Platform 3</span><span class="mono">First light</span></figcaption></figure>
+        </div>
+      </div></div>
+    </section>
+
+    <section class="st" id="learn" data-name="Guides" data-lines="3">
+      <header class="sign"><p class="sign-top"><span class="lb b3">3</span><em class="de">Nächster Halt</em><span class="mono idx">Stop 04 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Guides</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">Step-by-step and free. Written for people who have a job to do, with the prompts included.</p>
+        <div class="glist" id="glist"></div>
+        <div class="more"><a class="btn" href="https://buildwithvvish.com/#learn">All 90 guides and posts</a></div>
+      </div></div>
+    </section>
+
+    <section class="st" id="tools" data-name="Tools and repos" data-short="Tools" data-lines="2 3">
+      <header class="sign"><p class="sign-top"><span class="lb b2">2</span><span class="lb b3">3</span><em class="de">Umsteigen</em><span class="mono idx">Stop 05 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Tools and repos</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">Open source and free to use. Each picture is the real output of the tool on its own sample data.</p>
+        <div class="feature"><div><span class="mono">New · runs in your browser</span><h3>Photo Sorter</h3><p>Sort a messy camera roll in minutes. Keep, Maybe or Delete with one tap. It finds blurry shots and near copies, and nothing is uploaded.</p></div><a class="btn" href="https://buildwithvvish.com/sorter/">Open the sorter</a></div>
+        <div class="repos" id="repos"></div>
+        <div class="more"><a class="btn ghost" href="https://github.com/Vishwajeetkumbhar379">All 11 on GitHub</a></div>
+      </div></div>
+    </section>
+
+    <section class="st" id="route" data-name="Experience" data-lines="2">
+      <header class="sign"><p class="sign-top"><span class="lb b2">2</span><em class="de">Fahrplan</em><span class="mono idx">Stop 06 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Experience</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">The route so far, most recent stop first. Creator partnerships, client servicing and the tools I now build around them.</p>
+        <ol class="tt" id="tt"></ol>
+        <div class="more"><a class="btn" href="https://vishkumbhar.netlify.app/Vishwajeet_Kumbhar_CV.pdf">Open the CV (PDF)</a><a class="btn ghost" href="https://buildwithvvish.com/#journey">The full journey map</a><a class="btn ghost" href="https://www.linkedin.com/in/vishwajeetkumbhar379">LinkedIn</a></div>
+      </div></div>
+    </section>
+
+    <section class="st" id="ticket" data-name="Contact" data-lines="1 2 3">
+      <header class="sign"><p class="sign-top"><span class="lb b1">1</span><span class="lb b2">2</span><span class="lb b3">3</span><em class="de">Endstation</em><span class="mono idx">Stop 07 / 07</span><button class="open" type="button">Open this stop</button></p><h2>Get a ticket</h2></header>
+      <div class="st-body"><div class="st-in">
+        <p class="lede">Tell me where you want to go. I read every message myself.</p>
+        <div class="tk">
+          <form class="f" id="form" novalidate>
+            <label><span class="mono">Your name</span><input id="fName" name="name" autocomplete="name" required></label>
+            <label><span class="mono">Email</span><input id="fEmail" name="email" type="email" autocomplete="email" required></label>
+            <label><span class="mono">I am</span><select id="fWho" name="topic"><option value="1">A brand or agency</option><option value="2">Hiring for a role</option><option value="3">Learning AI</option><option value="0">Something else</option></select></label>
+            <label><span class="mono">Message</span><textarea id="fMsg" name="message" rows="3"></textarea></label>
+            <div><button class="btn" type="submit">Issue my ticket</button></div>
+            <p class="mail">Or write to <b>vishwajeetkumbhar379@gmail.com</b></p>
+          </form>
+          <div>
+            <div class="ticket" id="tkt" aria-hidden="true">
+              <div class="t-main">
+                <div class="t-top"><span>Build with Vish · Einzelfahrt</span><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="13" fill="#0D2A1F"/><path d="M12.5 13.5 24 34 35.5 13.5" fill="none" stroke="#E3B556" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="34" r="4.6" fill="#F3EEE4"/></svg></div>
+                <div class="t-route"><div><small>From</small><b id="tFrom">You</b></div><i>→</i><div><small>To</small><b>Vish, Offenburg</b></div></div>
+                <div class="t-meta"><div><small>Line</small><b id="tLine">1 · Brands</b></div><div><small>Date</small><b id="tDate"></b></div><div><small>Ticket</small><b id="tNo">BV-000000</b></div></div>
+              </div>
+              <div class="t-stub" id="tBars"></div>
+              <span class="stamp">Issued</span>
+            </div>
+            <p class="sent" id="sent" role="status"></p>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+    <footer>
+      <p><em class="de">Endstation.</em> Thank you for travelling with Build with Vish.</p>
+      <div class="links"><a href="https://www.linkedin.com/in/vishwajeetkumbhar379">LinkedIn</a><a href="https://www.instagram.com/buildwith.vish/">Instagram</a><a href="https://github.com/Vishwajeetkumbhar379">GitHub</a><a href="https://buildwithvvish.com/#legal">Imprint and privacy</a></div>
+    </footer>
+  </div>
+</div>
+<button class="next" id="next" type="button"><span class="lb b1" id="nextLb">1</span><em class="de">Nächster Halt</em><b id="nextName">Departures</b><span aria-hidden="true">↓</span></button>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SITE = 'https://buildwithvvish.com/', GH = 'https://github.com/Vishwajeetkumbhar379/';
+  const LINE = { 1: 'Brands', 2: 'Hiring', 3: 'Learning', 0: 'Open' }, COL = { 0: 'var(--gold)', 1: 'var(--l1)', 2: 'var(--l2)', 3: 'var(--l3)' };
+  const app = $('.app'), sts = $$('.st'), stops = $('.rail-stops'), train = $('.train'), fill = $('.rail-fill'), track = $('.rail-track');
+  const badge = (n) => '<span class="lb b' + n + '">' + n + '</span>';
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  /* ---------- content: every item is real ---------- */
+  const DEP = [
+    ['Tool', 'Photo Sorter: sort a camera roll in minutes', [3], 'New', SITE + 'sorter/'],
+    ['Repo', 'Job Search Agent: first run fixed', [2, 3], 'Updated', GH + 'job-search-agent'],
+    ['Guide', 'The complete Claude guide for beginners', [3], 'Free', SITE + '#read-claude-from-zero'],
+    ['Guide', 'Run a whole creator campaign from one Claude Project', [1, 3], 'Free', SITE + '#read-creator-campaign-hq-in-claude'],
+    ['Tool', 'Creator Fit Scorer', [1, 2], 'Open source', GH + 'creator-fit-scorer'],
+    ['Guide', 'Get cited by AI answers with Claude and free tools', [3], 'Free', SITE + '#read-get-cited-by-ai-answers'],
+    ['Guide', 'YouTube research with Claude', [3], 'Free', SITE + '#read-youtube-research-with-claude']];
+  $('#rows').innerHTML = DEP.map((d) => '<a class="row" href="' + d[4] + '" data-l="' + d[2].join(' ') + '"><span class="ty">' + d[0] + '</span><span class="dest" data-t="' + esc(d[1]) + '">' + esc(d[1]) + '</span><span class="ls">' + d[2].map(badge).join('') + '</span><span class="stt">' + d[3] + '</span></a>').join('');
+
+  const SV = [
+    ['Influencer campaigns', 'The right creators, clear briefs, fair fees, approvals on time and an honest report.', 'Creator Shortlist Pilot', 'Test creator fit before a full campaign.', 'From €490'],
+    ['Talent management', 'Pitching creators to brands, then handling fees, usage and deliverables.', 'Creator Profile Setup', 'Get a creator ready to pitch.', 'Price on request'],
+    ['Account management', 'One senior point of contact for your brand clients, so nothing slips.', 'Account Health Check', 'A fresh look at one client account.', 'Price on request'],
+    ['Content and UGC', 'Short videos scripted, filmed and edited, with captions in your voice.', 'Single UGC video', 'One format to try UGC.', 'From €150'],
+    ['Team and operations', 'Hiring, training and one shared system for tasks, files and deadlines.', 'Process Setup', 'Trackers and SOPs for a busy team.', 'From €590'],
+    ['AI workflows', 'Human-checked tools for scoring creators, checking contracts and reporting.', 'AI Workflow Pilot', 'One small workflow, built and tested with you.', 'From €390']];
+  const sline = $('#sline'), spanel = $('#spanel');
+  sline.innerHTML = SV.map((s, i) => '<button class="stop" type="button" role="tab" aria-selected="' + (i === 0) + '" data-i="' + i + '"><i></i>' + s[0] + '</button>').join('');
+  function service(i) {
+    const s = SV[i]; $$('.stop', sline).forEach((b, k) => b.setAttribute('aria-selected', String(k === i)));
+    spanel.innerHTML = '<div><span class="mono">Stop ' + (i + 1) + ' of 6</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div><div class="pack"><span class="mono">Most people start with</span><strong>' + s[2] + '</strong><span style="color:var(--mute)">' + s[3] + '</span><span class="price">' + s[4] + '</span><button class="btn" type="button" data-ask="' + esc(s[0]) + '">Ask about this</button></div>';
+  }
+  sline.addEventListener('click', (e) => { const b = e.target.closest('.stop'); if (b) { service(+b.dataset.i); face('smile', 700); } });
+  spanel.addEventListener('click', (e) => { const b = e.target.closest('[data-ask]'); if (!b) return; $('#fWho').value = '1'; $('#fMsg').value = 'I would like to ask about ' + b.dataset.ask + '.'; ticket(); go($('#ticket')); });
+  service(0);
+
+  const GD = [['claude-from-zero', 'The complete Claude guide for beginners'], ['pick-your-ai-by-job', 'ChatGPT, Claude or Gemini? Pick by job, not by hype'], ['connectors-and-mcp', 'Connectors and MCP, explained simply'],
+    ['creator-campaign-hq-in-claude', 'Run a whole creator campaign from one Claude Project'], ['youtube-research-with-claude', 'YouTube research with Claude: what works, why, and what to make next'], ['report-that-writes-itself', 'A weekly report that writes itself']];
+  $('#glist').innerHTML = GD.map((g, i) => '<a href="' + SITE + '#read-' + g[0] + '"><span class="no">0' + (i + 1) + '</span><span>' + esc(g[1]) + '</span><span class="ar" aria-hidden="true">→</span></a>').join('');
+
+  const RP = [['job-search-agent', 'The job-search system I built for myself, open-sourced.'], ['creator-fit-scorer', 'Turn a two-day creator shortlist into a one-hour review.'], ['creator-contract-checker', 'Catch the clauses that cost creators and brands money, before anyone signs.'],
+    ['campaign-report-autopilot', 'The Monday client report, written before anyone opens a laptop.'], ['client-health-score', 'Know which clients you are about to lose, before the renewal call.'], ['ad-performance-copilot', 'The Monday paid-media review, done before the stand-up.']];
+  $('#repos').innerHTML = RP.map((r) => '<a class="repo" href="' + GH + r[0] + '"><img src="img/repos/' + r[0] + '.webp" alt="Sample output of ' + r[0] + '" loading="lazy"><b>' + r[0] + '</b><span>' + esc(r[1]) + '</span></a>').join('');
+
+  const TT = [['Now', 'Build with Vish', 'AI tools, guides and content, from Offenburg, Germany'], ['01/2024 to 07/2025', 'Illuminati Media', 'Senior Marketing Manager, Influencer Marketing and Client Servicing'],
+    ['04/2023 to 01/2024', 'Pollen (Zoo Media)', 'Marketing Manager, Influencer Marketing and Client Servicing'], ['06/2022 to 04/2023', 'Pollen (Zoo Media)', 'Senior Influencer Marketing Executive'],
+    ['07/2021 to 06/2022', 'White Rivers Media', 'Influencer Marketing Executive'], ['01/2021 to 07/2021', 'FashionTV India', 'Social Media Marketing Executive']];
+  $('#tt').innerHTML = TT.map((t) => '<li><span class="mono" style="padding-top:6px">' + t[0] + '</span><div><b>' + t[1] + '</b><span>' + t[2] + '</span></div></li>').join('');
+
+  /* ---------- rail: a train that rides down the stops as you scroll ---------- */
+  sts.forEach((s, i) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'rs'; b.innerHTML = '<i></i><span>' + (s.dataset.short || s.dataset.name) + '</span>'; b.addEventListener('click', () => go(s)); stops.appendChild(b); });
+  const rs = $$('.rs');
+  const onLine = (s) => { const n = app.dataset.line; return n === '0' || s.dataset.lines.split(' ').includes(n); };
+  function go(s) { if (s.classList.contains('off')) { s.classList.remove('off'); setTimeout(measure, 600); } s.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' }); }
+  let tops = [], dots = [], ty = 0, cur = -1;
+  function measure() {
+    tops = sts.map((s) => s.getBoundingClientRect().top + scrollY);
+    const R = $('.rail-in').getBoundingClientRect();
+    dots = rs.map((b) => { const r = $('i', b).getBoundingClientRect(); return r.top - R.top + r.height / 2; });
+    track.style.top = dots[0] + 'px'; track.style.height = (dots[dots.length - 1] - dots[0]) + 'px'; fill.style.top = dots[0] + 'px';
+  }
+  function mark() {
+    rs.forEach((b, i) => { b.classList.toggle('on', i === cur); b.classList.toggle('done', i < cur); b.classList.toggle('skip', !onLine(sts[i])); });
+    let n = -1; for (let i = cur + 1; i < sts.length; i++) if (onLine(sts[i])) { n = i; break; }
+    const nx = $('#next'), line = app.dataset.line;
+    $('#nextLb').className = 'lb b' + (line === '0' ? (n > 0 ? sts[n].dataset.lines.split(' ')[0] : 1) : line); $('#nextLb').textContent = $('#nextLb').className.slice(-1);
+    $('.de', nx).textContent = n < 0 ? 'Endstation' : 'Nächster Halt'; $('#nextName').textContent = n < 0 ? 'Back to the start' : sts[n].dataset.name;
+    nx.onclick = () => go(n < 0 ? sts[0] : sts[n]); nx.lastElementChild.textContent = n < 0 ? '↑' : '↓';
+  }
+  function tick() {
+    const y = scrollY + innerHeight * 0.38; let i = 0; while (i < tops.length - 1 && y >= tops[i + 1]) i++;
+    const a = tops[i], b = i + 1 < tops.length ? tops[i + 1] : document.documentElement.scrollHeight, t = Math.max(0, Math.min(1, (y - a) / Math.max(1, b - a)));
+    const target = dots[i] + ((i + 1 < dots.length ? dots[i + 1] : dots[i]) - dots[i]) * t;
+    ty += (target - ty) * (RM ? 1 : 0.16); train.style.transform = 'translateY(' + ty.toFixed(1) + 'px)'; fill.style.height = Math.max(0, ty - dots[0]).toFixed(1) + 'px';
+    if (i !== cur) { cur = i; mark(); }
+    requestAnimationFrame(tick);
+  }
+  measure(); ty = dots[0]; requestAnimationFrame(tick);
+  addEventListener('resize', measure); if (window.ResizeObserver) new ResizeObserver(measure).observe($('.main'));
+
+  /* ---------- lines: choose who you are, the network opens your stops ---------- */
+  function setLine(n, move) {
+    app.dataset.line = String(n); document.documentElement.style.setProperty('--line', COL[n]);
+    sts.forEach((s, i) => s.classList.toggle('off', i > 0 && !onLine(s)));
+    $$('[data-pick]').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.pick === n && n !== 0)));
+    $$('.row').forEach((r) => r.classList.toggle('dim', n !== 0 && !r.dataset.l.split(' ').includes(String(n))));
+    if (n) { $('#fWho').value = String(n); ticket(); say(['', 'Line 1. Services first, then the ads.', 'Line 2. Tools first, then the route.', 'Line 3. All of it is free.'][n]); face('wink', 1100); } else say('Every stop is open.');
+    mark(); setTimeout(() => { measure(); if (move) { const f = sts.find((s, i) => i > 0 && onLine(s)); if (f) go(f); } }, RM ? 0 : 620);
+  }
+  document.addEventListener('click', (e) => { const p = e.target.closest('[data-pick]'); if (p) setLine(+p.dataset.pick, +p.dataset.pick !== 0); const o = e.target.closest('.open'); if (o) go(o.closest('.st')); });
+  $$('.pick').forEach((p) => p.addEventListener('pointerenter', () => face('smile', 600)));
+
+  /* ---------- mascot: follows the pointer, reacts, speaks in text ---------- */
+  const M = $('#mascot'), dir = { l: $('.m-l'), r: $('.m-r'), u: $('.m-u'), d: $('.m-d') }, mx_ = $('.m-x'), glass = $('.glass');
+  const FX = ['smile', 'wink', 'wow', 'talk']; FX.forEach((f) => { new Image().src = 'img/m/' + f + '.webp'; });
+  const LINES = ['Pick a line. I will show you the stops that matter.', 'Line 1 if you have a brand.', 'Line 3 is free. All of it.', 'Bitte einsteigen. All aboard.'];
+  let mx = 0, my = 0, tx = 0, tyy = 0, last = 0, fxT, tap = 0;
+  const sm = (v) => v * v * (3 - 2 * v);
+  function aim(x, y) { const r = M.getBoundingClientRect(); tx = Math.max(-1, Math.min(1, (x - r.left - r.width / 2) / (innerWidth * 0.32))); tyy = Math.max(-1, Math.min(1, (y - r.top - r.height / 2) / (innerHeight * 0.36))); last = performance.now(); }
+  addEventListener('pointermove', (e) => aim(e.clientX, e.clientY), { passive: true });
+  addEventListener('touchmove', (e) => { const t = e.touches[0]; if (t) aim(t.clientX, t.clientY); }, { passive: true });
+  function face(name, ms) { mx_.src = 'img/m/' + name + '.webp'; mx_.style.opacity = 1; clearTimeout(fxT); fxT = setTimeout(() => { mx_.style.opacity = 0; }, ms || 1000); }
+  function say(t) { $('#says').textContent = t; }
+  M.addEventListener('click', () => { face(FX[tap % FX.length], 1300); say(LINES[tap % LINES.length]); tap++; });
+  function mtick(now) {
+    if (now - last > 2800 && !RM) { const t = now / 1000; tx = Math.sin(t * 0.55) * 0.75; tyy = Math.sin(t * 0.33 + 1) * 0.4; }
+    mx += (tx - mx) * 0.1; my += (tyy - my) * 0.1;
+    const ax = Math.abs(mx), ay = Math.abs(my), hx = sm(ax) * (ax >= ay ? 1 : 0.3), hy = sm(ay) * (ay > ax ? 1 : 0.3);
+    dir.l.style.opacity = mx < 0 ? hx : 0; dir.r.style.opacity = mx > 0 ? hx : 0; dir.u.style.opacity = my < 0 ? hy : 0; dir.d.style.opacity = my > 0 ? hy : 0;
+    glass.style.transform = 'translate(' + (mx * 5).toFixed(1) + 'px,' + (my * 4).toFixed(1) + 'px)';
+    requestAnimationFrame(mtick);
+  }
+  requestAnimationFrame(mtick);
+
+  /* ---------- departures board: clock and a split-flap settle ---------- */
+  const clock = $('#clock'); const tock = () => { clock.textContent = new Date().toLocaleTimeString('en-GB'); }; tock(); setInterval(tock, 1000);
+  function flap(el, delay) {
+    const f = el.dataset.t, CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; let k = 0;
+    setTimeout(() => { const id = setInterval(() => { k += 2; el.textContent = f.split('').map((c, i) => (c === ' ' || i < k ? c : CH[(Math.random() * 36) | 0])).join(''); if (k >= f.length) { clearInterval(id); el.textContent = f; } }, 30); }, delay);
+  }
+  if (!RM && 'IntersectionObserver' in window) { const io = new IntersectionObserver((en) => { if (en[0].isIntersecting) { $$('.dest').forEach((d, i) => flap(d, i * 110)); face('wow', 900); io.disconnect(); } }, { threshold: 0.35 }); io.observe($('.board')); }
+
+  /* ---------- platform screens play only while you can see them ---------- */
+  if ('IntersectionObserver' in window) { const vo = new IntersectionObserver((en) => en.forEach((e) => { if (e.isIntersecting && !RM) e.target.play().catch(() => {}); else e.target.pause(); }), { threshold: 0.4 }); $$('video').forEach((v) => vo.observe(v)); }
+
+  /* ---------- ticket: fills in as you type ---------- */
+  const hash = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
+  function ticket() {
+    const name = $('#fName').value.trim(), who = $('#fWho').value, h = hash(name + '|' + $('#fEmail').value.trim() + '|' + who);
+    $('#tFrom').textContent = name || 'You'; $('#tLine').textContent = who === '0' ? 'Open ticket' : who + ' · ' + LINE[who];
+    $('#tNo').textContent = 'BV-' + String(h % 1000000).padStart(6, '0');
+    let bars = '', x = h || 1; for (let i = 0; i < 22; i++) { x = (Math.imul(x, 1103515245) + 12345) >>> 0; bars += '<i style="width:' + (1 + (x >>> 28) % 3) + 'px;opacity:' + ((x >>> 20) % 5 ? 1 : 0) + '"></i>'; } $('#tBars').innerHTML = bars;
+  }
+  $('#tDate').textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+  ['input', 'change'].forEach((ev) => $('#form').addEventListener(ev, () => { $('#tkt').classList.remove('issued'); ticket(); }));
+  $('#form').addEventListener('submit', async (e) => {
+    e.preventDefault(); const f = e.target, sent = $('#sent');
+    if (!$('#fName').value.trim() || !/^\S+@\S+\.\S+$/.test($('#fEmail').value.trim())) { sent.textContent = 'Add your name and a working email, then issue the ticket.'; return; }
+    const data = { name: $('#fName').value.trim(), email: $('#fEmail').value.trim(), topic: LINE[$('#fWho').value], message: $('#fMsg').value.trim(), page: 'vish-line' };
+    if (typeof window.bwvSend === 'function') { const ok = await window.bwvSend('partner', data); sent.textContent = ok ? 'Ticket issued. Your message is with Vish.' : 'That did not send. Please use the email address instead.'; if (!ok) return; }
+    else sent.textContent = 'Ticket issued. This is the preview, so nothing was sent. On the live site this lands in Vish’s inbox.';
+    $('#tkt').classList.add('issued'); face('smile', 1600); say('See you on board.');
+  });
+  ticket();
+})();
+</script>
