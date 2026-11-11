@@ -99,6 +99,15 @@ FONTS = [("Newsreader", "newsreader-latin-standard-normal.woff2", "normal", "300
          ("Martian Mono", "martian-mono-latin-standard-normal.woff2", "normal", "100 800", "font-stretch:75% 112.5%;"),
          ("Mrs Saint Delafield", "mrs-saint-delafield-latin-400-normal.woff2", "normal", "400", "")]
 ff = "".join("@font-face{font-family:'%s';src:url(/fonts/%s) format('woff2');font-style:%s;font-weight:%s;%sfont-display:swap}" % f for f in FONTS)
+# ---------- tools that live on the site ----------
+# Photo Sorter (tools/photo-sorter) is served at /sorter/ with the site fonts added to its stylesheet.
+sorter = OUT / "sorter"
+if sorter.exists():
+    shutil.rmtree(sorter)
+sorter.mkdir()
+for n in ["index.html", "sorter.js"]:
+    shutil.copy(ROOT / "tools" / "photo-sorter" / n, sorter / n)
+(sorter / "sorter.css").write_text(ff + "\n" + (ROOT / "tools" / "photo-sorter" / "sorter.css").read_text())
 TITLE = "Build with Vish"
 DESC = "Vish Kumbhar: five years of creator campaigns (850+ creators, 20+ brands), now based in Germany. Services, a career journey, 11 open-source AI tools and free step-by-step AI guides."
 ICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Crect width='30' height='30' rx='9' fill='%234A3A73'/%3E"
